@@ -1,0 +1,66 @@
+var EventProxy = require('eventproxy');
+var FilterWord = require('../models').FilterWord;
+var NodeCache = require( "node-cache" );
+var myCache = new NodeCache();
+
+exports.getCountByQuery = function (query, callback) {
+    FilterWord.count(query, callback);
+};
+
+exports.getFilterWordByQuery = function (query, opt, callback) {
+    FilterWord.find(query,[], opt, function (err, docs) {
+        if (err){
+            return callback(err);
+        }
+        if (docs.length === 0){
+            return callback(null,[]);
+        }
+        return callback(null,docs);
+    });
+};
+
+exports.newAndSave = function (word,desc,callback) {
+    var filterword = new FilterWord();
+    filterword.word = word;
+    filterword.desc = desc;
+	 myCache.flushAll()
+    filterword.save(callback);
+};
+exports.removeById = function (id, callback) {
+    FilterWord.remove({_id: id}, callback);
+};
+
+exports.findFilterWordByword = function (word, callback) {
+    FilterWord.findOne({word: word}, callback);
+};
+
+exports.removeAll = function (callback) {
+    FilterWord.remove({}, callback);
+};
+
+exports.getFilterWordCache = function (callback) {
+        var filterwordString="ddddddddd";
+        myCache.get("filterword", function (err, value) {
+            if (err) {
+                return  callback(null, "");
+            }
+            if (typeof(value["filterword"]) == 'undefined') {
+				 FilterWord.find({}, ['word'], {sort: [['create_at', 'asc']]}, function (err, filterwords) {
+                     filterwords.forEach(function(filterword,i){
+				         ////console.log(filterword.word);
+                         filterwordString=filterwordString+"|"+filterword.word;
+					 });
+					 //filterwordString=filterwords.join('|')
+					 console.log(filterwordString);
+                     myCache.set("filterword", filterwordString, function (err, success) {
+
+                    });
+					
+                    return  callback(null, filterwordString);
+                });
+            } else {
+                console.log("������");
+                return callback(null, value["filterword"]);
+            }
+        });
+};

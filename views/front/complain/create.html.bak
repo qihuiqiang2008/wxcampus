@@ -1,0 +1,88 @@
+<%- include ../partial/header %>
+
+<div class="page-wrap" id="page-profile" style="display: block;">
+    <div class="profile-detail" id="J_Profile">
+        <div class="profile-top">
+            <br><br>
+        </div>
+        <div class="table-wrap">
+            <form action="http://www.lieqicun.com/mimi/action.php?action=setinfo" method="post">
+                <input type="hidden" name="openid" value="ozS_Kjj_LbfoK4aHMJBBr7pfa698">
+                <ul class="ui-table ui-table-list">
+                    <li class="active">
+                        <label>昵称</label>
+                        <div>
+                            <input type="text" value="" name="username">
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <label>邮箱</label>
+                        <div>
+                            <input type="text" value="" name="email">
+                        </div>
+                    </li>
+
+
+                    <li class="active">
+                        <label>密码</label>
+                        <div>
+                            <input type="text" value="" name="pwd">
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <label>密码确认</label>
+                        <div>
+                            <input type="text" value="" name="confirmpwd">
+                        </div>
+                    </li>
+
+                    <li>
+                        <label>性别</label>
+                        <div class="select">
+                            <select name="sex"><option value="1" selected="selected">男</option><option value="2">女</option></select>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <label>年级</label>
+                        <div class="select">
+                            <select name="grade">
+
+                                <option value="-1" selected="selected">已毕业</option>
+                                <option value="0" selected="selected">其他（如硕士等）</option>
+                                <option value="2011" selected="selected">2011</option>
+                                <option value="2014" selected="selected">2014</option>
+                                <option value="2013" selected="selected">2013</option>
+                                <option value="2012" selected="selected">2012</option>
+                                <option value="2010" selected="selected">2011</option>
+                            </select>
+                        </div>
+                    </li>
+
+                    <li>
+                        <label>学校</label>
+                        <div class="select">
+                            <select name="college"><option value="1" selected="selected">人民大学</option><option value="2">政法大学</option></select>
+                        </div>
+                    </li>
+
+                    <li>
+                        <label>学院</label>
+                        <div class="select">
+                            <select name="sex"><option value="1" selected="selected">计算机学院</option><option value="2">司法学院</option></select>
+                        </div>
+                    </li>
+
+                </ul>
+                <div style="text-align: center;padding: 15px;"><input class="mysubmit" type="submit" value="确定提交"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    <%- include ../partial/footer%>
+

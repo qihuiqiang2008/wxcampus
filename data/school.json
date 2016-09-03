@@ -1,0 +1,1325 @@
+[
+    {
+        "wx_account_id": "nxmu-fuwu",
+        "wx_account_name": "宁医大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtzb-x6gUkKCGi3OXTCtuKBw",
+        "region_code": "0951",
+        "cn_short_name": "宁医大",
+        "en_name": "nxmu",
+        "cn_name": "宁夏医科大学",
+        "_id": "540afaaac5b2b5c00400000e",
+        "create_at": "2014-09-06T12:14:34.483Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:47.865Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "nwsni-fuwu",
+        "wx_account_name": "北民大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt0P0bQenk4nadz3IsF2wcyQ",
+        "region_code": "0951",
+        "cn_short_name": "民大",
+        "en_name": "nwsni",
+        "cn_name": "北方民族大学",
+        "_id": "540afbabc5b2b5c004000010",
+        "create_at": "2014-09-06T12:18:51.525Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:39.927Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "nwu029",
+        "wx_account_name": "西大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt2ql2NSa4z_PilSPXThtgC0",
+        "region_code": "029",
+        "cn_short_name": "西大",
+        "en_name": "nwu",
+        "cn_name": "西北大学",
+        "_id": "540afd18c5b2b5c004000012",
+        "create_at": "2014-09-06T12:24:56.959Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:32.318Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xjtu029",
+        "wx_account_name": "西交大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt9oUogFIocofaKTlvftBlH8",
+        "region_code": "029",
+        "cn_short_name": "交大",
+        "en_name": "xjtu",
+        "cn_name": "西安交通大学",
+        "_id": "540afd99c5b2b5c004000014",
+        "create_at": "2014-09-06T12:27:05.359Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:24.801Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "snnu029",
+        "wx_account_name": "陕师大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt9vCQQm2NcMHVQ-ncfVRZgU",
+        "region_code": "029",
+        "cn_short_name": "师大",
+        "en_name": "snnu",
+        "cn_name": "陕西师范大学",
+        "_id": "540afe33c5b2b5c004000016",
+        "create_at": "2014-09-06T12:29:39.134Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:17.265Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "nwpu_welife",
+        "wx_account_name": "西工大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt2x9w8eTRYh3cXjmpdZFifM",
+        "region_code": "029",
+        "cn_short_name": "工大",
+        "en_name": "nwpu",
+        "cn_name": "西北工业大学",
+        "_id": "540afe99c5b2b5c004000018",
+        "create_at": "2014-09-06T12:31:21.077Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:09.534Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xahu029",
+        "wx_account_name": "长大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1UaAeJoIka4klHhdB0Zsb4",
+        "region_code": "029",
+        "cn_short_name": "长大",
+        "en_name": "xahu",
+        "cn_name": "长安大学",
+        "_id": "540aff09c5b2b5c00400001a",
+        "create_at": "2014-09-06T12:33:13.180Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:28:01.845Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xdu029",
+        "wx_account_name": "西电那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt8M5P8NJD_KQUaEBgO2dACM",
+        "region_code": "029",
+        "cn_short_name": "西电",
+        "en_name": "xdu",
+        "cn_name": "西安电子科技大学",
+        "_id": "540b007ec5b2b5c00400001c",
+        "create_at": "2014-09-06T12:39:26.375Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:54.004Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xiyou029",
+        "wx_account_name": "西邮那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt-Ol6k3ENrHhFodTyLdO6eA",
+        "region_code": "029",
+        "cn_short_name": "西邮",
+        "en_name": "xiyou",
+        "cn_name": "西安邮电大学",
+        "_id": "540b00f0c5b2b5c00400001e",
+        "create_at": "2014-09-06T12:41:20.396Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:46.376Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "nwupl029",
+        "wx_account_name": "西法大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtz5O26o2TBEE6cAuVa6yJNc",
+        "region_code": "029",
+        "cn_short_name": "法大",
+        "en_name": "nwupl",
+        "cn_name": "西北政法大学",
+        "_id": "540b01a0c5b2b5c004000020",
+        "create_at": "2014-09-06T12:44:16.570Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:38.867Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xisu029",
+        "wx_account_name": "西外那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1zqChanK_1Vq_hx3wciJTg",
+        "region_code": "029",
+        "cn_short_name": "西外",
+        "en_name": "xisu",
+        "cn_name": "西安外国语大学",
+        "_id": "540b01fcc5b2b5c004000022",
+        "create_at": "2014-09-06T12:45:48.904Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:31.397Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "sust029",
+        "wx_account_name": "陕科大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt49oF8wLhjiAGkPCDh_1X4A",
+        "region_code": "029",
+        "cn_short_name": "科大",
+        "en_name": "sust",
+        "cn_name": "陕西科技大学",
+        "_id": "540b026dc5b2b5c004000024",
+        "create_at": "2014-09-06T12:47:41.971Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:23.374Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xust029",
+        "wx_account_name": "西科大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtzfrbJiPrh14bWk-hNlRuYQ",
+        "region_code": "029",
+        "cn_short_name": "科大",
+        "en_name": "xust",
+        "cn_name": "西安科技大学",
+        "_id": "540b02dec5b2b5c004000026",
+        "create_at": "2014-09-06T12:49:34.454Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:15.521Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xiyi029",
+        "wx_account_name": "西医那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtyZ0-jBkvKpjhgoG2g7_vsc",
+        "region_code": "029",
+        "cn_short_name": "西医",
+        "en_name": "xiyi",
+        "cn_name": "西安医学院",
+        "_id": "540b0352c5b2b5c004000028",
+        "create_at": "2014-09-06T12:51:30.156Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:08.188Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xauat029",
+        "wx_account_name": "西建大那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt0vqdQMLDzaZPChWuayW23w",
+        "region_code": "029",
+        "cn_short_name": "建大",
+        "en_name": "xauat",
+        "cn_name": "西安建筑科技大学",
+        "_id": "540b03dbc5b2b5c00400002a",
+        "create_at": "2014-09-06T12:53:47.417Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:27:00.792Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xaut029",
+        "wx_account_name": "西理工那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt40ZYcLoXtyTAJ4lFW0_BVc",
+        "region_code": "029",
+        "cn_short_name": "西理",
+        "en_name": "xaut",
+        "cn_name": "西安理工大学",
+        "_id": "540b04a8c5b2b5c00400002c",
+        "create_at": "2014-09-06T12:57:12.922Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:53.403Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xawl029",
+        "wx_account_name": "西文理那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt7MnfS5Nf6fsPYDTewGkWnY",
+        "region_code": "029",
+        "cn_short_name": "西文理",
+        "en_name": "xawl",
+        "cn_name": "西安文理学院",
+        "_id": "540b0515c5b2b5c00400002e",
+        "create_at": "2014-09-06T12:59:01.632Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:45.974Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "xaufe029",
+        "wx_account_name": "西财那点事",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtysjAo_grnW4rpBrlimVPzE",
+        "region_code": "029",
+        "cn_short_name": "西财",
+        "en_name": "xaufe",
+        "cn_name": "西安财经学院",
+        "_id": "540b0568c5b2b5c004000030",
+        "create_at": "2014-09-06T13:00:24.168Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:38.390Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "ecust001",
+        "wx_account_name": "华理微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt6ZbzaUW1d5PPCDQ2o6Afb0",
+        "region_code": "021",
+        "cn_short_name": "华理",
+        "en_name": "ecust",
+        "cn_name": "华东理工大学",
+        "_id": "540b05cac5b2b5c004000032",
+        "create_at": "2014-09-06T13:02:02.930Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:31.440Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "ecnu001",
+        "wx_account_name": "华东师大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt0J7IYgiPCEnnozr228-gEg",
+        "region_code": "021",
+        "cn_short_name": "师大",
+        "en_name": "ecnu",
+        "cn_name": "华东师范大学",
+        "_id": "540b062fc5b2b5c004000034",
+        "create_at": "2014-09-06T13:03:43.985Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:24.120Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "dhu008",
+        "wx_account_name": "东华微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt8HGbb48foFmPsju7RhHApg",
+        "region_code": "021",
+        "cn_short_name": "纺大",
+        "en_name": "dhu",
+        "cn_name": "东华大学",
+        "_id": "540b0701c5b2b5c004000036",
+        "create_at": "2014-09-06T13:07:13.881Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:16.747Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "shfu006",
+        "wx_account_name": "海大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt8P0_v3ItatxXE2jDC-70ro",
+        "region_code": "021",
+        "cn_short_name": "海大",
+        "en_name": "shfu",
+        "cn_name": "上海海洋大学",
+        "_id": "540b0778c5b2b5c004000038",
+        "create_at": "2014-09-06T13:09:12.582Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:09.076Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "shnu001",
+        "wx_account_name": "上海师大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtymw-Lwq9oeHWLP2lGqkAt0",
+        "region_code": "021",
+        "cn_short_name": "师大",
+        "en_name": "shnu",
+        "cn_name": "上海师范大学",
+        "_id": "540b07f4c5b2b5c00400003a",
+        "create_at": "2014-09-06T13:11:16.519Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:26:01.378Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "sjtu008",
+        "wx_account_name": "上海交大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt3-b2aHfRcaXtrspqhK5PXg",
+        "region_code": "021",
+        "cn_short_name": "交大",
+        "en_name": "sjtu",
+        "cn_name": "上海交通大学",
+        "_id": "540b0868c5b2b5c00400003c",
+        "create_at": "2014-09-06T13:13:12.389Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:53.711Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "shu-006",
+        "wx_account_name": "上大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt4uAGz0VH_20T2QW3t1Wt2E",
+        "region_code": "021",
+        "cn_short_name": "上大",
+        "en_name": "shu",
+        "cn_name": "上海大学",
+        "_id": "540b08e8c5b2b5c00400003e",
+        "create_at": "2014-09-06T13:15:20.313Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:45.882Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "shufe001",
+        "wx_account_name": "上财微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1QEw7MGruMl6VVvMKjCbF8",
+        "region_code": "021",
+        "cn_short_name": "上财",
+        "en_name": "shufe",
+        "cn_name": "上海财经大学",
+        "_id": "540b095ac5b2b5c004000040",
+        "create_at": "2014-09-06T13:17:14.956Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:38.265Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "usst001",
+        "wx_account_name": "上理微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt9_hCvhO9Dd44OP9VnqPpS8",
+        "region_code": "021",
+        "cn_short_name": "上理",
+        "en_name": "usst",
+        "cn_name": "上海理工大学",
+        "_id": "540b09b3c5b2b5c004000042",
+        "create_at": "2014-09-06T13:18:43.623Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:30.646Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "shisu008",
+        "wx_account_name": "上外微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt0iDhPOQViTmgwDYvqPM7is",
+        "region_code": "021",
+        "cn_short_name": "上外",
+        "en_name": "shisu",
+        "cn_name": "上海外国语大学",
+        "_id": "540b0a5ac5b2b5c004000046",
+        "create_at": "2014-09-06T13:21:30.941Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:22.819Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tongji006",
+        "wx_account_name": "同济微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt7AJyl9OcX3YU4YTiqpyNVY",
+        "region_code": "021",
+        "cn_short_name": "同济",
+        "en_name": "tongji",
+        "cn_name": "同济大学",
+        "_id": "540b0acec5b2b5c004000048",
+        "create_at": "2014-09-06T13:23:26.494Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:15.251Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "fudan009",
+        "wx_account_name": "复旦微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt8pGRDjMOAEwhLLwpYyJoFc",
+        "region_code": "021",
+        "cn_short_name": "复旦",
+        "en_name": "fudan",
+        "cn_name": "复旦大学",
+        "_id": "540b0b2ec5b2b5c00400004a",
+        "create_at": "2014-09-06T13:25:02.177Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:07.818Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "shmtu006",
+        "wx_account_name": "海事微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt9n-h-4R-udnIC3UKHKZVVE",
+        "region_code": "021",
+        "cn_short_name": "海大",
+        "en_name": "shmtu",
+        "cn_name": "上海海事大学",
+        "_id": "540b0cbdc5b2b5c00400004c",
+        "create_at": "2014-09-06T13:31:41.058Z",
+        "active": true,
+        "post_sended": true,
+        "belong_group": 1,
+        "last_edit_at": "2014-09-07T15:25:00.436Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bit_welife",
+        "wx_account_name": "北理工微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt3rSBIR2WRlKkhAvoAxt8GY",
+        "region_code": "010",
+        "cn_short_name": "北理",
+        "en_name": "bit",
+        "cn_name": "北京理工大学",
+        "_id": "540d5bc790e4ca340e00000f",
+        "create_at": "2014-09-08T07:33:27.015Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:33:27.015Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tsinghua_welife",
+        "wx_account_name": "清华微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFty9z7781Kzd1-EFMOQVcccY",
+        "region_code": "010",
+        "cn_short_name": "清华",
+        "en_name": "tsinghua",
+        "cn_name": "清华大学",
+        "_id": "540d5c0790e4ca340e000011",
+        "create_at": "2014-09-08T07:34:31.213Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:34:31.213Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "pku_welife",
+        "wx_account_name": "北大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt5fp53XKMbDSQuQ693lrGZs",
+        "region_code": "010",
+        "cn_short_name": "北大",
+        "en_name": "pku",
+        "cn_name": "北京大学",
+        "_id": "540d5ca790e4ca340e000015",
+        "create_at": "2014-09-08T07:37:11.414Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:37:11.413Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "ustb_welife",
+        "wx_account_name": "北科大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1FAymD9dl3ME48bEjQzwZk",
+        "region_code": "010",
+        "cn_short_name": "北科",
+        "en_name": "ustb",
+        "cn_name": "北京科技大学",
+        "_id": "540d5ce890e4ca340e000017",
+        "create_at": "2014-09-08T07:38:16.557Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:38:16.557Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cupl_welife",
+        "wx_account_name": "法大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt2RMKx3CRxPixte03Y0Xv2Y",
+        "region_code": "010",
+        "cn_short_name": "法大",
+        "en_name": "cupl",
+        "cn_name": "中国政法大学",
+        "_id": "540d5d2090e4ca340e000019",
+        "create_at": "2014-09-08T07:39:12.644Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:39:12.644Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "uibe_welife",
+        "wx_account_name": "贸大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtzZVYXPA45Q0Ns_3QJCbh-Q",
+        "region_code": "010",
+        "cn_short_name": "贸大",
+        "en_name": "uibe",
+        "cn_name": "对外经济贸易大学",
+        "_id": "540d5d5f90e4ca340e00001b",
+        "create_at": "2014-09-08T07:40:15.090Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:40:15.090Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bnu_welife",
+        "wx_account_name": "北师大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt4way22mftWQkQ-DH30lwnc",
+        "region_code": "010",
+        "cn_short_name": "北师",
+        "en_name": "bnu",
+        "cn_name": "北京师范大学",
+        "_id": "540d5da790e4ca340e00001d",
+        "create_at": "2014-09-08T07:41:27.223Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:41:27.223Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bjtu_welife",
+        "wx_account_name": "北交大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt8q2aLKJtZkDEi6ScQwkx_M",
+        "region_code": "010",
+        "cn_short_name": "交大",
+        "en_name": "bjtu",
+        "cn_name": "北京交通大学",
+        "_id": "540d5ddf90e4ca340e00001f",
+        "create_at": "2014-09-08T07:42:23.856Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:42:23.856Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cnu_welife",
+        "wx_account_name": "首师大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt3DxgYrc9l520vxg0PO-CLo",
+        "region_code": "010",
+        "cn_short_name": "首师大",
+        "en_name": "cnu",
+        "cn_name": "首都师范大学",
+        "_id": "540d5e2490e4ca340e000021",
+        "create_at": "2014-09-08T07:43:32.770Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:43:32.770Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bjut_welife",
+        "wx_account_name": "北工大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt3rRpPQMJSXSHmQWlbNs7XY",
+        "region_code": "010",
+        "cn_short_name": "北工大",
+        "en_name": "bjut",
+        "cn_name": "北京工业大学",
+        "_id": "540d5e5e90e4ca340e000023",
+        "create_at": "2014-09-08T07:44:30.905Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:44:30.904Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "ruc_welife",
+        "wx_account_name": "RUC微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt6sSzbMVocvzaUoMWTPhVGc",
+        "region_code": "010",
+        "cn_short_name": "人大",
+        "en_name": "ruc",
+        "cn_name": "中国人民大学",
+        "_id": "540d5e8590e4ca340e000025",
+        "create_at": "2014-09-08T07:45:09.392Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:45:09.391Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cup_welife",
+        "wx_account_name": "石大(北京)微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1jGNK2O9i051SJ7w78roI0",
+        "region_code": "010",
+        "cn_short_name": "石大",
+        "en_name": "cup",
+        "cn_name": "中国石油大学",
+        "_id": "540d5ebb90e4ca340e000027",
+        "create_at": "2014-09-08T07:46:03.060Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:46:03.060Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cuc_welife",
+        "wx_account_name": "中传微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt8B6AooaH2p7DDzxzne5_5w",
+        "region_code": "010",
+        "cn_short_name": "中传",
+        "en_name": "cuc",
+        "cn_name": "中国传媒大学",
+        "_id": "540d5ef090e4ca340e000029",
+        "create_at": "2014-09-08T07:46:56.861Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:46:56.861Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "buct_welife",
+        "wx_account_name": "北化微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt3rRpPQMJSXSHmQWlbNs7XY",
+        "region_code": "010",
+        "cn_short_name": "北化",
+        "en_name": "buct",
+        "cn_name": "北京化工大学",
+        "_id": "540d5f7290e4ca340e00002b",
+        "create_at": "2014-09-08T07:49:06.549Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:49:06.549Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cau_welife",
+        "wx_account_name": "中国农大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt2H-GVfZUqxAnI-23govOdA",
+        "region_code": "010",
+        "cn_short_name": "农大",
+        "en_name": "cau",
+        "cn_name": "中国农业大学",
+        "_id": "540d5fa290e4ca340e00002d",
+        "create_at": "2014-09-08T07:49:54.111Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:49:54.111Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "buaa_welife",
+        "wx_account_name": "北航微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt-eLOSDF6K4LbkaHVlp1e2s",
+        "region_code": "010",
+        "cn_short_name": "北航",
+        "en_name": "buaa",
+        "cn_name": "北京航空航天大学",
+        "_id": "540d5ffa90e4ca340e00002f",
+        "create_at": "2014-09-08T07:51:22.607Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:51:22.607Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "muc_welife",
+        "wx_account_name": "中央民大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtzoBSovGMvmJYqeMn1pSEKU",
+        "region_code": "010",
+        "cn_short_name": "民大",
+        "en_name": "muc",
+        "cn_name": "中央民族大学",
+        "_id": "540d60c590e4ca340e000031",
+        "create_at": "2014-09-08T07:54:45.557Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:54:45.557Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cufe_welife",
+        "wx_account_name": "中财微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt_NgTrV7-yriviLttxXEE6k",
+        "region_code": "010",
+        "cn_short_name": "中财",
+        "en_name": "cufe",
+        "cn_name": "中央财经大学",
+        "_id": "540d61ac90e4ca340e000033",
+        "create_at": "2014-09-08T07:58:36.839Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:58:36.839Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bjfu-welife",
+        "wx_account_name": "北林微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt2wJzchygCKf4Zg4I_qd18A",
+        "region_code": "010",
+        "cn_short_name": "北林",
+        "en_name": "bjfu",
+        "cn_name": "北京林业大学",
+        "_id": "540d61fe90e4ca340e000035",
+        "create_at": "2014-09-08T07:59:58.883Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T07:59:58.883Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cugb_welife",
+        "wx_account_name": "地大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt2LHk9c3pI6ubL1DuNQtJ_I",
+        "region_code": "010",
+        "cn_short_name": "地大",
+        "en_name": "cugb",
+        "cn_name": "中国地质大学",
+        "_id": "540d625a90e4ca340e000037",
+        "create_at": "2014-09-08T08:01:30.149Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:01:30.148Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cumt_welife",
+        "wx_account_name": "矿大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt6se_-uL-kIelmSAoQYuUHs",
+        "region_code": "010",
+        "cn_short_name": "矿大",
+        "en_name": "cumt",
+        "cn_name": "中国矿业大学",
+        "_id": "540d62cb90e4ca340e000039",
+        "create_at": "2014-09-08T08:03:23.508Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:03:23.508Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bcu008",
+        "wx_account_name": "北城微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt7kO7OFQ_BW2790X4ah5NFU",
+        "region_code": "010",
+        "cn_short_name": "北城",
+        "en_name": "bcu",
+        "cn_name": "北京城市学院",
+        "_id": "540d634e90e4ca340e00003d",
+        "create_at": "2014-09-08T08:05:34.247Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:05:34.247Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "buu008",
+        "wx_account_name": "北京联大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtxQP6MCBmbXUUrnqdw_l3dk",
+        "region_code": "010",
+        "cn_short_name": "联大",
+        "en_name": "buu",
+        "cn_name": "北京联合大学",
+        "_id": "540d63a890e4ca340e00003f",
+        "create_at": "2014-09-08T08:07:04.568Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:07:04.568Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cueb001",
+        "wx_account_name": "首经贸微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt84MpSIFy0rSfTJjsOXbqi0",
+        "region_code": "010",
+        "cn_short_name": "首经贸",
+        "en_name": "cueb",
+        "cn_name": "首都经济贸易大学",
+        "_id": "540d641c90e4ca340e000041",
+        "create_at": "2014-09-08T08:09:00.260Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:09:00.260Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tjpu001",
+        "wx_account_name": "天工大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1HSNoqD5Kxom63iYuQxEj4",
+        "region_code": "022",
+        "cn_short_name": "工大",
+        "en_name": "tjpu",
+        "cn_name": "天津工业大学",
+        "_id": "540d64ea90e4ca340e000044",
+        "create_at": "2014-09-08T08:12:26.402Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:12:26.402Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tjnu001",
+        "wx_account_name": "天师大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtw7U4I1If888MWSXp5RdGUw",
+        "region_code": "022",
+        "cn_short_name": "师大",
+        "en_name": "tjnu",
+        "cn_name": "天津师范大学",
+        "_id": "540d653e90e4ca340e000046",
+        "create_at": "2014-09-08T08:13:50.284Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:13:50.284Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tjufe001",
+        "wx_account_name": "天财微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt31v1F2i4Vy0tctuq2gq9xc",
+        "region_code": "022",
+        "cn_short_name": "天财",
+        "en_name": "tjufe",
+        "cn_name": "天津财经大学",
+        "_id": "540d657a90e4ca340e000048",
+        "create_at": "2014-09-08T08:14:50.329Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:14:50.329Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tjcu008",
+        "wx_account_name": "天商微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt01hV_vLQgaHplkupsPX19c",
+        "region_code": "022",
+        "cn_short_name": "天商",
+        "en_name": "tjcu",
+        "cn_name": "天津商业大学",
+        "_id": "540d65db90e4ca340e00004a",
+        "create_at": "2014-09-08T08:16:27.959Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:16:27.959Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tuli888",
+        "wx_account_name": "天科大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt0CcdO7EB1d3EZNNcD5iT7o",
+        "region_code": "022",
+        "cn_short_name": "科大",
+        "en_name": "tuli",
+        "cn_name": "天津科技大学",
+        "_id": "540d664790e4ca340e00004c",
+        "create_at": "2014-09-08T08:18:15.600Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:18:15.600Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "tju100",
+        "wx_account_name": "天大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt_pY0Hx9VuWE5RBcZnMpb2E",
+        "region_code": "022",
+        "cn_short_name": "天大",
+        "en_name": "tju",
+        "cn_name": "天津大学",
+        "_id": "540d668d90e4ca340e00004e",
+        "create_at": "2014-09-08T08:19:25.859Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:19:25.859Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bgu008",
+        "wx_account_name": "吉利微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt4MTg2N9HPxKGBkSql8DXVs",
+        "region_code": "022",
+        "cn_short_name": "吉利",
+        "en_name": "bgu",
+        "cn_name": "吉利大学",
+        "_id": "540d672390e4ca340e000050",
+        "create_at": "2014-09-08T08:21:55.105Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:21:55.105Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "hebut001",
+        "wx_account_name": "河工大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt7BnU7iCiw-GBV4nhUDqZ1s",
+        "region_code": "022",
+        "cn_short_name": "工大",
+        "en_name": "hebut",
+        "cn_name": "河北工业大学",
+        "_id": "540d676e90e4ca340e000052",
+        "create_at": "2014-09-08T08:23:10.067Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:23:10.067Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "ncepu001",
+        "wx_account_name": "华电微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt9viO-rPRsTAN2yO8XgJ5LI",
+        "region_code": "010",
+        "cn_short_name": "华电",
+        "en_name": "ncepu",
+        "cn_name": "华北电力大学",
+        "_id": "540d67ab90e4ca340e000054",
+        "create_at": "2014-09-08T08:24:11.262Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:24:11.262Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "cauc001",
+        "wx_account_name": "中航大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt989oiWowpqpK8Xv8Oze8C8",
+        "region_code": "022",
+        "cn_short_name": "航大",
+        "en_name": "cauc",
+        "cn_name": "中国民航大学",
+        "_id": "540d67f790e4ca340e000056",
+        "create_at": "2014-09-08T08:25:27.138Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:25:27.138Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "whu008",
+        "wx_account_name": "武大微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt54mkirdPGBUnQJWBAVO2_c",
+        "region_code": "027",
+        "cn_short_name": "武大",
+        "en_name": "whu",
+        "cn_name": "武汉大学",
+        "_id": "540d687690e4ca340e000059",
+        "create_at": "2014-09-08T08:27:34.872Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:27:34.872Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "hzau888",
+        "wx_account_name": "华农微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFtyjPnVxWxQaMu5z_SPQtKyU",
+        "region_code": "027",
+        "cn_short_name": "华农",
+        "en_name": "hzau",
+        "cn_name": "华中农业大学",
+        "_id": "540d68b790e4ca340e00005b",
+        "create_at": "2014-09-08T08:28:39.854Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:28:39.854Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    },
+    {
+        "wx_account_id": "bupt_welife",
+        "wx_account_name": "北邮微生活",
+        "wx_account_url": "http://weixin.sogou.com/gzhwap?openid=oIWsFt1Xy3dVkfcAJnHC7dEo1kFU",
+        "region_code": "010",
+        "cn_short_name": "北邮",
+        "en_name": "bupt",
+        "cn_name": "北京邮电大学",
+        "_id": "540d694a90e4ca340e00005d",
+        "create_at": "2014-09-08T08:31:06.646Z",
+        "active": true,
+        "belong_group": 2,
+        "last_edit_at": "2014-09-08T08:31:06.646Z",
+        "college_count": 0,
+        "student_count": 0,
+        "board": {
+            "display": false
+        }
+    }
+]

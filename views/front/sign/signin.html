@@ -1,0 +1,45 @@
+<%- include ../partial/header %>
+<header class="header">
+    <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button
+                                                                                      data-hook="subNav-back"
+                                                                                      class="b-bak js-link" link="/">返回
+    </button></span><span class="col-r"><button  class="b-act"><a href="/signup">注册</a>
+    </button></span>
+
+        <div id="sub_tab" class="col-m"></div>
+        <h2 id="sub_title" class="hd">登录</h2></div>
+</header>
+<div id="page-content" class="feed-page" style="display: block;">
+    <div class="page-wrap" id="page-profile" style="display: block;">
+        <div class="profile-detail" id="J_Profile">
+            <% if(typeof(errormsg) !== 'undefined' && errormsg){ %>
+            <div class="feed dataItem mygonggao">
+                <p><%=errormsg%></p>
+            </div>
+            <% } else{%>
+
+            <% }%>
+            <div class="table-wrap">
+                <form action="/signin" method="post">
+                    <input type="hidden" name="openid" value="ozS_Kjj_LbfoK4aHMJBBr7pfa698">
+                    <ul class="ui-table ui-table-list">
+                        <li class="active">
+                            <label>邮箱</label>
+                            <div>
+                                <input type="text" value="" name="email">
+                            </div>
+                        </li>
+                        <li class="active">
+                            <label>密码</label>
+                            <div>
+                                <input type="password" value="" name="pwd">
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="text-align: center;padding: 15px;"><input class="myButton" type="submit" value="登录"/>  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>

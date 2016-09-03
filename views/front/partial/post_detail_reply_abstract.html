@@ -1,0 +1,14 @@
+<p id="reply-<%=children_reply._id%>" class="J_content padding20"><a
+        class="fn"  onclick="user_Lock('<%=children_reply.from_user._id%>','<%=children_reply.from_user.name%>')"><%=children_reply.from_user.name%></a>：回复 <span><%=children_reply.to_user.name%></span>:
+    <span class="detail-reply-content"
+    <% if (typeof(current_user)!== 'undefined'&&children_reply.from_user._id.toString()!==current_user._id.toString()) { %>
+    onclick="setParam_To_Post_Comment_SubmitBtn('detail_reply','<%=children_reply.post%>','<%=children_reply.from_user.name%>','<%=children_reply.from_user._id%>','<%=children_reply.from_user.sex%>','<%=children_reply.main_id%>','<%=children_reply._id%>')"
+    <% } %>
+    ><%-children_reply.content%>
+    </span>
+    <span  style="padding-left:1px" class="<%=(typeof(current_user)!=='undefined'&&(current_user._id.toString()==children_reply.from_user._id.toString()||current_user.is_admin))?'i-del':''%>"
+          onclick="<%=(typeof(current_user)!=='undefined'&&(current_user._id.toString()==children_reply.from_user._id.toString()||current_user.is_admin))?'replyDel("'+children_reply._id+'")':'setParam_To_Post_Comment_SubmitBtn("detail_reply","'+children_reply.post+'","'+children_reply.from_user.name+'","'+children_reply.from_user._id+'","'+children_reply.from_user.sex+'","'+children_reply.main_id+'","'+children_reply._id+'")'%>">
+    </span>
+
+
+</p>

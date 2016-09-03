@@ -1,0 +1,30 @@
+<%if (post_like&&post_like!="") {%>
+<div class="feed dataItem">
+    <div class="hd">
+        <p class="info ">
+            <a class="fn"><%=post_like.from_user_name%><span class="<%=post_like.from_user_sex%>ips"></span></a>
+            <i class="expired"></i>
+									<span class="meta">
+										<time class="time"><%=post_like.friendly_create_at%></time>
+									</span>
+        </p>
+    </div>
+    <div class="bd">
+        <p>
+            <%if (post_like.post_type&&post_like.post_type=="biaobai") {%>
+               祝福了你的表白
+            <%}else{%>
+               对你的表白表示了祝福
+            <%}%>
+        </p>
+        <div class="img-txt"  onclick="load_Post_Detail('<%=post_like.post._id%>')" >
+            <div class="col-txt">
+                <div class="txt"><%=post_like.post.content%></div>
+            </div>
+        </div>
+    </div>
+</div>
+<%}%>
+
+
+

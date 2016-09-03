@@ -1,0 +1,132 @@
+</div>
+
+<!-- 这是评论或者发表树洞的遮罩层 -->
+<div class="form-box-mask" id="mask_setting" style="padding-top: 60px; background-color: rgba(0, 0, 0, 0.498039); position: absolute;  left: 0px; width: 100%; height: 745px; overflow: hidden;display:none;">
+    <div class="form-box">
+        <div class="form-hd J_operate">
+            <b class="item J_close" onclick="mask_Setting_Hide()">关闭</b>
+            <b class="item J_title">给自己设置个昵称在操作吧</b>
+            <b class="item J_submit" id="submit_setting" onclick="handler_Submit_User_Setting()"  >保存</b>
+        </div>
+        <div class="form-bd">
+        </div>
+    </div>
+</div>
+
+
+<% if ((typeof(current_user) !== 'undefined')&&current_user.is_admin) { %>
+<!-- 这是评论或者发表树洞的遮罩层 -->
+<div class="form-box-mask" id="mask_classify" style="padding-top: 60px; background-color: rgba(0, 0, 0, 0.498039); position: absolute;  left: 0px; width: 100%; height: 745px; overflow: hidden;display:none;">
+    <div class="form-box">
+        <div class="form-hd J_operate">
+            <b class="item J_close" onclick="mask_Classify_Hide()">关闭</b>
+            <b class="item J_title"></b>
+            <b class="item J_submit" id="submit_Classify" onclick="handler_Classify_Setting()"  >保存</b>
+        </div>
+        <input id="classify_id" type="hidden">
+        <div class="form-bd">
+            <div class="table-wrap">
+                <ul class="ui-table ui-table-list">
+                    <li>
+                        <label>归类</label>
+                        <div class="select" >
+                            <select name="post_classify"  id="post_classify">mood
+                                <option value="news">新鲜事</option>
+                                <option value="mood">心情</option>
+                                <option value="ask">问问</option>
+                                <option value="biaobai">表白</option>
+                                <option value="friend">邂逅</option>
+                                <option value="all_show">全部学校显示</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<% }%>
+<!-- 这是loading的效果-->
+<!-- 这是评论或者发表树洞的遮罩层 -->
+<div class="form-box-mask" id="mask_post" style="padding-top: 60px; background-color: rgba(0, 0, 0, 0.498039); position: absolute;  left: 0px; width: 100%; height: 745px; overflow: hidden;display:none;">
+    <div class="form-box">
+        <div class="form-hd J_operate">
+            <b class="item J_close" onclick="mask_Input_Hide()">取消</b>
+            <b class="item J_title">评论</b>
+            <b class="item J_submit" id="submit_post"  style="display: none"  type="<%if(typeof(type) !== 'undefined'){%><%=type%><%}%>" >发表</b>
+            <b class="item J_submit" id="submit_post_comment" onclick="submit_Post_Comment(this)" style="display: none"  type="<%if(typeof(type) !== 'undefined'){%><%=type%><%}%>" >发表</b>
+            <b class="item J_submit" id="submit_post_list_reply"  onclick="submit_Post_List_Reply(this)" style="display: none"  type="<%if(typeof(type) !== 'undefined') {%><%=type%><%}%>" >发表</b>
+            <b class="item J_submit" id="submit_post_detail_reply" style="display: none"  type="<%if(typeof(type) !== 'undefined'){%><%=type%><%}%>" >发表</b>
+            <b class="item J_submit" id="submit_post_plus" style="display: none"  onclick="submit_Post_Plus(this)"  type="<%if(typeof(type) !== 'undefined'){%><%=type%><%}%>" >追加</b>
+            <b class="item J_submit" id="submit_private_msg" style="display: none"  onclick="submit_Private_Msg(this)"   type="<%if(typeof(type) !== 'undefined'){%><%=type%><%}%>" >发私信</b>
+
+        </div>
+	<% if ((typeof(current_user) !== 'undefined')&&current_user.is_admin) { %>
+	<ul class="ui-table ui-table-list">
+                        <li class="active">
+                            <label>昵称</label>
+                            <div>
+                                <input type="text" value="" id="admin_name" name="admin_name">
+                            </div>
+                        </li>
+                        <li>
+                            <label>性别</label>
+                            <div class="select">
+                                <select name="admin_sex" id="admin_sex">
+                                    <option value="boy">男</option>
+                                    <option value="girl" selected="selected">女</option>
+                                </select>
+                            </div>
+                        </li>
+              </ul>
+	      <% }%>
+        <div class="form-bd">
+            <textarea class="txt-area"  placeholder="我也说一句..."></textarea>
+            <div class="extras"><i class="i-em emotion"></i></div>
+            <div class="action" style="height: 25px;"><input type="checkbox" id="niming">匿名</div>
+        </div>
+    </div>
+</div>
+
+<div id="loading" class="article-loading" style="display:none">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<div id="tip" class="article-loading" style="display: none;">
+    <p></p>
+    <span class="tip-type"></span>
+</div>
+<!-- 用户是否登录 -->
+
+
+<% if (typeof(current_user) !== 'undefined') { %>
+<input type="hidden" id="user_login" value="true"/>
+<input id="school_id" type="hidden" value="<%=current_user.location.school_id%>"/>
+<input id="school_name" type="hidden" value="<%=current_user.location.school_name%>"/>
+<input id="college_name" type="hidden" value="<%=current_user.location.college_name%>"/>
+<input id="college_id" type="hidden" value="<%=current_user.location.college_id%>"/>
+
+<% }else{%>
+<input type="hidden" id="user_login" value="false"/>
+<% }%>
+<b class="gotop" id="gotop" style="-webkit-backface-visibility: hidden;display:none;">返回顶部</b>
+
+
+
+<style type="text/css">
+
+
+</style>
+
+<link rel="stylesheet" id="CssGaga" href="/public/front/stylesheets/jquery.sinaEmotion.css?v=1210">
+<script src="/public/front/javascripts/jquery.sinaEmotion.js?v=1207"></script>
+<script src="/public/front/javascripts/mimi.js?v=1220"></script>
+
+
+</div></body></html>

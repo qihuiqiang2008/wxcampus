@@ -1,0 +1,29 @@
+<%if (friend_board&&friend_board!="") {%>
+<div class="feed" id="feed-<%=friend_board._id%>">
+ <div class="item" id="friend_board-<%=friend_board._id%>">
+        <div class="hd">
+            <p class="info">
+                <a class="fn"><%=friend_board.from_user.name%><span class="<%=friend_board.from_user.sex%>tips"></span></a>
+                <span class="meta"><time class="time"><%=friend_board.friendly_create_at%></time></span>
+            </p>
+            <% if((typeof(current_user) !== 'undefined')&&(current_user.is_admin==true||current_user._id.toString()==friend_board.from_user._id)) { %>
+                	<span class="action">
+						<a class="btn i-del"   onclick="friend_Board_Del('<%=friend_board._id%>')">删除</a>
+					</span>
+            <%}else{%>
+					<span class="action">
+						<a class="btn i-msg"  onclick="setParam_To_Private_Msg_SubmitBtn('<%=friend_board.from_user._id%>','friend_board','<%=friend_board._id%>')">私信TA</a>
+					</span>
+             <%}%>
+        </div>
+
+        <div class="bd" style="margin-left:0px;">
+            <p class="J_content" ><%=friend_board.content%></p>
+            <hr style="border: none;
+border-top: 1px dotted #ccc;">
+            <p style="font-size: 15px;color: rgb(179, 151, 41);
+"><strong style="font-size: 15px;">联系方式：</strong><img src="/public/front/images/<%=friend_board.contact_type%>.png"> <%=friend_board.contact%></p>
+        </div>
+    </div>
+    </div>
+<%}%>

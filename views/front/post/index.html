@@ -1,0 +1,184 @@
+<%- include ../partial/header %>
+<style>
+.ellipsis {
+    overflow: hidden;
+    height: 200px;
+    line-height: 25px;
+ 
+ }
+
+.ellipsis:before {
+    content:"";
+    float: left;
+    width: 5px; height: 200px; }
+
+.ellipsis > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px; }        
+
+.ellipsis:after {
+    color:rgb(42, 59, 144);
+    content: "\02026 显示更多";  
+
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+
+    float: right; position: relative;
+    top: -25px; left: 100%; 
+    width: 10em; margin-left: -10em;
+    padding-right: 5px;
+
+    text-align: right;
+
+    background: -webkit-gradient(linear, left top, right top,
+        from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+    background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);           
+    background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white); }
+
+</style>
+<script>
+    $.fn.smartFloat = function () {
+        var position = function (element) {
+            var top = element.position().top, pos = element.css("position");
+            $(window).scroll(function () {
+                $("#container").find("#page-content").css("top", "32px")
+                var scrolls = $(this).scrollTop();
+                if (scrolls > top) {
+                    if (window.XMLHttpRequest) {
+                        element.css({
+                            position: "fixed",
+                            top: 0
+                        });
+                    } else {
+                        element.css({
+                            top: scrolls
+                        });
+                    }
+                } else {
+                    element.css({
+                        position: "absolute",
+                        top: top
+                    });
+                }
+            });
+        };
+        return $(this).each(function () {
+            position($(this));
+        });
+    };
+    $(function () {
+        $("#float").smartFloat();
+		$(".summary").each(function(item,index){
+		    if($(this).height()>200){
+			 $(this).addClass("ellipsis");
+			}
+		});
+    });
+	var showMore=function(item){
+	 $(item).removeClass("ellipsis");
+	}
+</script>
+<div id="container">
+    <div class="header">
+        <!-- ▼顶部通栏 -->
+        <div class="js-mp-info share-mp-info" id="header" style="background-color: #579ae1;border-bottom-width: 2px;
+border-style: solid;
+border-color: #ddd #d5d5d5 #d5d5d5;">
+            <a class="page-mp-info" href="/">
+                <img class="mp-image" width="30" height="30" src="/public/front/images/indexex_meitu_1.png">
+                <i class="mp-nickname" style="
+                font-size: 17px;line-height:1;font-weight: normal;line-height:2;
+                color: rgba(252, 248, 248, 1);">
+                    高校微生活 </i>
+            </a>
+
+            <div class="links">
+                <a class="mp-homepage" href="javascript:void(0)" onclick="go_User_Index()" style="
+      font-size: 16px;line-height:1; padding-right: 18px;font-weight: normal;line-height:2;
+      color: rgba(253, 253, 253, 1);"> <% if (typeof(current_user)!==
+                    'undefined'&&current_user.all_message_not_read_count>0) { %>
+                    <small class="top-new-msg-tip"><%=current_user.all_message_not_read_count%></small>
+                    <% } %> 我的</a>
+            </div>
+        </div>
+        <!-- ▲顶部通栏 -->
+        <ul class="message-nav" id="float" style="z-index: 56">
+            <li id="nav_bar_all" class="<%=school_type=='my'?'cur':''%> js-link" link="/"><a style="font-size:15px;color: #888;
+"><%=(typeof(current_user)!== 'undefined'?current_user.location.school_short_name:'本校')%>广场</a></li>
+            <li id="nav_bar_all" class="<%=school_type=='all'?'cur':''%> js-link" link="/post?school=all&&filter=all"><a
+                    style="font-size:15px;font-weight:normal;color: #888;
+">全国高校</a></li>
+        </ul>
+    </div>
+
+    <div id="page-content" class="feed-page" style="display: block;position: relative;
+top:-5px;">
+        <div class="page-wrap" id="page-feed" style="display: block;">
+            <div id="feed_list_cot_ic">
+                <div id="feed_list_cot_all" class="_feed_list">
+
+                    <div class="feed dataItem mygonggao" style="padding: 0px;">
+                        <div class="publisher-tags" style="padding-top: 5px;width: 100%;">
+                            <a link="/post?school=<%=school_type%>&&filter=all"
+                               class="publisher-tag js-link <%=filter=='all'?'publisher-tag-select':''%>" data-id="35"
+                               value="all" style="">全部</a>
+                            <a link="/post?school=<%=school_type%>&filter=hot"
+                               class="publisher-tag js-link <%=filter=='hot'?'publisher-tag-select':''%>" data-id="0"
+                               value="news" style="">热门</a>
+                            <a link="/post?school=<%=school_type%>&filter=image"
+                               class="publisher-tag js-link <%=filter=='image'?'publisher-tag-select':''%>" data-id="0"
+                               value="image" style="">晒图</a>
+
+                            <a link="/post?school=<%=school_type%>&filter=news"
+                               class="publisher-tag js-link <%=filter=='news'?'publisher-tag-select':''%>" data-id="0"
+                               value="news" style="">新鲜事</a>
+                            <a link="/post?school=<%=school_type%>&filter=mood"
+                               class="publisher-tag js-link <%=filter=='mood'?'publisher-tag-select':''%>" data-id="0"
+                               value="news" style="">心情</a>
+                            <a link="/post?school=<%=school_type%>&filter=biaobai"
+                               class="publisher-tag js-link <%=filter=='biaobai'?'publisher-tag-select':''%>"
+                               data-id="35" value="biaobai" style="">表白</a>
+                            <a link="/post?school=<%=school_type%>&filter=new"
+                               class="publisher-tag js-link <%=filter=='new'?'publisher-tag-select':''%>" data-id="27"
+                               value="new" style="">最新</a>
+                            <a link="/post?school=<%=school_type%>&filter=friend"
+                               class="publisher-tag js-link <%=filter=='friend'?'publisher-tag-select':''%>"
+                               data-id="27" value="friend" style="">邂逅</a>
+                            <input type="hidden" id="post_type" value="secret">
+                        </div>
+                    </div>
+                    <%- partial('../partial/post_abstract', {collection:posts, as:'post'}) %>
+                </div>
+            </div>
+            <section id="Page_wrapper">
+                <div class="pagination">
+                    <% if (current_page == 1||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">上一页</a>
+                    <% } else { %>
+                    <a href="/post?page=<%=current_page-1%>&school=<%=school_type%>&filter=<%=filter%>" class="next">上一页</a>
+                    <% } %>
+                    <% if (current_page == pages||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">下一页</a>
+                    <% } else { %>
+                    <a href="/post?page=<%=current_page+1%>&school=<%=school_type%>&filter=<%=filter%>" class="next">下一页</a>
+                    <% } %>
+                    <em></em></div>
+            </section>
+            <br><br>
+        </div>
+    </div>
+
+    <div id="create_post" class="light_post_entrance j_light_post_entrance" style="
+    width: 49px;  height: 51px;  z-index: 199;  background: url(http://tb2.bdstatic.com/tb/mobile/sfrs/img/light_frs_post_entrance_8e888f5.png) no-repeat 0 0;  background-size: 100%;  -webkit-tap-highlight-color: transparent;  position: fixed;  
+    left: 40px;
+    bottom:40px;
+"></div>
+
+    <!--模板 -->
+
+    <%- include ../partial/footer%>
+

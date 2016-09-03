@@ -1,0 +1,22 @@
+<div class="item" id="detail-main-reply-<%=reply._id%>">
+    <div class="hd">
+        <p class="info">
+            <a class="fn"  onclick="user_Lock('<%=reply.from_user._id%>','<%=reply.from_user.name%>')"><span class="<%=reply.from_user.sex%>tips"></span><%=reply.from_user.name%></a>
+            <span class="meta"><time class="time"><%=reply.friendly_create_at%></time></span>
+        </p>
+        <% if(typeof(current_user) !== 'undefined'&&(current_user._id==reply.from_user._id||current_user.is_admin)) { %>
+	               <span class="action">
+						<a class="btn i-del" onclick="replyDel('<%=reply._id%>','detail_comment')">删除</a>
+					</span>
+        <% }%>
+        <% if((typeof(current_user) !== 'undefined')&&(current_user._id!=reply.from_user._id)) { %>
+					<span class="action">
+						<a class="btn i-reply"  onclick="setParam_To_Post_Comment_SubmitBtn('detail_reply','<%=reply.post%>','<%=reply.from_user.name%>','<%=reply.from_user._id%>','<%=reply.from_user.sex%>','<%=reply._id%>','<%=reply._id%>')">回复</a>
+					</span>
+        <% }%>
+    </div>
+    <div class="bd" style="margin-left:0px;">
+        <p class="J_content" id="reply-<%=reply._id%>"><%-reply.content%></p>
+        <%- partial('../partial/post_detail_reply_abstract', {collection:reply.children_list, as:'children_reply'}) %>
+    </div>
+</div>

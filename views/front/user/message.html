@@ -1,0 +1,48 @@
+﻿<%- include ../partial/header %>
+<div id="container">
+    <header class="header">
+        <div class="sub-nav black">
+            <span class="col-l"><button class="b-def b-bak js-link" link="/user/index?time=<%=(Date.parse(new Date()))%>" id="form-0-cancel">返回
+            </button></span><span class="col-r"></span>
+            <h2 class="hd" id="form-0-title">
+                私信
+            </h2></div>
+    </header>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-mine" style="display: block;">
+            <ul  class="message-nav">
+                <% if (from=="i-send") { %>
+                <li id="nav_bar_all" class="js-link" link="/user/message?from=i-receive"><a>发给我的</a></li>
+                <li id="nav_bar_all" class="cur js-link" link="/user/message?from=i-send"><a>已回复的</a></li>
+                <% }else{ %>
+                <li id="nav_bar_all" class="cur js-link" link="/user/message?from=i-receive"><a>发给我的</a></li>
+                <li id="nav_bar_all" class="js-link" link="/user/message?from=i-send"><a>已回复的</a></li>
+                <% } %>
+            </ul>
+
+            <div id="feed_list_cot_mine" class="_feed_list">
+                <div class="comments">
+                <div class="feed">
+                <%- partial('../partial/message_abstract', {collection:messages, as:'message'}) %>
+                    </div>
+                </div>
+            </div>
+            <section id="Page_wrapper">
+                <div class="pagination">
+                    <% if (current_page == 1||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">上一页</a>
+                    <% } else { %>
+                    <a href="/user/message?page=<%=current_page-1%>&from=<%=from%>" class="next">上一页</a>
+                    <% } %>
+                    <% if (current_page == pages||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">下一页</a>
+                    <% } else { %>
+                    <a href="/user/message?page=<%=current_page+1%>&from=<%=from%>" class="next">下一页</a>
+                    <% } %>
+                    <em></em></div>
+            </section>
+            <br><br>
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>

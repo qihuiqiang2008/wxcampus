@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>高校秘密表白</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/back/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/back/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="/public/back/css/fullcalendar.css" />
+    <link rel="stylesheet" href="/public/back/css/colorpicker.css" />
+    <link rel="stylesheet" href="/public/back/css/datepicker.css" />
+    <link rel="stylesheet" href="/public/back/css/uniform.css" />
+    <link rel="stylesheet" href="/public/back/css/select2.css" />
+    <link rel="stylesheet" href="/public/back/css/unicorn.main.css" />
+    <link rel="stylesheet" href="/public/back/css/unicorn.grey.css" class="skin-color" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<div id="header">
+    <h1><a href="./dashboard.html">高校秘密表白</a></h1>
+</div>
+<div id="search">
+    <input type="text" placeholder="Search here..." /><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
+</div>
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav btn-group">
+        <li class="btn btn-inverse"><a title="" href="/back/users"><i class="icon icon-user"></i> <span class="text">Profile</span></a></li>
+
+        <li class="btn btn-inverse"><a title="" href="/back/users"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
+        <li class="btn btn-inverse"><a title="" href="/signout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    </ul>
+</div>
+<div id="sidebar">
+    <a href="#" class="visible-phone"><i class="icon icon-th-list"></i> Wizard</a>
+    <ul>
+     <!--   http://welife001.com:888-->
+        <li><a href="/back/count"><i class="icon icon-home"></i> <span>最新人数</span></a></li>
+        <li><a href="https://jinshuju.net/f/fXDEZz" target="_blank"><i class="icon icon-home"></i> <span>添加广告</span></a></li>
+        <li><a href="https://jinshuju.net/forms/fXDEZz/entries" target="_blank"><i class="icon icon-home"></i> <span>广告情况查看</span></a></li>
+
+        <li><a href="/back/configurations"><i class="icon icon-th" target="_blank"></i> <span>配置管理(打标记)</span></a></li>
+        <li><a href="/back/configurations?type=model"><i class="icon icon-th" target="_blank"></i> <span>缘分墙模板</span></a></li>
+        <li><a href="/back/configurations?type=tianqi"><i class="icon icon-th" target="_blank"></i> <span>天气配置</span></a></li>
+        <li><a href="/back/configurations?type=model1"><i class="icon icon-th" target="_blank"></i> <span>图片说模板</span></a></li>
+
+        <li><a href="/back/photo_guess/index?type=complain&req_type=all_no_common" target="_blank"><i class="icon icon-th"></i> <span>投诉管理</span></a></li>
+        <li><a href="/back/postEx/index?type=hudong&req_type=all_no_common" target="_blank"><i class="icon icon-th"></i> <span>互动交流</span></a></li>
+
+        <li><a href="/back/postEx/index?type=article_recommand&req_type=all_no_common"  target="_blank"><i class="icon icon-th"></i> <span>文章推荐</span></a></li>
+	   <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>表白管理</span> <span class="label">3</span></a>
+            <ul>
+	        <li><a href="/back/all_title_update?type=confess">填写公共标题</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass&type=confess" target="_blank">待审核</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass_update&type=confess" >待审核人工修改</a></li>
+    
+		<li><a href="/back/postEx/index?req_type=all_no_common&type=confess" target="_blank">全部表白</a></li>
+		<li><a href="/back/postEx/index?req_type=all_no_common_update&type=confess">全部表白内容修改</a></li>
+
+
+		<li><a href="/back/postEx/index?req_type=common&type=confess" target="_blank">公共表白</a></li>
+		<li><a href="/back/postEx/index?req_type=common_update&type=confess">公共表白内容修改</a></li>
+
+		
+		<li><a href="/back/all_title_edit?type=confess" >全部表白标题编辑</a></li>
+		<li><a href="/back/result_post?type=confess">一键生成表白</a></li>
+		
+            </ul>
+        </li>
+
+
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>新鲜事管理</span> <span class="label">3</span></a>
+            <ul>
+                <li><a href="/back/all_title_update?type=shudong" >填写公共标题</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass&type=shudong" target="_blank">待审核</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass_update&type=shudong" >待审核人工修改</a></li>
+
+                <li><a href="/back/postEx/index?req_type=all_no_common&type=shudong" target="_blank">全部新鲜事</a></li>
+                <li><a href="/back/postEx/index?req_type=all_no_common_update&type=shudong">全部新鲜事内容修改</a></li>
+
+
+                <li><a href="/back/postEx/index?req_type=common&type=shudong" target="_blank">公共新鲜事</a></li>
+                <li><a href="/back/postEx/index?req_type=common_update&type=shudong" >公共新鲜事内容修改</a></li>
+
+
+                <li><a href="/back/all_title_edit?type=shudong" target="blank">全部新鲜事标题编辑</a></li>
+                <li><a href="/back/result_post?type=shudong" >一键生成新鲜事</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>话题管理</span> <span class="label">3</span></a>
+            <ul>
+                <li><a href="/back/postEx/index?req_type=all_no_common&type=topic_suggest">话题建议</a></li>
+                <li><a href="/back/configuration/update?key=topic">话题题目</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass&type=topic" target="_blank">待审核</a></li>
+                <li><a href="/back/postEx/index?req_type=all_no_common&type=topic" target="_blank">全部回答</a></li>
+                <li><a href="/back/postEx/index?req_type=common&type=topic" target="_blank">公共回答</a></li>
+                <li><a href="/back/topic/result_topic?type=topic" >一键生成话题</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>缘分墙管理</span> <span class="label">2</span></a>
+            <ul>
+                <li><a href="/back/all_title_update?type=photo_guess">公共标题设置</a></li>
+                <li><a href="/back/question/index">问题设置</a></li>
+                <li><a href="/back/photo_guess/barcode_result">生成带二维码图片</a></li>
+                <li><a href="/back/photo_guess/index?region_code=010" target="blank">缘分墙</a></li>
+                <li><a href="/back/photo_guess/upload">上传图片到服务器</a></li>
+                <li><a href="/back/all_title_edit?type=photo_guess" target="blank">全部缘分标题编辑</a></li>
+                <li><a href="/back/photo_guess/result?region_code=010" >一键生成缘分墙</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>图片说管理</span> <span class="label">2</span></a>
+            <ul>
+                <li><a href="/back/photo_guess/index?region_code=010&type=zipai" target="blank">图片说</a></li>
+                <li><a href="/back/photo_guess/upload">上传图片到服务器</a></li>
+                <li><a href="/back/photo_guess/result?region_code=010&type=zipai" >一键生成缘分墙</a></li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>二手管理</span> <span class="label">2</span></a>
+            <ul>
+
+                <li><a href="/back/ershou/index?region_code=010" target="blank">全部二手</a></li>
+                <li><a href="/back/ershou/result?region_code=010" target="blank" >一键生成二手</a></li>
+            </ul>
+        </li>
+
+
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>交友管理</span> <span class="label">3</span></a>
+            <ul>
+                <li><a href="/back/postEx/index?req_type=unpass&type=friend" target="_blank">待审核</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass_update&type=friend" >待审核人工修改</a></li>
+                <li><a href="/back/postEx/index?req_type=all_no_common&type=friend" target="_blank">全部交友</a></li>
+                <li><a href="/back/postEx/index?req_type=all_no_common_update&type=friend">全部交友内容修改</a></li>
+                <li><a href="/back/result_post?type=friend">一键生成</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>生活服务信息管理</span> <span class="label">3</span></a>
+            <ul>
+                <li><a href="/back/postEx/index?req_type=unpass&type=info" target="_blank">待审核</a></li>
+                <li><a href="/back/postEx/index?req_type=unpass_update&type=info" >待审核人工修改</a></li>
+                <li><a href="/back/postEx/index?req_type=all_no_common&type=info" target="_blank">全部生活服务信息</a></li>
+                <li><a href="/back/postEx/index?req_type=all_no_common_update&type=info">全部内容修改</a></li>
+                <li><a href="/back/result_post?type=info">一键生成</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="icon icon-th-list"></i> <span>高校管理</span> <span class="label">2</span></a>
+            <ul>
+                <li><a href="/back/regions">地区</a></li>
+                <li><a href="/back/schools">高校</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/back/edit"><i class="icon icon-th"></i> <span>内容生成</span></a></li>
+
+	 <li><a href="/back/filterwords"><i class="icon icon-tint"></i> <span>敏感词管理</span></a></li>
+        <li><a href="/back/users"><i class="icon icon-tint"></i> <span>用户管理</span></a></li>
+        <li><a href="/back/posts?filter=new&t=confess&fromback=back"><i class="icon icon-pencil"></i> <span>表白管理</span></a></li>
+        <li><a href="/back/posts?filter=new&t=secret&fromback=back"><i class="icon icon-pencil"></i> <span>秘密管理</span></a></li>
+        <li><a href="/back/replies"><i class="icon icon-th"></i> <span>回复管理</span></a></li>
+        <li><a href="/back/collections"><i class="icon icon-inbox"></i> <span>数据管理</span></a></li>
+        <li><a href="/back/advises"><i class="icon icon-inbox"></i> <span>建议管理</span></a></li>
+        <%  if(typeof(current_user) !== 'undefined'&&current_user.email=='admin@admin.com')  {%>
+        <li><a href="/back/groups"><i class="icon icon-inbox"></i> <span>分组管理</span></a></li>
+	 <li><a href="/back/configurations"><i class="icon icon-th"></i> <span>参数配置</span></a></li>
+        <%}%>
+
+  <!--      <li class="submenu">
+            <a href="#"><i class="icon icon-file"></i> <span>Sample pages</span> <span class="label">4</span></a>
+            <ul>
+                <li><a href="invoice.html">Invoice</a></li>
+                <li><a href="chat.html">Support chat</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="charts.html"><i class="icon icon-signal"></i> <span>Charts &amp; graphs</span></a>
+        </li>
+        <li>
+            <a href="widgets.html"><i class="icon icon-inbox"></i> <span>Widgets</span></a>
+        </li>-->
+    </ul>
+</div>
+<div id="style-switcher">
+    <i class="icon-arrow-left icon-white"></i>
+    <span>Style:</span>
+    <a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+    <a href="#blue" style="background-color: #2D2F57;"></a>
+    <a href="#red" style="background-color: #673232;"></a>
+</div>
+

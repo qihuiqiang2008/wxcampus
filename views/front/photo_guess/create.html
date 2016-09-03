@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://www.lieqicun.com/mimi/list.php?openid=ozS_Kjj_LbfoK4aHMJBBr7pfa698 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>缘分墙</title>
+    <meta name="description" content="缘分墙"/>
+    <meta name="robots" content="none">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=320,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=319.9,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no"
+          media="(device-height: 568px)">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x5-fast-scroller" content="disable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" id="CssGaga" href="/public/front/stylesheets/photo_guess_create.css?v=1210">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <!--<script type="text/javascript" src="./jingxuan_files/stats" charset="UTF-8"></script>-->
+    `
+</head>
+<body>
+    <% configurations.forEach(function(configuration,index) { %>
+    <%-configuration.value%>
+    <section style="box-sizing: border-box; background-color: rgb(255, 255, 255);"><section class="Powered-by-XIUMI V5" style="   box-sizing: border-box; "><section class="" style=" margin-top: 0.5em; margin-bottom: 0.5em;  box-sizing: border-box; "><section style="border-top-style: dashed; border-top-width: 1px; border-top-color: rgb(249, 110, 87); box-sizing: border-box;" class=""></section></section></section></section>    <% }) %>
+    </div>
+    <script src="/public/front/javascripts/localResizeIMG.js" type="text/javascript"></script>
+    <!-- mobileBUGFix.js 兼容修复移动设备 -->
+    <script src="/public/front/javascripts/mobileBUGFix.mini.js" type="text/javascript"></script>
+    <script>
+
+    </script>
+    <script>
+        var checkSubmitFlg = false;
+        var img = new Image();
+        var imagedata;
+        $("#J_button").localResizeIMG({
+            width: 400,
+            quality: 0.7,
+            success: function (result) {
+                img.src = result.base64;
+                imagedata = result.base64;
+                $("#img_upload_li").show();
+                $("#photo_url").val(imagedata);
+                $("#img_upload").attr("src", result.base64);
+            }
+        });
+        $("#source").change(function(){
+            if( $("#source").val()=="shiyou"){
+                $("#des_title").text("室友印象");
+                $("#desc_major").text("室友专业");
+                $("#hometown_title").text("室友家乡");
+                $("#recommand_li").show();
+                $("#introduction").attr("placeholder","认真描述一下你的室友吧,包括性格、爱好、特点等等,文字不能太少！！");
+                $("#major").attr("placeholder","您室友的专业是?！");
+            }else{
+                $("#des_title").text("自我介绍");
+                $("#hometown_title").text("自己家乡");
+                $("#desc_major").text("自己专业");
+                $("#introduction").attr("placeholder","认真介绍一下自己吧,包括性格、爱好、特点等等,文字不能太少！！");
+                $("#major").attr("placeholder","自己的专业是?！");
+                $("#recommand_li").hide();
+            }
+        });
+        function checkform(){
+         if(!imagedata){
+             alert("请先上传照片");
+             return false;
+         }
+
+            if($("#source").val()=="-1"){
+                alert("请选择缘分类型！");
+                return false;
+            }
+            if($("#wx_account").val()==""){
+                alert("微信号必填项！");
+                return false;
+            }
+            if($("#major").val()==""){
+                alert("专业必须填！");
+                return false;
+            }
+            if($("#demand").val()==""){
+                alert("要求必须填！");
+                return false;
+            }
+            if($("#grade").val()=="-1"){
+                alert("请选择所在年级");
+                return false;
+            }
+            if($("#range").val()=="-1"){
+                alert("请选择可见范围");
+                return false;
+            }
+
+            if($("#must_anwser").val()=="-1"){
+                alert("请选择微信号限制条件");
+                return false;
+            }
+            if($("#must_anwser").val()=="0"){
+                if($("#question2_answer").val()==""||$("#question1_answer").val()==""||$("#question1").val()==-1||$("#question2").val()==-1){
+                    alert("请选择问题并写下答案");
+                    return false;
+                }
+            }
+            if(confirm("您确定您的照片和微信号是正确有效的么？")){
+                return true
+            }else{
+                return false
+            }
+            if (!checkSubmitFlg) {
+                checkSubmitFlg = true;
+                return true;
+            }else{
+                alert("不用重复提交啦");
+                return false;
+            }
+
+        }
+        function goback(){
+            window.history.back();
+        }
+        var temp;
+        var questions=eval($("#questions").val());
+        $("#question1").change(function(){
+            if(temp){
+                $("#question2").append(temp);
+            }
+           temp=$("#question2 option[value='"+$("#question1").val()+"']").remove();
+        });
+        $("#question2").change(function(){
+            if($("#question1").val()==-1){
+                return alert("先选择问题一");
+            }
+        });
+        $("#must_anwser").change(function(){
+            if($(this).val()=="1"){
+                $(".must_anwser").hide();
+            }else{
+                $(".must_anwser").show();
+            }
+        })
+        //   var prev;
+        //    $("#question1").change(function(obj){
+        //       // alert($(this).val());
+        //        if(!prev){
+        //            $("#question2").append(prev);
+        //            $("#question3").append(prev);
+        //        }
+        //        prev='<option value="+$(this).val()+">"+$(this).text()+"</option>';
+        //        $("#question2 option[value='"+$(this).val()+"']").remove();
+        //        $("#question3 option[value='"+$(this).val()+"']").remove();
+        //
+        //    });
+    </script>
+
+</body>
+</html>

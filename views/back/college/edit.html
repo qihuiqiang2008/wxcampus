@@ -1,0 +1,66 @@
+<%- include ../partial/header %>
+<div class="row-fluid">
+
+
+    <div class="span12">
+        <% if(typeof(edit_error) !== 'undefined' && edit_error){ %>
+        <div class="alert alert-error">
+            <a class="close" data-dismiss="alert" href="#">&times;</a>
+            <strong><%= edit_error %></strong>
+        </div>
+        <% } %>
+        <div class="widget-box">
+            <div class="widget-title">
+								<span class="icon">
+									<i class="icon-pencil"></i>
+								</span>
+                <h5>添加college</h5>
+            </div>
+
+            <div class="widget-content nopadding">
+
+                <form action="/college/create" method="post" class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label">name</label>
+                        <div class="controls">
+                            <input type="text" name="name" id="name" placeholder="中文简写">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">groupname</label>
+                        <div class="controls">
+                            <div class="select2-container" id="s2id_autogen1">    <a href="#" onclick="return false;" class="select2-choice">   <span>First option
+												</span><abbr class="select2-search-choice-close" style="display:none;"></abbr>   <div><b></b></div></a>    <div class="select2-drop select2-offscreen">   <div class="select2-search">       <input type="text" autocomplete="off" class="select2-input" tabindex="0">   </div>   <ul class="select2-results">   </ul></div></div><select name="school_id" style="display: none; ">
+
+                            <% schools.forEach(function(school,index) { %>
+                            <% if (school&&school!="") {%>
+                            <option value="<%=school._id%>"><%=school.cname%>
+                            </option>
+                            <%}%>
+                            <% }) %>
+                        </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="control-group">
+                        <label class="control-label">region</label>
+                        <div class="controls">
+                            <input name="region" id="region" type="text" placeholder="地区">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"  >Save</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>

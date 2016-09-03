@@ -1,0 +1,39 @@
+
+<%if (reply&&reply!=null&&reply!=""&&reply.post) {%>
+<div class="feed dataItem">
+    <div class="hd">
+        <p class="info ">
+            <a class="fn"><%=reply.from_user.name%><span class="<%=reply.from_user.sex%>tips"></span></a>
+            <i class="expired"></i>
+									<span class="meta">
+										<time class="time"><%=reply.friendly_create_at%></time>
+									</span>
+        </p>
+        <span class="action">
+						<a class="btn"  onclick="load_Post_Detail_TO_Reply('<%=reply.post._id%>','<%=reply._id%>',<%=(reply.main_id==null?true:false)%>)"  >回复</a>
+		</span>
+    </div>
+    <div class="bd">
+        <p>
+            <%-reply.content%>
+        </p>
+
+        <div class="img-txt" onclick="load_Post_Detail('<%=reply.post._id%>')">
+            <div class="col-txt">
+                <div class="txt"><%-reply.post.content%></div>
+            </div>
+        </div>
+
+       <%if((reply.to_user._id!=null)&&(reply.reply!=null)) {%>
+        <div class="ft">
+            <div class="min-comments"><p ><a class="fn"><%=reply.to_user.name%></a>: <%=reply.reply.content%>
+            </p></div>
+        </div>
+        <%}%>
+
+    </div>
+</div>
+<%}%>
+
+
+

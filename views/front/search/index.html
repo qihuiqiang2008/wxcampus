@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://www.lieqicun.com/mimi/list.php?openid=ozS_Kjj_LbfoK4aHMJBBr7pfa698 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>以下是给<%=name%>的表白</title>
+    <meta name="description" content="以下是给<%=name%>的表白"/>
+    <meta name="robots" content="none">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=320,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=319.9,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no"
+          media="(device-height: 568px)">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x5-fast-scroller" content="disable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+</head>
+<body class="PE" style="background-color: #fff">
+<div id="main">
+    <header class="header">
+        <div id="sub_nav" class="sub-nav" data-showtopbar="1" style="height:45px">
+            <div id="sub_tab" class="col-m"></div>
+           <p id="sub_title" class="hd" style="line-height:45px;font-size: 24px;text-align: center">搜索和<%=name%>可能相关的表白</p></div>
+    </header>
+    <hr>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-profile" style="display: block;">
+            <div class="profile-detail" id="J_Profile">
+                <div class="table-wrap">
+                    <%hits.forEach(function(hit,index){ %>
+                    <section style='margin: 0.8em 0; padding: 0.6em; border: 1px solid #c0c8d1; border-radius: 0.3em; box-shadow: #aaa 0 0 0.6em; background-color: #fafaef;' class='ng-scope'><section style='padding: 0px; margin: 0px; border: none; color: rgb(51, 51, 51); font-size: 1em; line-height: 1.4em; word-break: break-all; word-wrap: break-word; background-image: none; font-family: inherit; ' placeholder='{ 点击编辑 }' class='tn-page-ed-type-text ng-scope ng-valid tn-page-editable ng-dirty'><span style='color: rgb(112, 48, 160); '><span style="color: red"> ❤ </span>相关表白<%=index+1%>:<%-hit.highlight.content%></span></section></section>
+                    <% }) %>
+                </div>
+                <p style="text-align:center">
+                <p style="text-align:center">
+                   汇聚表白60万，请维码长按二维码进行关注，然后根据提示进行表白搜索
+                </p>
+                <p style="text-align:center">
+                <% if(typeof(region) !== 'undefined' && region=="010"){ %>
+                   <img src="/public/front/images/bj.jpg">
+                <% } %>
+                <% if(typeof(region) !== 'undefined' && region=="021"){ %>
+                <img src="/public/front/images/sh.jpg">
+                <% } %>
+                    <% if(typeof(region) !== 'undefined' && region=="029"){ %>
+                    <img src="/public/front/images/xa.jpg">
+                    <% } %>
+                </p>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

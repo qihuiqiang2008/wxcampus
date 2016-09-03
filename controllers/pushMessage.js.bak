@@ -1,0 +1,121 @@
+/**
+ * Created by wanghan on 2014/10/29.
+ */
+
+require('../wx_helpers/md5');
+var request = require("superagent");
+var login = require(__dirname + '/../wx_helpers/login');
+var Resource = require('../proxy').Resource;
+var SchoolEx = require('../proxy').SchoolEx;
+var School = require('../proxy').School;
+var async = require('async');
+var fs = require('fs');
+
+exports.pushMessage = function(req, res, next){
+    //获取消息
+    var loadResult;
+    var school_enname= req.query.school_enname;
+    var operation_seq;
+    var result_json;
+    var schoolEx;
+
+    async.series([
+
+        function(cb) {
+            SchoolEx.getSchoolByEname(school_enname, function (err, school) {
+                schoolEx = school;
+                //   console.log(schoolEx)
+                cb();
+            })
+        },
+
+        function(cb) {//1.1：登陆。
+            login(schoolEx, function(err, results){
+                loadResult = results;
+                cb();
+            });
+        },
+
+        function(cb){ //获取operation_seq
+            request.get('https://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/send&token=' + loadResult.token + '&lang=zh_CN') //获取人数
+                .set('Cookie', loadResult.cookie)
+                .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+                .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
+                .end(function (res) {
+
+                    var indexHead = res.text.indexOf('operation_seq');        //获取latest_msg_id
+                    var indexTail = res.text.indexOf('gray_status', indexHead);
+                    var html = res.text.slice(indexHead + 'operation_seq:'.length, indexTail).trim();
+                    operation_seq = html.slice(0, -1).trim();
+                    operation_seq = operation_seq.slice(1, -1);
+
+                    cb();
+                });
+
+        },
+
+        function(cb) {      //推送消息
+            var data = {
+                token:loadResult.token,
+                lang:'zh_CN',
+                f:'json',
+                ajax:'1',
+                random:Math.random(),
+                type:'10',
+                AppMsgId:schoolEx.appmsgid,
+                cardlimit:'1',
+                sex:'0',
+                groupid:'-1',
+                synctxweibo:'0',
+                enablecomment:'0',
+                country:'',
+                province:'',
+                city:'',
+                imgcode:'',
+                direct_send:'1',
+                copy_msgid:schoolEx.appmsgid,
+                reprint_allow_list:''
+            };
+
+            data.operation_seq = operation_seq;
+            var sendData = '';
+
+            for (property in data) {
+                sendData = sendData + property + '=' + encodeURIComponent(data[property]) + "&";
+                console.log(property + ':' + data[property]);
+            }
+
+            //推送消息
+			console.log( loadResult.cookie);
+			var url='https://mp.weixin.qq.com/cgi-bin/masssendpage?action=status&token=' + loadResult.token + '&lang=zh_CN&f=json&ajax=1&random='+Math.random()+'&msgid='+schoolEx.appmsgid+'';
+            // https://mp.weixin.qq.com/cgi-bin/masssendpage?action=status&token=963454249&lang=zh_CN&f=json&ajax=1&random=0.8661466714429977&msgid=211392970
+            request.get(url)
+                .set('Cookie', loadResult.cookie)
+                .set("Accept-Encoding" , "gzip,sdch")
+				.set("Accept-Language","zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3")
+                .set("Accept" ,"application/json, text/javascript, */*; q=0.01")
+                .set('User-Agent' , 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+                .set('Referer', 'https://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/list&action=history&begin=0&count=10&token=' + loadResult.token + '&lang=zh_CN')
+                .set('X-Requested-With', 'XMLHttpRequest')
+                .end(function(res){
+
+                    result_json=JSON.parse(res.text);
+                    console.log(res.text);
+                    cb();
+                })
+        },
+
+        function(cb){ //2.5 登出
+            request('https://mp.weixin.qq.com/cgi-bin/logout?t=wxm-logout&lang=zh_CN&token=' + loadResult.token)
+                .set('Cookie', loadResult.cookie)
+                .set("Accept-Encoding" , "gzip,sdch")
+                .set('User-Agent' , 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+                .end(function(res){
+                    console.log('==========logout=================');
+                    cb();
+                })
+        }
+    ], function(err, results) {
+        res.send(result_json);
+    });
+}

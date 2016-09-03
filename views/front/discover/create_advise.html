@@ -1,0 +1,41 @@
+<%- include ../partial/header %>
+<header class="header">
+    <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button
+            data-hook="subNav-back"
+            class="b-bak"><a href="/discover">返回</a>
+    </button></span><span class="col-r"><button class="b-act">
+    </button></span>
+
+        <div id="sub_tab" class="col-m"></div>
+        <h2 id="sub_title" class="hd">提建议</h2></div>
+</header>
+<div id="page-content" class="feed-page" style="display: block;">
+    <div class="page-wrap" id="page-profile" style="display: block;">
+        <div class="profile-detail" id="J_Profile">
+            <% if(typeof(return_msg) !== 'undefined'&&return_msg!==''){ %>
+            <div class="feed dataItem mygonggao" style="<%=(return_msg.type=='success')?'background-color: #dff0d8':''%>">
+                <p  style="<%=(return_msg.type=='success')?'color: #468847;':''%>"><%=return_msg.content%></p>
+            </div>
+            <% }%>
+            <div class="table-wrap">
+                <form action="/create_advise" method="post">
+                    <ul class="ui-table ui-table-list">
+                        <li class="active">
+                            <label>内容</label>
+                            <div>
+                                <textarea value="" name="content" placeholder="您的建议写在这里" style="
+    min-height: 100px;  border: 0 none;  margin: 0;  padding: 10px 5px 0;  font-size: 16px;  -webkit-appearance: none;  resize: none;  width: 100%;  -webkit-box-sizing: border-box;  -moz-box-sizing: border-box;  box-sizing: border-box;
+"></textarea>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="text-align: center;padding: 15px;"><input class="myButton" type="submit" value="提交">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include ../partial/footer%>

@@ -1,0 +1,34 @@
+<%- include ../partial/header %>
+<div id="container">
+    <header class="header">
+        <div class="sub-nav black">
+            <span class="col-l"><button class="b-def js-link" link="/user/index??time=<%=(Date.parse(new Date()))%>" id="form-0-cancel">回主页
+            </button></span><span class="col-r"></span>
+
+            <h2 class="hd" id="form-0-title">
+                 表白传达室
+            </h2></div>
+
+    </header>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-mine" style="display: block;">
+            <ul  class="message-nav">
+                <% if (from=="i-confess-informing") { %>
+                <li id="nav_bar_all" class="cur js-link" link="/user/confess_inform?from=i-confess-informing"><a>最新</a></li>
+                <li id="nav_bar_all" class="js-link" link="/user/confess_inform?from=i-confess-informed"><a>历史【最近七天】</a></li>
+                <% }else{ %>
+                <li id="nav_bar_all" class="js-link" link="/user/confess_inform?from=i-confess-informing"><a>最新</a></li>
+                <li id="nav_bar_all" class="cur js-link" link="/user/confess_inform?from=i-confess-informed"><a>历史【最近七天】</a></li>
+                <% } %>
+            </ul>
+            <div id="feed_list_cot_mine" class="_feed_list">
+                <div class="feed dataItem mygonggao">
+                    <p>备注：下面的主人公在您所在的学院,你可能认识TA，所以如果认识请帮忙传递一下别人的心意</p>
+                </div>
+                <%- partial('../partial/post_abstract', {collection:confess_informs, as:'post'}) %>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>

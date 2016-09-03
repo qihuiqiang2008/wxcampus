@@ -1,0 +1,362 @@
+/*** uncss> filename: http://123.57.49.48:8888/public/front/stylesheets/gb.css?v=1210 ***/
+
+html,
+body,
+div,
+span,
+p,
+a,
+img,
+ul,
+li,
+i {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: Helvetica, Arial;
+}
+
+ul {
+  list-style: none;
+}
+
+a img {
+  border: none;
+  vertical-align: top;
+}
+
+a {
+  text-decoration: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+}
+
+body {
+  word-wrap: break-word;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background: #e3e3e3;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: #287FAF;
+  text-decoration: none;
+}
+
+a:active {
+  color: #1aa1e6;
+}
+
+.header {
+  z-index: 9;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.page-wrap {
+  display: none;
+}
+
+.feed {
+  margin: 10px 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ddd #d5d5d5 #d5d5d5;
+  background-color: #fbfbfb;
+}
+
+.feed-page {
+  min-height: 500px;
+  position: relative;
+  z-index: 3;
+}
+
+.PE .feed {
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+  border: 0 none;
+}
+
+.feed {
+  line-height: 1.4;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.feed .hd {
+  display: table;
+  width: 100%;
+}
+
+.feed .hd .info {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.feed .hd .info {
+  font-size: 14px;
+  padding: 0;
+}
+
+.feed .hd .meta {
+  display: block;
+  color: #aaa;
+  line-height: 1.2;
+  font-size: 14px;
+  margin: -2px 0 0;
+}
+
+.feed .hd .time {
+  margin-right: 6px;
+}
+
+.feed .hd .time {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.feed .bd {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+
+body:not (.detail ) .feed .remark {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio :1.5) , ( min-resolution
+		:120dpi) , ( -ms-high-contrast :active) , ( -ms-high-contrast :none) {
+  .feed {
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+  }
+}
+
+* {
+  -webkit-text-size-adjust: 100%;
+}
+
+.profile-nav a:not (:first-child ):before {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 1px;
+  height: 90%;
+  content: "";
+  background-color: #ddd;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio :1.5) , ( min-resolution
+		:120dpi) , ( -ms-high-contrast :active) , ( -ms-high-contrast :none) {
+  .profile-nav a:not (:first-child ):before {
+    -webkit-transform: scaleX(.5);
+    -webkit-transform-origin: 0 0;
+    transform: scaleX(.5);
+  }
+}
+
+#CssGaga {
+  content: "140620165539,chg,325";
+}
+
+/*  |xGv00|1763174c07f92da9d79e59b819b14d6b */
+
+/*** uncss> filename: http://123.57.49.48:8888/public/front/stylesheets/my.css?v=1210 ***/
+
+.message-nav {
+  background-color: white;
+  overflow: hidden;
+  display: table;
+  width: 100%;
+  font-size: 15px;
+  border-bottom: 1px solid #E3E3E3;
+}
+
+.message-nav li {
+  display: table-cell;
+  vertical-align: top;
+  width: 14.96%;
+  text-align: center;
+  position: relative;
+}
+
+.message-nav .cur a {
+  font-weight: 500;
+  color: #000000;
+}
+
+.message-nav a {
+  -ms-user-select: none;
+  vertical-align: top;
+  text-decoration: none;
+  color: #000000;
+  position: relative;
+  display: inline-block;
+  font-size: 17px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+
+.message-nav a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid #E4E4E4;
+}
+
+.message-nav .cur:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 3px solid #ffc028;
+}
+
+.message-nav .cur a {
+  font-weight: 500;
+  color: #000000;
+}
+
+/*-----------------------header*/
+
+/*-----------------------header*/
+
+/*-----------------------字体的设置*/
+
+.feed .bd {
+  margin: 10px 0 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+/*-----------------------字体的设置*/
+
+/*-----------------------发表的texteare*/
+
+.feed .bd {
+  margin: 10px 0 0;
+  font-size: 15px;
+  font-weight: normal;
+  color: #342E2E;
+  font-weight: 200;
+}
+
+.message-nav a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid #E4E4E4;
+}
+
+.message-nav .cur:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom: 2px solid #ffc028;
+}
+
+.message-nav a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-right: 1px solid #E4E4E4;
+}
+
+.share-mp-info {
+  position: relative;
+  background: #eee;
+  color: #fff;
+  font-size: 0;
+  line-height: 0;
+  padding: 1px 105px 1px 1px;
+}
+
+.share-mp-info .page-mp-info {
+  display: block;
+  padding: 4px 10px 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.share-mp-info .page-mp-info {
+  font-size: 14px;
+  line-height: 24px;
+  color: #888;
+}
+
+.share-mp-info img.mp-image {
+  vertical-align: middle;
+  margin-right: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+}
+
+.share-mp-info i {
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.share-mp-info i {
+  vertical-align: middle;
+  font-style: normal;
+}
+
+.share-mp-info .page-mp-info {
+  font-size: 14px;
+  line-height: 24px;
+  color: #888;
+}
+
+/*** uncss> filename: http://123.57.49.48:8888/public/front/stylesheets/p4p-2.0.css ***/
+
+/*! tts_union - v2.2.1 - 2014-07-07 */
+

@@ -1,0 +1,15 @@
+<p class="i-reply" id="reply-<%=reply._id%>">
+    <a class="fn"
+       onclick="user_Lock('<%=reply.from_user._id%>','<%=reply.from_user.name%>')"><span
+            class="<%=reply.from_user.sex%>tips"></span><%=reply.from_user.name%>
+    </a>
+    <%if (reply&&reply!=""&&typeof(reply.to_user) !== 'undefined'&&reply.to_user!='undefined'&&reply.to_user!=null) {%>
+    回复<a class="fn"
+         onclick="user_Lock('<%=reply.to_user._id%>','<%=reply.to_user.name%>')"><%=reply.to_user.name%></a>
+    <%}%>:
+<span style="padding-left:1px"
+        onclick="<%=(typeof(current_user)!== 'undefined'&&(current_user._id.toString()==reply.from_user._id.toString()||current_user.is_admin))?'replyDel("'+reply._id+'")':'setParam_To_Post_Comment_SubmitBtn("list","'+reply.post+'","'+reply.from_user.name+'","'+reply.from_user._id+'","'+reply.from_user.sex+'","'+(reply.main_id==null?reply._id:reply.main_id)+'","'+reply._id+'")'%>"><%-reply.content%>
+    <span class="<%=(typeof(current_user)!== 'undefined'&&(current_user._id.toString()==reply.from_user._id.toString()||current_user.is_admin))?'i-del':''%>"></span></span>
+
+</p>
+

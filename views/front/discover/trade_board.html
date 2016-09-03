@@ -1,0 +1,49 @@
+<%- include ../partial/header %>
+<div id="container">
+    <header class="header">
+        <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button
+                data-hook="subNav-back"
+                class="b-bak" ><a href="/discover">返回</a>
+        </button></span><span class="col-r"><button  class="b-act js-link" link="/create_trade_board">写二手
+        </button></span>
+
+            <div id="sub_tab" class="col-m"></div>
+            <h2 id="sub_title" class="hd">二手市场</h2></div>
+        <ul class="message-nav">
+            <% if (type=="sale") { %>
+            <li id="nav_bar_all" class="cur js-link" link="/trade_board?type=sale"><a>淘二手</a></li>
+            <li id="nav_bar_all" class="js-link" link="/trade_board?type=buy"><a>求二手</a></li>
+            <% }else{%>
+            <li id="nav_bar_all" class="js-link" link="/trade_board?type=sale"><a>淘二手</a></li>
+            <li id="nav_bar_all" class="cur js-link" link="/trade_board?type=buy"><a>求二手</a></li>
+            <% }%>
+
+        </ul>
+    </header>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-mine" style="display: block;">
+
+            <div id="feed_list_cot_mine" class="_feed_list">
+                <div class="boards">
+                        <%- partial('../partial/trade_board_abstract', {collection:trade_boards, as:'trade_board'}) %>
+                </div>
+            </div>
+            <section id="Page_wrapper">
+                <div class="pagination">
+                    <% if (current_page == 1||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">上一页</a>
+                    <% } else { %>
+                    <a href="/trade_borad?page=<%=current_page-1%>" class="next">上一页</a>
+                    <% } %>
+                    <% if (current_page == pages||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">下一页</a>
+                    <% } else { %>
+                    <a href="/trade_borad?page=<%=current_page+1%>" class="next">下一页</a>
+                    <% } %>
+                    <em></em></div>
+            </section>
+            <br><br>
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>

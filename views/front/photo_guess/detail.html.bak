@@ -1,0 +1,362 @@
+<%- include ../partial/header %>
+
+<style>
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+    div {
+        display: block;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .clearfix:before, .clearfix:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .main-content {
+        background: #FBFBFB;
+        padding: 1px 15px 15px;
+        -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.36);
+        -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.36);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.36);
+    }
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+    fieldset {
+        display: block;
+        -webkit-margin-start: 2px;
+        -webkit-margin-end: 2px;
+        -webkit-padding-before: 0.35em;
+        -webkit-padding-start: 0.75em;
+        -webkit-padding-end: 0.75em;
+        -webkit-padding-after: 0.625em;
+        border: 2px groove threedface;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        min-width: -webkit-min-content;
+    }
+
+    .field, #submission_password_form, #result_view_password_form, .profile-complete-content, #result_search_view_password_form {
+        color: #5d5d5d;
+        margin: 8px 0 0 0;
+        padding: 8px 0;
+    }
+
+    .form-group {
+        word-break: break-word;
+    }
+
+    .field label.control-label, #submission_password_form label.control-label, #result_view_password_form label.control-label, .profile-complete-content label.control-label, #result_search_view_password_form label.control-label {
+        color: #595956;
+        display: block;
+        padding-bottom: 7px;
+    }
+
+    .clearfix {
+    }
+
+    .clearfix:before, .clearfix:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .clearfix:before, .clearfix:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .clearfix:before, .clearfix:after {
+        display: table;
+        content: "";
+        line-height: 0;
+    }
+
+    .field .radio:first-child, #submission_password_form .radio:first-child, #result_view_password_form .radio:first-child, .profile-complete-content .radio:first-child, #result_search_view_password_form .radio:first-child {
+        border-top-width: 1px;
+    }
+
+    .field .radio, #submission_password_form .radio, #result_view_password_form .radio, .profile-complete-content .radio, #result_search_view_password_form .radio {
+        border: 1px solid #c5c5c5;
+        border-top-width: 0;
+        background: white;
+        padding: 12px 10px 12px 40px;
+        position: relative;
+        display: block;
+    }
+
+    .field label, #submission_password_form label, #result_view_password_form label, .profile-complete-content label, #result_search_view_password_form label {
+        font-size: 16px;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+    }
+
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }
+
+    .field .radio input[type="radio"], #submission_password_form .radio input[type="radio"], #result_view_password_form .radio input[type="radio"], .profile-complete-content .radio input[type="radio"], #result_search_view_password_form .radio input[type="radio"] {
+        position: absolute;
+        left: 8px;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        border: 0;
+        padding: 0;
+        background: #fff 0 0 no-repeat url(https://dn-jinshuju-assets.qbox.me/assets/mobile/mobile_icons_big-c2988eb40d4a8d932e4a5437da5893e9.png);
+        background-size: 90px 180px;
+        background-clip: content-box;
+        background-origin: content-box;
+    }
+
+    .field input:not(.gd-hide), .field select, .field textarea, .field #submit_and_new_entry, #submission_password_form input:not(.gd-hide), #submission_password_form select, #submission_password_form textarea, #submission_password_form #submit_and_new_entry, #result_view_password_form input:not(.gd-hide), #result_view_password_form select, #result_view_password_form textarea, #result_view_password_form #submit_and_new_entry, .profile-complete-content input:not(.gd-hide), .profile-complete-content select, .profile-complete-content textarea, .profile-complete-content #submit_and_new_entry, #result_search_view_password_form input:not(.gd-hide), #result_search_view_password_form select, #result_search_view_password_form textarea, #result_search_view_password_form #submit_and_new_entry {
+        display: block;
+        width: 100%;
+        padding: 10px 5px;
+        border-radius: 0;
+        border: 1px solid #c5c5c5;
+        font-size: 16px;
+        outline: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    input, select {
+        vertical-align: middle;
+    }
+
+    .field input[type="submit"], .field #submit_and_new_entry, #submission_password_form input[type="submit"], #submission_password_form #submit_and_new_entry, #result_view_password_form input[type="submit"], #result_view_password_form #submit_and_new_entry, .profile-complete-content input[type="submit"], .profile-complete-content #submit_and_new_entry, #result_search_view_password_form input[type="submit"], #result_search_view_password_form #submit_and_new_entry {
+        width: 100%;
+        color: white;
+        font-size: 16px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        border-color: #6A7F74;
+        -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.54);
+        -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.54);
+        box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.54);
+        background: #92ad9f;
+        background: -moz-linear-gradient(top, #92ad9f, #849f91);
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#92ad9f), to(#849f91));
+        background: -webkit-linear-gradient(top, #92ad9f, #849f91);
+        background: -o-linear-gradient(top, #92ad9f, #849f91);
+        background: linear-gradient(to bottom, #67AAEB, #60A5EB);
+    }
+
+    .field .radio input[type="radio"]:checked, #submission_password_form .radio input[type="radio"]:checked, #result_view_password_form .radio input[type="radio"]:checked, .profile-complete-content .radio input[type="radio"]:checked, #result_search_view_password_form .radio input[type="radio"]:checked {
+        background-position: -30px 0;
+    }
+</style>
+<div id="detail">
+    <header id="header">
+        <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button id="sub_back"
+                                                                                          onclick="detail_GoBack()"
+                                                                                          class="b-bak">返回
+        </button></span><span class="col-r"><button id="sub_opr" data-hook="subNav-opr" class="b-act"
+                                                    data-hot="upload.{act}.{page}.{path}" style="display: none;">写说说
+        </button></span>
+
+            <div id="sub_tab" class="col-m"></div>
+            <h2 id="sub_title" class="hd">详情</h2></div>
+    </header>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-detail" style="display: block;">
+            <% if(typeof(photo_guess)!=='undefined') { %>
+            <div class="feed ">
+                <div class="hd" style=" display: block;">
+                    <p class="info " style=" display: block;">
+            <span class="meta" style="display:inline;line-height:normal;padding-top:0px;padding-bottom:5px;float:right"> <time class="time"
+                                                                                                            style="color: #919191;font-size: 13px;float:right">
+                来自：<%=photo_guess.school%>
+            </time></span>
+                    </p>
+                </div>
+                <div class="bd">
+                    <p><img src="<%=photo_guess.photo_url%>" style="max-width:100%;height:auto;"></p>
+
+                    <p><%=photo_guess.introduction%></p>
+                </div>
+            </div>
+            <%}%>
+            <div class="main" data-role="content">
+                <div class="main-content">
+
+                    <fieldset>
+                        <div class="form-content">
+
+                            <% for(var i=1;i<=photo_guess.questions.length;i++) { %>
+                            <div class="field" data-api-code="field_2">
+                                <div class="form-group ">
+                                    <label class="control-label field_title" data-role="collapse_toggle"
+                                           for="entry_field_2">
+                                        <%=photo_guess.questions[i-1].question.content%>
+                                    </label>
+
+                                    <div class="field_content">
+                                        <div class="controls">
+                                            <div class="clearfix radio-group" data-role="controlgroup">
+                                                <label onclick="" class="radio inline">
+                                                    <input class="cchk" question_id="<%=i%>"  name="entry[field_<%=i%>]"
+                                                           type="radio" value="nGy4">
+                                                        <span> <%if(photo_guess.questions[i-1].show_index==0){%>
+                                                         <%=photo_guess.questions[i-1].value%>
+                                                        <%}else{%>
+                                                          <%=photo_guess.questions[i-1].question.answers[0].content%>
+                                                        <%}%> </span>
+                                                </label>
+                                                <label onclick="" class="radio inline">
+                                                    <input class="cchk" question_id="<%=i%>" name="entry[field_<%=i%>]"
+                                                           type="radio" value="xhdp">
+                                                        <span> <%if(photo_guess.questions[i-1].show_index==1){%>
+                                                        <%=photo_guess.questions[i-1].value%>
+                                                        <%}else{%>
+                                                        <%=photo_guess.questions[i-1].question.answers[1].content%>
+                                                        <%}%>
+                                                             </span>
+                                                </label>
+                                                <label onclick="" class="radio inline">
+                                                    <input class="cchk" name="entry[field_<%=i%>]" question_id="<%=i%>"
+                                                           type="radio" value="z1Ku">
+                                                       <span> <%if(photo_guess.questions[i-1].show_index==2){%>
+                                                           <%=photo_guess.questions[i-1].value%>
+                                                        <%}else{%>
+                                                           <%=photo_guess.questions[i-1].question.answers[2].content%>
+                                                        <%}%>
+                                                         </span>
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }%>
+                            <div class="field submit-field ">
+                                <div class="value">
+                                    <input id="embedded" name="embedded" type="hidden">
+                                    <input id="banner" name="banner" type="hidden">
+                                    <input id="background" name="background" type="hidden">
+                                    <%if(current_wgateid_answer_count==1){%>
+                                    <input class="btn btn-primary" name="commit"
+                                           type="submit" value="您已经答过了">
+                                    <%}else if(photo_guess.wx_already_open_count>=photo_guess.wx_open_count){%>
+                                    <input class="btn btn-primary" data-disabled-with="提交中..." name="commit"
+                                           type="button" value="次数受限了">
+                                    <%}else{%>
+                                    <input class="submit btn btn-primary" name="commit"
+                                           type="submit" value="提交">
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input type="hidden" id="photo_guess_id" value="<%=photo_guess._id%>">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function detail_GoBack() {
+        history.go(-1)
+    }
+    var question1_value = "";
+    var question2_value = "";
+    var question3_value = "";
+    $(".cchk").click(function () {
+        var index = $(this).attr("question_id");
+        var value = $(this).next().text();
+        if (index == 1) {
+            question1_value = value.trim();
+        }
+        if (index == 2) {
+            question2_value = value.trim();
+        }
+        if (index == 3) {
+            question3_value = value.trim();
+        }
+    });
+    $(".submit").click(function () {
+        if(question1_value==""){
+           return alert("请选择");
+        }
+        if(question2_value==""){
+            return alert("请选择");
+        }
+        if(question3_value==""){
+            return alert("请选择");
+        }
+        $.ajax({
+            'url': '/front/photo_guess/up_answer',
+            'type': 'POST',
+            'dataType': 'json',
+            'data': {photo_guess_id: $("#photo_guess_id").val(), question1_value: question1_value, question2_value: question2_value, question3_value: question3_value},
+            success: function (json, st) {
+                alert(json.message)
+            },
+            beforeSend: function (xhr, textStatus) {
+            },
+            error: function (xhr) {
+            },
+            complete: function (xhr, textStatus) {
+            }
+        });
+    });
+
+</script>
+

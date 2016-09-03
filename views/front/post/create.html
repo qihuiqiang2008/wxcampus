@@ -1,0 +1,54 @@
+<%- include ../partial/header %>
+<%- include ../partial/posting_page.html %>
+<%- include ../partial/footer%>
+ <script>
+     $("#form-0-cancel").text("去主页");
+     $("#form-0-cancel").click(function(){
+         location.href = '/';
+     });
+     $("#is_redirect").val(true);
+     $("#main").find("#form-0").find('#form-0-submit').click(function () {
+         if($("#user_login").val()!=='true'){
+             mask_Setting_Show();
+             return;
+         }
+         var content = $("#post_text").val();
+         content=AnalyticEmotion(content);
+         if (content == "") {
+             alert("信息不完整");
+             return;
+         }
+         var nicked = document.getElementById("secret_nicked").checked ? 1 : 0;
+         var post_type= $("#post_type").val();
+         $(this).unbind("click");
+         $.ajax({
+             'url': '/post/create?t='+post_type,
+             'type': 'POST',
+             'dataType': 'html',
+             'data': {'content': content, 'nicked': nicked,'image':imagedata},
+             success: function (result, st) {
+                 if (result == 'err') {
+                     tip("出现未知的错误啦，请重试");
+                 } else {
+                    tip("发表成功，跳转ing");
+                    location.href = '/';
+                 }
+             },
+             beforeSend: function (xhr, textStatus) {
+                 loading_show();
+             },
+             error: function (xhr) {
+                 if (xhr.status != 403) {
+                     tip("出现异常，请刷新后重试");
+                 }
+             },
+             complete: function (xhr, textStatus) {
+                 loading_hide();
+                 if (xhr.status == 403) {
+                     mask_Setting_Show();
+                 }
+             }
+         });
+     });
+ </script>
+

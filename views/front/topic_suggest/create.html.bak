@@ -1,0 +1,205 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+
+    <title>高校移动微社区</title>
+    <meta name="description" content="微生活，寄托秘密，表达爱恋" />
+    <meta name="robots" content="none">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=320,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=319.9,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" media="(device-height: 568px)">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x5-fast-scroller" content="disable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   
+
+    <link rel="stylesheet" type="text/css" href="/public/front/stylesheets/p4p-2.0.css">
+    <style>
+        [touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+
+
+
+.searchMain {
+width: 100%;
+height: 100%;
+position: relative;
+overflow-x: hidden;
+background-color: #d6d6d6;
+font-family: 'Microsoft YaHei';
+}
+
+.container {
+width: 100%;
+position: relative;
+overflow: hidden;
+left: 0;
+top: 0;
+-webkit-transform: translate(0,0);
+-webkit-transition: -webkit-transform .1s ease-in;
+}
+
+#r_header {
+height: 49px;
+background-color: #1d8aff;
+text-align: center;
+overflow: hidden;
+}
+
+.r_returnbk {
+position: absolute;
+left: 0;
+width: 50px;
+height: 49px;
+top: 0;
+}
+.r_title {
+color: #fff;
+line-height: 49px;
+position: relative;
+font-size: 20px;
+z-index: 4;
+}
+.j_myOperating.nobg {
+margin-top: 6px;
+}
+.j_myOperating {
+font-family: 'Microsoft YaHei';
+width: 95%;
+margin: 0 auto;
+background-color: #fff;
+overflow: hidden;
+}
+* {
+margin: 0;
+padding: 0;
+text-shadow: none;
+font-weight: normal!important;
+font-family: 'Microsoft YaHei',Arial;
+}
+.j_myOperating.noicon a {
+background-image: none;
+}
+.j_myOperating a {
+color: #333!important;
+width: 85%;
+float: right;
+height: 75px;
+line-height: 75px;
+border-bottom: 1px solid #d6d6d6;
+background-color: #fff;
+background: #fff url(http://img09.zhaopin.com/2012/other/mobile/m/r_icon5.png) right no-repeat;
+background-size: 40px 24px;
+position: relative;
+}
+.j_employmentBox .check {
+font-size: 16px;
+color: #a1a1a1;
+
+line-height: 55px;
+}
+.j_employmentBox .btn {
+text-align: center;
+line-height: 43px;
+border-radius: 5px;
+width: 90%;
+height: 43px;
+background-color: #1d8aff;
+color: #fff;
+font-family: 'Microsoft YaHei';
+margin: 0 auto;
+display: block;
+font-size: 16px;
+-webkit-appearance: none;
+}
+input[type="text"], .j_myOperating input[type="password"], .j_myOperating input[type="number"], .j_myOperating input[type="email"], .j_myOperating input[type="tel"] {
+background: #fff;
+box-shadow: none;
+width: 65%;
+line-height: normal;
+font-size: 18px;
+font-family: 'Microsoft YaHei';
+}
+input {
+border: 0;
+}
+input, button, select, textarea {
+outline: none;
+}
+
+.j_employmentBox {
+border-top: 1px solid #d6d6d6;
+padding: 12px 0;
+width: 95%;
+margin: 0 auto;
+overflow: hidden;
+clear: both;
+background-color: #f6f6f6;
+margin-bottom: 8px;
+}
+
+.textarea-wp textarea {
+width: 98%;
+height: auto;
+min-height: 100px;
+font-size: 16px;
+display: -webkit-box;
+display: -moz-box;
+display: box;
+-webkit-box-flex: 1;
+-moz-box-flex: 1;
+box-flex: 1;
+border: none;
+-webkit-appearance: none;
+}
+    </style>
+    
+</head>
+<body>
+
+<form action="/postEx/create"  method="post">
+
+  <textarea id="content" name="content" tabindex="4" required="required"></textarea>
+  <input type="submit"  value="提交" />
+  <input type="hidden" id="from_school_en_name" name="from_school_en_name"  value="<%=from_school_en_name%>" />
+    <input type="hidden" id="from_school_cn_name" name="from_school_cn_name"  value="<%=from_school_cn_name%>" />
+  <input type="hidden" id="type" name="type"  value="<%=type%>" />
+</form>
+
+
+
+
+
+<div class="searchMain" style="background-color: #d6d6d6; height: 100%;">
+    <div class="container" id="BodyContainer">
+        <header id="r_header" class="r_title">
+           
+            宁大表白墙
+        </header>
+        <div class="warn_message"></div>
+        <section class="r_content">
+<form  action="/postEx/create"  method="post">               
+<div class="j_myOperating noicon nobg textarea-wp">
+                     <textarea  name="content" tabindex="4" style="
+    margin: 0 auto;
+"  placeholder="说点什么" required="required"></textarea>
+  <input type="hidden" id="from_school_en_name" name="from_school_en_name"  value="<%=from_school_en_name%>" />
+    <input type="hidden" id="from_school_cn_name" name="from_school_cn_name"  value="<%=from_school_cn_name%>" />
+  <input type="hidden" id="type" name="type"  value="<%=type%>" />
+                </div>
+                <section class="j_employmentBox">
+                    <div class="check">
+                        <span class="bg hover"></span>
+                     
+                    </div>
+					<input type="submit" class="btn"  value="提交" />
+                 
+                </section>                
+</form>
+        </section>
+    </div>
+</div>
+
+
+</body>
+</html>

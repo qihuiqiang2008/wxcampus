@@ -1,0 +1,172 @@
+body {
+    background: #e3e3e3;
+    font-size: 14px;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    word-wrap: break-word;
+}
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, address, em, img, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td, i, b, s {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: Helvetica, Arial;
+}
+.header, header {
+    z-index: 9;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+article, aside, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+.gb-nav, .sub-nav {
+    /* background-color: #3f4762; */
+    height: 35px;
+    font-size: 16px;
+    background: #579ae1 url('http://3gimg.qq.com/info/touch/user/images2/user2-bg-header.png') no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    border-top: 1px solid #70a7e7;
+    border-bottom: 1px solid #3f7cc5;
+}
+.gb-nav, .sub-nav {
+    background-color: #3f4762;
+    height: 30px;
+    font-size: 15px;
+}
+.sub-nav .col-l {
+    float: left;
+}
+.sub-nav .col-l, .sub-nav .col-r {
+    min-width: 65px;
+    min-height: 40px;
+}
+.col-l {
+    float: left;
+}
+.sub-nav .b-bak {
+    float: left;
+    padding-right: 0;
+}
+.sub-nav [class^='b-'] {
+    display: inline-block;
+    line-height: 35px;
+    padding: 0 10px;
+    font-size: 17px;
+    vertical-align: top;
+    height: 100%;
+    text-decoration: none;
+    color: #f3f3f3;
+    position: relative;
+    -ms-user-select: none;
+}
+button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    background-color: transparent;
+}
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+                                                                                               align-items: flex-start;
+                                                                                               text-align: center;
+                                                                                               cursor: default;
+                                                                                               color: buttontext;
+                                                                                               padding: 2px 6px 3px;
+                                                                                               border: 2px outset buttonface;
+                                                                                               border-image-source: initial;
+                                                                                               border-image-slice: initial;
+                                                                                               border-image-width: initial;
+                                                                                               border-image-outset: initial;
+                                                                                               border-image-repeat: initial;
+                                                                                               background-color: buttonface;
+                                                                                               box-sizing: border-box;
+                                                                                           }
+.sub-nav .b-bak:before {
+    content: '';
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: text-bottom;
+    width: 13px;
+    height: 20px;
+    background-image: url(/public/front/images/tupianall.png);
+    background-position: -155px -22px;
+}
+.sub-nav .b-bak {
+    float: left;
+    padding-right: 0;
+}
+.sub-nav [class^='b-'] {
+    display: inline-block;
+    line-height: 35px;
+    padding: 0 10px;
+    font-size: 17px;
+    vertical-align: top;
+    height: 100%;
+    text-decoration: none;
+    color: #f3f3f3;
+    position: relative;
+    -ms-user-select: none;
+}
+button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    background-color: transparent;
+}
+.sub-nav .col-l, .sub-nav .col-r {
+    min-width: 65px;
+    min-height: 40px;
+}
+.sub-nav .col-r {
+    float: right;
+}
+.sub-nav .b-act {
+    width: 100%;
+    display: block;
+    text-align: right;
+    float: right;
+}
+.sub-nav [class^='b-'] {
+    display: inline-block;
+    line-height: 35px;
+    padding: 0 10px;
+    font-size: 17px;
+    vertical-align: top;
+    height: 100%;
+    text-decoration: none;
+    color: #f3f3f3;
+    position: relative;
+    -ms-user-select: none;
+}
+button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    background-color: transparent;
+}
+.col-m {
+    overflow: hidden;
+}
+.sub-nav .col-m {
+    text-align: center;
+}
+.sub-nav .hd {
+    overflow: hidden;
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 17px;
+    line-height: 35px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

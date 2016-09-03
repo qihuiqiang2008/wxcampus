@@ -1,0 +1,36 @@
+<%- include ../partial/header %>
+<div id="container">
+    <header class="header">
+        <div class="sub-nav black">
+            <span class="col-l"><button class="b-def js-link" link="/user/index??time=<%=(Date.parse(new Date()))%>" id="form-0-cancel">回主页
+            </button></span><span class="col-r"></span>
+            <h2 class="hd" id="form-0-title">
+                别人赞|祝福我的
+            </h2></div>
+    </header>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-mine" style="display: block;">
+            <div id="feed_list_cot_ic">
+                <div id="feed_list_cot_me" class="_feed_list passive" style="">
+                    <%- partial('../partial/liked_abstract', {collection:post_likes, as:'post_like'}) %>
+                </div>
+            </div>
+            <section id="Page_wrapper">
+                <div class="pagination">
+                    <% if (current_page == 1||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">上一页</a>
+                    <% } else { %>
+                    <a href="/user/like?page=<%=current_page-1%>" class="next">上一页</a>
+                    <% } %>
+                    <% if (current_page == pages||pages==0) { %>
+                    <a href="javascript:void(0);" class="prev no">下一页</a>
+                    <% } else { %>
+                    <a href="/user/like?page=<%=current_page+1%>" class="next">下一页</a>
+                    <% } %>
+                    <em></em></div>
+            </section>
+            <br><br>
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>

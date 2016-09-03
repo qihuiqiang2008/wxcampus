@@ -1,0 +1,95 @@
+<%- include ../partial/header %>
+<div id="content">
+    <div id="content-header">
+        <h1>修改配置</h1>
+        <div class="btn-group" style="width: auto;">
+            <a class="btn btn-large tip-bottom" data-original-title="Manage Files" href="/back/collections"><i class="icon-file"></i></a>
+            <a class="btn btn-large tip-bottom" data-original-title="Manage Users"  href="/back/users"><i class="icon-user"></i></a>
+            <a class="btn btn-large tip-bottom" data-original-title="Manage Comments"  href="/back/replies"><i class="icon-comment"></i></a>
+        </div>
+    </div>
+    <div id="breadcrumb">
+        <a href="#" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>配置</a>
+        <a href="#">添加配置</a>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <% if(typeof(msg) !== 'undefined' && msg){ %>
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">&times;</a>
+                    <strong><%= msg%></strong>
+                </div>
+                <%}%>
+                <div class="widget-box">
+                    <div class="widget-title">
+								<span class="icon">
+									<i class="icon-pencil"></i>
+								</span>
+                        <h5>添加配置</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form action="/back/configuration/update" method="post" class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label">选择类型</label>
+                                <div class="controls">
+                                    <div class="select2-drop select2-with-searchbox select2-offscreen"
+                                         style="display: block;">
+                                        <div class="select2-search"><input type="text" autocomplete="off" class="select2-input" tabindex="0"></div>
+                                        <ul class="select2-results"></ul>
+                                    </div>
+                                    <select  name='type' style="display: none;">
+
+                                        <option value="basic" selected="selected">基本配置
+                                        </option>
+
+                                        <option value="model" >缘分墙模板类型
+                                        </option>
+
+                                        <option value="model1" >图片说模板类型
+                                        </option>
+                                        <option value="tianqi" >天气类型
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">key</label>
+                                <div class="controls">
+                                    <input type="text" name="key" value="<%=configuration.key%>" id="key" placeholder="key">
+                                </div>
+                                <input type="hidden" value="<%=configuration._id%>" id="id"/>
+                            </div>
+							<div class="control-group">
+                                <label class="control-label">value</label>
+                                <div class="controls">
+                                    <input type="text" name="value" value="<%=configuration.value%>"  id="value" placeholder="value">
+                                </div>
+                            </div>
+							<div class="control-group">
+                                <label class="control-label">描述</label>
+                                <div class="controls">
+                                    <input type="text" name="description" value="<%=configuration.description%>"  id="description" placeholder="描述">
+                                </div>
+                            </div>
+                           
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary"  >保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2014 © 校萌科技有限公司
+        </div>
+    </div>
+</div>
+
+
+<%- include ../partial/footer%>

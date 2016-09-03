@@ -1,0 +1,35 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+
+    <title>高校移动微社区</title>
+    <meta name="description" content="微生活，寄托秘密，表达爱恋" />
+    <meta name="robots" content="none">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=320,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=319.9,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" media="(device-height: 568px)">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x5-fast-scroller" content="disable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   
+
+    <link rel="stylesheet" type="text/css" href="/public/front/stylesheets/p4p-2.0.css">
+    <style>
+        [touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+    </style>
+    
+</head>
+<body>
+
+<form action="/postEx/create"  method="post">
+
+   <textarea id="content" name="content" tabindex="4" required="required"></textarea>
+
+  <input type="submit"  value="提交" />
+  <input type="hidden" id="school_en_name" name="school_en_name"  value="<%=school_en_name%>" />
+  <input type="hidden" id="type" name="type"  value="<%=type%>" />
+</form>
+
+</body>
+</html>

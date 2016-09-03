@@ -1,0 +1,196 @@
+<%if (post&&post!=""&&typeof(post) !== 'undefined') {%>
+<div class="feed dataItem" id="<%=post._id%>">
+    <div class="hd"  style=" display: block;">
+        <p class="info "  style=" display: block;">
+            <a class="fn"  onclick="user_Lock('<%=post.from_user._id%>','<%=post.from_user.name%>')" >
+                <span class="<%=post.from_user.sex%>tips"></span><%=post.from_user.name%>
+               </a>
+            <span class="meta" style="display:inline;line-height:normal;padding-top:8px;float:right"> <time class="time" style="color: #919191;font-size: 12px;float:right">
+			    <%if ((typeof(filter) !== 'undefined')&&filter=="new") {%>
+                    <%=post.friendly_create_at%>发表
+                <%}else if ((typeof(post.last_update_type) !== 'undefined')&&post.last_update_type=="like") {%>
+                    <%=post.friendly_update_at%>有<%=(post.type=="biaobai")?'祝福':'赞'%>
+                <%}else if ((typeof(post.last_update_type) !== 'undefined')&&post.last_update_type=="plus"){%>
+                    <%=post.friendly_update_at%>有追加
+                <%}else if ((typeof(post.last_update_type) !== 'undefined')&&post.last_update_type=="reply"){%>
+                   <%=post.friendly_update_at%>有评论
+                <%}else if ((typeof(post.last_update_type) !== 'undefined')&&post.last_update_type=="create"){%>
+                    <%=post.friendly_create_at%>发表
+                <%}else{%>
+                   <%=post.friendly_create_at%>发表
+                <%}%>
+				
+                <%if (typeof(school_type) !== 'undefined'&&school_type=="all") {%>
+                    <%if (typeof(post.all_show) !== 'undefined'&&post.all_show==true) {%>
+                  
+                   <%}else{%>
+  <%=post.from_user.school_name%>
+				       <%}%>
+                <%}%>
+          <!--<%=(post.type=="secret")?('来自'+post.from_user.school_name+'|'+post.from_user.college_name):''%> -->
+            </time></span>
+        </p>
+    </div>
+    <div class="bd" id="content-<%=post._id%>" >
+		<div class="summary" onclick="showMore(this)">
+		<p>
+            <% if ((typeof(post.top) !== 'undefined')&&post.top&&(typeof(school_type) !== 'undefined')&&school_type=="my") {%>
+            <span id="top_<%=post._id%>" class="put_top">置顶</span>
+            <% }else{%>
+            <span id="top_<%=post._id%>" style="display:none" class="put_top">置顶</span>
+            <% }%>
+
+            <% if((typeof(post.chosen) !== 'undefined')&&post.chosen) { %>
+            <span id="chosen_<%=post._id%>" class="put_chosen">荐</span>
+            <% }else{%>
+            <span id="chosen_<%=post._id%>" style="display:none" class="put_chosen">荐</span>
+            <% }%>
+
+            <% if (post.type=="biaobai") {%>
+              <span id="biaobai_<%=post._id%>" class="put_top" style="background: #E0709E;">表白</span>
+            <% }else{%>
+             <span id="biaobai_<%=post._id%>" style="display:none" class="put_top" style="background: #E0709E;">表白</span>
+            <% }%>
+
+            <% if (post.type=="ask") {%>
+            <span id="ask_<%=post._id%>" class="put_top" style="background: #59CC23;">问问</span>
+            <% }else{%>
+            <span  id="ask_<%=post._id%>"  style="display:none"  class="put_top" style="background: #59CC23;">问问</span>
+            <% }%>
+
+            <% if (post.type=="meng") {%>
+            <span id="meng_<%=post._id%>" class="put_top" style="background: #E68722;">萌</span>
+            <% }else{%>
+            <span  id="meng_<%=post._id%>"  style="display:none"  class="put_top" style="background: #E68722;">萌</span>
+            <% }%>
+
+            <% if (post.type=="friend") {%>
+            <span id="friend_<%=post._id%>" class="put_top" style="background: #2382CC;">邂逅</span>
+            <% }else{%>
+            <span  id="friend_<%=post._id%>"  style="display:none"  class="put_top" style="background: #2382CC;">交友</span>
+            <% }%>
+
+
+            <strong style="letter-spacing: 1px;
+color: rgb(105, 95, 95);"><%=(post.type=="confess")?('对'+post.confess_to.college_name+'的['+post.confess_to.name+']说:'):''%></strong>  <%-post.content%>
+</p>
+</div>
+<%if (post.image&&post.image!=""&&typeof(post.image) !== 'undefined') {%>
+   <p><img src="/<%=post.image%>" style="max-width:100%;height:auto;"/></p>
+ <% } %>
+        <% if (typeof(post.plusmsg1) !== 'undefined' &&post.plusmsg1.length>0) { %>
+        <br><p><strong>追加:</strong><%-post.plusmsg1%></p>
+        <% } %>
+        <% if (typeof(post.plusmsg2) !== 'undefined' &&post.plusmsg2.length>0) { %>
+        <br><p><strong>追加:</strong><%-post.plusmsg2%></p>
+        <% } %>
+        <% if (typeof(post.plusmsg3) !== 'undefined' &&post.plusmsg3.length>0) { %>
+        <br><p><strong>追加:</strong><%-post.plusmsg3%></p>
+        <% } %>
+	
+    </div>
+    <div class="ft">
+        <% if(typeof(from) !== 'undefined'&&from=="index"&&typeof(current_user) !== 'undefined'&&current_user.is_admin==true) { %>
+        <div class="action flex">
+            <a class="btn i-del-post" onclick="postDel('<%=post._id%>')">删除</a>
+            <a class="btn i-top"  action_val="<%=!post.top%>" onclick="post_Update_Status('top','<%=post._id%>',this)">
+                <% if (typeof(post.top) !== 'undefined'&&post.top) {%>
+                 去顶
+                <% }else{%>
+                 置顶
+                <%}%>
+            </a>
+            <a class="btn i-chosen"  action_val="<%=!post.chosen%>" onclick="post_Update_Status('chosen','<%=post._id%>',this)">
+                <% if (typeof(post.chosen) !== 'undefined'&&post.chosen) {%>
+                去荐
+                <% }else{%>
+                推荐
+                <%}%>
+            </a>
+            <a class="btn i-hide" onclick="post_Update_Status('display','<%=post._id%>',this)"  action_val="<%=!post.display%>">
+                <% if(typeof(post.display) !== 'undefined'&&post.display) { %>
+                隐藏
+                <% }else{ %>
+                显示
+                <% }%>
+            </a>
+            <a class="btn i-hide" onclick="mask_Classify_Show('<%=post._id%>')"  action_val="<%=!post.display%>">
+                其他
+            </a>
+        </div>
+        <% }%>
+        <% if(typeof(from) !== 'undefined'&&(from=="index"||from=="top100")) { %>
+        <div class="action flex">
+            <a class="btn i-share" onclick="load_Post_Detail('<%=post._id%>',true)">分享</a>
+            <a class="btn i-like" type="<%=type%>" onclick="postLike('<%=post._id%>',this)"><%=type=='biaobai'?'祝福Ta':'赞'%></a>
+            <a class="btn i-coms" onclick="setParam_To_Post_Comment_SubmitBtn('list','<%=post._id%>')">评论</a>
+			 <a class="btn i-msgs" onclick="setParam_To_Private_Msg_SubmitBtn('<%=post.from_user._id%>')">私信</a>
+        </div>
+        <% }else if(typeof(from) !== 'undefined'&&from=="detail") {%>
+        <div class="action flex" >
+            <a class="btn i-fav" post_id="<%=post._id%>">收藏</a>
+            <a class="btn i-like" type="<%=post.type%>" onclick="postLike('<%=post._id%>',this)">已<%=post.type=='biaobai'?'祝福Ta':'赞'%></a>
+            <a class="btn i-share"  onclick="load_Post_Detail('<%=post._id%>',true)">分享</a>
+            <a class="btn i-msgs"  onclick="setParam_To_Post_Comment_SubmitBtn('list','<%=post._id%>')">评论</a>
+        </div>
+        <%}else if(typeof(current_user) !== 'undefined'&&from=="user"){%>
+        <div class="action flex">
+            <a class="btn i-del-post" onclick="postDel('<%=post._id%>')">删除</a>
+            <a class="btn i-append" onclick="setParam_To_Post_Plus_SubmitBtn('<%=post._id%>','<%=post.type%>')">追加</a>
+            <a class="btn i-share"  onclick="load_Post_Detail('<%=post._id%>',true)">分享</a>
+            <a class="btn i-like"  type="<%=post.type%>" onclick="postLike('<%=post._id%>',this)"><%=post.type=='biaobai'?'祝福Ta':'赞'%></a>
+        </div>
+        <%}else if(typeof(current_user) !== 'undefined'&&from=="i-like"){%>
+        <div class="action flex">
+            <a class="btn i-share"  onclick="load_Post_Detail('<%=post._id%>',true)">分享</a>
+            <a class="btn i-like clicked" type="<%=post.type%>" onclick="post_Update_Status('like','<%=post._id%>',this)"  action_val="false" >取消<%=post.type=='biaobai'?'祝福Ta':'赞'%></a>
+            <a class="btn i-coms"  onclick="setParam_To_Post_Comment_SubmitBtn('list','<%=post._id%>')">评论</a>
+			 <a class="btn i-msgs" onclick="setParam_To_Private_Msg_SubmitBtn('<%=post.from_user._id%>')">私信</a>
+        </div>
+        <%}else if(typeof(current_user) !== 'undefined'&&from=="i-fav"){%>
+        <div class="action flex">
+            <a class="btn i-share" onclick="load_Post_Detail('<%=post._id%>',true)">分享</a>
+            <a class="btn i-fav clicked" onclick="post_Update_Status('fav','<%=post._id%>',this)"  action_val="false">取消收藏</a>
+            <a class="btn i-coms" onclick="setParam_To_Post_Comment_SubmitBtn('list','<%=post._id%>')">评论</a>
+			 <a class="btn i-msgs" onclick="setParam_To_Private_Msg_SubmitBtn('<%=post.from_user._id%>')">私信</a>
+        </div>
+        <% }else{ %>
+        <div class="action flex">
+            <a class="btn i-share" onclick="load_Post_Detail('<%=post._id%>',true)">分享</a>
+            <a class="btn i-like" type="<%=post.type%>" onclick="postLike('<%=post._id%>',this)"><%=post.type=='biaobai'?'祝福Ta':'赞'%></a>
+            <a class="btn i-coms" onclick="setParam_To_Post_Comment_SubmitBtn('list','<%=post._id%>')">评论</a>
+			 <a class="btn i-msgs" onclick="setParam_To_Private_Msg_SubmitBtn('<%=post.from_user._id%>')">私信</a>
+        </div>
+        <% }%>
+        <% if (((typeof(post.like_count) !== 'undefined'&&post.like_count>0)||(typeof(post.reply_count) !== 'undefined'&&post.reply_count>0))) { %>
+        <div class="min-comments" id="mimi-comments-<%=post._id%>" style="">
+            <% if (typeof(post.like_count) !== 'undefined'&&post.like_count>0) { %>
+            <p id="zan-<%=post._id%>" class="i-like"><span><%=post.like_count%></span><%=(post.type=="biaobai")?'人送上了祝福':'个人觉得很赞'%></p>
+			 
+            <% }else{ %>
+            <p id="zan-<%=post._id%>" class="i-like"  style="display:none"><span>1</span><%=(post.type=="biaobai")?'人送上了祝福':'个人觉得很赞'%></p>
+          
+            <% }%>
+            <!--  同时有赞，同时有评论才显示横线-->
+            <% if (((typeof(post.like_count) !== 'undefined'&&post.like_count>0)&&(typeof(post.reply_count) !== 'undefined'&&post.reply_count>0))) { %>
+            <b class="hr"></b>
+            <% }else {%>
+			  <b class="hr" id="separator"  style="display:none"></b>
+		  <% } %>
+            <%- partial('../partial/post_list_comment_abstract', {collection:post.replylist, as:'reply'}) %>
+            <% if(typeof(post.reply_count) !== 'undefined'&&post.reply_count>6) { %>
+            <p><a onclick="load_Post_Detail('<%=post._id%>')">点击查看剩余的<%=post.reply_count-6%>评论&gt;&gt;</a></p>
+            <% } %>
+        </div>
+        <% }else{ %>
+        <div class="min-comments"  id="mimi-comments-<%=post._id%>" style="display:none">
+            <p id="zan-<%=post._id%>" class="i-like"  style="display:none"><span>1</span><%=(post.type=="biaobai")?'个人给TA送上了祝福':'个人觉得很赞'%></p>
+            <b class="hr" id="separator"  style="display:none"></b>
+        </div>
+        <% }%>
+    </div>
+</div>
+<%}%>
+
+
+

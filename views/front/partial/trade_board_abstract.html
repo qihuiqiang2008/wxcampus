@@ -1,0 +1,32 @@
+<%if (trade_board&&trade_board!="") {%>
+<div class="feed" id="feed-<%=trade_board._id%>">
+ <div class="item" id="trade_board-<%=trade_board._id%>">
+        <div class="hd">
+            <p class="info">
+                <a class="fn" style="max-width:200px"><%=trade_board.title%></a>
+                <span class="meta"><time class="time"><%=trade_board.friendly_create_at%></time></span>
+            </p>
+            <% if((typeof(current_user) !== 'undefined')&&(current_user.is_admin==true||current_user._id.toString()==trade_board.from_user._id)) { %>
+                	<span class="action">
+						<a class="btn i-del"   onclick="trade_Board_Del('<%=trade_board._id%>')">删除</a>
+					</span>
+            <%}else{%>
+					<span class="action">
+						<a class="btn i-msg"  onclick="setParam_To_Private_Msg_SubmitBtn('<%=trade_board.from_user._id%>','trade_board','<%=trade_board._id%>')">私信TA</a>
+					</span>
+            <%}%>
+        </div>
+        <div class="bd" style="margin-left:0px;">
+            <p><strong>交易地点：</strong><%=trade_board.trade_address%></p>
+           <hr class="hr-dot">
+            <p><strong>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</strong><%=trade_board.price%></p>
+            <hr class="hr-dot">
+           <p ><strong>描&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;述：</strong><%=trade_board.content%></p>
+            <hr class="hr-dot">
+            <p><strong>联&nbsp;&nbsp;系&nbsp;&nbsp;人：</strong><%=trade_board.contact_person%></p>
+            <hr class="hr-dot">
+            <p ><strong>联系方式：</strong><img src="/public/front/images/<%=trade_board.contact_type%>.png"><%=trade_board.contact%> </p>
+        </div>
+    </div>
+</div>
+<%}%>

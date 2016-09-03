@@ -1,0 +1,192 @@
+<%- include ../partial/header %>
+<header class="header">
+    <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button
+            data-hook="subNav-back"
+            class="b-bak js-link" link="/user/index">返回
+    </button></span><span class="col-r"><button  class="b-act js-link" link="/signin">
+    </button></span>
+        <div id="sub_tab" class="col-m"></div>
+        <h2 id="sub_title" class="hd">个人信息</h2></div>
+</header>
+<div id="page-content" class="feed-page" style="display: block;">
+    <div class="page-wrap" id="page-profile" style="display: block;">
+        <div class="profile-detail" id="J_Profile">
+            <% if(typeof(return_msg) !== 'undefined'&&return_msg!==''){ %>
+               <div class="feed dataItem mygonggao" style="<%=(return_msg.type=='success')?'background-color: #dff0d8':''%>">
+                <p  style="<%=(return_msg.type=='success')?'color: #468847;':''%>"><%=return_msg.content%></p>
+               </div>
+            <% }%>
+            <div class="table-wrap">
+                <form action="/user/update" method="post">
+                    <ul class="ui-table ui-table-list">
+                        <li class="active">
+                            <label>昵称</label>
+                            <div>
+                                <input type="text" value="<%=user.name%>" name="name">
+                            </div>
+                        </li>
+                        <li class="active">
+                            <label>邮箱</label>
+                            <div>
+                                <input type="text" value="<%=user.email%>" name="email">
+                            </div>
+                        </li>
+                        <li>
+                            <label>性别</label>
+
+                            <div class="select">
+                                <select name="sex">
+                                    <%if (user.sex=="boy") {%>
+                                   <option value="boy" selected="selected">男</option>
+                                    <option value="girl">女</option>
+                                    <%} else{%>
+                                    <option value="boy" >男</option>
+                                    <option value="girl" selected="selected">女</option>
+                                    <% }%>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label>年级</label>
+
+                            <div class="select">
+
+                                <select name="grade">
+                                    <option value="-1" <%=(user.location.grade=='-1'?'selected':'')%>>已毕业</option>
+                                    <option value="0"  <%=(user.location.grade=='0'?'selected':'')%>>其他（如硕士等）</option>
+                                    <option value="2011" <%=(user.location.grade=='2011'?'selected':'')%>>2011</option>
+                                    <option value="2014" <%=(user.location.grade=='2014'?'selected':'')%>>2014</option>
+                                    <option value="2013" <%=(user.location.grade=='2013'?'selected':'')%>>2013</option>
+                                    <option value="2012" <%=(user.location.grade=='2012'?'selected':'')%>>2012</option>
+                                    <option value="2010" <%=(user.location.grade=='2010'?'selected':'')%>>2011</option>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>地区</label>
+                            <div class="select">
+                                <select name="region_code" id="region_code">
+                                    <% regions.forEach(function(region,index) { %>
+                                    <%if (region&&region!=""&&(region.region_code==user.location.region_code)) {%>
+                                    <option value="<%=region.region_code%>" selected="selected"><%=region.name%>
+                                    </option>
+                                    <%} else if(region&&region!="") {%>
+                                    <option value="<%=region.region_code%>"><%=region.name%>
+                                    </option>
+                                    <% }%>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>学校</label>
+                            <div class="select">
+                                <select name="school_id" id="school_id">
+                                    <% schools.forEach(function(school,index) { %>
+                                    <%if (school&&school!=""&&(school._id.toString()==user.location.school_id.toString())) {%>
+                                    <option value="<%=school._id%>" selected="selected"><%=school.cn_name%>
+                                    </option>
+                                    <%} else if(school&&school!="") {%>
+                                    <option value="<%=school._id%>"><%=school.cn_name%>
+                                    </option>
+                                    <% }%>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>学院</label>
+                            <div class="select">
+                                <select name="college_id" id="college_id">
+                                    <% colleges.forEach(function(college,index) { %>
+                                    <%if (college&&college!=""&&user.location.college_id&&(college._id.toString()==user.location.college_id.toString())) {%>
+                                    <option value="<%=college._id%>" selected="selected"><%=college.name%>
+                                    </option>
+                                    <%} else if(college&&college!="") {%>
+                                    <option value="<%=college._id%>"><%=college.name%>
+                                    </option>
+                                    <% }%>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="text-align: center;padding: 15px;"><input class="myButton" type="submit" value="保存"/>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include ../partial/footer%>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#region_code').change(function () {
+            var region_code = $(this).val();
+            if ($(this).val() != "select") {
+                $.ajax({
+                    'url': '/schools?region_code=' + region_code,
+                    'type': 'GET',
+                    'dataType': 'json',
+                    beforeSend: function (xhr, textStatus) {
+                        loading_show();
+                    },
+                    success: function (json, st, xhr) {
+                        if (st == "success") {
+                            $("#college_id").html('<option value="select">所在学院</option>');
+                            $("#school_id").html('<option value="select">所在学校</option>');
+                            json.forEach(function (school, index) {
+                                $("#school_id").append("<option value=" + school._id + ">" + school.cn_name + "</option>");
+                            });
+                            return;
+                        }
+                    },
+                    error: function () {
+                        tip("出现异常，请刷新后重试");
+                    },
+                    complete: function (xhr, textStatus) {
+                        loading_hide();
+                    }
+                });
+            } else {
+                $("#school_id").html( "<option value=select>选择学校</option>");
+            }
+        })
+
+        $('#school_id').change(function () {
+            var school_id = $(this).val();
+            if ($(this).val() != "select") {
+                $.ajax({
+                    'url': '/colleges?school_id=' + school_id,
+                    'type': 'GET',
+                    'dataType': 'json',
+                    beforeSend: function (xhr, textStatus) {
+                        loading_show();
+                    },
+                    success: function (json, st, xhr) {
+                        if (st == "success") {
+                            $("#college_id").html('<option value="select">所在学院</option>');
+                            json.forEach(function (college, index) {
+                                $("#college_id").append("<option value=" + college._id + ">" + college.name + "</option>");
+                            });
+                            return;
+                        }
+                    },
+                    error: function () {
+                        tip("出现异常，请刷新后重试");
+                    },
+                    complete: function (xhr, textStatus) {
+                        loading_hide();
+                    }
+                });
+            } else {
+                $("#college_id").html( "<option value=select>选择学院</option>");
+            }
+        })
+    })
+</script>

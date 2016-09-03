@@ -1,0 +1,197 @@
+<%- include ../partial/header %>
+<header class="header">
+    <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button
+            data-hook="subNav-back"
+            class="b-bak"><a href="/">返回</a>
+    </button></span><span class="col-r"><button class="b-act"><a href="/signin">登录</a>
+    </button></span>
+
+        <div id="sub_tab" class="col-m"></div>
+        <h2 id="sub_title" class="hd">注册</h2></div>
+</header>
+<div id="page-content" class="feed-page" style="display: block;">
+    <div class="page-wrap" id="page-profile" style="display: block;">
+        <div class="profile-detail" id="J_Profile">
+            <% if(typeof(errormsg) !== 'undefined' && errormsg){ %>
+            <div class="feed dataItem mygonggao">
+                <p><%=errormsg%></p>
+            </div>
+            <% } else{%>
+
+            <% }%>
+            <div class="table-wrap">
+                <form action="/signup" method="post">
+                    <input type="hidden" name="openid" value="ozS_Kjj_LbfoK4aHMJBBr7pfa698">
+                    <ul class="ui-table ui-table-list">
+                        <li class="active">
+                            <label>昵称</label>
+
+                            <div>
+                                <% if(typeof(name) !== 'undefined' && name){ %>
+                                <input type="text" value="<%=name%>" name="name">
+                                <% } else{%>
+                                <input type="text" value="" name="name">
+                                <% }%>
+                            </div>
+                        </li>
+
+                        <li class="active">
+                            <label>邮箱</label>
+
+                            <div>
+                                <% if(typeof(email) !== 'undefined' && email){ %>
+                                <input type="text" value="<%=email%>" name="email">
+                                <% } else{%>
+                                <input type="text" value="" name="email">
+                                <% }%>
+                            </div>
+                        </li>
+
+                        <li class="active">
+                            <label>密码</label>
+
+                            <div>
+                                <input type="password" value="" name="pwd">
+                            </div>
+                        </li>
+
+                        <li class="active">
+                            <label>密码确认</label>
+
+                            <div>
+                                <input type="password" value="" name="confirmpwd">
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>性别</label>
+
+                            <div class="select">
+                                <select name="sex">
+                                    <option value="boy" selected="selected">男</option>
+                                    <option value="girl">女</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label>年级</label>
+
+                            <div class="select">
+                                <select name="grade">
+
+                                    <option value="-1" selected="selected">已毕业</option>
+                                    <option value="0" selected="selected">其他（如硕士等）</option>
+                                    <option value="2011" selected="selected">2011</option>
+                                    <option value="2014" selected="selected">2014</option>
+                                    <option value="2013" selected="selected">2013</option>
+                                    <option value="2012" selected="selected">2012</option>
+                                    <option value="2010" selected="selected">2011</option>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>地区</label>
+                            <div class="select">
+                                <select name="region_code" id="region_code">
+                                    <option value="select">所在市</option>
+                                    <% regions.forEach(function(region,index) { %>
+                                    <option value="<%=region.region_code%>"><%=region.name%>
+                                    </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>学校</label>
+                            <div class="select">
+                                <select name="school_id" id="school_id">
+                                    <option value="select">所在学校</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <label>学院</label>
+                            <div class="select">
+                                <select name="college_id" id="college_id">
+                                    <option value="select">所在学院</option>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="text-align: center;padding: 15px;"><input class="myButton"  onclick="this.disabled=true;this.form.submit()" type="button" value="提交注册">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include ../partial/footer%>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#region_code').change(function () {
+            var region_code = $(this).val();
+            if ($(this).val() != "select") {
+                $.ajax({
+                    'url': '/schools?region_code=' + region_code,
+                    'type': 'GET',
+                    'dataType': 'json',
+                    beforeSend: function (xhr, textStatus) {
+                        loading_show();
+                    },
+                    success: function (json, st, xhr) {
+                        if (st == "success") {
+                            $("#college_id").html('<option value="select">所在学院</option>');
+                            $("#school_id").html('<option value="select">所在学校</option>');
+                            json.forEach(function (school, index) {
+                                $("#school_id").append("<option value=" + school._id + ">" + school.cn_name + "</option>");
+                            });
+                            return;
+                        }
+                    },
+                    error: function () {
+                        tip("出现异常，请刷新后重试");
+                    },
+                    complete: function (xhr, textStatus) {
+                        loading_hide();
+                    }
+                });
+            } else {
+                $("#school_id").html( "<option value=select>选择学校</option>");
+            }
+        })
+
+        $('#school_id').change(function () {
+            var school_id = $(this).val();
+            if ($(this).val() != "select") {
+                $.ajax({
+                    'url': '/colleges?school_id=' + school_id,
+                    'type': 'GET',
+                    'dataType': 'json',
+                    beforeSend: function (xhr, textStatus) {
+                        loading_show();
+                    },
+                    success: function (json, st, xhr) {
+                        if (st == "success") {
+                            $("#college_id").html('<option value="select">所在学院</option>');
+                            json.forEach(function (college, index) {
+                                $("#college_id").append("<option value=" + college._id + ">" + college.name + "</option>");
+                            });
+                            return;
+                        }
+                    },
+                    error: function () {
+                        tip("出现异常，请刷新后重试");
+                    },
+                    complete: function (xhr, textStatus) {
+                        loading_hide();
+                    }
+                });
+            } else {
+                $("#college_id").html( "<option value=select>选择学院</option>");
+            }
+        })
+    })
+</script>

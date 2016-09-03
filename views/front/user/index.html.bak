@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://www.lieqicun.com/mimi/list.php?openid=ozS_Kjj_LbfoK4aHMJBBr7pfa698 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>个人中心</title>
+    <meta name="description" content="全国高校的 " />
+    <meta name="robots" content="none">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=320,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=319.9,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" media="(device-height: 568px)">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x5-fast-scroller" content="disable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" id="CssGaga" href="/public/front/stylesheets/gb.css?v=1">
+    <link rel="stylesheet" id="CssGaga" href="/public/front/stylesheets/my.css?v=1">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <!--<script type="text/javascript" src="./jingxuan_files/stats" charset="UTF-8"></script>-->
+    <style id="clearly_highlighting_css" type="text/css">
+        /* selection */
+        html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); }
+        html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); }
+        /* cursor */
+        html.clearly_highlighting_enabled { /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; }
+        /* highlight tag */
+        em.clearly_highlight_element {font-style: inherit !important; font-weight: inherit !important;    background-image:url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");
+            background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; }
+        /* the delete-buttons are positioned relative to this */
+        em.clearly_highlight_element.clearly_highlight_first { position: relative; }
+        /* delete buttons */
+        em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; }
+        /* retina */
+        @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }
+            em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="/public/front/stylesheets/p4p-2.0.css">
+    <style>
+        [touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }
+
+
+    </style>
+
+
+</head>
+<body class="PE">
+<div id="main">
+
+<div id="container">
+    <header class="header2"><a href="/" class="fn left iqq t_home"></a><h1>个人中心</h1><a href="" class="fn imessage t_imessage right" style=" padding-left: 30px;">
+
+        <% if (current_user.all_message_not_read_count>0) { %>
+        <small class="top-new-msg-tip"><%=current_user.all_message_not_read_count%></small>
+        <% } %>
+
+    </a></header>
+<div id="page-content" class="feed-page" style="display: block;">
+    <div class="page-wrap" id="page-mine" style="display: block;">
+        <div class="profile" style="background-image: url(http://mjs.sinaimg.cn/wap/h5/dpool/personal/201409151720/images/top_bg.png); background-size: cover;height: 130px;">
+            <div class="txt">
+                <div class="infos">
+                    <a href="/user/show_update"><span class="col">
+			   					<b class="name" style="max-width:340px"><%=current_user.name%><span class="<%=current_user.sex%>tips"></span>  <a href="/user/show_update" style="color: #FCFDFC;">个人设置</a>
+								<a href="/signout" style="color: #FCFDFC;margin-left:5px">退出</a>
+								</b>
+			   				</span></a>
+                </div>
+            </div>
+            <div class="img">
+                <div class="avatar">
+                    <b class="pic loaded" style="background-image: url(/public/front/images/<%=current_user.sex%>.jpg);"></b>
+                </div>
+            </div>
+        </div>
+     <nav class="profile-nav">
+         <!--<a href="/user/index?type=secret"><i class="split-l"></i><i class="split-r"></i>树洞<em><%=user.secret_count%></em></a>-->
+         <!--<a href="/user/index?type=confess"><i class="split-l"></i><i class="split-r"></i>表白<em><%=user.confess_count%></em></a>-->
+         <a href="/user/index">发表<em><%=user.post_count%></em></a>
+         <a href="/user/fav">收藏<em><%=user.fav_count%></em></a>
+         <a href="/user/like">赞|祝福<em><%=user.like_count%></em></a>
+
+        </nav>
+		
+     <div class="profile-apps">
+            <ul class="ui-list">
+                <li>
+                    <div class="col-l"><i class="i-visitor"></i></div>
+                    <div class="col-r"></div>
+                    <div class="col-m js-link" link='/user/replied'>回复我的</div>
+                    <% if (current_user.post_replied_not_read_count>0) { %>
+                    <small class="detail-new-msg-tip"><%=current_user.post_replied_not_read_count%></small>
+                    <% } %>
+
+                </li>
+                <li>
+                    <div class="col-l"><i class="i-visitor"></i></div>
+                    <div class="col-r"></div>
+                    <div class="col-m js-link" link="/user/liked">赞我的</div>
+                    <% if (current_user.post_liked_not_read_count>0) { %>
+                    <small class="detail-new-msg-tip"><%=current_user.post_liked_not_read_count%></small>
+                    <% } %>
+                </li>
+                <li>
+                    <div class="col-l"><i class="i-visitor"></i></div>
+                    <div class="col-r"></div>
+                    <div class="col-m js-link" link="/user/message?from=i-receive">私信我的</div>
+                    <% if (current_user.private_message_not_read_count>0) { %>
+                    <small class="detail-new-msg-tip"><%=current_user.private_message_not_read_count%></small>
+                    <%}%>
+                </li>
+
+            </ul>
+        </div>
+     <div id="feed_list_cot_mine" class="_feed_list">
+            <%- partial('../partial/post_abstract', {collection:posts, as:'post'}) %>
+        </div>
+        <section id="Page_wrapper"><div class="pagination">
+            <% if (current_page == 1||pages==0) { %>
+            <a href="javascript:void(0);" class="prev no">上一页</a>
+            <% } else { %>
+            <a href="/user/index?page=<%=current_page-1%>&type=<%=type%>" class="next">上一页</a>
+            <% } %>
+            <% if (current_page == pages||pages==0) { %>
+            <a href="javascript:void(0);" class="prev no">下一页</a>
+            <% } else { %>
+            <a href="/user/index?page=<%=current_page+1%>&type=<%=type%>" class="next">下一页</a>
+            <% } %>
+            <em></em></div>
+        </section>
+        <br><br>
+    </div>
+</div>
+</div>
+<%- include ../partial/footer%>

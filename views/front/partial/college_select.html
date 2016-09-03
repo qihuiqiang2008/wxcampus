@@ -1,0 +1,30 @@
+<div id="form-1" class="form-pop bg-img" style="width: 100%; min-height: 570px; position: relative;display:none ">
+    <header class="header">
+        <div class="sub-nav black"><span class="col-l"><button class="b-def" id="form-1-cancel">返回</button></span><span
+                class="col-r"><button global-hot="save.selectLocation" class="b-act submit" id="form-1-submit"
+                                      style="display:none;"></button></span>
+            <h2 class="hd" id="form-1-title">TA所在的学院</h2></div>
+    </header>
+    <div class="form-wrap" style="position:relative;width:100%;">
+        <div class="form-container" style="position:relative;width:100%;">
+            <div id="selectLocationContainer">
+                <div class="geo-list">
+                    <ul class="ui-list">
+                        <% colleges.forEach(function(college,index) { %>
+                        <li college_id="<%=college._id%>" college_name="<%=college.name%>" >
+                            <div class="col-l">
+                                <i class="i-geo"></i>
+                            </div>
+                            <div class="col-m">
+    <span class="txt"><%=college.name%>
+    </span>
+                            </div>
+                        </li>
+                        <%})%>
+                    </ul>
+                </div>
+                <p class="refresh-bar" data-oper="load-more"><i class="i-star"></i>上面是你所在学校的所有学院</p></div>
+        </div>
+    </div>
+    <div id="form-1-mask" class="form-mask" style="display:none;"></div>
+</div>

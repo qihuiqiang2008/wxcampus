@@ -1,0 +1,42 @@
+<div class="table-wrap">
+        <ul class="ui-table ui-table-list">
+            <li class="active">
+                <label>昵称</label>
+                <div>
+                    <input type="text" value="" name="name" id="user_name" placeholder="起一个萌萌哒的名字吧">
+                </div>
+            </li>
+            <li>
+                <label>性别</label>
+                <div class="select" >
+                    <select name="sex"  id="user_sex">
+                        <option value="boy">男</option>
+                        <option value="girl" selected="selected">女</option>
+                    </select>
+                </div>
+
+            </li>
+            <% if (typeof(schools) !== 'undefined') { %>
+            <li>
+                <label>学校</label>
+                <div class="select">
+                    <select name="school_id" id="school_id">
+                        <% schools.forEach(function(school,index) { %>
+                        <option value="<%=school.en_name%>"><%=school.cn_name%>
+                        </option>
+                        <% }) %>
+                    </select>
+                </div>
+            </li>
+            <% }%>
+            <input type="hidden" id="school_en_name" value="<%=en_name%>"/>
+            <input type="hidden" id="wgateid" value="<%=wgateid%>"/>
+        </ul>
+</div>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#school_id').change(function () {
+            $("#school_en_name").val($(this).val());
+        })
+    })
+</script>

@@ -1,0 +1,137 @@
+<% if(typeof(ajax) == 'undefined') { %>
+<%- include ../partial/header %>
+<% }%>
+<div id="detail" post_id="<%=post._id%>">
+    <header id="header">
+        <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button id="sub_back"
+                                                                                          onclick="detail_GoBack()"
+                                                                                          class="b-bak">返回
+        </button></span><span class="col-r"><button id="sub_opr" data-hook="subNav-opr" class="b-act"
+                                                    data-hot="upload.{act}.{page}.{path}" style="display: none;">写说说
+        </button></span>
+
+            <div id="sub_tab" class="col-m"></div>
+            <h2 id="sub_title" class="hd">详情</h2></div>
+    </header>
+    <div id="page-content" class="feed-page" style="display: block;">
+        <div class="page-wrap" id="page-detail" style="display: block;">
+            <% if (typeof(post) !== 'undefined') { %>
+            <div class="feed " id="53c7aa55d3b7a67862000007">
+                <div class="hd">
+                    <p class="info vip-user">
+                        <a class="fn" onclick="user_Lock('<%=post.from_user._id%>','<%=post.from_user.name%>')"><span
+                                class="<%=post.from_user.sex%>tips"></span><%=post.from_user.name%></a>
+                        <span class="meta"><time class="time"><%=post.friendly_create_at%></time> <%=(typeof(current_user)!=='undefined'&&current_user.is_admin)?(' 阅读次数:'+post.visit_count):''%></span>
+                    </p>
+                </div>
+                <div class="bd">
+                    <p id="content-<%=post._id%>"><strong style="letter-spacing: 1px;
+color: rgb(105, 95, 95);"><%=(post.type=="confess")?('对'+post.confess_to.school_name+'|'+post.confess_to.college_name+'的['+post.confess_to.name+']说:'):''%></strong><%-post.content%>
+                    </p>
+                    <%if (post.image&&post.image!=""&&typeof(post.image) !== 'undefined') {%>
+                    <p><img src="/<%=post.image%>" style="max-width:100%;height:auto;"/></p>
+                    <% } %>
+                    <% var post_type=post.type=="secret"?"树洞":"表白";%>
+                    <% if (typeof(post.plusmsg1) !== 'undefined' &&post.plusmsg1.length>0) { %>
+                    <br>
+
+                    <p><strong><%=post_type%>追加:</strong><%-post.plusmsg1%></p>
+                    <% } %>
+                    <% if (typeof(post.plusmsg2) !== 'undefined' &&post.plusmsg2.length>0) { %>
+                    <br>
+
+                    <p><strong><%=post_type%>追加:</strong><%-post.plusmsg2%></p>
+                    <% } %>
+                    <% if (typeof(post.plusmsg3) !== 'undefined' &&post.plusmsg3.length>0) { %>
+                    <br>
+
+                    <p><strong><%=post_type%>追加:</strong><%-post.plusmsg3%></p>
+                    <% } %>
+                </div>
+                <div class="ft mimicomlist">
+                    <div class="action flex" type="<%=faved%>">
+                        <b class="btn i-share" onclick="post_Detail_Share()">分享</b>
+                        <% if (faved==true) { %>
+                        <a class="btn i-fav clicked" onclick="post_Update_Status('fav','<%=post._id%>',this)"
+                           action_val="false">已收藏</a>
+                        <% }else{ %>
+                        <a class="btn i-fav" onclick="post_Update_Status('fav','<%=post._id%>',this)" action_val="true">收藏</a>
+                        <% }%>
+                        <% if (liked==true) { %>
+                        <a class="btn i-like clicked" type="<%=post.type%>"
+                           onclick="post_Update_Status('like','<%=post._id%>',this)" action_val="false"><%=(post.type=="confess")?'已祝福':'已赞'%></a>
+                        <% }else{ %>
+                        <a class="btn i-like" type="<%=post.type%>"
+                           onclick="post_Update_Status('like','<%=post._id%>',this)" action_val="true"><%=(post.type=="confess")?'祝福TA':'赞'%></a>
+                        <% }%>
+                        <b class="btn i-coms"
+                           onclick="setParam_To_Post_Comment_SubmitBtn('detail_comment','<%=post._id%>')">评论</b>
+                    </div>
+                    <% if (typeof(post.like_count) !== 'undefined'&&post.like_count>0) { %>
+                    <p id="zan-<%=post._id%>" class="i-like"><span><%=post.like_count%></span><%=(post.type=="confess")?'个人给TA送上了祝福':'个人觉得很赞'%>
+                    </p>
+                    <% }else{ %>
+                    <p id="zan-<%=post._id%>" style="display:none" class="i-like"><span><%=post.like_count%></span><%=(post.type=="confess")?'个人给TA送上了祝福':'个人觉得很赞'%>
+                    </p>
+                    <% } %>
+                    <%if( (typeof(post.like_count) !== 'undefined'&&post.like_count>0)&&(typeof(post.reply_count) !==
+                    'undefined'&&post.reply_count>0)) { %>
+                    <b id="b-<%=post._id%>" class="hr"></b>
+                    <% }else{ %>
+                    <b id="b-<%=post._id%>" style="display: none" class="hr"></b>
+                    <% } %>
+                    <% } %>
+                    <div class="comments" id="comments_<%=post._id%>">
+                        <%- partial('../partial/post_detail_comment_abstract', {collection:replies, as:'reply'}) %>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+    <div class="form-box-mask"
+         style="padding-top: 60px; background-color: rgba(0, 0, 0, 0.498039); position: absolute;  left: 0px; width: 100%; height: 745px; overflow: hidden;display:none;">
+        <div class="form-box">
+            <div class="form-hd J_operate">
+                <b class="item J_close">取消</b>
+                <b class="item J_title">评论</b>
+                <b class="item J_submit">发表</b>
+            </div>
+            <div class="form-bd">
+                <textarea class="txt-area" placeholder="我也说一句..."></textarea>
+
+                <div class="action" style="dispaly:none;height: 25px;"><input type="checkbox" id="niming">匿名</div>
+            </div>
+
+        </div>
+    </div>
+    <div id="mask_share" style="display: none">
+        <div id="fwin_mask_shareMask" class="g-mask"
+             style="position:absolute;top:-0px;left:-0px;width:100%;height:100%;background:#000;filter:alpha(opacity=60);opacity:0.5; z-index:10000;"></div>
+        <div style="width: 100%; position: fixed; z-index: 10001; top: 0px; left: 0px;" id="fwin_dialog_shareMask">
+            <div class="tipInfo" id="showShare" style="
+    padding: 1px 10px 0;  background-color: #769cdc;  color: #769cdc;  position: relative;  z-index: 10001;
+">
+                <p class="tipBor" style="
+    color: #333;  line-height: 35px;  text-align: center;  color: #fffefe;
+">喜欢这个页面，请点击右上角图标分享<span class="arrLeft" style="
+    width: 15px;  height: 16px;  display: inline-block;  margin-left: 10px;
+    background: url(/public/front/images/sprBg.png) no-repeat -153px -2px;  -webkit-background-size: 320px auto;  background-size: 320px auto;  vertical-align: middle;
+"></span></p>
+            </div>
+        </div>
+    </div>
+    <!-- 如果是从主页面加载过来并且是分享的话-->
+    <script>
+        imgUrl = '<%-config.site_static_host%>public/front/images/welife.jpg';
+        lineLink = 'http://www.weixingate.com/gate.php?back=http%3A%2F%2F123.57.49.48/detail/<%=post._id%>?en_name=<%=post.from_user.school_en_name%>';
+        shareFriend_descContent = document.getElementById("content-<%=post._id%>").innerText;
+        shareFriend_shareTitle = "<%=post.from_user.school_short_name%><%=post.type=='biaobai'?'表白':'微生活'%>";
+        shareTimeline_descContent = document.getElementById("content-<%=post._id%>").innerText;
+        shareTimeline_shareTitle = "<%=post.from_user.school_short_name%><%=post.type=='biaobai'?'表白':'微生活'%>:" + document.getElementById("content-<%=post._id%>").innerText;
+    </script>
+</div>
+
+<% if(typeof(ajax) == 'undefined') { %>
+<%- include ../partial/footer %>
+<% }%>

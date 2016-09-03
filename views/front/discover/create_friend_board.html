@@ -1,0 +1,149 @@
+<%- include ../partial/header %>
+<header class="header">
+    <div id="sub_nav" class="sub-nav" data-showtopbar="1"><span class="col-l"><button
+            data-hook="subNav-back"
+            class="b-bak" ><a href="/friend_board">返回</a>
+    </button></span><span class="col-r"><button class="b-act js-link" link="/signin">
+    </button></span>
+
+        <div id="sub_tab" class="col-m"></div>
+        <h2 id="sub_title" class="hd">填写交友条件</h2></div>
+</header>
+<div id="page-content" class="feed-page" style="display: block;">
+    <div class="page-wrap" id="page-profile" style="display: block;">
+        <div class="profile-detail" id="J_Profile">
+            <% if(typeof(errormsg) !== 'undefined' && errormsg){ %>
+            <div class="feed dataItem mygonggao">
+                <p><%=errormsg%></p>
+            </div>
+            <% } else{%>
+
+            <% }%>
+            <div class="table-wrap">
+                <form action="/create_friend_board" method="post" id="form-friend" name="formfriend">
+                    <input type="hidden" name="openid" value="ozS_Kjj_LbfoK4aHMJBBr7pfa698">
+                    <ul class="ui-table ui-table-list">
+
+
+                        <li class="active">
+                            <label>交友条件</label>
+
+                            <div>
+
+                                <textarea value="" name="content" placeholder="在这里描述一下你期待交到好友的样子" style="
+    min-height: 100px;  border: 0 none;  margin: 0;  padding: 10px 5px 0;  font-size: 16px;  -webkit-appearance: none;  resize: none;  width: 100%;  -webkit-box-sizing: border-box;  -moz-box-sizing: border-box;  box-sizing: border-box;
+"></textarea>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <label>联系方式</label>
+
+                            <div >
+
+                                <select name="contact_type" id="contact_type">
+                                    <option value="select" selected="selected">选择联系方式</option>
+                                    <option value="phone">电话</option>
+                                    <option value="weixin">微信号</option>
+                                    <option value="qq">qq</option>
+                                    <option value="email">邮箱</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li id="contact_li" style="display: none">
+                            <label></label>
+                            <div >
+                                <input type="text" id="contact" placeholder="在这里填写正确的微信号" value="" name="contact">
+                            </div>
+                        </li>
+                        <li>
+                            <label>浏览权限</label>
+                            <div class="select">
+                                <select name="show_condition">
+                                    <option value="0" selected="selected">全部可以看到</option>
+                                    <option value="1" >同城可以看到</option>
+                                    <option value="2" >只有自己所在学校同学可见</option>
+                                </select>
+                            </div>
+                        </li>
+                    </ul>
+                    <div style="text-align: center;padding: 15px;"><input id="submit-friend" class="myButton"   type="button" value="提交">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%- include ../partial/footer%>
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+
+$("#submit-friend").click(function(){
+          var type= $('#contact_type').val();
+          var contact= $('#contact').val();
+            if (type == "select")
+            {
+               alert("请选择联系方式");
+                return;
+            } else  if (type == "phone")
+            {
+                if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(contact))){
+                    alert("不是完整的11位手机号或者正确的手机号前七位");
+                    return;
+                }
+            }else  if (type == "weixin")
+            {
+                re = /[a-zA-Z0-9]{6,16}/;  /*匹配6-16个字符，只能是数字或字母，不包括下划线的正则表达式*/
+                if (!re.test(contact)) {
+                   alert("不是有效的微信号");
+				   return;
+                }
+            }else   if (type == "qq")
+            {
+                var filter = /^\s*[.0-9]{5,11}\s*$/;
+                if(!filter.test(contact)){
+                    alert("qq的格式不正确");
+					return;
+                }
+            }else if (type== "email")
+            {
+                var pattern = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+                if(!pattern.test(contact)){
+                    alert("邮箱格式不正确");
+					return;
+                }
+            }
+         $("#form-friend").submit();
+		  $(this).attr('disabled',"true");
+
+        });
+
+        $('#contact_type').change(function () {
+            var contact_type = $(this).val();
+            if ($(this).val() == "select")
+            {
+                $("#contact_li").hide();
+            } else  if ($(this).val() == "phone")
+            {
+                $("#contact").attr("placeholder","在这里填写您的电话号码");
+                $("#contact_li").show();
+            }else  if ($(this).val() == "weixin")
+            {
+              $("#contact").attr("placeholder","在这里填写您的微信号");
+                $("#contact_li").show();
+            }else   if ($(this).val() == "qq")
+            {
+                $("#contact").attr("placeholder","在这里填写您的QQ号");
+                $("#contact_li").show();
+            }else   if ($(this).val() == "email")
+            {
+                $("#contact").attr("placeholder","在这里填写您的邮箱地址");
+                $("#contact_li").show();
+            }
+
+        })
+    })
+</script>

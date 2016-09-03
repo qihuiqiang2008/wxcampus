@@ -1,0 +1,42 @@
+<link rel="stylesheet" type="text/css" href="/public/front/stylesheets/profile.css">
+<div id="lock_card" style="display: none">
+
+
+    <header class="header">
+        <div class="sub-nav black">
+            <span class="col-l"><button class="b-def b-bak" onclick="history.go(-1);">返回</button></span><span
+                class="col-r"></span>
+
+            <h2 class="hd" id="form-0-title">
+                <%=user_name%>的主页
+            </h2></div>
+    </header>
+    <div id="page-content" class="feed-page" style="display:block;">
+        <div class="page-wrap" id="page-mine" style="display: block; ">
+            <div class="profile" data-hook="mine-cover"
+                 style="background-image: url(http://qzonestyle.gtimg.cn/qzone/phone/m/app/cover/org/40/640x360/40.jpg#kp=1); background-size: cover; ">
+                <!--个人资料-->
+                <div class="txt">
+                    <div class="infos"><span class="col">                <b class="name"><%=user_name%></b>                            </span>
+                    </div>
+                </div>
+                <!--加好友、关注、特别关心-->
+                <div class="actions" style="display: none"><b class="addfrd" id="btn_add_friend"
+                                                              data-hook="global-addfriend"
+                                                              global-hot="main.addfriend">举报用户</b></div>
+                <div class="img" global-hot="main.enterprofile.head">
+                    <div class="avatar"><b class="pic loaded"
+                                           style="background-image: url(/public/front/images/<%=user_sex%>.jpg); "></b>
+                    </div>
+                </div>
+                <div class="update" id="J_cover_image" style="display:none;">点击图片更换背景</div>
+                <div class="vtips" data-hook="mine-vip" id="J_cover_tip" style="display: none; ">此背景仅支持黄钻用户保存，点击开通黄钻
+                </div>
+            </div>
+            <!--导航-->
+            <div class="auth qa"><p>此页面暂时不开放</p>            <b class="btn gray flex"
+                                                               onclick="setParam_To_Private_Msg_SubmitBtn('<%=user_id%>')">发私信给TA</b>
+            </div>
+            <!--chunked--></div>
+    </div>
+</div>

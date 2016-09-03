@@ -1,0 +1,356 @@
+var sanitize = require('validator').sanitize;
+var School = require('../proxy').School;
+var Post = require('../proxy').Post;
+var SchoolEx = require('../proxy').SchoolEx;
+var Region = require('../proxy').Region;
+var config = require('../config').config;
+var EventProxy = require('eventproxy');
+var Resource = require('../proxy').Resource;
+var async = require("async");
+
+exports.show_create = function (req, res, next) {
+    Region.getRegionByQuery({},{},function(err,regions){
+        res.render('back/school/create',{regions:regions});
+    })
+};
+
+exports.account_show = function (req, res, next) {
+    School.getSchoolById(req.query.id,function(err,school){
+        res.render('back/school/account',{school:school});
+    });
+};
+
+exports.account_update = function (req, res, next) {
+    var school_id = req.body.school_id;
+    var account=req.body.account;
+    if(account)
+    {
+        account=account.trim();
+    }
+    School.getSchoolById(school_id,function (err, school) {
+        if (err) {
+            res.render('back/school/account', {msg:'出现未知错误'});
+        }
+        school.wx_account_url=account;
+        school.save();
+        res.redirect("/back/schools");
+    });
+
+}
+
+exports.del = function (req, res, next) {
+    School.removeByEnname(req.query.en_name ,function(err,regions){
+        SchoolEx.removeByEnname(req.query.en_name ,function(err,regions){
+            return  res.redirect("/back/schools");
+        })
+    })
+}
+
+exports.board_update = function (req, res, next) {
+    var type = req.body.type||"text";
+    var content =req.body.content;
+    if(content)
+    {
+        content=content.trim();
+    }
+    var school_id = req.body.school_id;
+    var display =req.body.display;
+    var  board={type:type,content:content,display:(display=='true'?true:false)};
+    School.updateBoardById(school_id,board,function (err){
+        if (err) {
+            console.log(err);
+            return  res.render('back/school/board', {msg:'出现未知错误'});
+        }
+        return   res.redirect("/back/schools");
+    });
+}
+
+exports.board_show = function (req, res, next) {
+    School.getSchoolById(req.query.id,function(err,school){
+        res.render('back/school/board',{school:school});
+    });
+
+}
+
+exports.schools = function (req, res, next) {
+    var region_code = req.query.region_code || "";
+   // console.log(region_code);
+    var query={};
+    if(!region_code){
+        if(req.session.user.email!=='admin@admin.com')
+        {
+            query ={'belong_group':req.session.user.location.belong_group};
+        }
+        //query={};
+    }else
+    {
+        if(req.session.user.email!=='admin@admin.com')
+        {
+        query ={'belong_group':req.session.user.location.belong_group,region_code: region_code};
+        }else {
+            query = {region_code: region_code}
+        }
+    }
+
+    var page = parseInt(req.query.page, 10) || 1;
+    page = page > 0 ? page : 1;
+    var limit = 50;
+    var options = { skip: (page - 1) * limit, limit: limit, sort: [
+        [ 'create_at', 'desc' ]
+    ] };
+    var proxy = EventProxy.create('schools', 'pages','TodayResourceCount','regions',
+        function (schools, pages,TodayResourceCount,regions) {
+            res.render('back/school/schools', {
+                schools: schools,
+                pages: pages,
+                current_page: page,
+                TodayResourceCount:TodayResourceCount,
+                belong_group:req.session.user.location.belong_group,
+                regions:regions
+            });
+        });
+    proxy.fail(next);
+    School.getSchoolsByQuery(query, options, proxy.done("schools"));
+    School.getCountByQuery(query, proxy.done(function (all_count) {
+        var pages = Math.ceil(all_count / limit);
+        proxy.emit('pages', pages);
+    }));
+    if(req.session.user.email!=='admin@admin.com')
+    {
+        query ={'belong_group':req.session.user.location.belong_group};
+    }
+    Region.getRegionByQuery(query,{}, proxy.done("regions"))
+    Resource.getTodayResourceCount(req.session.user.location.belong_group,{"$gte": new Date((new Date()).getFullYear(),(new Date()).getMonth(), (new Date()).getDate())}, proxy.done("TodayResourceCount"));
+};
+
+exports.schools_json = function (req, res, next) {
+    var region_code = req.query.region_code || "";
+    var query = {region_code: region_code};
+    if(!region_code){
+        query={};
+    }
+
+    var options = { sort: [
+        [ 'create_at', 'desc' ]
+    ] };
+
+    School.getSchoolsByQuery(query, options, function(err,schools){
+        return res.json(schools);
+    });
+};
+
+exports.schoolExs_json = function (req, res, next) {
+    var region_code = req.query.region_code || "";
+    var query = {region_code: region_code};
+    if(!region_code){
+        query={};
+    }
+
+    var options = { sort: [
+        [ 'create_at', 'desc' ]
+    ] };
+
+    SchoolEx.getSchoolExsByQuery(query, options, function(err,schools){
+        return res.json(schools);
+    });
+};
+
+/*_id:{type: ObjectId },
+cn_name:{ type: String },
+cn_short_name:{type: String },
+wx_account_name: {type: String },
+wx_account_password: {type: String },
+appmsgid: {type: String },
+secret_title: {type: String },
+secret_content: {type: String },
+confess_title: {type: String },
+confess_content: {type: String },
+region_code: { type: String },
+belong_group:{type: Number, default: 0},*/
+
+exports.create = function (req, res, next) {
+    var cn_name = sanitize(req.body.cn_name).trim();
+    var en_name = sanitize(req.body.en_name).trim();
+    var region_code = sanitize(req.body.region_code).trim();
+    var cn_short_name = sanitize(req.body.cn_short_name).trim();
+    var wx_account_url = sanitize(req.body.wx_account_url).trim();
+    var wx_account_name = sanitize(req.body.wx_account_name).trim();
+    var wx_account_id = sanitize(req.body.wx_account_id).trim();
+    var wx_account_password = sanitize(req.body.wx_account_password).trim();
+    var appmsgid=req.body.appmsgid;
+    var msg = (cn_name === '' ||en_name==''||region_code==''||cn_short_name==''||wx_account_url==''||wx_account_name=='')? '相关信息不能为空':'';
+    if (msg) {
+        res.render('back/school/create', {msg: msg});
+    } else {
+        Region.getRegionByCode(region_code,function(err,region){
+            School.newAndSave(cn_name,en_name,cn_short_name,region_code,wx_account_url,wx_account_name,wx_account_id,region.belong_group,function (err, school) {
+                if (err) {
+                    return next(err);
+                }
+                SchoolEx.newAndSave(school._id, cn_name,en_name,cn_short_name, wx_account_name,wx_account_id,wx_account_password,appmsgid,region_code,region.belong_group,function(err){
+                    if (err) {
+                        return next(err);
+                    }
+                    res.redirect("/back/schools");
+                })
+            });
+        })
+    }
+};
+
+exports.source_edit_show = function (req, res, next) {
+    var en_name = req.query.en_name;
+    var statusCode=req.query.statusCode;
+    SchoolEx.getSchoolByEname(en_name,function(err,schoolEx){
+        if(schoolEx){
+            res.render('back/school/source_edit', {schoolEx: schoolEx,statusCode:statusCode});
+        }else{
+            statusCode=201;
+            res.render('back/school/source_edit', {statusCode:statusCode});
+        }
+    })
+};
+
+exports.title_edit_show = function (req, res, next){
+    var school_id = req.query.school_id;
+    var statusCode=req.query.statusCode;
+    var type=req.query.t;
+    var post_id=req.query.post_id;
+    console.log(post_id);
+    SchoolEx.getSchoolById(school_id,function(err,schoolEx){
+        if(schoolEx){
+            if(post_id){
+               Post.getPostById(post_id,function(err,post) {
+                if (type == "secret") {
+                    schoolEx.secret_title = post.content;
+                }else {
+                    schoolEx.confess_title = post.content;
+                }
+                   res.render('back/school/title_edit', {schoolEx:schoolEx,statusCode:statusCode});
+               });
+            }else {
+                res.render('back/school/title_edit', {schoolEx: schoolEx, statusCode: statusCode});
+            }
+         }
+       else{
+            statusCode=201;
+            res.render('back/school/title_edit', {statusCode:statusCode});
+        }
+    })
+};
+
+
+exports.title_edit_save = function (req, res, next) {
+    var en_name = req.body.en_name;
+    var secret_title = req.body.secret_title;
+    var confess_title = req.body.confess_title;
+    SchoolEx.getSchoolByEname(en_name,function(err,schoolEx){
+        if(schoolEx){
+            if(secret_title&&(secret_title!=="undefined")) {
+                schoolEx.secret_title = secret_title;
+            }
+
+            if(confess_title&&(confess_title!=="undefined")) {
+                schoolEx.confess_title = confess_title;
+            }
+            schoolEx.save();
+            res.redirect("/back/school/title_edit_show?school_id="+schoolEx._id+"&en_name="+schoolEx.en_name+"&statusCode=200");
+            // res.render('back/school/source_edit', {schoolEx:schoolEx,msg: "保存成功"});
+        }else{
+            //  res.render('back/school/source_edit', {schoolEx:schoolEx,msg: "不存在此学校"});
+            res.redirect("/back/school/title_edit_show?statusCode=201");
+        }
+    })
+};
+
+
+exports.source_show = function (req, res, next) {
+    var id = req.query.id;
+    SchoolEx.getSchoolById(id,function(err,schoolEx){
+        if(schoolEx){
+            res.render('back/school/source_show', {schoolEx: schoolEx});
+        }else{
+            res.render('back/school/source_show', {msg: "不存在此学校"});
+        }
+    })
+};
+
+exports.update_source = function (req, res, next) {
+    var templete="<fieldset style='border: 0px; margin: 0.5em 0px; padding: 0.3em;' class='tn-Powered-by-XIUMI'><section style='border: 1px solid rgb(192, 200, 209); box-shadow: rgb(170, 170, 170) 0px 0px 0.6em; font-size: 1em; line-height: 1.4; color: rgb(51, 51, 51);' class='tn-Powered-by-XIUMI'><section style='padding: 0.6em; background-color: rgb(250, 250, 239);' class='tn-Powered-by-XIUMI'><section class='tn-Powered-by-XIUMI' style='font-size: 1em; font-family: inherit; font-weight: inherit; text-align: inherit; text-decoration: inherit;'>###<br></section></section></section></fieldset>"
+    var en_name= req.query.en_name;
+    var update_last_edit= req.query.update_last_edit;
+    var confess_result="";
+    var secret_result="";
+    School.getSchoolByEname(en_name,function(err,school){
+        SchoolEx.getSchoolByEname(en_name,function(err,schoolEx){
+            if(school&&schoolEx) {
+                var sort = [
+                    [ 'create_at', 'desc' ]
+                ];
+                var options = { sort: sort};
+                console.log(school.last_edit_at);
+                Post.getPostsByQuery({'from_user.school_id': school._id, create_at: {$gt: school.last_edit_at},'display':true}, options, function (err, posts) {
+                    var secret_index=1;
+                    var confess_index=1;
+					  console.log(posts.length);
+                    posts.forEach(posts,function (post, i) {
+                        if (post) {
+                            if (post.type == "confess") {
+                                confess_result += templete.replace(/###/g, "★表白:对"+post.confess_to.college_name+"的【"+post.confess_to.name+"】说"+post.content);
+                           confess_index++;
+							} else {
+                                secret_result += templete.replace(/###/g,"★树洞:"+post.content);
+								secret_index++;
+                            }
+                        }
+                    });
+                    schoolEx.secret_content =secret_result;
+                    schoolEx.confess_content =confess_result;
+                    schoolEx.save(function () {
+                        if (update_last_edit=="true") {
+                            school.last_edit_at=new Date();
+                            school.save();
+                            return  res.json({ success: true});
+                        }else{
+                            res.json({ success: true});
+                        }
+                    });
+                })
+            }else{
+                return   res.json({ success: false});
+
+            }
+        });
+    });
+};
+
+
+exports.source_edit_save = function (req, res, next) {
+    var en_name = req.body.en_name;
+    var secret_title = req.body.secret_title;
+    var secret_content = req.body.secret_content;
+    var confess_title = req.body.confess_title;
+    var confess_content = req.body.confess_content;
+    SchoolEx.getSchoolByEname(en_name,function(err,schoolEx){
+        if(schoolEx){
+            if(secret_title) {
+                schoolEx.secret_title = secret_title;
+            }
+            if(secret_content){
+            schoolEx.secret_content=secret_content;
+            }
+            if(confess_title) {
+                schoolEx.confess_title = confess_title;
+            }
+            if(confess_content){
+                schoolEx.confess_content=confess_content;
+            }
+            schoolEx.save();
+            res.redirect("/back/school/source_edit_show?id="+schoolEx._id+"&en_name="+schoolEx.en_name+"&statusCode=200");
+           // res.render('back/school/source_edit', {schoolEx:schoolEx,msg: "保存成功"});
+        }else{
+          //  res.render('back/school/source_edit', {schoolEx:schoolEx,msg: "不存在此学校"});
+            res.redirect("/back/school/source_edit_show?statusCode=201");
+        }
+    })
+};
