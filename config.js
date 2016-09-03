@@ -10,8 +10,8 @@ var envport = 1234;
 ///
 //var dbURL = 'mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y';
 //var devDbUrl='mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y'
-var dbURL='mongodb://127.0.0.1/wxsystem'
-var devDbUrl = 'mongodb://127.0.0.1/wxsystem';
+var dbURL='mongodb://123.57.49.48/wxsystem'
+var devDbUrl = 'mongodb://123.57.49.48/wxsystem';
 var config = {
     debug: false,
     name: 'Node Club',

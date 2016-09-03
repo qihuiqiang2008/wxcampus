@@ -6,11 +6,11 @@ var User = require('./user');
 var Util = require('../libs/util');
 var mongoose = require('mongoose');
 
-var elasticsearch = require('elasticsearch');
-var client = new elasticsearch.Client({
-    host: 'http://127.0.0.1:9200',
-    log: 'trace'
-});
+//var elasticsearch = require('elasticsearch');
+//var client = new elasticsearch.Client({
+//    host: 'http://127.0.0.1:9200',
+//    log: 'trace'
+//});
 /**
  * 根据主题ID获取主题
  * Callback:

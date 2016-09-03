@@ -19,5 +19,5 @@ exports.FilterWord = require('./filterword');
 exports.Configuration = require('./configuration');
 exports.Question = require('./question');
 exports.Answer = require('./answer');
-exports.Photo_Guess = require('./Photo_Guess');
-exports.Photo_Guess_Wgateid = require('./Photo_Guess_Wgateid');
+exports.Photo_Guess = require('./photo_guess');
+exports.Photo_Guess_Wgateid = require('./photo_guess_wgateid');
