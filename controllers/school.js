@@ -92,26 +92,34 @@ exports.mschools = function (req, res, next) {
     var admin= req.params.admin;
    // console.log(region_code);
     var query={};
+    var ip="http://115.29.47.93";
     var port="1111";
     if(admin=="qi"){
+        port="5555";
         admin="齐"
     }
     if(admin=="wang"){
+        port="2222";
         admin="汪"
     }
     if(admin=="he"){
+        port="3333";
         admin="贺"
     }
     if(admin=="ma"){
+        port="4444";
         admin="马"
     }
     if(admin=="yi"){
+        port="4444";
         admin="弋"
     }
     if(admin){
-        query = {admin: admin};
+       query = {admin: admin};
         if(admin=="汪"||admin=="齐"||admin=="弋"){
             port="2222";
+        }else{
+            port="1111";
         }
     }
     if(region_code){
@@ -147,6 +155,7 @@ exports.mschools = function (req, res, next) {
                 schools: schools,
                 pages: pages,
                 current_page: page,
+                ip:ip,
                 regions:regions
             });
         });

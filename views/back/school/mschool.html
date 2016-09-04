@@ -178,7 +178,7 @@
                             <% schools.forEach(function(school,index) { %>
                             <li>
                                 <div>
-                                    <%=school.cn_name%>[<%=school.wxacount%>] : <a target="_blank" href="http://welife001.com:<%=port%>/scan/<%=school.en_name%>">扫描二维码</a>
+                                    <%=school.cn_name%>[<%=school.wxacount%>] : <a target="_blank" href="<%=ip%>:<%=port%>/scan/<%=school.en_name%>">扫描二维码</a>
                                 </div>
                             </li>
                             <% }) %>
