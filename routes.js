@@ -77,6 +77,7 @@ module.exports = function (app) {
     app.get('/back/getSource', auth.adminRequired,getSource.getSource);
     app.get('/back/checkResource', auth.adminRequired,getSource.checkResource);
     app.get('/back/uploadPic', auth.adminRequired,uploadPicture.uploadPicture);
+    app.get('/back/serverDo',school.serverDo);
 
     app.get('/back/upload', auth.adminRequired,uploadArticle.upload);
 

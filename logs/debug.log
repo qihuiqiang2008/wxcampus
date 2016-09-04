@@ -1,0 +1,45 @@
+2016-09-04T01:50:16.805Z - info:  content-security-policy-report-only=default-src 'self'; script-src https: 'unsafe-inline' 'unsafe-eval' *.qq.com *.weishi.com; object-src 'self' *.qq.com; style-src 'unsafe-inline' res.wx.qq.com; img-src data: http://mmbiz.qlogo.cn http://mmbiz.qpic.cn http://*.qq.com https://mmbiz.qlogo.cn https://mmbiz.qpic.cn https://*.qq.com; media-src 'self' *.qq.com; font-src res.wx.qq.com; frame-src http://*.qq.com https://*.qq.com; report-uri https://mp.weixin.qq.com/mp/fereport?action=csp_report, content-type=text/html; charset=UTF-8, cache-control=no-cache, must-revalidate, set-cookie=[slave_user=gh_80d0ab913736; Path=/; Secure; HttpOnly, slave_sid=dzVmY0hDQ0VQM0F4NnNEZjdraHdXNkpwT0hCNllFaW13OVRtNGROTlJiX19hU3lscTNfeWhHSlAyaXlXYk5wQU5WeUZ3MmRyeHpqRmdzOFFaRlBZVzBsZVpqNEszRWRCazNaWDRwdU45ZUd5U1poczBBZkF0MjlKVExZdnp5RW1PcE5TNVAzZXlqaEJEQ1R0; Path=/; Secure; HttpOnly, bizuin=3096238205; Path=/; Secure; HttpOnly], connection=close, content-encoding=gzip, content-length=25723
+2016-09-04T01:50:16.807Z - info: {
+            version:"4.0.0",
+            uin:"3096238205",
+            data:{
+                t:"1744296275",
+                ticket:"9556ecc0d06a999b9ea0cc9446cebd0d93f4162f",
+                lang:'zh_CN',
+                param:["&token=1744296275",'&lang=zh_CN'].join(""),
+                uin:"3096238205",
+                uin_base64:"MzA5NjIzODIwNQ==",
+                user_name:"ustb_welife",
+                nick_name:"北科大微生活",
+                time:"1472953817"||new Date().getTime()/1000
+            },
+2016-09-04T02:09:25.897Z - info:  content-security-policy-report-only=default-src 'self'; script-src https: 'unsafe-inline' 'unsafe-eval' *.qq.com *.weishi.com; object-src 'self' *.qq.com; style-src 'unsafe-inline' res.wx.qq.com; img-src data: http://mmbiz.qlogo.cn http://mmbiz.qpic.cn http://*.qq.com https://mmbiz.qlogo.cn https://mmbiz.qpic.cn https://*.qq.com; media-src 'self' *.qq.com; font-src res.wx.qq.com; frame-src http://*.qq.com https://*.qq.com; report-uri https://mp.weixin.qq.com/mp/fereport?action=csp_report, content-type=text/html; charset=UTF-8, cache-control=no-cache, must-revalidate, set-cookie=[slave_user=gh_80d0ab913736; Path=/; Secure; HttpOnly, slave_sid=dzVmY0hDQ0VQM0F4NnNEZjdraHdXNkpwT0hCNllFaW13OVRtNGROTlJiX19hU3lscTNfeWhHSlAyaXlXYk5wQU5WeUZ3MmRyeHpqRmdzOFFaRlBZVzBsZVpqNEszRWRCazNaWDRwdU45ZUd5U1poczBBZkF0MjlKVExZdnp5RW1PcE5TNVAzZXlqaEJEQ1R0; Path=/; Secure; HttpOnly, bizuin=3096238205; Path=/; Secure; HttpOnly], connection=close, content-encoding=gzip, content-length=25723
+2016-09-04T02:09:25.898Z - info: {
+            version:"4.0.0",
+            uin:"3096238205",
+            data:{
+                t:"1744296275",
+                ticket:"9556ecc0d06a999b9ea0cc9446cebd0d93f4162f",
+                lang:'zh_CN',
+                param:["&token=1744296275",'&lang=zh_CN'].join(""),
+                uin:"3096238205",
+                uin_base64:"MzA5NjIzODIwNQ==",
+                user_name:"ustb_welife",
+                nick_name:"北科大微生活",
+                time:"1472954965"||new Date().getTime()/1000
+            },
+2016-09-04T02:24:35.241Z - info:  content-security-policy-report-only=default-src 'self'; script-src https: 'unsafe-inline' 'unsafe-eval' *.qq.com *.weishi.com; object-src 'self' *.qq.com; style-src 'unsafe-inline' res.wx.qq.com; img-src data: http://mmbiz.qlogo.cn http://mmbiz.qpic.cn http://*.qq.com https://mmbiz.qlogo.cn https://mmbiz.qpic.cn https://*.qq.com; media-src 'self' *.qq.com; font-src res.wx.qq.com; frame-src http://*.qq.com https://*.qq.com; report-uri https://mp.weixin.qq.com/mp/fereport?action=csp_report, content-type=text/html; charset=UTF-8, cache-control=no-cache, must-revalidate, set-cookie=[slave_user=gh_80d0ab913736; Path=/; Secure; HttpOnly, slave_sid=dzVmY0hDQ0VQM0F4NnNEZjdraHdXNkpwT0hCNllFaW13OVRtNGROTlJiX19hU3lscTNfeWhHSlAyaXlXYk5wQU5WeUZ3MmRyeHpqRmdzOFFaRlBZVzBsZVpqNEszRWRCazNaWDRwdU45ZUd5U1poczBBZkF0MjlKVExZdnp5RW1PcE5TNVAzZXlqaEJEQ1R0; Path=/; Secure; HttpOnly, bizuin=3096238205; Path=/; Secure; HttpOnly], connection=close, content-encoding=gzip, content-length=25722
+2016-09-04T02:24:35.241Z - info: {
+            version:"4.0.0",
+            uin:"3096238205",
+            data:{
+                t:"1744296275",
+                ticket:"9556ecc0d06a999b9ea0cc9446cebd0d93f4162f",
+                lang:'zh_CN',
+                param:["&token=1744296275",'&lang=zh_CN'].join(""),
+                uin:"3096238205",
+                uin_base64:"MzA5NjIzODIwNQ==",
+                user_name:"ustb_welife",
+                nick_name:"北科大微生活",
+                time:"1472955875"||new Date().getTime()/1000
+            },

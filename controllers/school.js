@@ -75,7 +75,18 @@ exports.board_show = function (req, res, next) {
     });
 }
 
+
+exports.serverDo = function (req, res, next) {
+    if(req.query.stop){
+        process.exit();
+    }else
+    {
+        return res.json({status:1});
+    }
+}
+
 exports.mschools = function (req, res, next) {
+
     var region_code = req.query.region_code;
     var tag = req.query.tag;
     var admin= req.params.admin;

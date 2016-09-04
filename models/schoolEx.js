@@ -26,6 +26,7 @@ var SchoolExSchema = new Schema({
     token: { type: String },
     cookie: { type: String },
     admin: { type: String },
+  wxacount: { type: String },
     mail: { type: String },
     friend_title: {type: String },
     friend_content: {type: String },

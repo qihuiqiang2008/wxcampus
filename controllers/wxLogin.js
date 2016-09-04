@@ -25,7 +25,7 @@ var picUrl = "";
 exports.wxLogin = function(req, res, next){
   var school_enname = req.params.from_school_en_name;;
 loginStatus = LoginStatusDef.unknown;
-var res1=res;
+
 async.series([
     function (cb) {
         SchoolEx.getSchoolByEname(school_enname, function (err, school1) {
@@ -201,8 +201,10 @@ async.series([
             stream.on('finish', function(){
                 fs.readFile(picUrl, function(err, data) {
                     if (err) throw err; // Fail if the file can't be read.
-                    res.writeHead(200, {'Content-Type': 'image/jpeg'});
-                    res.end(data); // Send the file data to the browser.
+
+                    res.render('back/school/codescan', {image: '/public/cache_' + school.en_name + '.jpg',school:school});
+                   /* res.writeHead(200, {'Content-Type': 'image/jpeg'});
+                    res.end(data); // Send the file data to the browser.*/
                     cb();
                 });
 
@@ -306,8 +308,7 @@ async.series([
 
                                    // job.cancel();
                                     console.log("login Done!");
-                                    res1.redirect("msg/"+school.en_name);
-                                })
+                                    })
                                 });
 
 
