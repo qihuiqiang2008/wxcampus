@@ -117,9 +117,9 @@ exports.mschools = function (req, res, next) {
     if(admin){
        query = {admin: admin};
         if(admin=="汪"||admin=="齐"||admin=="弋"){
-            port="2222";
+            port="80";
         }else{
-            port="1111";
+            port="80";
         }
     }
     if(region_code){

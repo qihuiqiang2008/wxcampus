@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/cache_ustb.jpg" afterPath="$PROJECT_DIR$/public/cache_ustb.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/mschool.html" afterPath="$PROJECT_DIR$/views/back/school/mschool.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,13 +46,13 @@
       <file leaf-file-name="school.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/school.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57030016">
-              <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.7361769">
+              <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
               <folding>
-                <marker date="1472960586000" expanded="true" signature="18248:18295" placeholder="..." />
-                <marker date="1472960586000" expanded="true" signature="18341:18482" placeholder="..." />
-                <marker date="1472960586000" expanded="true" signature="18528:18581" placeholder="..." />
-                <marker date="1472960586000" expanded="true" signature="18655:18761" placeholder="..." />
+                <marker date="1472961165000" expanded="true" signature="18244:18291" placeholder="..." />
+                <marker date="1472961165000" expanded="true" signature="18337:18478" placeholder="..." />
+                <marker date="1472961165000" expanded="true" signature="18524:18577" placeholder="..." />
+                <marker date="1472961165000" expanded="true" signature="18651:18757" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -655,13 +652,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/school.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57030016">
-          <caret line="121" column="24" selection-start-line="121" selection-start-column="24" selection-end-line="121" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.7361769">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1472960586000" expanded="true" signature="18248:18295" placeholder="..." />
-            <marker date="1472960586000" expanded="true" signature="18341:18482" placeholder="..." />
-            <marker date="1472960586000" expanded="true" signature="18528:18581" placeholder="..." />
-            <marker date="1472960586000" expanded="true" signature="18655:18761" placeholder="..." />
+            <marker date="1472961165000" expanded="true" signature="18244:18291" placeholder="..." />
+            <marker date="1472961165000" expanded="true" signature="18337:18478" placeholder="..." />
+            <marker date="1472961165000" expanded="true" signature="18524:18577" placeholder="..." />
+            <marker date="1472961165000" expanded="true" signature="18651:18757" placeholder="..." />
           </folding>
         </state>
       </provider>
