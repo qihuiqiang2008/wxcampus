@@ -21,6 +21,7 @@ var SchoolSchema = new Schema({
     },
   active: { type: Boolean, default: true },
     admin: { type: String },
+    wxacount: { type: String },
   create_at: { type: Date, default: Date.now }
 });
 mongoose.model('School', SchoolSchema);

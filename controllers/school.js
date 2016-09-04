@@ -367,6 +367,7 @@ exports.cookie_update = function (req, res, next) {
     var token = req.body.token;
     var admin = req.body.admin;
     var mail = req.body.mail;
+    var wxacount = req.body.wxacount;
     var chrome=req.body.chrome;
 
     console.log(en_name);
@@ -378,7 +379,6 @@ exports.cookie_update = function (req, res, next) {
             res.render('back/school/cookie', {msg:'出现未知错误'});
         }
         school.cookie=cookie;
-
         school.token=token;
         if(mail){
                 school.mail=mail;
@@ -387,6 +387,11 @@ exports.cookie_update = function (req, res, next) {
             if(admin){
                 school.admin=admin;
                 sch.admin=admin;
+            }
+            if(wxacount){
+                school.wxacount=wxacount;
+                sch.wxacount=wxacount;
+
             }
         school.save();
             sch.save();

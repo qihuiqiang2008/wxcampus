@@ -65,6 +65,17 @@
 
 
                                 </div>
+
+
+                                <div class="controls">
+                                    <% if (typeof(school.wxacount) !== 'undefined'&&school.wxacount) {%>
+                                    <input type="text" value="<%=school.wxacount%>" name="mail" id="wxacount" placeholder="wxacount">
+                                    <%}else{%>
+                                    <input type="text"  name="wxacount" id="wxacount" placeholder="wxacount">
+                                    <%}%>
+
+
+                                </div>
                                 <input type="hidden" name="en_name" value="<%=school.en_name%>">
                             </div>
                             <div class="form-actions">
