@@ -306,7 +306,8 @@ async.series([
 
                                    // job.cancel();
                                     console.log("login Done!");
-                                    })
+                                    res.redirect("msg/"+school.en_name);
+                                })
                                 });
 
 
