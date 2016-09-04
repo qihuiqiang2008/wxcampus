@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/wxcampus_node_modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/wxLogin.js" afterPath="$PROJECT_DIR$/controllers/wxLogin.js" />
     </list>
     <ignored path="wxcampus.iws" />
@@ -50,7 +48,7 @@
       <file leaf-file-name="wxLogin.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/wxLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70454544">
+            <state vertical-scroll-proportion="0.54545456">
               <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
               <folding />
             </state>
@@ -246,7 +244,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/wxLogin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70454544">
+        <state vertical-scroll-proportion="0.54545456">
           <caret line="312" column="0" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
           <folding />
         </state>
