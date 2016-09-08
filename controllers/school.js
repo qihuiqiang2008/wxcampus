@@ -393,39 +393,75 @@ exports.cookie_update = function (req, res, next) {
     console.log(token)
 
 
-        SchoolEx.getSchoolBywxId(en_name,function(err,school){
-            School.getSchoolBywxId(en_name,function(err,sch){
-                if (err) {
-                    res.render('back/school/cookie', {msg:'出现未知错误'});
-                }
-                school.cookie=cookie;
-                school.token=token;
-                sch.cookie=cookie;
-                sch.token=token;
-                if(mail){
-                    school.mail=mail;
+       if(chrome){
+           SchoolEx.getSchoolByXXId(en_name,function(err,school){
+               School.getSchoolByXXId(en_name,function(err,sch){
+                   if (err) {
+                       res.render('back/school/cookie', {msg:'出现未知错误'});
+                   }
+                   school.cookie=cookie;
+                   school.token=token;
+                   sch.cookie=cookie;
+                   sch.token=token;
+                   if(mail){
+                       school.mail=mail;
 
-                }
-                if(admin){
-                    school.admin=admin;
-                    sch.admin=admin;
-                }
-                if(wxacount){
-                    school.wxacount=wxacount;
-                    sch.wxacount=wxacount;
+                   }
+                   if(admin){
+                       school.admin=admin;
+                       sch.admin=admin;
+                   }
+                   if(wxacount){
+                       school.wxacount=wxacount;
+                       sch.wxacount=wxacount;
 
-                }
-                school.save();
-                sch.save();
-                if(chrome){
-                    res.send("true");
-                }
-                else{
-                    res.redirect("/back/schools");
-                }
-            });
-        });
+                   }
+                   school.save();
+                   sch.save();
+                   if(chrome){
+                       res.send("true");
+                   }
+                   else{
+                       res.redirect("/back/schools");
+                   }
+               });
+           });
 
+       }else{
+           SchoolEx.getSchoolByEname(en_name,function(err,school){
+               School.getSchoolByEname(en_name,function(err,sch){
+                   if (err) {
+                       res.render('back/school/cookie', {msg:'出现未知错误'});
+                   }
+                   school.cookie=cookie;
+                   school.token=token;
+                   sch.cookie=cookie;
+                   sch.token=token;
+                   if(mail){
+                       school.mail=mail;
+
+                   }
+                   if(admin){
+                       school.admin=admin;
+                       sch.admin=admin;
+                   }
+                   if(wxacount){
+                       school.wxacount=wxacount;
+                       sch.wxacount=wxacount;
+
+                   }
+                   school.save();
+                   sch.save();
+                   if(chrome){
+                       res.send("true");
+                   }
+                   else{
+                       res.redirect("/back/schools");
+                   }
+               });
+           });
+
+       }
 
 
 
