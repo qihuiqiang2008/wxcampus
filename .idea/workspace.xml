@@ -2,27 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controllers/getWxArticleMsg.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/log.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/log.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/images/123.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/images/1234.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/images/170.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/images/2000.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache0.jpg" afterPath="$PROJECT_DIR$/cache0.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache1.jpg" afterPath="$PROJECT_DIR$/cache1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache2.jpg" afterPath="$PROJECT_DIR$/cache2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache3.jpg" afterPath="$PROJECT_DIR$/cache3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache4.jpg" afterPath="$PROJECT_DIR$/cache4.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache5.jpg" afterPath="$PROJECT_DIR$/cache5.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache6.jpg" afterPath="$PROJECT_DIR$/cache6.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache7.jpg" afterPath="$PROJECT_DIR$/cache7.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/getMessage.js" afterPath="$PROJECT_DIR$/controllers/getMessage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.js" afterPath="$PROJECT_DIR$/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/.bin/flatiron" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/.bin/flatiron" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/forever" afterPath="$PROJECT_DIR$/node_modules/.bin/forever" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/foreverd" afterPath="$PROJECT_DIR$/node_modules/.bin/foreverd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/utile/node_modules/.bin/mkdirp" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/utile/node_modules/.bin/mkdirp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/utile/node_modules/.bin/mkdirp" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/utile/node_modules/.bin/mkdirp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/utile/node_modules/.bin/mkdirp" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/utile/node_modules/.bin/mkdirp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/utile/node_modules/.bin/ncp" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/utile/node_modules/.bin/ncp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/utile/node_modules/.bin/ncp" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/utile/node_modules/.bin/ncp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/utile/node_modules/.bin/ncp" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/utile/node_modules/.bin/ncp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/utile/node_modules/.bin/rimraf" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/utile/node_modules/.bin/rimraf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/utile/node_modules/.bin/rimraf" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/utile/node_modules/.bin/rimraf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy/school.js" afterPath="$PROJECT_DIR$/proxy/school.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy/schoolEx1.js" afterPath="$PROJECT_DIR$/proxy/schoolEx1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/broadway/node_modules/winston/node_modules/request/node_modules/.bin/uuid" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/flatiron/node_modules/broadway/node_modules/winston/node_modules/request/node_modules/.bin/uuid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/winston/node_modules/request/node_modules/.bin/uuid" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/forever-monitor/node_modules/broadway/node_modules/winston/node_modules/request/node_modules/.bin/uuid" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/forever/node_modules/winston/node_modules/request/node_modules/.bin/uuid" afterPath="$PROJECT_DIR$/node_modules/forever/node_modules/winston/node_modules/request/node_modules/.bin/uuid" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
@@ -89,13 +85,13 @@
       <file leaf-file-name="school.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/school.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3857143">
-              <caret line="393" column="22" selection-start-line="393" selection-start-column="22" selection-end-line="393" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.25714287">
+              <caret line="392" column="22" selection-start-line="392" selection-start-column="22" selection-end-line="392" selection-end-column="22" />
               <folding>
-                <marker date="1473312755000" expanded="true" signature="19475:19522" placeholder="..." />
-                <marker date="1473312755000" expanded="true" signature="19568:19709" placeholder="..." />
-                <marker date="1473312755000" expanded="true" signature="19755:19808" placeholder="..." />
-                <marker date="1473312755000" expanded="true" signature="19882:19988" placeholder="..." />
+                <marker date="1473315148000" expanded="true" signature="18465:18512" placeholder="..." />
+                <marker date="1473315148000" expanded="true" signature="18558:18699" placeholder="..." />
+                <marker date="1473315148000" expanded="true" signature="18745:18798" placeholder="..." />
+                <marker date="1473315148000" expanded="true" signature="18872:18978" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -125,7 +121,7 @@
         <entry file="file://$PROJECT_DIR$/proxy/school.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
+              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -135,7 +131,7 @@
         <entry file="file://$PROJECT_DIR$/proxy/schoolEx1.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
+              <caret line="103" column="23" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -170,8 +166,8 @@
         <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/controllers/getWxArticleMsg.js" />
         <option value="$PROJECT_DIR$/controllers/getMessage.js" />
-        <option value="$PROJECT_DIR$/proxy/schoolEx1.js" />
         <option value="$PROJECT_DIR$/proxy/school.js" />
+        <option value="$PROJECT_DIR$/proxy/schoolEx1.js" />
         <option value="$PROJECT_DIR$/controllers/school.js" />
       </list>
     </option>
@@ -211,6 +207,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -220,33 +217,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,6 +295,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18194444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -330,11 +304,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -358,10 +330,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1473312755000" expanded="true" signature="19475:19522" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19568:19709" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19755:19808" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19882:19988" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18465:18512" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18558:18699" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18745:18798" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18872:18978" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -431,10 +403,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1473312755000" expanded="true" signature="19475:19522" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19568:19709" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19755:19808" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19882:19988" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18465:18512" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18558:18699" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18745:18798" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18872:18978" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -511,10 +483,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1473312755000" expanded="true" signature="19475:19522" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19568:19709" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19755:19808" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19882:19988" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18465:18512" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18558:18699" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18745:18798" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18872:18978" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -721,22 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxy/schoolEx1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="38" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proxy/school.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="2" selection-start-line="97" selection-start-column="2" selection-end-line="97" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -745,15 +701,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/schoolEx1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="103" column="23" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/school.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/school.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3857143">
-          <caret line="393" column="22" selection-start-line="393" selection-start-column="22" selection-end-line="393" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.25714287">
+          <caret line="392" column="22" selection-start-line="392" selection-start-column="22" selection-end-line="392" selection-end-column="22" />
           <folding>
-            <marker date="1473312755000" expanded="true" signature="19475:19522" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19568:19709" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19755:19808" placeholder="..." />
-            <marker date="1473312755000" expanded="true" signature="19882:19988" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18465:18512" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18558:18699" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18745:18798" placeholder="..." />
+            <marker date="1473315148000" expanded="true" signature="18872:18978" placeholder="..." />
           </folding>
         </state>
       </provider>
