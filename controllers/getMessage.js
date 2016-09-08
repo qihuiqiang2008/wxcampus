@@ -7,7 +7,6 @@ var login = require(__dirname + '/../wx_helpers/login');
 var SchoolEx = require('../proxy').SchoolEx;
 var async = require('async');
 var fs = require('fs');
-var logger = require('./../logs/log');
 exports.getMessage = function (req, res, next) {
     var user = req.query.user;
     var number = req.query.number;
