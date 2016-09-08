@@ -49,6 +49,8 @@ var answer = require('./controllers/answer');
 var photo_guess = require('./controllers/photo_guess');
 var count = require('./controllers/count');
 var login = require('./controllers/wxLogin');
+var wxmsg = require('./controllers/getWxArticleMsg');
+
 var passport = require('passport');
 var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
@@ -324,6 +326,7 @@ module.exports = function (app) {
     app.post('/signup', sign.signup);
     app.get('/signout', sign.signout);
     app.get('/signin', sign.showLogin);
+    app.get("/wxmsg",wxmsg.wxmsg)
     app.post('/signin', sign.login);
 
 };

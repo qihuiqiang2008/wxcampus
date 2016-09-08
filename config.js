@@ -4,7 +4,7 @@
 
 var path = require('path');
 var pkg = require('./package.json');
-var envport = 80;
+var envport = 8080;
 //var db_host = process.env.JAE_MONGO_IP.split(',')[0].trim();
 
 ///

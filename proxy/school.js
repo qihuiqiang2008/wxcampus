@@ -101,6 +101,10 @@ exports.getSchoolByEname = function (ename, callback) {
     School.findOne({en_name:ename}, callback);
 };
 
+exports.getSchoolByXXId = function (wx_account_id, callback) {
+    School.findOne({wx_account_id:wx_account_id}, callback);
+};
+
 exports.getSchoolById = function (id, callback) {
     School.findOne({_id:id}, callback);
 };
