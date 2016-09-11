@@ -242,6 +242,13 @@ module.exports = function (app) {
     app.get('/back/school/cookie', auth.adminRequired,school.cookie_show);
     app.post('/back/school/cookie', auth.adminRequired,school.cookie_update);
 
+
+    app.post('/back/school/cookie_update_chrome',school.cookie_update_chrome);
+
+
+
+
+
     app.get('/schools',school.schools_json);
     app.get('/mail',Mail.mail);
     app.get('/schoolExs',school.schoolExs_json);

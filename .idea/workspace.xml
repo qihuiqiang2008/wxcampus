@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.js" afterPath="$PROJECT_DIR$/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy/schoolEx.js" afterPath="$PROJECT_DIR$/proxy/schoolEx.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
@@ -66,16 +68,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="school.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="school.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/school.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="397" column="30" selection-start-line="397" selection-start-column="30" selection-end-line="397" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.46142858">
+              <caret line="475" column="0" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
               <folding>
-                <marker date="1473317056000" expanded="true" signature="19677:19724" placeholder="..." />
-                <marker date="1473317056000" expanded="true" signature="19770:19911" placeholder="..." />
-                <marker date="1473317056000" expanded="true" signature="19957:20010" placeholder="..." />
-                <marker date="1473317056000" expanded="true" signature="20084:20190" placeholder="..." />
+                <marker date="1473326721000" expanded="true" signature="19718:19765" placeholder="..." />
+                <marker date="1473326721000" expanded="true" signature="19811:19952" placeholder="..." />
+                <marker date="1473326721000" expanded="true" signature="19998:20051" placeholder="..." />
+                <marker date="1473326721000" expanded="true" signature="20125:20231" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -101,12 +103,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="school.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="school.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxy/school.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33285713">
-              <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="109" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schoolEx.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxy/schoolEx.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.407408">
+              <caret line="119" column="23" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.962963">
+              <caret line="245" column="67" selection-start-line="245" selection-start-column="67" selection-end-line="245" selection-end-column="67" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,12 +149,13 @@
         <option value="$PROJECT_DIR$/views/back/school/codescan.html" />
         <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
         <option value="$PROJECT_DIR$/views/back/school/mschool.html" />
-        <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/controllers/getWxArticleMsg.js" />
         <option value="$PROJECT_DIR$/controllers/getMessage.js" />
-        <option value="$PROJECT_DIR$/controllers/school.js" />
         <option value="$PROJECT_DIR$/proxy/schoolEx1.js" />
         <option value="$PROJECT_DIR$/proxy/school.js" />
+        <option value="$PROJECT_DIR$/proxy/schoolEx.js" />
+        <option value="$PROJECT_DIR$/routes.js" />
+        <option value="$PROJECT_DIR$/controllers/school.js" />
       </list>
     </option>
   </component>
@@ -185,6 +210,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="proxy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -297,19 +336,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/school.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-          <folding>
-            <marker date="1473317056000" expanded="true" signature="19677:19724" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19770:19911" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19957:20010" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="20084:20190" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -375,10 +401,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1473317056000" expanded="true" signature="19677:19724" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19770:19911" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19957:20010" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="20084:20190" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19718:19765" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19811:19952" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19998:20051" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="20125:20231" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -455,10 +481,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
           <folding>
-            <marker date="1473317056000" expanded="true" signature="19677:19724" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19770:19911" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19957:20010" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="20084:20190" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19718:19765" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19811:19952" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19998:20051" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="20125:20231" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -655,20 +681,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxy/schoolEx1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="23" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/school.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="109" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/schoolEx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.407408">
+          <caret line="119" column="23" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -681,24 +713,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/school.js">
+    <entry file="file://$PROJECT_DIR$/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="397" column="30" selection-start-line="397" selection-start-column="30" selection-end-line="397" selection-end-column="30" />
+        <state vertical-scroll-proportion="-9.962963">
+          <caret line="245" column="67" selection-start-line="245" selection-start-column="67" selection-end-line="245" selection-end-column="67" />
           <folding>
-            <marker date="1473317056000" expanded="true" signature="19677:19724" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19770:19911" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="19957:20010" placeholder="..." />
-            <marker date="1473317056000" expanded="true" signature="20084:20190" placeholder="..." />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxy/school.js">
+    <entry file="file://$PROJECT_DIR$/controllers/school.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33285713">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.46142858">
+          <caret line="475" column="0" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
+          <folding>
+            <marker date="1473326721000" expanded="true" signature="19718:19765" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19811:19952" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="19998:20051" placeholder="..." />
+            <marker date="1473326721000" expanded="true" signature="20125:20231" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
