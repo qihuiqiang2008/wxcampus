@@ -245,12 +245,12 @@ exports.mschools = function (req, res, next) {
         function (schools, pages,regions) {
             schools.forEach(function (school, i) {
 
-               /* if(last!=""){
+             /*   if(last!=""){
                     console.log("schoolnameMap."+last.wx_account_name+"='"+last.wx_account_id+"|"+last.wx_account_password+"|"+school.wx_account_name+"'")
                 }else{
                     console.log("schoolnameMap."+school.wx_account_name+"='"+school.wx_account_id+"|"+school.wx_account_password+"|"+school.wx_account_name+",")
                 }
-                last=school
+                last=school*/
 
 
 
@@ -258,8 +258,8 @@ exports.mschools = function (req, res, next) {
                     //schoolnameMap.北化微生活
 
               //  console.log( "schoolnameMap."+school.cn_name+"="+"\""+school.en_name+"\"")
-            });*/
-           // console.log("schoolnameMap."+last.wx_account_name+"='"+last.wx_account_id+"|"+last.wx_account_password+"|"+last.wx_account_name+"'")
+            });
+            console.log("schoolnameMap."+last.wx_account_name+"='"+last.wx_account_id+"|"+last.wx_account_password+"|"+last.wx_account_name+"'")
            /* schools.forEach(function (post, i) {
                 console.log( "regionnameMap."+post.cn_name+"="+"\""+post.region_code+"\"")
             });*/
