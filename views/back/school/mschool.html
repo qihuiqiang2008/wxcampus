@@ -178,7 +178,10 @@
                             <% schools.forEach(function(school,index) { %>
                             <li>
                                 <div>
-                                    <%=school.cn_name%>[<%=school.wxacount%>] : <a target="_blank" href="/scan/<%=school.en_name%>">扫描二维码</a>
+                                    <%=school.cn_name%>[<%=school.wxacount%>] : <a target="_blank" href="/scan/<%=school.en_name%>">扫描二维码</a> <span></span>  <a target="_blank" href="https://mp.weixin.qq.com?ss=ddd&s=<%=school.wx_account_name%>">插件扫码</a>
+
+
+
                                 </div>
                             </li>
                             <% }) %>
