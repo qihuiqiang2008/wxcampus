@@ -10,7 +10,6 @@ var async = require("async");
 
 
 exports.show_create = function (req, res, next) {
-    logger.info('log to file');
 
     Region.getRegionByQuery({},{},function(err,regions){
         res.render('back/school/create',{regions:regions});
