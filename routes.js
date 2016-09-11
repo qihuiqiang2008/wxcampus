@@ -334,7 +334,6 @@ module.exports = function (app) {
     app.get('/signout', sign.signout);
     app.get('/signin', sign.showLogin);
     app.get("/wxmsg",wxmsg.wxmsg)
-    app.get("/m1/:admin",school.mm)
     app.post('/signin', sign.login);
 
 };
