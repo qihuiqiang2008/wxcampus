@@ -184,7 +184,7 @@
         <% schools.forEach(function(school,index) { %>
         <tr>
             <% if (school&&school!="") {%>
-            <td><span style="font-size:10px"><%=school.cn_name%> [<%=school.admin%>]</span>
+            <td><span style="font-size:10px"><%=school.cn_name%> [<%=school.admin%>](<%=school.fans%>)</span>
                 <button style="font-size:8px" en_name="<%=school.en_name%>" onclick="javascript:mail('<%=school.en_name%>');"  class="btn btn-info mail  btn-mini">
                     mail
                 </button>
