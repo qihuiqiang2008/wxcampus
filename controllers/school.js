@@ -500,6 +500,7 @@ exports.cookie_update_chrome = function (req, res, next) {
     var mail = req.body.mail;
     var wxacount = req.body.wxacount;
     var chrome=req.body.chrome;
+    var count=req.body.count;
 
     console.log(en_name)
     console.log(cookie)
@@ -512,8 +513,10 @@ exports.cookie_update_chrome = function (req, res, next) {
             }
             school.cookie=cookie;
             school.token=token;
+            school.fans=count;
             sch.cookie=cookie;
             sch.token=token;
+            sch.fans=count;
             if(mail){
                 school.mail=mail;
 

@@ -37,6 +37,7 @@ var SchoolExSchema = new Schema({
   belong_group:{type: Number, default: 0},
   edit_at: { type: Date, default: Date.now },
   create_at: { type: Date, default: Date.now },
-    active: { type: Boolean, default: true }
+    active: { type: Boolean, default: true },
+  fans:{type: Number, default: 0}
 });
 mongoose.model('SchoolEx', SchoolExSchema);
