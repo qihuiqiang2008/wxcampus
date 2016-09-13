@@ -333,7 +333,8 @@ module.exports = function (app) {
     app.post('/signup', sign.signup);
     app.get('/signout', sign.signout);
     app.get('/signin', sign.showLogin);
-    app.get("/wxmsg",wxmsg.wxmsg)
+    app.post("/wxmsg",wxmsg.wxmsg)
+    app.get("/wxmsgadd",wxmsg.wxmsgadd)
     app.post('/signin', sign.login);
 
 };
