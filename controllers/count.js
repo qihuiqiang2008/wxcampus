@@ -94,12 +94,17 @@ exports.count_number = function(req, res, next){
     }
 
 
-    var options = { };
+
+    var sort = [
+        [ 'region_code', 'desc' ]
+    ];
+    var options = { sort: sort};
 
     SchoolEx.getSchoolExsByQuery(query, options, function(err,schools){
         schools.forEach(function (item, i) {
             if(item.fans){
-                console.log( item.cn_name+":"+item.fans+":"+getPrice(item.fans,item.region_code))
+                console.log(getRegion(item.region_code))
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
                 totalNumber=totalNumber+item.fans
                 conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
             }else{

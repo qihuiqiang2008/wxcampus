@@ -27,7 +27,6 @@ exports.wxmsg = function (req, res, next) {
                     var msg_link = res.text.substring(start_msg_link + "var msg_link =".length, start_user_uin).trim().replace("\"","");
 
                     var msg_source_url = res.text.substring(start_msg_source_url + "var msg_source_url =".length, start_img_format).trim().replace("\"","");
-
                     currentres.render('back/configuration/wxmsgparseshow', {
                         url: url,
                         msg_title: msg_title,
