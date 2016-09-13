@@ -54,9 +54,9 @@ function getRegion(region){
 
 function getPrice(number,region){
     if(region=="010"){
-        return number*0.05;
+        return  Math.floor(number*0.05);
     }
-    return number*0.04;
+    return  Math.floor(number*0.05 );
 }
 
 exports.count_number = function(req, res, next){
@@ -97,114 +97,119 @@ exports.count_number = function(req, res, next){
     var options = { };
 
     SchoolEx.getSchoolExsByQuery(query, options, function(err,schools){
-	     async.eachSeries(schools, function(item, callback){
-            login(item, function(err, results) {
-                /* if (results) {
-                 req.session.is_login = results;
-                 }*/
-                if (err) {
-                    res.json(err);
-                }
+        schools.forEach(function (item, i) {
+            if(item.fans){
+                console.log( item.cn_name+":"+item.fans+":"+getPrice(item.fans,item.region_code))
+                totalNumber=totalNumber+item.fans
+                conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
 
-                request.get('https://mp.weixin.qq.com/cgi-bin/home?t=home/index&lang=zh_CN&token='+results.token) //获取人数
-                    .set('Cookie', results.cookie)
-                    .set({"Accept-Encoding" : "gzip,sdch"}) //为了防止出现Zlib错误
-                    .end(function(res) {
-                        var html, indexHead, indexTail, number, numberString;
+        result = nodeExcel.execute(conf);
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats');
+        res.setHeader("Content-Disposition", "attachment; filename="+FormatDate(new Date())+"welife-"+totalNumber+".xlsx");
+        res.end(result, 'binary');
 
-                        indexHead = res.text.indexOf('li class="index_tap_item total_fans extra"'); //定位到html含有人数的位置
-                        indexTail = res.text.indexOf('</li>', indexHead);
-                        html = res.text.slice(indexHead - 1, indexTail + '</li>'.length);  //截取部分html
-                        indexHead = html.indexOf('<em class="number">') + '<em class="number">'.length; //从里面继续截取含有人数的字符串
-                        numberString = html.slice(indexHead);
-                        number = parseInt(numberString);
-                        console.log( item.region_code /*item.cn_name+":"+item.wx_account_name+":"+item.wx_account_id+":" + ":" + number*/);
-                        totalNumber += number;
-                        /*conf.cols = [
-                            {caption:'地区', type:'string'},
-                            {caption:'学校', type:'string'},
-                            {caption:'账号名称', type:'string'},
-                            {caption:'账号ID', type:'string'},
-                            {caption:'人数', type:'number'},
-                            {caption:'报价', type:'number'}
-                        ];*/
-                        if(item.region_code!="111"){
-                            conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,number,getPrice(number,item.region_code)]);
 
-                        }
-                       /* conf.rows[]*/
-                        callback();
-//                        var cookie = '';
-//                        if (res.header['set-cookie']) {
-//                            _ref = res.header['set-cookie'];
-//                            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-//                                rs = _ref[_i];
-//                                cookie += rs.replace(/HttpOnly/g, '');
-//                            }
-//                        }
-//                        request.get('https://mp.weixin.qq.com/misc/pluginloginpage?action=stat_article_detail&pluginid=luopan&t=statistics/index&token=' + results.token + '&lang=zh_CN')//请求图文分析地址
-//                            .set('Cookie', cookie)
-//                            .set({"Accept-Encoding" : "gzip,sdch"})
-//                            .end(function(res){
-//                                indexHead = res.text.indexOf('cgiData'); //定位到html含有下次请求参数的位置
-//                                indexTail = res.text.indexOf('seajs.use("statistics/index");', indexHead);
-//                                var jsonString = res.text.slice(indexHead , indexTail);  //截取json
-//                                var cgiData;
-//                                eval(jsonString); //将json转换为对象
-//
-//                                //请求图文分析页中的框架的地址
-//                                process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; //克服 UNABLE_TO_VERIFY_LEAF_SIGNATURE 错误，对端服务器证书不正确。另一种解决之道是从中间服务器下载正确的证书？
-//                                request.get('https://mta.qq.com/mta/wechat/ctr_article_detail?appid=' + cgiData.appid + '&pluginid=luopan&token=' + cgiData.pluginToken + '&devtype=' + cgiData.devtype + '&jsurl=' + cgiData.jsurl + '&version=2')
-//                                    .set('Cookie', cookie)
-//                                    .set({"Accept-Encoding" : "gzip,sdch"})
-//                                    .end(function(res){
-//                                        cookie = ''; //此次请求的主要目的是获取cookie以及获取initParam，其中包含日期
-//                                        if (res.header['set-cookie']) {
-//                                            _ref = res.header['set-cookie'];
-//                                            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-//                                                rs = _ref[_i];
-//                                                cookie += rs.replace(/HttpOnly/g, '');
-//                                            }
-//                                        }
-//
-//                                        indexHead = res.text.indexOf('var initParams =');
-//                                        indexTail = res.text.indexOf('MTA.Page.init_params = initParams;'); // 截取HTML页面中js脚本中关于initParams的定义
-//                                        var jsonString = res.text.slice(indexHead, indexTail);
-//                                        eval(jsonString);  //initParams定义+赋值
-//                                        //请求文章详情的json串的地址
-//                                        request.get('https://mta.qq.com/mta/wechat/ctr_article_detail/get_list?sort=RefDate%20desc&keyword=&page=1&appid=' + cgiData.appid + '&pluginid=luopan&token=' + cgiData.pluginToken + '&from=&devtype=' + cgiData.devtype + '&time_type=day&start_date=' + initParams.start_date + '&end_date=' + initParams.end_date + '&need_compare=0&app_id=&rnd='+ (+new Date())+'&ajax=1')
-//                                            .set('Cookie', cookie)
-//                                            .set({"Accept-Encoding" : "gzip,sdch"})
-//                                            .end(function(res){
-//                                                var articalData = JSON.parse(res.text);
-//                                                console.log(articalData.data);
-//
-////                                                request.get('https://mta.qq.com/mta/wechat/ctr_article_detail/get_list?sort=RefDate%20desc&keyword=&page=2&appid=' + cgiData.appid + '&pluginid=luopan&token=' + cgiData.pluginToken + '&from=&devtype=' + cgiData.devtype + '&time_type=day&start_date=' + initParams.start_date + '&end_date=' + initParams.end_date + '&need_compare=0&app_id=&rnd='+ (+new Date())+'&ajax=1')
-////                                                    .set('Cookie', cookie)
-////                                                    .set({"Accept-Encoding" : "gzip,sdch"})
-////                                                    .end(function(res){
-////                                                        articalData = JSON.parse(res.text);
-////                                                        console.log(articalData.data);
-////                                                    });
-//
-//                                                callback();
-//                                            });
-//
-//                                    });
-//                            });
-                    });
-            })
+                 /*login(item, function(err, results) {
+                     /!* if (results) {
+                      req.session.is_login = results;
+                      }*!/
+                     if (err) {
+                         res.json(err);
+                     }
+
+                     request.get('https://mp.weixin.qq.com/cgi-bin/home?t=home/index&lang=zh_CN&token='+results.token) //获取人数
+                         .set('Cookie', results.cookie)
+                         .set({"Accept-Encoding" : "gzip,sdch"}) //为了防止出现Zlib错误
+                         .end(function(res) {
+                             var html, indexHead, indexTail, number, numberString;
+
+                             indexHead = res.text.indexOf('li class="index_tap_item total_fans extra"'); //定位到html含有人数的位置
+                             indexTail = res.text.indexOf('</li>', indexHead);
+                             html = res.text.slice(indexHead - 1, indexTail + '</li>'.length);  //截取部分html
+                             indexHead = html.indexOf('<em class="number">') + '<em class="number">'.length; //从里面继续截取含有人数的字符串
+                             numberString = html.slice(indexHead);
+                             number = parseInt(numberString);
+                             console.log( item.region_code /!*item.cn_name+":"+item.wx_account_name+":"+item.wx_account_id+":" + ":" + number*!/);
+                             totalNumber += number;
+                             /!*conf.cols = [
+                                 {caption:'地区', type:'string'},
+                                 {caption:'学校', type:'string'},
+                                 {caption:'账号名称', type:'string'},
+                                 {caption:'账号ID', type:'string'},
+                                 {caption:'人数', type:'number'},
+                                 {caption:'报价', type:'number'}
+                             ];*!/
+                             if(item.region_code!="111"){
+                                 conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,number,getPrice(number,item.region_code)]);
+
+                             }
+                            /!* conf.rows[]*!/
+                             callback();
+     //                        var cookie = '';
+     //                        if (res.header['set-cookie']) {
+     //                            _ref = res.header['set-cookie'];
+     //                            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+     //                                rs = _ref[_i];
+     //                                cookie += rs.replace(/HttpOnly/g, '');
+     //                            }
+     //                        }
+     //                        request.get('https://mp.weixin.qq.com/misc/pluginloginpage?action=stat_article_detail&pluginid=luopan&t=statistics/index&token=' + results.token + '&lang=zh_CN')//请求图文分析地址
+     //                            .set('Cookie', cookie)
+     //                            .set({"Accept-Encoding" : "gzip,sdch"})
+     //                            .end(function(res){
+     //                                indexHead = res.text.indexOf('cgiData'); //定位到html含有下次请求参数的位置
+     //                                indexTail = res.text.indexOf('seajs.use("statistics/index");', indexHead);
+     //                                var jsonString = res.text.slice(indexHead , indexTail);  //截取json
+     //                                var cgiData;
+     //                                eval(jsonString); //将json转换为对象
+     //
+     //                                //请求图文分析页中的框架的地址
+     //                                process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"; //克服 UNABLE_TO_VERIFY_LEAF_SIGNATURE 错误，对端服务器证书不正确。另一种解决之道是从中间服务器下载正确的证书？
+     //                                request.get('https://mta.qq.com/mta/wechat/ctr_article_detail?appid=' + cgiData.appid + '&pluginid=luopan&token=' + cgiData.pluginToken + '&devtype=' + cgiData.devtype + '&jsurl=' + cgiData.jsurl + '&version=2')
+     //                                    .set('Cookie', cookie)
+     //                                    .set({"Accept-Encoding" : "gzip,sdch"})
+     //                                    .end(function(res){
+     //                                        cookie = ''; //此次请求的主要目的是获取cookie以及获取initParam，其中包含日期
+     //                                        if (res.header['set-cookie']) {
+     //                                            _ref = res.header['set-cookie'];
+     //                                            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+     //                                                rs = _ref[_i];
+     //                                                cookie += rs.replace(/HttpOnly/g, '');
+     //                                            }
+     //                                        }
+     //
+     //                                        indexHead = res.text.indexOf('var initParams =');
+     //                                        indexTail = res.text.indexOf('MTA.Page.init_params = initParams;'); // 截取HTML页面中js脚本中关于initParams的定义
+     //                                        var jsonString = res.text.slice(indexHead, indexTail);
+     //                                        eval(jsonString);  //initParams定义+赋值
+     //                                        //请求文章详情的json串的地址
+     //                                        request.get('https://mta.qq.com/mta/wechat/ctr_article_detail/get_list?sort=RefDate%20desc&keyword=&page=1&appid=' + cgiData.appid + '&pluginid=luopan&token=' + cgiData.pluginToken + '&from=&devtype=' + cgiData.devtype + '&time_type=day&start_date=' + initParams.start_date + '&end_date=' + initParams.end_date + '&need_compare=0&app_id=&rnd='+ (+new Date())+'&ajax=1')
+     //                                            .set('Cookie', cookie)
+     //                                            .set({"Accept-Encoding" : "gzip,sdch"})
+     //                                            .end(function(res){
+     //                                                var articalData = JSON.parse(res.text);
+     //                                                console.log(articalData.data);
+     //
+     ////                                                request.get('https://mta.qq.com/mta/wechat/ctr_article_detail/get_list?sort=RefDate%20desc&keyword=&page=2&appid=' + cgiData.appid + '&pluginid=luopan&token=' + cgiData.pluginToken + '&from=&devtype=' + cgiData.devtype + '&time_type=day&start_date=' + initParams.start_date + '&end_date=' + initParams.end_date + '&need_compare=0&app_id=&rnd='+ (+new Date())+'&ajax=1')
+     ////                                                    .set('Cookie', cookie)
+     ////                                                    .set({"Accept-Encoding" : "gzip,sdch"})
+     ////                                                    .end(function(res){
+     ////                                                        articalData = JSON.parse(res.text);
+     ////                                                        console.log(articalData.data);
+     ////                                                    });
+     //
+     //                                                callback();
+     //                                            });
+     //
+     //                                    });
+     //                            });
+                         });
+                 })*/
 //            console.log("-----");
-        },
 
-        function(err){             //全部请求过程完成后执行
-             result = nodeExcel.execute(conf);
-            res.setHeader('Content-Type', 'application/vnd.openxmlformats');
-            res.setHeader("Content-Disposition", "attachment; filename="+FormatDate(new Date())+"welife-"+totalNumber+".xlsx");
-            res.end(result, 'binary');
-           /* console.log("get done,total number is:" + totalNumber);
-            res.render('counter', {"body":"total number is " + 123});*/
-        });
 	});
 
 
