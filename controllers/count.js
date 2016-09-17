@@ -101,7 +101,85 @@ exports.count_number = function(req, res, next){
     var options = { sort: sort};
 
     SchoolEx.getSchoolExsByQuery(query, options, function(err,schools){
+        console.log("..................")
+
         schools.forEach(function (item, i) {
+            if(item.fans){
+                console.log(getRegion(item.region_code))
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
+               // totalNumber=totalNumber+item.fans
+               // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
+        console.log("..................")
+
+
+        schools.forEach(function (item, i) {
+            if(item.fans){
+                console.log(item.cn_name)
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
+                // totalNumber=totalNumber+item.fans
+                // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
+        console.log("..................")
+
+        schools.forEach(function (item, i) {
+            if(item.fans){
+                console.log(item.wx_account_name)
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
+                // totalNumber=totalNumber+item.fans
+                // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
+
+
+
+        console.log("..................")
+        schools.forEach(function (item, i) {
+            if(item.fans){
+                console.log(item.wx_account_id)
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
+                // totalNumber=totalNumber+item.fans
+                // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
+
+
+
+
+        console.log("..................")
+
+        schools.forEach(function (item, i) {
+            if(item.fans){
+                console.log(item.fans)
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
+                // totalNumber=totalNumber+item.fans
+                // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
+
+
+
+        console.log("..................")
+        schools.forEach(function (item, i) {
+            if(item.fans){
+                totalNumber=totalNumber+item.fans
+                console.log(getPrice(item.fans,item.region_code))
+                //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
+                // totalNumber=totalNumber+item.fans
+                // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+            }else{
+            }
+        })
+
+
+     /*   schools.forEach(function (item, i) {
             if(item.fans){
                 console.log(getRegion(item.region_code))
                 //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
@@ -109,7 +187,7 @@ exports.count_number = function(req, res, next){
                 conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
             }else{
             }
-        })
+        })*/
 
         result = nodeExcel.execute(conf);
         res.setHeader('Content-Type', 'application/vnd.openxmlformats');

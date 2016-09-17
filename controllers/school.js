@@ -553,6 +553,7 @@ exports.cookie_update = function (req, res, next) {
     var wxacount = req.body.wxacount;
     var chrome=req.body.chrome;
 
+    console.log("........."+cookie)
 
            SchoolEx.getSchoolByEname(en_name,function(err,school){
                School.getSchoolByEname(en_name,function(err,sch){
