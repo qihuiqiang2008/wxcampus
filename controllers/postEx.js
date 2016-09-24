@@ -143,7 +143,7 @@ var replaceAll = function (find, replace, str) {
 
 var replaceAll1 = function (find, replace, str) {
     //var find = find.replace(/[..]/g, '\\$&');
-    return str.replace(/\[.{1,4}\]/g, replace);
+    return str.replace(/\[.{1,9}\]/g, replace);
 }
 
 ///话题表单的显示
@@ -757,6 +757,9 @@ exports.handler_postEx = function (req, res, next) {
     var from_school_cn_name = req.body.from_school_cn_name;
     var from_school_cn_short_name = req.body.from_school_cn_short_name;
     var type = req.body.type;
+
+
+
     var word_less = false;
     var content = req.body.content;
     var content3= req.body.content3;
