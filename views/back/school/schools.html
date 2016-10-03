@@ -57,10 +57,6 @@
         </div>
 
 
-
-
-
-
     </div>
 
 
@@ -68,7 +64,13 @@
         <a href="javascript:void(0)" id="sendAll" class="btn btn-primary btn-mini">一键上传素材</a>
     </div>
     <div class="buttons">
-        <a href="javascript:void(0)" id="getCommentSource" class="btn btn-primary btn-mini">文章模板获取</a>
+        <a href="javascript:void(0)" id="getTargetSource" class="btn btn-primary btn-mini">目标模板获取</a>
+    </div>
+    <div class="buttons">
+        <a href="javascript:void(0)" id="sendAll1" class="btn btn-primary btn-mini">替换广告得到目标模板</a>
+    </div>
+    <div class="buttons">
+        <a href="javascript:void(0)" id="getCommentSource" class="btn btn-primary btn-mini">原始模板获取</a>
     </div>
     <div class="buttons">
         <a id="add-event"  href="/back/school/create" class="btn btn-success btn-mini"><i class="icon-plus icon-white"></i>添加学校</a>
@@ -358,6 +360,12 @@ $("#sendAll").click( function(){
 );
 
 
+$("#sendAll1").click( function(){
+            sendSingle("");
+        }
+);
+
+
 
 $("#uploadAllPic").click( function(){
             uploadPicSingle("",0);
@@ -631,10 +639,42 @@ $("#admin_id").change(function(){
 
 $("#getCommentSource").click(function(){
     var group=$("#belong_group").val();
-    articleNum=4;
     group = prompt("获取素材的id，1为公共素材，5为缘分墙素材");
     articleNum = prompt("设置素材的条目数，公共一般为4，缘分墙为5");
     console.log(group);
+    $.ajax({
+        'url': '/back/getSource?group='+group+'&articleNum='+articleNum+'&isgetTarget=true',
+        cache: false,
+        'type': 'GET',
+        'dataType': 'text',
+        success: function (text, st) {
+            if (text=="success") {
+                $("#TodayResourceCount").val(2);
+                $("#getCommentSource").text("原始素材获取成功");
+            }
+            else{
+                alert("失败");
+            }
+        },
+        beforeSend: function (xhr, textStatus) {
+            $("#getCommentSource").text("原始素材获取中ing");
+        },
+        error: function (xhr) {
+            if (xhr.status != 403) {
+
+            }
+        },
+        complete: function (xhr, textStatus) {
+
+        }
+    });
+});
+
+
+$("#getTargetSource").click(function(){
+    articleNum = prompt("设置素材的条目个数");
+
+    var group=$("#belong_group").val();
     $.ajax({
         'url': '/back/getSource?group='+group+'&articleNum='+articleNum,
         cache: false,
@@ -643,14 +683,14 @@ $("#getCommentSource").click(function(){
         success: function (text, st) {
             if (text=="success") {
                 $("#TodayResourceCount").val(2);
-                $("#getCommentSource").text("公共素材获取成功");
+                $("#getTargetSource").text("目标模板获取成功");
             }
             else{
                 alert("失败");
             }
         },
         beforeSend: function (xhr, textStatus) {
-            $("#getCommentSource").text("公共素材获取中ing");
+            $("#getTargetSource").text("目标模板获取ing");
         },
         error: function (xhr) {
             if (xhr.status != 403) {
@@ -949,7 +989,7 @@ function sendSingle(school,index){
         school_enname=school;
     }
 //||document.getElementById(school_enname+"").innerHTML=="上传失败"
-    if(document.getElementById(school_enname+"").innerHTML === "今日已上传"){
+    if(school&&document.getElementById(school_enname+"").innerHTML === "今日已上传"){
         if (index+1<array.length) {
             sendSingle("",index+1);
         }
@@ -969,23 +1009,33 @@ function sendSingle(school,index){
         timeout:30000,
         success: function (json, st) {
             if(json){
-                if (json.ret=="-20000") {
-                    $("#"+school_enname+"").text("服务器拒绝");
-                    $("#"+school_enname+"").addClass("btn-warning") .removeClass("btn-success")
-                }
-                else if(json.ret=="0"){
-                    $("#"+school_enname+"").text("今日已上传");
-                    $("#"+school_enname+"").removeClass("btn-info").removeClass("btn-warning") .addClass("btn-success")
-                }else{
-                    $("#"+school_enname+"").text("上传失败");
-                    $("#"+school_enname+"").addClass("btn-warning") .removeClass("btn-success")
-                }
-                if(typeof(index) !== 'undefined')
-                {
-                    if (index+1<array.length) {
-                        sendSingle("",index+1);
+                if(school_enname){
+                    if (json.ret=="-20000") {
+                        $("#"+school_enname+"").text("服务器拒绝");
+                        $("#"+school_enname+"").addClass("btn-warning") .removeClass("btn-success")
                     }
+                    else if(json.ret=="0"){
+                        $("#"+school_enname+"").text("今日已上传");
+                        $("#"+school_enname+"").removeClass("btn-info").removeClass("btn-warning") .addClass("btn-success")
+                    }else{
+                        $("#"+school_enname+"").text("上传失败");
+                        $("#"+school_enname+"").addClass("btn-warning") .removeClass("btn-success")
+                    }
+                    if(typeof(index) !== 'undefined')
+                    {
+                        if (index+1<array.length) {
+                            sendSingle("",index+1);
+                        }
+                    }
+                }else{
+                     if(json.ret=="0"){
+                        $("#sendAll1").text("替换广告模板成功");
+                    }else{
+                         $("#sendAll1").text("替换广告模板失败");
+                    }
+
                 }
+
 
             }else{
 

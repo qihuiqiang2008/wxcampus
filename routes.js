@@ -337,6 +337,7 @@ module.exports = function (app) {
     app.get("/wxmsgadd",wxmsg.wxmsgadd)
     app.get("/tt",login.download)
     app.get("/tt1",postEx.tt)
+    app.get("/tu",uploadSingle1.uploadTest)
     app.post('/signin', sign.login);
 
 };

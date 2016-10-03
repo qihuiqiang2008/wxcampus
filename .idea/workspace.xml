@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache0.jpg" afterPath="$PROJECT_DIR$/cache0.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache1.jpg" afterPath="$PROJECT_DIR$/cache1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache2.jpg" afterPath="$PROJECT_DIR$/cache2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache3.jpg" afterPath="$PROJECT_DIR$/cache3.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache4.jpg" afterPath="$PROJECT_DIR$/cache4.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache5.jpg" afterPath="$PROJECT_DIR$/cache5.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache6.jpg" afterPath="$PROJECT_DIR$/cache6.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/getSource.js" afterPath="$PROJECT_DIR$/controllers/getSource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/getWxArticleMsg.js" afterPath="$PROJECT_DIR$/controllers/getWxArticleMsg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.js" afterPath="$PROJECT_DIR$/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/schools.html" afterPath="$PROJECT_DIR$/views/back/school/schools.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/uploadSingle1.js" afterPath="$PROJECT_DIR$/controllers/uploadSingle1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,78 +35,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/postEx/create.html">
+      <file leaf-file-name="getSource.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/getSource.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1474707221000" expanded="true" signature="10416:10440" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="createEx.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/postEx/createEx.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="93.708336">
-              <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
+            <state vertical-scroll-proportion="12.296296">
+              <caret line="90" column="63" selection-start-line="90" selection-start-column="63" selection-end-line="90" selection-end-column="63" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="face.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/front/javascripts/face.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42199108">
-              <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-              <folding>
-                <marker date="1474709087000" expanded="true" signature="17532:17668" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="17703:17896" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="18015:18041" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="18075:18101" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="18245:18376" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="18419:18772" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="18818:18919" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="18988:19373" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="19419:19520" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="19600:19928" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="19940:20105" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="20131:20296" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="20536:20712" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="20878:21009" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="21052:21404" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="21450:21551" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="21620:22004" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="22050:22151" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="22231:22559" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="22571:22736" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="22778:22928" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="28598:28734" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="28769:28962" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="29073:29099" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="29764:29789" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="31240:31265" placeholder="..." />
-                <marker date="1474709087000" expanded="true" signature="32581:32606" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +48,30 @@
       <file leaf-file-name="uploadSingle1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/uploadSingle1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.814815">
-              <caret line="263" column="86" selection-start-line="263" selection-start-column="86" selection-end-line="263" selection-end-column="86" />
+            <state vertical-scroll-proportion="-4.259259">
+              <caret line="134" column="9" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schools.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.235294">
+              <caret line="825" column="13" selection-start-line="825" selection-start-column="13" selection-end-line="825" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resource.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxy/resource.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -129,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="info.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="info.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/node_modules/imageinfo/test/info.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -142,8 +110,18 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.37037">
-              <caret line="338" column="27" selection-start-line="338" selection-start-column="27" selection-end-line="338" selection-end-column="27" />
+            <state vertical-scroll-proportion="-17.148148">
+              <caret line="335" column="31" selection-start-line="335" selection-start-column="31" selection-end-line="335" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getWxArticleMsg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/getWxArticleMsg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="30" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -152,7 +130,7 @@
       <file leaf-file-name="user.js.bak" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/user.js.bak">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0909091">
+            <state vertical-scroll-proportion="0.0">
               <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding />
             </state>
@@ -175,10 +153,8 @@
         <option value="$PROJECT_DIR$/controllers/getMessage.js" />
         <option value="$PROJECT_DIR$/models/school.js" />
         <option value="$PROJECT_DIR$/models/schoolEx.js" />
-        <option value="$PROJECT_DIR$/views/back/school/schools.html" />
         <option value="$PROJECT_DIR$/views/back/configuration/wxmsgparse.html" />
         <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
-        <option value="$PROJECT_DIR$/controllers/getWxArticleMsg.js" />
         <option value="$PROJECT_DIR$/views/back/configuration/wxmsgparseshow.html" />
         <option value="$PROJECT_DIR$/controllers/count.js" />
         <option value="$PROJECT_DIR$/controllers/school.js" />
@@ -188,12 +164,15 @@
         <option value="$PROJECT_DIR$/views/front/partial/footer.ejs" />
         <option value="$PROJECT_DIR$/public/front/javascripts/jquery.sinaEmotion.js" />
         <option value="$PROJECT_DIR$/controllers/user.js.bak" />
-        <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/controllers/wxLogin.js" />
         <option value="$PROJECT_DIR$/public/front/javascripts/face.js" />
-        <option value="$PROJECT_DIR$/controllers/uploadSingle1.js" />
         <option value="$PROJECT_DIR$/views/front/postEx/create.html" />
         <option value="$PROJECT_DIR$/controllers/postEx.js" />
+        <option value="$PROJECT_DIR$/routes.js" />
+        <option value="$PROJECT_DIR$/controllers/getWxArticleMsg.js" />
+        <option value="$PROJECT_DIR$/controllers/getSource.js" />
+        <option value="$PROJECT_DIR$/controllers/uploadSingle1.js" />
+        <option value="$PROJECT_DIR$/views/back/school/schools.html" />
       </list>
     </option>
   </component>
@@ -205,7 +184,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="47" />
+    <option name="x" value="154" />
+    <option name="y" value="-965" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
   </component>
@@ -232,8 +212,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -265,10 +243,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -281,74 +255,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="postEx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -356,8 +262,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="school" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -429,7 +373,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="47" width="1440" height="797" extended-state="6" />
+    <frame x="154" y="-965" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -486,13 +430,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controllers/photo_guess.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.148148">
-          <caret line="924" column="64" selection-start-line="924" selection-start-column="10" selection-end-line="924" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/front/photo_guess/indexEx.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -570,21 +507,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9411764">
-          <caret line="958" column="41" selection-start-line="958" selection-start-column="28" selection-end-line="958" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/getSource.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -661,13 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/getWxArticleMsg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/back/configuration/wxmsgparse.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -721,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="105" column="18" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,9 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,7 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,7 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="65" column="102" selection-start-line="65" selection-start-column="97" selection-end-line="65" selection-end-column="102" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,7 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -771,9 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="65" column="94" selection-start-line="65" selection-start-column="92" selection-end-line="65" selection-end-column="94" />
-          <folding>
-            <marker date="1474421377000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -781,46 +686,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/test.js">
+    <entry file="file://$PROJECT_DIR$/views/front/postEx/create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
+          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#textarea#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#textarea#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#textarea#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ul#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/user.js.bak">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0909091">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/imageinfo/test/info.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.37037">
-          <caret line="338" column="27" selection-start-line="338" selection-start-column="27" selection-end-line="338" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/wxLogin.js">
+    <entry file="file://$PROJECT_DIR$/views/front/postEx/createEx.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="574" column="89" selection-start-line="574" selection-start-column="89" selection-end-line="574" selection-end-column="89" />
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -833,71 +720,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/uploadSingle1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.814815">
-          <caret line="263" column="86" selection-start-line="263" selection-start-column="86" selection-end-line="263" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/postEx/createEx.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="93.708336">
-          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/postEx/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1474707221000" expanded="true" signature="10416:10440" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42199108">
-          <caret line="147" column="0" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="177" column="7" selection-start-line="177" selection-start-column="7" selection-end-line="177" selection-end-column="7" />
           <folding>
-            <marker date="1474709087000" expanded="true" signature="17532:17668" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="17703:17896" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="18015:18041" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="18075:18101" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="18245:18376" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="18419:18772" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="18818:18919" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="18988:19373" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="19419:19520" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="19600:19928" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="19940:20105" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="20131:20296" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="20536:20712" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="20878:21009" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="21052:21404" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="21450:21551" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="21620:22004" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="22050:22151" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="22231:22559" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="22571:22736" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="22778:22928" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="28598:28734" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="28769:28962" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="29073:29099" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="29764:29789" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="31240:31265" placeholder="..." />
-            <marker date="1474709087000" expanded="true" signature="32581:32606" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1474709087000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/user.js.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/resource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.148148">
+          <caret line="335" column="31" selection-start-line="335" selection-start-column="31" selection-end-line="335" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/wxLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="574" column="89" selection-start-line="574" selection-start-column="89" selection-end-line="574" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/getWxArticleMsg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/uploadSingle1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.259259">
+          <caret line="134" column="9" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/getSource.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="12.296296">
+          <caret line="90" column="63" selection-start-line="90" selection-start-column="63" selection-end-line="90" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.235294">
+          <caret line="825" column="13" selection-start-line="825" selection-start-column="13" selection-end-line="825" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/imageinfo/test/info.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="194" column="0" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
