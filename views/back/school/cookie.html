@@ -34,9 +34,15 @@
                             <div class="control-group">
                                 <label class="control-label">内容</label>
                                 <div class="controls">
-                                    <textarea name="cookie"  style="margin-top: 0px; margin-bottom: 0px; height: 200px;"> <% if (typeof(school.cookie) !== 'undefined'&&school.cookie) {%>
+                                    <textarea name="cookie"  id="cookie" style="margin-top: 0px; margin-bottom: 0px; height: 200px;"> <% if (typeof(school.cookie) !== 'undefined'&&school.cookie) {%>
                                         <%=school.cookie%>
                                         <%}%></textarea>
+                                </div>
+
+
+                                <label class="control-label">执行脚本</label>
+                                <div class="controls">
+                                    <textarea name="script"  id="script" style="margin-top: 0px; margin-bottom: 0px; height: 200px;"></textarea>
                                 </div>
                                 <div class="controls">
                                     <% if (typeof(school.token) !== 'undefined'&&school.token) {%>
@@ -95,4 +101,33 @@
 </div>
 </div>
 
+
 <%- include ../partial/footer%>
+<script>
+
+    function replaceTextarea2(str){
+        var reg=new RegExp("＜br＞","g");
+        var reg1=new RegExp("＜p＞","g");
+
+        str = str.replace(reg,"\r\n");
+        str = str.replace(reg1," ");
+
+        return str;
+    }
+
+    if($("#cookie").text()){
+        var cookie=$("#cookie").text().trim();
+        var result="";
+        for (var i = 0; i < cookie.split("; ").length; i++) {
+            var c=cookie.split("; ")[i]
+            var name=c.split("=")[0]
+            if(name.trim()!="current"){
+                result=result+'document.cookie="'+c+'"\r\n';
+            }
+        }
+        $("#script").text(replaceTextarea2(result));
+
+    }
+
+
+</script>
