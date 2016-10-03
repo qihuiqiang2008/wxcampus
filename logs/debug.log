@@ -2428,3 +2428,5 @@ document.getElementById('jumpUrl').setAttribute('href','/cgi-bin/loginpage?url='
                 nick_name:"北航微生活",
                 time:"1473080405"||new Date().getTime()/1000
             },
+2016-10-01T01:00:42.524Z - info: log to file
+2016-10-01T01:00:43.849Z - info: log to file

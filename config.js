@@ -4,13 +4,13 @@
 
 var path = require('path');
 var pkg = require('./package.json');
-var envport = 80;
+var envport = 8080;
 //var db_host = process.env.JAE_MONGO_IP.split(',')[0].trim();
 
 ///
 //var dbURL = 'mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y';
 //var devDbUrl='mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y'
-var dbURL='mongodb://123.57.49.48/wxsystem'
+var dbURL='mongodb://123.57.49.48/wxsystem1'
 var devDbUrl = 'mongodb://123.57.49.48/wxsystem';
 var config = {
     debug: false,
@@ -22,7 +22,7 @@ var config = {
     site_headers: [
         '<meta name="author" content="EDP@TAOBAO" />',
     ],
-    host: 'http://welife001.com/',
+    host: 'localhost',
     // 默认的Google tracker ID，自有站点请修改，申请地址：http://www.google.com/analytics/
     google_tracker_id: 'UA-41753901-5',
     site_logo: '', // default is `name`
@@ -31,8 +31,8 @@ var config = {
         // [ path, title, [target=''] ]
         [ '/about', '关于' ],
     ],
-    site_static_host: 'http://welife001.com:8888', // 静态文件存储域名
-    photo_dir:  'D:/campusForm/campus001/public/front/photo_guess/', // 静态文件存储域名
+    site_static_host: 'localhost:8080', // 静态文件存储域名
+    photo_dir:  './', // 静态文件存储域名
     mini_assets: false, // 静态文件的合并压缩，详见视图中的Loader
     site_enable_search_preview: false, // 开启google search preview
     site_google_search_domain:  'cnodejs.org',  // google search preview中要搜索的域名

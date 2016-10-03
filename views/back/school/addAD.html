@@ -1,0 +1,442 @@
+<%- include ../partial/header %>
+    <div id="content">
+        <div id="content-header">
+            <h1>广告添加</h1>
+            <div class="btn-group" style="width: auto;">
+                <a class="btn btn-large tip-bottom" data-original-title="Manage Files" href="/back/collections"><i class="icon-file"></i></a>
+                <a class="btn btn-large tip-bottom" data-original-title="Manage Users" href="/back/users"><i class="icon-user"></i></a>
+                <a class="btn btn-large tip-bottom" data-original-title="Manage Comments" href="/back/replies"><i class="icon-comment"></i></a>
+            </div>
+        </div>
+        <div id="breadcrumb">
+            <a href="/back/schools" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i>学校</a>
+            <a href="#">广告添加</a>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <% if(typeof(msg) !== 'undefined' && msg){ %>
+                        <div class="alert alert-error">
+                            <a class="close" data-dismiss="alert" href="#">&times;</a>
+                            <strong><%= msg%></strong>
+                        </div>
+                        <%}%>
+                            <div class="widget-box">
+                                <div class="widget-title">
+                                    <span class="icon">
+                                    <i class="icon-pencil"></i>
+                                </span>
+                                    <h5>广告添加</h5>
+                                </div>
+                                <div class="widget-content nopadding">
+                                    <form action="/back/school/addAD" method="post" class="form-horizontal">
+                                        <div class="control-group">
+                                            <label class="control-label">广告标题</label>
+                                            <div class="controls">
+                                                <input type="text" name="name" />
+                                            </div>
+                                            <label class="control-label">客户</label>
+                                            <div class="controls">
+                                                <input type="text" name="custom" id="custom" />
+                                            </div>
+                                            <label class="control-label">折扣</label>
+                                            <div class="controls">
+                                                <input type="number" min="1" max="10" name="discount" id="discount" />
+                                            </div>
+                                            <label class="control-label">价格</label>
+                                            <div class="controls">
+                                                <input type="number" min="0" name="price" id="price" />
+                                            </div>
+                                            <label class="control-label">日期选择</label>
+                                            <div class="controls">
+                                                <button id="choose_school_date">选择学校日期</button>
+                                                <input style="display:none" name="slot" id="slot" />
+                                            </div>
+                                            <label class="control-label">介绍人</label>
+                                            <div class="controls">
+                                                <!-- <input type="text"  name="price" id="price" placeholder="介绍人"> -->
+                                                <select name="sponsor" id="sponsor">
+                                                    <option value='齐'> 齐慧强</option>
+                                                    <option value='汪'> 汪涵</option>
+                                                    <option value='马'> 马建华</option>
+                                                    <option value='弋'> 弋伟国</option>
+                                                    <option value='贺'> 贺青</option>
+                                                </select>
+                                            </div>
+                                            <label class="control-label">备注</label>
+                                            <div class="controls">
+                                                <textarea type="text" name="remark" id="remark">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" id="submitAd" class="btn btn-primary">添加广告</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2014 © 校萌科技有限公司
+        </div>
+    </div>
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">学校日期添加</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="widget-content nopadding">
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div class="span4">
+                                    <label class="checkbox-inline">
+                                        <input name="postion" type="radio" id="pos_radio_0" value="0" checked>头条
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input name="postion" type="radio" id="pos_radio_1" value="1">次条
+                                    </label>
+                                    <label> 当前日期:<span id="cur_day"> </span></label>
+                                    <button class="btn btn-default btn-mini" id="date_forward"> 向前</button>
+                                    <button class="btn btn-default btn-mini" id="date_backward"> 向后</button>
+                                </div>
+                                <div class="span4">
+                                    <button class="btn  btn-mini btn-primary">无广告</button>
+                                    <button class="btn  btn-mini btn-info"> 有 次 条 </button>
+                                    <button class="btn  btn-mini btn-warning"> 有 头 条 </button>
+                                    <button class="btn  btn-mini btn-danger"> 有头+次 </button>
+                                    <button class="btn  btn-mini btn-success"> 添加成功 </button>
+                                </div>
+                            </div>
+                        </div>
+                        <table id="school_table">
+                            <th>学校</th>
+                            <th>缩写</th>
+                            <%         
+                            for(var i=0; i< 7; i++){ 
+                                %>
+                                <th id="th_<%=i%>">
+                                </th>
+                                <% }%>
+                                    <tbody>
+                                        <% schools.forEach(function(school) { %>
+                                            <tr>
+                                                <% if (school&&school!="") {%>
+                                                    <td><span style="font-size:10px"><%=school.cn_name%> </span></td>
+                                                    <td><span style="font-size:10px"><%=school.en_name%> </span></td>
+                                                    <% for(var i=0; i<7; i++){ %>
+                                                        <td>
+                                                            <button class="btn btn-primary addTag btn-mini btn-ad" value="0" id="<%=school.en_name%>_<%=i%>">添加</button>
+                                                        </td>
+                                                    <% }%>
+                                                <% }%>
+                                            </tr>
+                                        <% }) %>
+                                    </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">完成</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+    <%- include ../partial/footer%>
+        <script>
+        var s = ["日", "一", "二", "三", "四", "五", "六"];
+        var adStore = window.sessionStorage;
+
+        Date.prototype.format = function(format) //author: meizz 
+            {
+                var o = {
+                    "M+": this.getMonth() + 1, //month 
+                    "d+": this.getDate(), //day 
+                    "h+": this.getHours(), //hour 
+                    "m+": this.getMinutes(), //minute 
+                    "s+": this.getSeconds(), //second 
+                    "q+": Math.floor((this.getMonth() + 3) / 3), //quarter 
+                    "S": this.getMilliseconds() //millisecond 
+                }
+                if (/(y+)/.test(format)) format = format.replace(RegExp.$1,
+                    (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(format))
+                        format = format.replace(RegExp.$1,
+                            RegExp.$1.length == 1 ? o[k] :
+                            ("00" + o[k]).substr(("" + o[k]).length));
+                return format;
+            }
+
+        var ads = JSON.parse('<%- ads %>');
+        var currentDay = new Date(new Date().setHours(0, 0, 0, 0));
+        var position = "0";
+
+        var adObj = new Array();
+
+        $(ready());
+
+        function ready() {
+            $("#choose_school_date").click(function() {
+                $("#myModal").modal('show');
+                return false;
+            });
+            drawAd(ads, currentDay);
+        }
+
+        $("#submitAd").click(function() {
+            $("#slot").val(JSON.stringify(adObj));
+        });
+
+        $(".btn-ad").click(addAdFunc);
+
+        $("#date_forward").click(function() {
+            storeAd(currentDay, ads);
+
+            currentDay = new Date(currentDay.getTime() - 7 * 24 * 3600 * 1000);
+            syncTime(currentDay);
+        });
+
+        $("#date_backward").click(function() {
+            storeAd(currentDay, ads);
+
+            currentDay = new Date(currentDay.getTime() + 7 * 24 * 3600 * 1000);
+            syncTime(currentDay)
+        });
+
+        function syncTime(currentDay) {
+
+            ads = getAds(currentDay);
+            cleanAdButton();
+            redrawTag(ads, currentDay);
+        }
+
+        function cleanAdButton() {
+            $(".btn-ad").each(function() {
+                $(this).attr("class", getClass("0"));
+                $(this).val("0");
+                $(this).text("添加");
+                $(this).unbind();
+                $(this).bind("click", addAdFunc);
+            });
+        }
+
+        function storeAd(day, ad) {
+            var store = adStore.getItem(day.getTime());
+            if (store == undefined) {
+                adStore.setItem(day.getTime(), JSON.stringify(ad));
+            } else {
+                return;
+            }
+        }
+
+        function getAds(day) {
+            var store = adStore.getItem(day.getTime());
+            if (store != undefined) {
+                return JSON.parse(store);
+            } else {
+                var begin = currentDay.format("yyyy-MM-dd");
+                var end = new Date(currentDay.getTime() + 7 * 24 * 3600 * 1000).format("yyyy-MM-dd");
+                $.ajax({
+                    url: "/back/school/getAdByTime?begin=" + begin + "&end=" + end,
+                    method: "post",
+                    dateType: "json",
+                    async: false,
+                    success: function(date, err) {
+                        store = date;
+                    }
+                });
+
+                return store;
+            }
+        }
+
+        function redrawTag(ad, day) {
+            drawAd(ad, day);
+        }
+
+        $(document).on('change', 'input:radio[id^="pos_radio_"]', function(event) {
+            position = getPos();
+        });
+
+        function getPos() {
+            if ($("#pos_radio_1").parent().attr("class") == "checked") {
+                return "1";
+            } else {
+                return "0";
+            }
+        }
+
+        function addAdFunc() {
+
+            var state = $(this).val();
+
+            if (position == "0") {
+                if (state == "2" || state == "3") {
+                    alert("头条已有排期，不能安排！");
+                    return;
+                }
+            }
+
+            var slotDate = new Date(currentDay.getTime() + parseInt(this.id.split('_')[1]) * 24 * 3600 * 1000);
+            var slotSchool = this.id.split('_')[0];
+
+            var adSlot = {
+                date: slotDate,
+                school: slotSchool,
+                position: position
+            };
+
+            adObj.push(adSlot);
+
+            $(this).attr("class", "btn btn-success btn-mini btn-ad");
+            $(this).attr("temp", $(this).text());
+            $(this).text(position == "0" ? "头" : "次");
+            $(this).unbind();
+            $(this).bind("click", delAdFunc);
+        }
+
+        function delAdFunc() {
+            var slotDate = new Date(currentDay.getTime() + parseInt(this.id.split('_')[1]) * 24 * 3600 * 1000);
+            var slotSchool = this.id.split('_')[0];
+            adObj.forEach(function(item) {
+                if (item.school == slotSchool && item.date.getTime() == slotDate.getTime()) {
+                    adObj.pop(item);
+                    $(this).attr("class", getClass($(this).val()));
+                    $(this).text($(this).attr("temp"));
+                    $(this).unbind();
+                    $(this).bind("click", addAdFunc);
+                }
+            }, this);
+        }
+
+        function drawAd(ads, day) {
+            $("#cur_day").text(day.format("yyyy-MM-dd") + " " + s[day.getDay()]);
+
+            for (var i = 0; i < 7; i++) {
+                var nowDay = new Date(day.getTime() + i * 24 * 3600 * 1000);
+                var month = nowDay.getMonth() + 1;
+                var now = month + '.' + nowDay.getDate() + '(' + s[nowDay.getDay()] + ')';
+                $("#th_" + i).text(now);
+            }
+
+            ads.forEach(function(ad) {
+                ad.slot.forEach(function(slot) {
+                    var tag = genTag(slot, day);
+                    var nowValue = $("#" + tag).val();
+                    var state = getState(nowValue, slot.position);
+                    if (state == "-1") {
+                        console.log(slot.school + " 广告有冲突！");
+                        alert(slot.school + "广告有冲突！别添加了，关了检查一下数据库");
+                    }
+                    $("#" + tag).val(state);
+                    var buttonClass = getClass(state);
+                    $("#" + tag).attr("class", buttonClass);
+                    $("#" + tag).text(getText(nowValue, slot.position, ad.sponsor, $("#" + tag).text()));
+                });
+            });
+
+            adObj.forEach(function(slot) {
+
+                var time = new Date(slot.date).setHours(0, 0, 0, 0) - day;
+                var tag;
+                if (time >= 0 && time <= 7 * 24 * 3600 * 1000) {
+                    tag = genTag(slot, day);
+                } else {
+                    return;
+                }
+
+                $("#" + tag).attr("class", "btn btn-success btn-mini btn-ad");
+                $("#" + tag).attr("temp", $("#" + tag).text());
+                $("#" + tag).text(slot.position == "0" ? "头" : "次");
+                $("#" + tag).unbind();
+                $("#" + tag).bind("click", delAdFunc);
+            });
+        }
+
+        function genTag(slot, day) {
+            var pre = slot.school;
+
+            var time = new Date(slot.date).setHours(0, 0, 0, 0) - day;
+            var end = Math.floor(time / (24 * 60 * 60 * 1000));
+
+            return pre + "_" + end;
+        }
+
+        function getClass(val) {
+            var base = "btn btn-mini btn-ad ";
+            if (val == "0") { //没有广告
+                return base + "btn-primary";
+            }
+            if (val == "1") { //有次条
+                return base + "btn-info";
+            }
+            if (val == "2") { //有头条
+                return base + "btn-warning";
+            }
+            if (val == "3") { // 有头条+次条
+                return base + "btn-danger";
+            }
+            if (val == "-1") {
+                return base + "btn-inverse"
+            }
+        }
+
+        function getState(ori_state, ad_position) {
+            var state;
+
+            if (ori_state == "0" && ad_position == "0") { //没广告添加头条
+                state = "2";
+            } else if (ori_state == "0" && ad_position == "1") { //没广告添加次条
+                state = "1";
+            } else if (ori_state == "1" && ad_position == "0") { //有次条添加头条
+                state = "3";
+            } else if (ori_state == "1" && ad_position == "1") { //有次条添加次条
+                state = "1";
+            } else if (ori_state == "2" && ad_position == "0") { //有头条添加头条
+                state = "-1";
+            } else if (ori_state == "2" && ad_position == "1") { //有头条添加次条
+                state = "3";
+            } else if (ori_state == "3" && ad_position == "0") { //有头条和次条添加头条
+                state = "-1";
+            } else if (ori_state == "3" && ad_position == "1") { //有头条和次条添加次条
+                state = "3";
+            }
+
+            return state;
+        }
+
+        function getText(ori_state, ad_position, sponsor, text) {
+            var ret;
+
+            if (ori_state == "0" && ad_position == "0") { //没广告添加头条
+                ret = sponsor;
+            } else if (ori_state == "0" && ad_position == "1") { //没广告添加次条
+                ret = sponsor;
+            } else if (ori_state == "1" && ad_position == "0") { //有次条添加头条
+                ret = sponsor + text;
+            } else if (ori_state == "1" && ad_position == "1") { //有次条添加次条
+                ret = text + sponsor;
+            } else if (ori_state == "2" && ad_position == "0") { //有头条添加头条
+                ret = "冲突";
+            } else if (ori_state == "2" && ad_position == "1") { //有头条添加次条
+                ret = text + sponsor;
+            } else if (ori_state == "3" && ad_position == "0") { //有头条和次条添加头条
+                ret = "冲突";
+            } else if (ori_state == "3" && ad_position == "1") { //有头条和次条添加次条
+                ret = text + sponsor;
+            }
+
+            return ret;
+        }
+        </script>

@@ -52,6 +52,7 @@ var login = require('./controllers/wxLogin');
 var passport = require('passport');
 var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
+var ADManage = require('./controllers/ADManage');
 
 module.exports = function (app) {
 
@@ -243,6 +244,7 @@ module.exports = function (app) {
     app.get('/schools',school.schools_json);
     app.get('/mail',Mail.mail);
     app.get('/schoolExs',school.schoolExs_json);
+
     //学院相关
     app.get('/back/college/create', auth.adminRequired,college.show_create);
     app.post('/back/college/create', auth.adminRequired,college.create);
@@ -325,5 +327,13 @@ module.exports = function (app) {
     app.get('/signout', sign.signout);
     app.get('/signin', sign.showLogin);
     app.post('/signin', sign.login);
+
+    //广告相关 
+    app.get('/back/school/addAD', auth.signinRequired, ADManage.showGetAD);
+    app.post('/back/school/addAD', auth.signinRequired, ADManage.addAD);
+    app.get('/back/school/getAD', auth.signinRequired, ADManage.getAD);
+    app.get('/back/school/testAdd', auth.signinRequired, ADManage.testAdd)
+    app.get('/back/school/getADByTime', auth.signinRequired, ADManage.getAdByTime);
+    app.get('/back/school/todayAD', auth.signinRequired, ADManage.getTodayAD);
 
 };

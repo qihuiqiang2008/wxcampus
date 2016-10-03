@@ -24,9 +24,9 @@
 <div class="span12">
 <div class="widget-box">
 <div class="widget-title" style="height:70px">
-								<span class="icon">
-									<i class="icon-th"></i>
-								</span>
+                                <span class="icon">
+                                    <i class="icon-th"></i>
+                                </span>
     <h5>学校</h5>
     <div class="control-group" style="float:right; margin-top:5px">
         <div class="controls">
@@ -123,7 +123,7 @@
     <div class="buttons">
         <a href="javascript:void(0)" id="setKeyAll" class="btn btn-primary btn-mini">一键设关键字</a>
     </div>
-	<!--  <div class="buttons">
+    <!--  <div class="buttons">
         <a href="javascript:void(0)" id="pushAll" class="btn btn-primary btn-mini">一键发送</a>
     </div> -->
     <!--<div class="buttons">-->
@@ -184,7 +184,7 @@
         <% schools.forEach(function(school,index) { %>
         <tr>
             <% if (school&&school!="") {%>
-            <td><span style="font-size:10px"><%=school.cn_name%> [<%=school.admin%>]</span>
+            <td><span style="font-size:10px"><%=school.cn_name%> [<%=school.admin%>](<%=school.fans%>)</span>
                 <button style="font-size:8px" en_name="<%=school.en_name%>" onclick="javascript:mail('<%=school.en_name%>');"  class="btn btn-info mail  btn-mini">
                     mail
                 </button>
@@ -200,7 +200,7 @@
             <td><a style="font-size:8px" href="/back/colleges?school_id=<%=school._id%>">学院</a></td>
             <td><a style="font-size:8px" href="/back/school/wx_account?id=<%=school._id%>">编辑</a></td>
             <td><a style="font-size:8px" target="_blank" href="/back/school/erweima?&en_name=<%=school.en_name%>">二维码编辑</a>  <a  target="_blank" style="font-size:8px" href="/back/school/cookie?&en_name=<%=school.en_name%>">cookie编辑</a>
-                <a style="font-size:8px" target="_blank" href="/scan/<%=school.en_name%>">扫描二维码</a>
+                <a style="font-size:8px" target="_blank" href="https://mp.weixin.qq.com?ss=ddd&s=<%=school.wx_account_name%>">插件扫码</a>
             </td>
             <!--    <td><a href="/back/school/board?id=<%=school._id%>">查看</a></td> -->
 
@@ -235,7 +235,7 @@
                     已发送
                 </button>
                 <%}else{%>
-                <button en_name="<%=school.en_name%>" id="<%=school.en_name%>_push" class="btn btn-info push btn-mini">
+                <button en_name="<%=school.en_name%>" onclick="javascript:void(0)" id="<%=school.en_name%>_push" class="btn btn-info push btn-mini">
                     未发送
                 </button>
                 <%}%>
@@ -371,7 +371,7 @@ $("#resetTag").click( function(){
 
 
 $("#pushAll").click(function(){
-	pushindex=0;
+    pushindex=0;
   $(".push").click();
 });
 
@@ -756,13 +756,13 @@ function pushMessage(school, index){
                     $("#"+school_enname+"_push").addClass("btn-warning") .removeClass("btn-success")
                 }
                 else if(json.ret=="0"){
-					pushindex++;
-					$("#info").text("推送成功"+pushindex);
+                    pushindex++;
+                    $("#info").text("推送成功"+pushindex);
                     $("#"+school_enname+"_push").text("推送成功");
                     $("#"+school_enname+"_push").removeClass("btn-info").removeClass("btn-warning") .addClass("btn-success")
                 }else{
-					pushindex++;
-					$("#info").text("推送成功"+pushindex);
+                    pushindex++;
+                    $("#info").text("推送成功"+pushindex);
                     $("#"+school_enname+"_push").text("推送成功");
                     $("#"+school_enname+"_push").addClass("btn-warning") .removeClass("btn-success")
                 }
@@ -966,7 +966,7 @@ function sendSingle(school,index){
         'dataType': 'json',
         cache: false,
         async:'false',
-        timeout:15000,
+        timeout:30000,
         success: function (json, st) {
             if(json){
                 if (json.ret=="-20000") {
