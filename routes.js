@@ -332,8 +332,14 @@ module.exports = function (app) {
     app.get('/back/school/addAD', auth.signinRequired, ADManage.showGetAD);
     app.post('/back/school/addAD', auth.signinRequired, ADManage.addAD);
     app.get('/back/school/getAD', auth.signinRequired, ADManage.getAD);
-    app.get('/back/school/testAdd', auth.signinRequired, ADManage.testAdd)
+    app.get('/back/school/testAdd', auth.signinRequired, ADManage.testAdd);
     app.get('/back/school/getADByTime', auth.signinRequired, ADManage.getAdByTime);
     app.get('/back/school/todayAD', auth.signinRequired, ADManage.getTodayAD);
+    app.get('/back/school/listAD', auth.signinRequired, ADManage.listAD);
+    app.get('/back/school/detailAD', auth.signinRequired, ADManage.detailAD);
+    app.get('/back/school/removeAD', auth.signinRequired, ADManage.removeAD);
+    app.get('/back/school/clearAD', auth.signinRequired, ADManage.clearAD);
+    app.get('/back/school/updateAD', auth.signinRequired, ADManage.showUpdateAD);
+    app.post('/back/school/updateAD', auth.signinRequired, ADManage.updateAD);
 
 };

@@ -10,6 +10,7 @@ var ADSchema = new Schema({
   sponsor: {type:String},
   is_clear:{type:Boolean},
   remark:{type:String},
+  del:{type:Boolean, default: false},
   create_at: { type: Date, default: Date.now }
 });
 mongoose.model('AD', ADSchema);

@@ -171,7 +171,7 @@
 <script>
 
 var ads = JSON.parse('<%- ads %>');
-var currentDay = new Date(new Date('<%=begin_date%>').setHours(0, 0, 0, 0));
+var currentDay = new Date(new Date('<%=begin_date%>').setUTCHours(0, 0, 0, 0));
 
 $(ready());
 
@@ -251,7 +251,7 @@ function getState(ori_state, ad_position){
 function genTag(slot, day) {
     var pre = slot.school;
 
-    var time = new Date(slot.date).setHours(0, 0, 0, 0) - day;
+    var time = new Date(slot.date).setUTCHours(0, 0, 0, 0) - day;
     var end = Math.floor(time / (24 * 60 * 60 * 1000));
 
     return pre + "_" + end;

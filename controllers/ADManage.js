@@ -14,14 +14,14 @@ exports.getAD = function(req, res, next) {
     var begin, end;
 
     if(req.query.begin != undefined){
-        begin = new Date(new Date(req.query.begin).setHours(0, 0, 0, 0));
+        begin = new Date(new Date(req.query.begin).setUTCHours(0, 0, 0, 0));
         if(req.query.end != undefined){
-            end = new Date(new Date(req.query.end).setHours(0, 0, 0, 0));
+            end = new Date(new Date(req.query.end).setUTCHours(0, 0, 0, 0));
         } else {
             end = new Date(begin.getTime() + 7 * 24 * 3600 * 1000);
         }
     } else {
-        begin = new Date(new Date().setHours(0, 0, 0, 0));
+        begin = new Date(new Date().setUTCHours(0, 0, 0, 0));
         end = new Date(begin.getTime() + 7 * 24 * 3600 * 1000);
     }
     console.log(begin);
@@ -93,12 +93,14 @@ exports.getTodayAD = function(req, res, next){
     var begin;
     var day = req.query.day;
     if(day == undefined){
-        begin = new Date(new Date().setHours(0,0,0,0));
+        begin = new Date(new Date().setUTCHours(0,0,0,0));
     } else {
         begin = new Date(day);
     }
-    var end = new Date(begin.getTime() + 1*24*3600*1000);
-    var slotArray = new Array();
+   // var end = new Date(begin.getTime() + 1*24*3600*1000);
+    var end = begin;
+
+    // var adFlagArray = new Array();
     var schooleDic = new Array();
 
     var proxy = EventProxy.create("ads", "schools", function(ads, school) {
@@ -108,17 +110,23 @@ exports.getTodayAD = function(req, res, next){
             schooleDic[s.en_name] = s.cn_name;
         });
 
-        ads.forEach(function(ad){
-            ad.slot.forEach(function(slot){
-                if(slot.date.setHours(0,0,0,0) == begin.getTime()){
-                    if(slotArray[slot.school]){
-                        slotArray[slot.school] += 1;
-                    } else {
-                       slotArray[slot.school] = 1; 
-                    }
-                }
-            });
-        });
+        // ads.forEach(function(ad){
+        //     ad.slot.forEach(function(slot){
+        //         if(slot.date.setUTCHours(0,0,0,0) == begin.getTime()){
+        //             adFlagArray[ad.name] = 1;
+        //         }
+        //     });
+
+        //     if(adFlagArray[ad.name] == undefined){
+        //         console.log("no ad " + ad.name);
+        //        //ß ads.pop(ad);
+        //     }
+        // });
+
+        // var name;
+        // for(name in adFlagArray){
+        //     count += 1;
+        // }
         
         res.render('back/school/todayAD', 
             {
@@ -138,9 +146,9 @@ exports.getTodayAD = function(req, res, next){
 }
 
 exports.showGetAD = function(req, res, next) {
-    var begin = new Date(new Date().setHours(0, 0, 0, 0));
+    var begin = new Date(new Date().setUTCHours(0, 0, 0, 0));
     var end = new Date().getTime() + 7 * 24 * 3600 * 1000;
-    end = new Date(new Date(end).setHours(0, 0, 0, 0));
+    end = new Date(new Date(end).setUTCHours(0, 0, 0, 0));
     var query = {};
     var options = {
         sort: [
@@ -184,15 +192,125 @@ exports.addAD = function(req, res, next) {
     var slot = JSON.parse(p.slot);
     
     slot.forEach(function(item){
+        console.log(item.school);
+        console.log(item.date);
         item.date = new Date(item.date);
     });
 
     ad.newAndSave(p.name, slot, p.custom, p.discount, 
-        p.price, p.sponsor, p.is_clear, function(err, data){
+        p.price, p.sponsor, p.is_clear, p.remark, function(err, data){
             console.log(err);
-            console.log(data);
-            
+            console.log("添加广告成功: " + data.name);
+            res.redirect('/back/school/listAD');
+            //console.log(data);
         });
+}
+
+exports.detailAD = function(req, res, next){
+
+}
+
+exports.listAD =function(req, res, next){
+
+    var page = req.query.page;
+    var size = req.query.size;
+
+    if(page == undefined || page == null){
+        page = 0; //默认第1页
+    }
+
+    if(size == undefined || size == null){
+        size = 20;//默认每页20条
+    }
+
+    var proxy = EventProxy.create("ads", "count", function(ads, count) {
+        res.render("back/school/listAD", {
+            ads : ads,
+            count : count,
+            page : page,
+            size : size
+        });
+    });
+
+    ad.getAd(page*size, size, function(err, ads) {
+        console.log(ads);
+        proxy.emit('ads', ads);
+    });
+
+    ad.getCount(function(err, count){
+        console.log("共有广告 ：" + count);
+        proxy.emit('count', count);
+    });
+}
+
+exports.updateAD = function(req, res, next){
+    var p = req.body;
+
+    var slot = JSON.parse(p.slot);
+    
+    slot.forEach(function(item){
+        
+        item.date = new Date(item.date);
+    });
+
+    ad.update(p.id, p.name, slot, p.custom, p.discount, 
+        p.price, p.sponsor, p.is_clear, p.remark, function(err, data){
+            console.log(err);
+            console.log("更改广告成功: " + data);
+            res.redirect('/back/school/listAD');
+            //console.log(data);
+    });
+}
+
+exports.showUpdateAD = function(req, res, next){
+    var id = req.query.id;
+
+    var query = {};
+    var options = {
+        sort: [
+            ['create_at', 'desc']
+        ]
+    };
+    var proxy = EventProxy.create("schools", "ads", "the_ad", function(schools, ads, the_ad) {
+        res.render('back/school/updateAD', {
+            schools: schools,
+            id : id,
+            ad: the_ad,
+            ads: JSON.stringify(ads)
+        });
+    });
+
+    ad.getAdById(id, function(err, data){
+        proxy.emit('the_ad', data);
+
+        var begin = data[0].slot[0].date;
+        var end = new Date(new Date().getTime() + 7 * 24 * 3600 * 1000);
+
+        ad.getAdByTime(begin, end, {}, function(err, ads) {
+            ads.pop(data);
+            proxy.emit('ads', ads);
+        });
+    });
+
+    School.getSchoolsByQuery(query, options, proxy.done("schools"));
+}
+
+exports.removeAD = function(req, res, next){
+    var id = req.query.id;
+
+    ad.delAd(id, function(err, data){
+        console.log("删除广告：" + data);
+        res.json({'result': 'success'});
+    });
+}
+
+exports.clearAD = function(req, res, next){
+    var id = req.query.id;
+
+    ad.clearAd(id, function(err, data){
+        console.log("结算广告：" + data);
+        res.json({'result': 'success'});
+    });
 }
 
 exports.testAdd = function(req, res, next) {

@@ -17,7 +17,7 @@
             <div id="warnings"></div>
             <% ads.forEach(function(ad){%>
                 <div class="row-fluid">
-                    <h3>-------------------------------------------------------------</h3>
+                    <h3>-----------------------------------------------------------------------</h3>
                     <div class="span6">
                         <div> 名称：
                             <%=ad.name%>
@@ -31,17 +31,18 @@
                     </div>
                     <div class="span4">
                         <% ad.slot.forEach(function(slot){%>
-                            <%if(slot.date.setHours(0,0,0,0) == day.setHours(0,0,0,0)){%>
+                            <%if(slot.date.setUTCHours(0,0,0,0) == day.setUTCHours(0,0,0,0)){%>
                                 <div>
                                     <%if(slot.position == '0'){%>
                                         头条
                                         <%} else {%>
                                             次条
-                                        <%}%>
-                                        <%=schools[slot.school]%> (<%=slot.school%>)
+                                            <%}%>
+                                                <%=schools[slot.school]%> (
+                                                    <%=slot.school%>)
                                 </div>
-                            <%}%>
-                        <%});%>
+                                <%}%>
+                                    <%});%>
                     </div>
                 </div>
                 <%})%>
@@ -55,29 +56,29 @@
     </div>
     <%- include ../partial/footer%>
         <script>
-            var s = <%-adsO%>;
-            var day = new Date('<%=day%>');
-            var repeat = new Array();
+        var s = <%-adsO%>;
+        var day = new Date('<%=day%>');
+        var repeat = new Array();
 
-            $(ready());
+        $(ready());
 
-            function ready(){
-                s.forEach(function(ad){
-                    ad.slot.forEach(function(slot){
-                        if(day.getTime() == new Date(slot.date).getTime()){
-                            if(repeat[slot.school]){
-                                repeat[slot.school] += 1;
-                            } else {
-                                repeat[slot.school] = 1;
-                            }
+        function ready() {
+            s.forEach(function(ad) {
+                ad.slot.forEach(function(slot) {
+                    if (day.getTime() == new Date(slot.date).getTime()) {
+                        if (repeat[slot.school]) {
+                            repeat[slot.school] += 1;
+                        } else {
+                            repeat[slot.school] = 1;
                         }
-                    });
-                });
-
-                for(key in repeat){
-                    if(repeat[key] > 1){
-                        $("#warnings").html($("#warnings").html() + '<div> 请注意 ：' + key + ' 有 ' + repeat[key] +' 个广告 </div>');
                     }
+                });
+            });
+
+            for (key in repeat) {
+                if (repeat[key] > 1) {
+                    $("#warnings").html($("#warnings").html() + '<div> 请注意 ：' + key + ' 有 ' + repeat[key] + ' 个广告 </div>');
                 }
             }
+        }
         </script>
