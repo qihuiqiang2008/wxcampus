@@ -116,6 +116,11 @@ exports.getAllSchoolExsByField = function (field,callback) {
     SchoolEx.find({}, field, {sort: [['create_at', 'asc']]}, callback);
 };
 
+
+exports.getSchoolBywxId = function (id, callback) {
+    SchoolEx.findOne({wx_account_id:id}, callback);
+};
+
 exports.getSchoolExist= function (id, callback) {
     SchoolEx.count({_id:id}, callback);
 };

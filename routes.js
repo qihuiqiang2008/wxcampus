@@ -49,6 +49,8 @@ var answer = require('./controllers/answer');
 var photo_guess = require('./controllers/photo_guess');
 var count = require('./controllers/count');
 var login = require('./controllers/wxLogin');
+var wxmsg = require('./controllers/getWxArticleMsg');
+
 var passport = require('passport');
 var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
@@ -241,6 +243,13 @@ module.exports = function (app) {
     app.get('/back/school/cookie', auth.adminRequired,school.cookie_show);
     app.post('/back/school/cookie', auth.adminRequired,school.cookie_update);
 
+
+    app.post('/back/school/cookie_update_chrome',school.cookie_update_chrome);
+
+
+
+
+
     app.get('/schools',school.schools_json);
     app.get('/mail',Mail.mail);
     app.get('/schoolExs',school.schoolExs_json);
@@ -326,6 +335,11 @@ module.exports = function (app) {
     app.post('/signup', sign.signup);
     app.get('/signout', sign.signout);
     app.get('/signin', sign.showLogin);
+    app.post("/wxmsg",wxmsg.wxmsg)
+    app.get("/wxmsgadd",wxmsg.wxmsgadd)
+    app.get("/tt",login.download)
+    app.get("/tt1",postEx.tt)
+    app.get("/tu",uploadSingle1.uploadTest)
     app.post('/signin', sign.login);
 
     //广告相关 

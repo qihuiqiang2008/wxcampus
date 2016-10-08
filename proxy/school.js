@@ -105,6 +105,10 @@ exports.getSchoolById = function (id, callback) {
     School.findOne({_id:id}, callback);
 };
 
+exports.getSchoolBywxId = function (id, callback) {
+    School.findOne({wx_account_id:id}, callback);
+};
+
 exports.getSchoolCacheById = function (id, callback) {
     if((!id)||id.length<=0){callback(null,'')}else {
         myCache.get(id, function (err, value) {

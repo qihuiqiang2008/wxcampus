@@ -7,11 +7,9 @@ var config = require('../config').config;
 var EventProxy = require('eventproxy');
 var Resource = require('../proxy').Resource;
 var async = require("async");
-var logger = require('./../logs/log');
 
 
 exports.show_create = function (req, res, next) {
-    logger.info('log to file');
 
     Region.getRegionByQuery({},{},function(err,regions){
         res.render('back/school/create',{regions:regions});
@@ -85,6 +83,7 @@ exports.serverDo = function (req, res, next) {
     }
 }
 
+/*
 exports.mschools = function (req, res, next) {
 
     var region_code = req.query.region_code;
@@ -137,7 +136,7 @@ exports.mschools = function (req, res, next) {
     page = page > 0 ? page : 1;
     var limit = 100;
     var options = { skip: (page - 1) * limit, limit: limit, sort: [
-        [ 'create_at', 'desc' ]
+        [ 'wxacount', 'desc' ]
     ] };
     var view='back/school/mschool';
 
@@ -164,6 +163,119 @@ exports.mschools = function (req, res, next) {
     proxy.fail(next);
     School.getSchoolsByQuery(query, options, proxy.done("schools"));
     School.getCountByQuery(query, proxy.done(function (all_count) {
+        var pages = Math.ceil(all_count / limit);
+        proxy.emit('pages', pages);
+    }));
+
+    Region.getRegionByQuery({},{}, proxy.done("regions"))
+};
+*/
+
+
+
+
+exports.mschools = function (req, res, next) {
+
+    var region_code = req.query.region_code;
+    var tag = req.query.tag;
+    var admin= req.params.admin;
+    // console.log(region_code);
+    var query={};
+    var ip="http://115.29.47.93";
+    var port="1111";
+    if(admin=="qi"){
+        port="5555";
+        admin="齐"
+    }
+    if(admin=="wang"){
+        port="2222";
+        admin="汪"
+    }
+    if(admin=="he"){
+        port="3333";
+        admin="贺"
+    }
+    if(admin=="ma"){
+        port="4444";
+        admin="马"
+    }
+    if(admin=="yi"){
+        port="4444";
+        admin="弋"
+    }
+    if(admin){
+        query = {admin: admin};
+        if(admin=="汪"||admin=="齐"||admin=="弋"){
+            port="80";
+        }else{
+            port="80";
+        }
+    }
+    if(region_code){
+        query = {region_code: region_code};
+    }
+    if(tag){
+        if(tag=="1"){
+            query = {active: true};
+        }else {
+            query = {active: false};
+        }
+    }
+
+    var page = parseInt(req.query.page, 10) || 1;
+    page = page > 0 ? page : 1;
+    var limit = 100;
+    var options = { skip: (page - 1) * limit, limit: limit, sort: [
+        [ 'wxacount', 'desc' ]
+    ] };
+    var view='back/school/mschool';
+
+
+    var last="";
+
+
+    var all="";
+
+/*
+    schoolnameMap.北化微生活="buct_welife|zgyfjch2013|北林微生活"
+*/
+
+    var proxy = EventProxy.create('schools', 'pages','regions',
+        function (schools, pages,regions) {
+           // schools.forEach(function (school, i) {
+
+             /*   if(last!=""){
+                    console.log("schoolnameMap."+last.wx_account_name+"='"+last.wx_account_id+"|"+last.wx_account_password+"|"+school.wx_account_name+"'")
+                }else{
+                    console.log("schoolnameMap."+school.wx_account_name+"='"+school.wx_account_id+"|"+school.wx_account_password+"|"+school.wx_account_name+",")
+                }
+                last=school*/
+
+
+
+                //last=school.wx_account_name
+                    //schoolnameMap.北化微生活
+
+              //  console.log( "schoolnameMap."+school.cn_name+"="+"\""+school.en_name+"\"")
+          //  });
+          //  console.log("schoolnameMap."+last.wx_account_name+"='"+last.wx_account_id+"|"+last.wx_account_password+"|"+last.wx_account_name+"'")
+           /* schools.forEach(function (post, i) {
+                console.log( "regionnameMap."+post.cn_name+"="+"\""+post.region_code+"\"")
+            });*/
+            res.render(view,{
+                port:port,
+                schools: schools,
+                pages: pages,
+                current_page: page,
+                ip:ip,
+                regions:regions
+            });
+        });
+
+
+    proxy.fail(next);
+    SchoolEx.getSchoolsByQuery(query, options, proxy.done("schools"));
+    SchoolEx.getCountByQuery(query, proxy.done(function (all_count) {
         var pages = Math.ceil(all_count / limit);
         proxy.emit('pages', pages);
     }));
@@ -380,8 +492,7 @@ exports.cookie_show = function (req, res, next) {
     });
 };
 
-
-exports.cookie_update = function (req, res, next) {
+exports.cookie_update_chrome = function (req, res, next) {
     var en_name = req.body.en_name;
     var cookie = req.body.cookie;
     var token = req.body.token;
@@ -389,18 +500,24 @@ exports.cookie_update = function (req, res, next) {
     var mail = req.body.mail;
     var wxacount = req.body.wxacount;
     var chrome=req.body.chrome;
+    var count=req.body.count;
 
-    console.log(en_name);
-    console.log(cookie);
+    console.log(en_name)
+    console.log(cookie)
+    console.log()
 
-    SchoolEx.getSchoolByEname(en_name,function(err,school){
-        School.getSchoolByEname(en_name,function(err,sch){
-        if (err) {
-            res.render('back/school/cookie', {msg:'出现未知错误'});
-        }
-        school.cookie=cookie;
-        school.token=token;
-        if(mail){
+    SchoolEx.getSchoolBywxId(en_name,function(err,school){
+        School.getSchoolBywxId(en_name,function(err,sch){
+            if (err) {
+                res.render('back/school/cookie', {msg:'出现未知错误'});
+            }
+            school.cookie=cookie;
+            school.token=token;
+            school.fans=count;
+            sch.cookie=cookie;
+            sch.token=token;
+            sch.fans=count;
+            if(mail){
                 school.mail=mail;
 
             }
@@ -413,18 +530,71 @@ exports.cookie_update = function (req, res, next) {
                 sch.wxacount=wxacount;
 
             }
-        school.save();
+            school.save();
             sch.save();
-        if(chrome){
-            res.send("true");
-        }
-        else{
-            res.redirect("/back/schools");
-        }
+            if(chrome){
+                res.send("true");
+            }
+            else{
+                res.redirect("/back/schools");
+            }
         });
     });
 
+
 };
+
+exports.cookie_update = function (req, res, next) {
+    var en_name = req.body.en_name;
+    var cookie = req.body.cookie;
+    var token = req.body.token;
+    var admin = req.body.admin;
+    var mail = req.body.mail;
+    var wxacount = req.body.wxacount;
+    var chrome=req.body.chrome;
+
+    console.log("........."+cookie)
+
+           SchoolEx.getSchoolByEname(en_name,function(err,school){
+               School.getSchoolByEname(en_name,function(err,sch){
+                   if (err) {
+                       res.render('back/school/cookie', {msg:'出现未知错误'});
+                   }
+                   school.cookie=cookie;
+                   school.token=token;
+                   sch.cookie=cookie;
+                   sch.token=token;
+                   if(mail){
+                       school.mail=mail;
+
+                   }
+                   if(admin){
+                       school.admin=admin;
+                       sch.admin=admin;
+                   }
+                   if(wxacount){
+                       school.wxacount=wxacount;
+                       sch.wxacount=wxacount;
+
+                   }
+                   school.save();
+                   sch.save();
+                   if(chrome){
+                       res.send("true");
+                   }
+                   else{
+                       res.redirect("/back/schools");
+                   }
+               });
+           });
+
+
+
+
+};
+
+
+
 
 
 exports.title_edit_show = function (req, res, next){

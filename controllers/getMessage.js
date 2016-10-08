@@ -7,7 +7,6 @@ var login = require(__dirname + '/../wx_helpers/login');
 var SchoolEx = require('../proxy').SchoolEx;
 var async = require('async');
 var fs = require('fs');
-var logger = require('./../logs/log');
 exports.getMessage = function (req, res, next) {
     var user = req.query.user;
     var number = req.query.number;
@@ -68,10 +67,7 @@ exports.getMessage = function (req, res, next) {
              .end(function(res) {
                    var start=res.text.indexOf("window.wx =")
                     var end=res.text.indexOf("path:")
-                     console.log( res.text.slice(start+"window.wx =".length,end).trim());
-            logger.info(res.headers)
-                     logger.info( res.text.slice(start+"window.wx =".length,end).trim())
-             console.log(res.headers)
+
              var indexHead = res.text.indexOf('wx.cgiData =');
              indexHead = res.text.indexOf('list :', indexHead);
              var indexTail = res.text.indexOf('.msg_item', indexHead);
