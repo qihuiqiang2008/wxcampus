@@ -48,12 +48,12 @@ exports.getAD = function(req, res, next) {
         skip: (page - 1) * limit,
         limit: limit,
         sort: [
-            ['create_at', 'desc']
+            ['region_code', 'asc']
         ]
     };
     var view = 'back/school/ADs';
     if (t) {
-        view = 'back/school/mschool';
+        view = 'back/school/ADs';
     }
     var proxy = EventProxy.create('schools', 'pages', 'TodayResourceCount', 'regions', 'ads',
         function(schools, pages, TodayResourceCount, regions, ads) {
@@ -100,7 +100,7 @@ exports.getTodayAD = function(req, res, next){
    // var end = new Date(begin.getTime() + 1*24*3600*1000);
     var end = begin;
 
-    // var adFlagArray = new Array();
+    var adFlagArray = new Array();
     var schooleDic = new Array();
 
     var proxy = EventProxy.create("ads", "schools", function(ads, school) {
@@ -110,18 +110,17 @@ exports.getTodayAD = function(req, res, next){
             schooleDic[s.en_name] = s.cn_name;
         });
 
-        // ads.forEach(function(ad){
-        //     ad.slot.forEach(function(slot){
-        //         if(slot.date.setUTCHours(0,0,0,0) == begin.getTime()){
-        //             adFlagArray[ad.name] = 1;
-        //         }
-        //     });
+        ads.forEach(function(ad, index){
+            ad.slot.forEach(function(slot){
+                if(slot.date.setUTCHours(0,0,0,0) == begin.getTime()){
+                    adFlagArray[ad.name] = 1;
+                }
+            });
 
-        //     if(adFlagArray[ad.name] == undefined){
-        //         console.log("no ad " + ad.name);
-        //        //ß ads.pop(ad);
-        //     }
-        // });
+            if(adFlagArray[ad.name] == undefined){
+                ads.splice(index, 1);
+            }
+        });
 
         // var name;
         // for(name in adFlagArray){
@@ -138,6 +137,7 @@ exports.getTodayAD = function(req, res, next){
     });
 
     ad.getAdByTime(begin, end, {}, function(err, ads){
+        
         proxy.emit('ads', ads);
     });
 
@@ -152,7 +152,7 @@ exports.showGetAD = function(req, res, next) {
     var query = {};
     var options = {
         sort: [
-            ['create_at', 'desc']
+            ['region_code', 'asc']
         ]
     };
     var proxy = EventProxy.create("schools", "ads", function(schools, ads) {
