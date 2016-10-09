@@ -45,20 +45,20 @@ function changeTrColor(obj) {
                 <div class="span12">
                     <div class="widget-box">
                         <div class="widget-content nopadding">
-                            <table class="table table-bordered table-striped table-responsive">
+                            <table class="table table-bordered table-striped table-responsive" style="word-break:break-all; word-wrap:break-all;">
                                 <thead>
                                     <tr>
-                                        <th width="10px">序号</th>
-                                        <th width="80px">广告名称</th>
+                                        <th width="5px">序号</th>
+                                        <th width="60px">广告名称</th>
                                         <th width="60px">详情</th>
                                         <th width="30px">客户</th>
                                         <th width="20px">介绍人</th>
                                         <th width="30px">添加日期</th>
                                         <th width="10px">价格</th>
-                                        <th width="10px">折扣</th>
+                                        <th width="5px">折扣</th>
                                         <th width="10px">结算</th>
-                                        <th width="60px">备注</th>
-                                        <th width="50px">操作</th>
+                                        <th width="80px">备注</th>
+                                        <th width="30px">操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,9 +90,9 @@ function changeTrColor(obj) {
                                     ads.forEach(function(ad){ 
                                     seq = seq - 1;%>
                                     <tr>
-                                        <td> <%=seq%></td>
-                                        <td> <%=ad.name%></td>
-                                        <td><%ad.slot.forEach(function(slot){%>
+                                        <td width="5px"> <%=seq%></td>
+                                        <td width="60px"> <%=ad.name%></td>
+                                        <td width="60px"><%ad.slot.forEach(function(slot){%>
                                             <br><%=slot.date.format('yy-MM-dd')%> <%=slot.school%> 
                                             <%if(slot.position == '0') {%>
                                                 头条
@@ -101,14 +101,14 @@ function changeTrColor(obj) {
                                                 <%}%>
                                             </br>
                                         <%});%></td>
-                                        <td><%=ad.custom%></td>
-                                        <td><%=ad.sponsor%></td>
-                                        <td><%=ad.create_at.format("yy-MM-dd hh:mm")%> (周<%=s[ad.create_at.getDay()]%>)</td>
-                                        <td><%=ad.price%></td>
-                                        <td><%=ad.discount%></td>
-                                        <td><%=ad.is_clear%></td>
-                                        <td><%=ad.remark%></td>
-                                        <td>
+                                        <td width="30px"><%=ad.custom%></td>
+                                        <td width="20px"><%=ad.sponsor%></td>
+                                        <td width="30px"><%=ad.create_at.format("yy-MM-dd hh:mm")%> (周<%=s[ad.create_at.getDay()]%>)</td>
+                                        <td width="10px"><%=ad.price%></td>
+                                        <td width="5px"><%=ad.discount%></td>
+                                        <td width="10px"><%=ad.is_clear%></td>
+                                        <td width="80px"><%=ad.remark%></td>
+                                        <td width="30px">
                                         <button class="btn btn-mini btn-info btn-del" val="<%=ad._id%>">删除</button>
                                         <button class="btn btn-mini btn-info btn-update" val="<%=ad._id%>">修改</button>
                                         <button class="btn btn-mini btn-info btn-clear" val="<%=ad._id%>">结算</button>
