@@ -205,7 +205,7 @@ exports.uploadSingle = function (req, res, next) {
                                 .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
                                 .end(function (res) {
                                     if (res.ok) {
-                                        console.log(res.text)
+                                        //console.log(res.text)
                                         var start_msg_title = res.text.indexOf("var msg_title =");
                                         var start_msg_desc = res.text.indexOf("var msg_desc =");
                                         var start_msg_cdn_url = res.text.indexOf("var msg_cdn_url =");
@@ -213,11 +213,16 @@ exports.uploadSingle = function (req, res, next) {
                                         var start_user_uin = res.text.indexOf("var user_uin =");
                                         var start_msg_source_url = res.text.indexOf("var msg_source_url =");
                                         var start_img_format = res.text.indexOf("var img_format =");
-                                        var msg_title = res.text.substring(start_msg_title + "var msg_title =".length, start_msg_desc).trim()
+                                        var msg_title = res.text.substring(start_msg_title + "var msg_title =".length, start_msg_desc).trim().replace("\"", "").replace("\";", "");
                                         var msg_desc = res.text.substring(start_msg_desc + "var msg_desc =".length, start_msg_cdn_url).trim()
                                         var msg_cdn_url = res.text.substring(start_msg_cdn_url + "var msg_cdn_url =".length, start_msg_link).trim().replace("\"", "").replace("\";", "");
                                         var msg_link = res.text.substring(start_msg_link + "var msg_link =".length, start_user_uin).trim().replace("\"", "");
                                         var msg_source_url = res.text.substring(start_msg_source_url + "var msg_source_url =".length, start_img_format).trim().replace("\"", "").replace("'", "").replace("';", "");
+                                        msg_source_url= ent.decode(msg_source_url);
+                                        if(!msg_source_url){
+                                            msg_source_url='';
+                                        }
+                                        console.log(msg_source_url)
                                         var $ = cheerio.load(res.text, {decodeEntities: false});
                                         var stream = fs.createWriteStream('./cache' + i + '.jpg');
                                         request.get(msg_cdn_url)
@@ -233,7 +238,7 @@ exports.uploadSingle = function (req, res, next) {
                                         item.copyright_type = 0;
                                         item.source_url = msg_source_url;
                                         i++;
-                                        callreplace();
+                                       callreplace();
                                     }
                                 });
                         } else {
@@ -246,7 +251,7 @@ exports.uploadSingle = function (req, res, next) {
                     if (err) {
                         console.log('err while upload  pic!!!');
                     }
-                    cb();
+                   cb();
                 })
 
             },
@@ -376,7 +381,7 @@ exports.uploadSingle = function (req, res, next) {
                     data['reward_wording' + i] = '';
                     data['need_open_comment' + i] = '0';
                     data['only_fans_can_comment' + i] = '0';
-                    data['sourceurl' + i] = '';
+                    //data['sourceurl' + i] = '';
                     data['free_content' + i] = '';
 
 

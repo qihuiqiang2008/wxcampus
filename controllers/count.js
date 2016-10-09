@@ -105,15 +105,15 @@ exports.count_number = function(req, res, next){
 
         schools.forEach(function (item, i) {
             if(item.fans){
-                console.log(getRegion(item.region_code))
+               // console.log(getRegion(item.region_code))
                 //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
                // totalNumber=totalNumber+item.fans
-               // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+                conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
             }else{
             }
         })
         console.log("..................")
-
+/*
 
         schools.forEach(function (item, i) {
             if(item.fans){
@@ -176,7 +176,7 @@ exports.count_number = function(req, res, next){
                 // conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
             }else{
             }
-        })
+        })*/
 
 
      /*   schools.forEach(function (item, i) {

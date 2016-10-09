@@ -639,11 +639,11 @@ $("#admin_id").change(function(){
 
 $("#getCommentSource").click(function(){
     var group=$("#belong_group").val();
-    group = prompt("获取素材的id，1为公共素材，5为缘分墙素材");
-    articleNum = prompt("设置素材的条目数，公共一般为4，缘分墙为5");
+   // group = prompt("获取素材的id，1为公共素材，5为缘分墙素材");
+    articleNum = prompt("设置原始素材的条目数");
     console.log(group);
     $.ajax({
-        'url': '/back/getSource?group='+group+'&articleNum='+articleNum+'&isgetTarget=true',
+        'url': '/back/getSource?group='+group+'&articleNum='+articleNum+'',
         cache: false,
         'type': 'GET',
         'dataType': 'text',
@@ -676,7 +676,7 @@ $("#getTargetSource").click(function(){
 
     var group=$("#belong_group").val();
     $.ajax({
-        'url': '/back/getSource?group='+group+'&articleNum='+articleNum,
+        'url': '/back/getSource?group='+group+'&articleNum='+articleNum+'&isgetTarget=true',
         cache: false,
         'type': 'GET',
         'dataType': 'text',
@@ -1051,8 +1051,12 @@ function sendSingle(school,index){
             }
         },
         beforeSend: function (xhr, textStatus) {
+            if(school_enname){
             $("#"+school_enname+"").text("素材上传ing....");
             $("#loading_"+school_enname+"").show();
+            }else{
+                $("#sendAll1").text("替换广告模板替换ing");
+            }
         },
         error: function (xhr) {
             $("#"+school_enname+"").text("上传异常");

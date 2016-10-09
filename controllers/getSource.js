@@ -66,6 +66,7 @@ exports.getSource = function (req, res, next) {
                 if (isgetTarget) {
                     contentSource.msgId = s.value.split('|')[4];
                 }
+                console.log(contentSource)
                 SchoolEx.getSchoolByEname(s.value.split('|')[0], function (err, school) {
                     login(school, function (err, results) {
                         loadResult = results;
