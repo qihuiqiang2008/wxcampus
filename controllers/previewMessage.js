@@ -12,6 +12,8 @@ var SchoolEx = require('../proxy').SchoolEx;
 var School = require('../proxy').School;
 var ent = require('ent');
 var articleNum = 4;
+var Configuration = require('../proxy').Configuration;
+
 
 function replaceContent(e) {
     var t = [ "&", "&amp;", "<", "&lt;", ">", "&gt;", " ", "&nbsp;", '"', "&quot;", "'", "&#39;" ];
@@ -46,6 +48,23 @@ exports.previewMessage = function(req, res, next){
 
                 cb();
             });
+        },
+        function(cb) {//1.1：登陆到素材源。
+            Configuration.getConfigurationByCode("getSourceSchool", function (err, s) {
+
+                previewId=s.value.split('|')[5];
+                /*contentSource = {
+                    en_name: s.value.split('|')[0],
+                    wx_account_id: s.value.split('|')[1],
+                    wx_account_password: s.value.split('|')[2],
+                    msgId: s.value.split('|')[4]
+                };
+                if(IsAdtype){
+                    school_enname=contentSource.en_name;
+                }*/
+
+                cb();
+            })
         },
 
         function(cb) {      //  获取素材内容
