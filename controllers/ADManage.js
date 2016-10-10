@@ -268,7 +268,7 @@ exports.showUpdateAD = function(req, res, next){
     var query = {};
     var options = {
         sort: [
-            ['create_at', 'desc']
+            ['region_code', 'asc']
         ]
     };
     var proxy = EventProxy.create("schools", "ads", "the_ad", function(schools, ads, the_ad) {
@@ -283,16 +283,33 @@ exports.showUpdateAD = function(req, res, next){
     ad.getAdById(id, function(err, data){
         proxy.emit('the_ad', data);
 
-        var begin = data[0].slot[0].date;
-        var end = new Date(new Date().getTime() + 7 * 24 * 3600 * 1000);
+        var begin = new Date(new Date().setUTCHours(0, 0, 0, 0));
+        var end = new Date().getTime() + 7 * 24 * 3600 * 1000;
+        end = new Date(new Date(end).setUTCHours(0, 0, 0, 0));
 
         ad.getAdByTime(begin, end, {}, function(err, ads) {
-            ads.pop(data);
+
+            ads.splice(indexOf(ads, data[0]), 1);
             proxy.emit('ads', ads);
         });
     });
 
     School.getSchoolsByQuery(query, options, proxy.done("schools"));
+}
+
+function indexOf(array, obj){
+    var ret = -1;
+
+    console.log(array);
+    array.forEach(function(item, index){
+        if(JSON.stringify(item._id) == JSON.stringify(obj._id)){
+            ret =  index;
+            console.log("ret is " + ret);
+
+        }
+    });
+    console.log("ret return " + ret);
+    return ret;  
 }
 
 exports.removeAD = function(req, res, next){

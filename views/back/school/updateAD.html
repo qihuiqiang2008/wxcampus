@@ -216,6 +216,11 @@
                 $("#myModal").modal('show');
                 return false;
             });
+
+            adObj.forEach(function(slot){
+                slot.date = new Date(slot.date);
+            });
+
             drawAd(ads, currentDay);
         }
 
@@ -334,9 +339,9 @@
         function delAdFunc() {
             var slotDate = new Date(currentDay.getTime() + parseInt(this.id.split('_')[1]) * 24 * 3600 * 1000);
             var slotSchool = this.id.split('_')[0];
-            adObj.forEach(function(item) {
+            adObj.forEach(function(item, index) {
                 if (item.school == slotSchool && item.date.getTime() == slotDate.getTime()) {
-                    adObj.pop(item);
+                    adObj.splice(index, 1);
                     $(this).attr("class", getClass($(this).val()));
                     $(this).text($(this).attr("temp"));
                     $(this).unbind();
