@@ -223,17 +223,17 @@ exports.pushMessage = function(req, res, next){
                     cb();
                 });
         }
-        ,
-        function(cb){ //2.5 登出
-            request('https://mp.weixin.qq.com/cgi-bin/logout?t=wxm-logout&lang=zh_CN&token=' + loadResult.token)
-                .set('Cookie', loadResult.cookie)
-                .set("Accept-Encoding" , "gzip,sdch")
-                .set('User-Agent' , 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
-                .end(function(res){
-                    console.log('==========logout=================');
-                    cb();
-                })
-        }
+        // ,
+        // function(cb){ //2.5 登出
+        //     request('https://mp.weixin.qq.com/cgi-bin/logout?t=wxm-logout&lang=zh_CN&token=' + loadResult.token)
+        //         .set('Cookie', loadResult.cookie)
+        //         .set("Accept-Encoding" , "gzip,sdch")
+        //         .set('User-Agent' , 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+        //         .end(function(res){
+        //             console.log('==========logout=================');
+        //             cb();
+        //         })
+        // }
     ], function(err, results) {
         res.send(result_json);
     });
