@@ -102,6 +102,7 @@ exports.getTodayAD = function(req, res, next){
 
     var adFlagArray = new Array();
     var schooleDic = new Array();
+    var new_ads = new Array();
 
     var proxy = EventProxy.create("ads", "schools", function(ads, school) {
 
@@ -111,14 +112,15 @@ exports.getTodayAD = function(req, res, next){
         });
 
         ads.forEach(function(ad, index){
+            console.log("now : " + ad._id);
             ad.slot.forEach(function(slot){
                 if(slot.date.setUTCHours(0,0,0,0) == begin.getTime()){
-                    adFlagArray[ad.name] = 1;
+                    adFlagArray[ad._id] = 1;
                 }
             });
 
-            if(adFlagArray[ad.name] == undefined){
-                ads.splice(index, 1);
+            if(adFlagArray[ad._id] != undefined){
+                new_ads.push(ad);
             }
         });
 
@@ -129,9 +131,9 @@ exports.getTodayAD = function(req, res, next){
         
         res.render('back/school/todayAD', 
             {
-                ads : ads,
+                ads : new_ads,
                 day : begin,
-                adsO : JSON.stringify(ads),
+                adsO : JSON.stringify(new_ads),
                 schools : schooleDic,
             });
     });
