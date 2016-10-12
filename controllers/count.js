@@ -102,13 +102,18 @@ exports.count_number = function(req, res, next){
 
     SchoolEx.getSchoolExsByQuery(query, options, function(err,schools){
         console.log("..................")
+        var all=0;
 
         schools.forEach(function (item, i) {
             if(item.fans){
                // console.log(getRegion(item.region_code))
                 //+":"+item.fans+":"+getPrice(item.fans,item.region_code)
                // totalNumber=totalNumber+item.fans
+                if(item.en_name=="bnu"){
+                    item.fans=item.fans+5000;
+                }
                 conf.rows.push([getRegion(item.region_code), item.cn_name, item.wx_account_name, item.wx_account_id,item.fans,getPrice(item.fans,item.region_code)]);
+                totalNumber=totalNumber+item.fans;
             }else{
             }
         })

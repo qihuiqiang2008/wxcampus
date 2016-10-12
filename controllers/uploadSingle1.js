@@ -222,14 +222,20 @@ exports.uploadSingle = function (req, res, next) {
                                         if(!msg_source_url){
                                             msg_source_url='';
                                         }
-                                        console.log(msg_source_url)
+                                        msg_title= ent.decode(msg_title);
+
+                                        msg_desc= ent.decode(msg_desc);
+
+
                                         var $ = cheerio.load(res.text, {decodeEntities: false});
                                         var stream = fs.createWriteStream('./cache' + i + '.jpg');
                                         request.get(msg_cdn_url)
                                             .set({"Accept-Encoding": "gzip,sdch"})
                                             .set('Accept', 'image/png,image/*;q=0.8,*/*;q=0.5')
                                             .pipe(stream);
-                                        item.content = $('#js_content').html();
+                                        item.content = $('#js_content').html().trim();
+                                        console.log("---------------")
+
                                         item.title = msg_title;
                                         item.author = "";
                                         item.digest = msg_desc;
