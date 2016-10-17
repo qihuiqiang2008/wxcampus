@@ -13,7 +13,8 @@
             <a href="#">今日广告</a>
         </div>
         <div class="container-fluid">
-            <h3> 广告数量 <%=ads.length%> </h3>
+            <h3> 广告数量 <%=ads.length%> </h3> 
+            <button id="sync_ad" class="btn btn-mini btn-info">同步今日广告标签</button>
             <div id="warnings"></div>
             <% ads.forEach(function(ad){%>
                 <div class="row-fluid">
@@ -30,13 +31,15 @@
                         </div>
                     </div>
                     <div class="span4">
-                        <% ad.slot.forEach(function(slot){%>
-                            <%if(slot.date.setUTCHours(0,0,0,0) == day.setUTCHours(0,0,0,0)){%>
+                        <% var count = 0;%>
+                        <% ad.slot.forEach(function(slot){
+                        %>
+                            <%if(slot.date.setUTCHours(0,0,0,0) == day.setUTCHours(0,0,0,0)){ count = count + 1;%>
                                 <div>
                                     <%if(slot.position == '0'){%>
-                                        头条
+                                        <%=count%>. 头条
                                         <%} else {%>
-                                            次条
+                                        <%=count%>. 次条
                                             <%}%>
                                                 <%=schools[slot.school]%> (
                                                     <%=slot.school%>)
@@ -81,4 +84,17 @@
                 }
             }
         }
+
+        $("#sync_ad").click(function(){
+            $.ajax({
+                url:"/back/school/syncADTag",
+                dataType:"json",
+                method:"get",
+                success:function(data, err){
+                    if(data.result == 'OK'){
+                        alert('完成');
+                    }
+                }
+            });
+        });
         </script>

@@ -56,8 +56,8 @@
                             <div class="control-group">
                                 <label class="control-label">封面图片</label>
                                 <div class="controls">
-                                    <input type="text" name="msg_cdn_url" value="<%=msg_cdn_url%>"  id="msg_cdn_url" placeholder="描述">
-                                   <!-- <a href="<%=msg_cdn_url%>" target="_blank">--><!--</a>--><span>复制直接到浏览器打开</span>>
+                                    <input type="text" name="msg_cdn_url" value="<%=msg_cdn_url%>"  id="msg_cdn_url" placeholder="描述"
+                                   <!-- <a href="<%=msg_cdn_url%>" target="_blank">--><!--</a>--><span>复制直接到浏览器打开</span>
                                 </div>
                             </div>
 
@@ -68,6 +68,10 @@
                                 </div>
                             </div>
 
+                            <div class="control-group">
+                                <img src="<%=msg_cdn_url%>">
+                            </div>
+                            
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary"  >保存</button>
                             </div>

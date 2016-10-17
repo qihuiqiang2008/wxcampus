@@ -41,9 +41,10 @@ exports.wxmsg = function (req, res, next) {
                         .set('Accept','image/png,image/*;q=0.8,*/*;q=0.5')
                         .pipe(stream);
 
+                        msg_desc = msg_desc.substring(1, msg_desc.length - 2);
                     currentres.render('back/configuration/wxmsgparseshow', {
                         url: url,
-                        msg_title:$('#js_content').html() /*msg_title.substring(1,msg_title.length-2)*/,
+                        msg_title:/*$('#js_content').html()*/ msg_title.substring(1,msg_title.length-2),
                         msg_desc: msg_desc.replace("此为临时链接，仅用于文章预览，将在短期内失效关闭",""),
                         msg_cdn_url: msg_cdn_url,
                         msg_link: msg_link,
