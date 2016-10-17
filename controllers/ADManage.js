@@ -112,7 +112,6 @@ exports.getTodayAD = function(req, res, next){
         });
 
         ads.forEach(function(ad, index){
-            console.log("now : " + ad._id);
             ad.slot.forEach(function(slot){
                 if(slot.date.setUTCHours(0,0,0,0) == begin.getTime()){
                     adFlagArray[ad._id] = 1;
@@ -216,6 +215,8 @@ exports.listAD =function(req, res, next){
 
     var page = req.query.page;
     var size = req.query.size;
+    var admin = req.query.admin;
+    var option = {};
 
     if(page == undefined || page == null){
         page = 0; //默认第1页
@@ -225,7 +226,13 @@ exports.listAD =function(req, res, next){
         size = 20;//默认每页20条
     }
 
+    if(admin != undefined && admin != null){
+        option.sponsor = admin;
+        console.log("admin is:" + admin);
+    }
+
     var proxy = EventProxy.create("ads", "count", function(ads, count) {
+        console.log("page is:" + page + " size is:" + size);
         res.render("back/school/listAD", {
             ads : ads,
             count : count,
@@ -234,12 +241,12 @@ exports.listAD =function(req, res, next){
         });
     });
 
-    ad.getAd(page*size, size, function(err, ads) {
-        console.log(ads);
+    ad.getAd(page*size, size, option, function(err, ads) {
+        //console.log(ads);
         proxy.emit('ads', ads);
     });
 
-    ad.getCount(function(err, count){
+    ad.getCount(option, function(err, count){
         console.log("共有广告 ：" + count);
         proxy.emit('count', count);
     });
