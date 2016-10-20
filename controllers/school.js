@@ -628,7 +628,7 @@ exports.title_edit_show = function (req, res, next){
 
 exports.all_title_edit = function (req, res, next) {
     var type=req.query.type;
-    SchoolEx.getSchoolsByQuery({},[],function (err,schools){
+    SchoolEx.getSchoolExsByQueryAndField({},'_id confess_title photo_guess_title cn_name en_name secret_title',[],function (err,schools){
         console.log(err);
         return  res.render('back/school/all_title_edit', {schools:schools,type:type});
     });
@@ -638,23 +638,80 @@ exports.all_title_edit = function (req, res, next) {
 
 exports.all_title_updating = function (req, res, next) {
     var title_content =req.body.title_content;
+    var title_content1 =req.body.title_content1;
+    var title_content2 =req.body.title_content2;
+    var title_content3 =req.body.title_content3;
+    var title_content4 =req.body.title_content4;
+    var title_content5 =req.body.title_content5;
+    var title_content6 =req.body.title_content6;
+    var title_content7 =req.body.title_content7;
+    var title_content8 =req.body.title_content8;
+    var arrayObj = new Array();
+    arrayObj.push(title_content);
+    arrayObj.push(title_content1)
+    arrayObj.push(title_content2)
+    arrayObj.push(title_content3)
+    arrayObj.push(title_content4)
+    arrayObj.push(title_content5)
+    arrayObj.push(title_content6)
+    arrayObj.push(title_content7)
+    arrayObj.push(title_content8)
+
+    console.log("..................")
+
     var type=req.body.type;
+    var sort = [
+        [ 'region_code', 'desc' ]
+    ];
+    var options = { sort: sort};
     if(type=="confess"){
-        SchoolEx.updateAllConfessTitle(title_content,function (err){
+        SchoolEx.getSchoolExsByQueryAndField({},'_id confess_title', options, function(err,schools){
+            var i=0;
+            async.eachSeries(schools, function (item, callreplace) {
+                item.confess_title=arrayObj[i%5]
+                item.save()
+                i++;
+                callreplace()
+
+            }, function (err) {
+                if (err) {
+                    console.log('err while upload  pic!!!');
+                }
+                return  res.render('back/school/title_update', {msg:'设置成功',type:type});
+            })
+        });
+
+
+      /*  SchoolEx.updateAllConfessTitle(title_content,function (err){
             if (err) {
                 console.log(err);
                 return  res.render('back/school/title_update', {msg:'出现未知错误',type:type});
             }
             return  res.render('back/school/title_update', {msg:'设置成功',type:type});
-        });
+        });*/
     }else if(type=="shudong"){
-        SchoolEx.updateAllSecretTitle(title_content,function (err){
+        SchoolEx.getSchoolExsByQueryAndField({},'_id secret_title', options, function(err,schools){
+            var i=0;
+            async.eachSeries(schools, function (item, callreplace) {
+                item.secret_title=arrayObj[i%8]
+                item.save()
+                i++;
+                callreplace()
+
+            }, function (err) {
+                if (err) {
+                    console.log('err while upload  pic!!!');
+                }
+                return  res.render('back/school/title_update', {msg:'设置成功',type:type});
+            })
+        });
+       /* SchoolEx.updateAllSecretTitle(title_content,function (err){
             if (err) {
                 console.log(err);
                 return  res.render('back/school/title_update', {msg:'出现未知错误',type:type});
             }
             return  res.render('back/school/title_update', {msg:'设置成功',type:type});
-        });
+        });*/
 
     }
     else{

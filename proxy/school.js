@@ -32,6 +32,7 @@ exports.getSchoolsByQuery = function (query, opt, callback) {
     });
 };
 
+
 exports.getSchoolExist= function (id, callback) {
     School.count({_id:id}, callback);
 };

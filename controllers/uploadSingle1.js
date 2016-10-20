@@ -17,14 +17,20 @@ var Configuration = require('../proxy').Configuration;
 
 function replaceContent(content, schoolEx, face) {
     var contentFunnl = content.replace(new RegExp('__topic_content__', "g"), schoolEx.topic_content)
-        .replace(new RegExp('__photo_guess_content__', "g"), schoolEx.photo_guess_content.replace("赞", "zan"))
         .replace(new RegExp('__confession_content__', "g"), schoolEx.confess_content.replace("赞", "zan"))
         .replace(new RegExp('__secret_content__', "g"), schoolEx.secret_content.replace("赞", "zan"))
         .replace(new RegExp('__info_content__', "g"), schoolEx.info_content.length > 0 ? schoolEx.info_content.replace("赞", "zan") : "暂无生活信息，如果大家有闲置二手物品或者失物招领等都可以写哦..记得附加上联系方式")
-        .replace(new RegExp('__ershou_content__', "g"), schoolEx.ershou_content)
         .replace(new RegExp("_account_name_", "g"), schoolEx.wx_account_name)
-        .replace(new RegExp("__zipai_content__", "g"), schoolEx.zipai_content)
         .replace(new RegExp("_erweima_", "g"), "<img src='" + schoolEx.erweima + "'/>");
+
+    if(schoolEx.ershou_content&&schoolEx.zipai_content&&schoolEx.photo_guess_content){
+        contentFunnl=contentFunnl.replace(new RegExp('__ershou_content__', "g"), schoolEx.ershou_content)
+            .replace(new RegExp("__zipai_content__", "g"), schoolEx.zipai_content)
+            .replace(new RegExp('__photo_guess_content__', "g"), schoolEx.photo_guess_content.replace("赞", "zan"))
+    }
+
+
+
 
     return contentFunnl
     //
