@@ -15,6 +15,8 @@
 
     </div>
 </div>
+    <div id="price" style="margin-left: 20px; display: none">
+      <div id="priceplus" style="display: inline-block"></div><input type="text" id="zhekou" placeholder="折扣 如0.9,不填为全价" style="display: inline-block;width: 200px;height: 15px"><input type="button" onclick="javascript:countresult();" style="display: inline-block;" value="最后价格计算"></div>
 <div id="breadcrumb">
     <a href="#" class="tip-bottom" data-original-title="Go to Home"><i class="icon-home"></i> 主页</a>
     <a href="#" class="current">学校</a>
@@ -189,6 +191,9 @@
             <td><span style="font-size:10px"><%=school.cn_name%> [<%=school.admin%>](<%=school.fans%>)</span>
                 <button style="font-size:8px" en_name="<%=school.en_name%>" onclick="javascript:mail('<%=school.en_name%>');"  class="btn btn-info mail  btn-mini">
                     mail
+                </button>
+                <button style="font-size:8px" en_name="<%=school.en_name%>" onclick="javascript:pricecount('<%=school.wx_account_name%>','<%=school.fans%>');"  class="btn btn-info mail  btn-mini">
+                    price
                 </button>
                 <a style="font-size:8px" href="/back/photo_guess/index?en_name=<%=school.en_name%>" target="_blank">缘分</a>
                 <a style="font-size:8px" href="/back/photo_guess/index?en_name=<%=school.en_name%>&type=zipai" target="_blank">自拍</a>
@@ -1309,6 +1314,56 @@ function YesTodayFormat(){
     today.setDate(today.getDate() -1); // 系统会自动转换
     return today.getFullYear()+""+(today.getMonth()+1)+""+today.getDate();
 }
+
+var a = {};
+function pricecount(enname,fans) {
+    $("#price").show();
+    if (enname in a){
+
+    }else{
+        a[enname]=getPrice(fans,"");
+        if(Object.size(a)==1){
+            $("#priceplus").append("<label style='display: inline-block;'>"+enname+"("+getPrice(fans,"")+")</label>");
+        }else{
+            $("#priceplus").append("<label style='display: inline-block;'>+"+enname+"("+getPrice(fans,"")+")</label>");
+        }
+
+
+    }
+
+}
+
+function countresult(){
+    var result=0;
+    var zhekou=0
+    for(var v in a) {
+       result=result+a[v];
+        zhekou=zhekou+a[v];
+    }
+    if($("#zhekou").val().length>0){
+        zhekou=zhekou*$("#zhekou").val();
+        zhekou=Math.floor(zhekou);
+    }
+    $("#allprice").remove();
+    $("#price").append("<label id='allprice' style='display: inline-block;'>  全价:"+result+"   折扣价:"+zhekou+"   提示:重算请刷</label>");
+
+}
+
+function getPrice(number,region){
+    if(region=="010"){
+        return  Math.floor(number*0.05);
+    }
+    return  Math.floor(number*0.05 );
+}
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 
 
 
