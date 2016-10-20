@@ -1321,14 +1321,16 @@ function pricecount(enname,fans) {
     if (enname in a){
 
     }else{
+
+        if(enname=='bnu微生活'){
+            fans=parseInt(fans) +3000;
+        }
         a[enname]=getPrice(fans,"");
         if(Object.size(a)==1){
             $("#priceplus").append("<label style='display: inline-block;'>"+enname+"("+getPrice(fans,"")+")</label>");
         }else{
             $("#priceplus").append("<label style='display: inline-block;'>+"+enname+"("+getPrice(fans,"")+")</label>");
         }
-
-
     }
 
 }
