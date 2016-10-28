@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,43 +8,49 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <style>
-       * {
-           margin: 0;
-           padding: 0;
-       }
-       body {
-           font: 14px/1.4 Georgia, Serif;
-       }
-       #page-wrap {
-           margin: 20px;
-       }
-       p {
-           margin: 20px 0;
-       }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-       /*
-       Generic Styling, for Desktops/Laptops
-       */
-       table {
-           width: 100%;
-           border-collapse: collapse;
-       }
-       /* Zebra striping */
-       tr:nth-of-type(odd) {
-           background: #eee;
-       }
-       th {
-           background: #333;
-           color: white;
-           font-weight: bold;
-       }
-       td, th {
-           padding: 6px;
-           border: 1px solid #ccc;
-           text-align: left;
-       }
-   </style>
+        body {
+            font: 14px/1.4 Georgia, Serif;
+        }
+
+        #page-wrap {
+            margin: 20px;
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        /*
+        Generic Styling, for Desktops/Laptops
+        */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Zebra striping */
+        tr:nth-of-type(odd) {
+            background: #eee;
+        }
+
+        th {
+            background: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        td, th {
+            padding: 6px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+    </style>
 
     <!--[if !IE]><!-->
     <style>
@@ -55,9 +60,8 @@
         This query will take effect for any screen smaller than 760px
         and also iPads specifically.
         */
-        @media
-        only screen and (max-width: 760px),
-        (min-device-width: 768px) and (max-device-width: 1024px)  {
+        @media only screen and (max-width: 760px),
+        (min-device-width: 768px) and (max-device-width: 1024px) {
 
             /* Force table to not be like tables anymore */
             table, thead, tbody, th, td, tr {
@@ -71,7 +75,9 @@
                 left: -9999px;
             }
 
-            tr { border: 1px solid #ccc; }
+            tr {
+                border: 1px solid #ccc;
+            }
 
             td {
                 /* Behave  like a "row" */
@@ -95,21 +101,32 @@
             /*
             Label the data
             */
-            td:nth-of-type(1):before { content: "高校"; }
-            td:nth-of-type(2):before { content: "账号"; }
-            td:nth-of-type(3):before { content: "粉丝"; }
-            td:nth-of-type(4):before { content: "报价"; }
+            td:nth-of-type(1):before {
+                content: "高校";
+            }
+
+            td:nth-of-type(2):before {
+                content: "账号";
+            }
+
+            td:nth-of-type(3):before {
+                content: "粉丝";
+            }
+
+            td:nth-of-type(4):before {
+                content: "报价";
+            }
 
         }
 
         /* Smartphones (portrait and landscape) ----------- */
         @media only screen
-        and (min-device-width : 320px)
-        and (max-device-width : 480px) {
+        and (min-device-width: 320px)
+        and (max-device-width: 480px) {
             body {
                 padding: 0;
                 margin: 0;
-                }
+            }
         }
 
         /* iPads (portrait and landscape) ----------- */
@@ -133,8 +150,11 @@
 
     <p>Go to <a href="/back/count">下载excel版本(如需下载，请用pc操作)</a></p>
 
-    <p><span style="font-size: larger;">说明：</span>我们的粉丝都是真的，最早注册了80个账号，加上最近注册的20个账号一共100个左右，每天收到表白4000多条，支持客户登陆我们的账号自己看后台活跃数据</p>
+    <p><span style="font-size: larger;">说明：</span>我们的粉丝都是真的，最早注册了80个账号，加上最近注册的20个账号一共100个左右，每天收到表白4000多条，支持客户登陆我们的账号自己看后台活跃数据
+    </p>
+
     <p><span style="font-size: larger;">打折说明：</span>一般情况下，发单个学校是原价，发2个是9.5折，发5个以上是9折，10个以上是8.5折</p>
+
     <p><span style="font-size: larger;">其他：</span>预定需要提前2到3天，发的文案请给我们已经发过的链接或者用秀米编辑好</p>
 
     <table>
@@ -149,12 +169,24 @@
         <tbody>
 
         <%schools.forEach(function(school,index) { %>
+
+        <% if(school.wx_account_id=='bnu-we-life'){ %>
+        <tr>
+            <td><%=school.cn_name%></td>
+            <td><%=school.wx_account_id%></td>
+            <td><%=school.fans+3000%></td>
+            <td><%=Math.floor((school.fans+3000)*0.05 )%></td>
+        </tr>
+        <%}else{%>
         <tr>
             <td><%=school.cn_name%></td>
             <td><%=school.wx_account_id%></td>
             <td><%=school.fans%></td>
             <td><%=Math.floor(school.fans*0.05 )%></td>
         </tr>
+        <%}%>
+
+
         <% }) %>
 
         </tbody>
