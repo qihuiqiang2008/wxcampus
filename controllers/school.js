@@ -326,7 +326,7 @@ exports.schools = function (req, res, next) {
 
     var page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;
-    var limit = 100;
+    var limit = 200;
     var options = { skip: (page - 1) * limit, limit: limit, sort: [
         [ 'create_at', 'desc' ]
     ] };
@@ -490,6 +490,57 @@ exports.cookie_show = function (req, res, next) {
         console.log(school)
         res.render('back/school/cookie',{school:school});
     });
+};
+
+exports.back_price = function (req, res, next) {
+
+    var region_code = req.query.region_code;
+    var tag = req.query.tag;
+    var admin= req.params.admin;
+    var query={};
+
+    if(tag){
+        if(tag=="1"){
+            query = {active: true};
+        }else {
+            query = {active: false};
+        }
+    }
+    var page = parseInt(req.query.page, 10) || 1;
+    page = page > 0 ? page : 1;
+    var limit = 100;
+    var options = { skip: (page - 1) * limit, limit: limit, sort: [
+        [ 'wxacount', 'desc' ]
+    ] };
+    var view='back/school/mschool';
+
+    var proxy = EventProxy.create('schools', 'pages','regions',
+        function (schools, pages,regions) {
+            res.render('back/school/priceschool',{
+                schools: schools,
+                pages: pages,
+                current_page: page,
+                regions:regions
+            });
+        });
+
+    proxy.fail(next);
+    School.getSchoolsByQuery(query, options, proxy.done("schools"));
+    School.getCountByQuery(query, proxy.done(function (all_count) {
+        var pages = Math.ceil(all_count / limit);
+        proxy.emit('pages', pages);
+    }));
+
+    Region.getRegionByQuery({},{}, proxy.done("regions"))
+
+
+
+   // res.render('back/school/priceschool');
+ /*   var en_name = req.query.en_name;
+    SchoolEx.getSchoolByEname(en_name,function(err,school){
+        console.log(school)
+        res.render('back/school/cookie',{school:school});
+    });*/
 };
 
 exports.cookie_update_chrome = function (req, res, next) {

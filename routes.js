@@ -141,7 +141,7 @@ module.exports = function (app) {
     app.post('/back/region/create', auth.adminRequired,region.create);
     app.get('/back/regions', auth.adminRequired,region.regions);
     app.get('/back/region/del', auth.adminRequired,region.del);
-    app.get('/back/count', auth.adminRequired,count.count_number);
+    app.get('/back/count',count.count_number);
     app.get('/back/count11', auth.adminRequired,count.count_number1);
     //问题相关
     app.get('/back/question/create', auth.adminRequired,question.show_create);
@@ -241,6 +241,10 @@ module.exports = function (app) {
     app.post('/back/school/erweima', auth.adminRequired,school.erweima_update);
 
     app.get('/back/school/cookie', auth.adminRequired,school.cookie_show);
+
+    app.get('/back/price',school.back_price);
+
+
     app.post('/back/school/cookie', auth.adminRequired,school.cookie_update);
 
 
