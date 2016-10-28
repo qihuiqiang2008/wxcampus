@@ -506,11 +506,15 @@ exports.back_price = function (req, res, next) {
             query = {active: false};
         }
     }
+
+
+
+    var options = { sort: sort};
     var page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;
     var limit = 100;
     var options = { skip: (page - 1) * limit, limit: limit, sort: [
-        [ 'wxacount', 'desc' ]
+        [ 'region_code', 'desc' ]
     ] };
     var view='back/school/mschool';
 
