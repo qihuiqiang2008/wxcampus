@@ -508,7 +508,6 @@ exports.back_price = function (req, res, next) {
     }
 
 
-
     var options = { sort: sort};
     var page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;
