@@ -108,12 +108,15 @@
             td:nth-of-type(2):before {
                 content: "账号";
             }
-
             td:nth-of-type(3):before {
-                content: "粉丝";
+                content: "账号ID";
             }
 
             td:nth-of-type(4):before {
+                content: "粉丝";
+            }
+
+            td:nth-of-type(5):before {
                 content: "报价";
             }
 
@@ -162,6 +165,7 @@
         <tr>
             <th>高校</th>
             <th>账号</th>
+            <th>账号Id</th>
             <th>粉丝数</th>
             <th>报价</th>
         </tr>
@@ -173,6 +177,7 @@
         <% if(school.wx_account_id=='bnu-we-life'){ %>
         <tr>
             <td><%=school.cn_name%></td>
+            <td><%=school.wx_account_name%></td>
             <td><%=school.wx_account_id%></td>
             <td><%=school.fans+3000%></td>
             <td><%=Math.floor((school.fans+3000)*0.05 )%></td>
@@ -180,6 +185,7 @@
         <%}else{%>
         <tr>
             <td><%=school.cn_name%></td>
+            <td><%=school.wx_account_name%></td>
             <td><%=school.wx_account_id%></td>
             <td><%=school.fans%></td>
             <td><%=Math.floor(school.fans*0.05 )%></td>
