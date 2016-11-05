@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/front/topconfess/create.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/front/topconfess/result.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes.js" afterPath="$PROJECT_DIR$/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/topconfess/create.html" afterPath="$PROJECT_DIR$/views/front/topconfess/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/partial/header.ejs" afterPath="$PROJECT_DIR$/views/back/partial/header.ejs" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -133,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2992021">
-              <caret line="326" column="58" selection-start-line="326" selection-start-column="58" selection-end-line="326" selection-end-column="58" />
+            <state vertical-scroll-proportion="-4.375">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -147,24 +142,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/post/create.html">
+      <file leaf-file-name="header.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/front/partial/header.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.75">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/postEx/create.html">
+      <file leaf-file-name="header.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="416" column="69" selection-start-line="416" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
-              <folding>
-                <marker date="1474707221000" expanded="true" signature="10416:10440" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="0.51861703">
+              <caret line="44" column="131" selection-start-line="44" selection-start-column="131" selection-end-line="44" selection-end-column="131" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -191,7 +184,6 @@
         <option value="$PROJECT_DIR$/models/school.js" />
         <option value="$PROJECT_DIR$/models/schoolEx.js" />
         <option value="$PROJECT_DIR$/views/back/configuration/wxmsgparse.html" />
-        <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
         <option value="$PROJECT_DIR$/views/back/configuration/wxmsgparseshow.html" />
         <option value="$PROJECT_DIR$/views/front/postEx/createEx.html" />
         <option value="$PROJECT_DIR$/public/front/stylesheets/jquery.sinaEmotion.css" />
@@ -219,6 +211,7 @@
         <option value="$PROJECT_DIR$/controllers/postEx.js" />
         <option value="$PROJECT_DIR$/views/front/topconfess/result.html" />
         <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
+        <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
       </list>
     </option>
   </component>
@@ -327,6 +320,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="back" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partial" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,13 +504,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/back/configuration/wxmsgparse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/back/configuration/wxmsgparseshow.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -516,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="65" column="102" selection-start-line="65" selection-start-column="97" selection-end-line="65" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/partial/header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -755,7 +782,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="416" column="69" selection-start-line="416" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
           <folding>
-            <marker date="1474707221000" expanded="true" signature="10416:10440" placeholder="{...}" />
+            <marker date="1474707221000" expanded="true" signature="-1:-1" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -860,13 +887,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2992021">
-          <caret line="326" column="58" selection-start-line="326" selection-start-column="58" selection-end-line="326" selection-end-column="58" />
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#2;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/partial/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51861703">
+          <caret line="44" column="131" selection-start-line="44" selection-start-column="131" selection-end-line="44" selection-end-column="131" />
+          <folding />
         </state>
       </provider>
     </entry>
