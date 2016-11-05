@@ -106,6 +106,40 @@ exports.show_hudong = function (req, res, next) {
 
 
 
+///话题表单的显示
+exports.create_topconfess= function (req, res, next) {
+    var from_school_en_name = req.body.from_school_en_name;
+    var from_school_cn_name = req.body.from_school_cn_name;
+    var from_school_cn_short_name = req.body.from_school_cn_short_name;
+    var wx_account = req.body.wx_account;
+    var content = req.body.content;
+    var topconfess = req.body.topconfess;
+    var tradeId=req.body.tradeId;
+
+    PostEx.newAndSave(false, false, "topconfess",from_school_cn_name,from_school_en_name, "image",tradeId,topconfess, content,wx_account, "content3", "content4", "content5", "content6", function (err) {
+        PostEx.newAndSave(false, false, "confess", from_school_cn_name, from_school_en_name, "", "title", content,"",from_school_cn_short_name, "content3", "content4", "content5", "content6", function (err) {
+            if (err) {
+                return  res.render('create/topconfess/result', {
+                    msg: "出现异常，请重试"
+                });
+            }
+            res.render('front/topconfess/result', {school:from_school_en_name});
+        });
+    });
+
+};
+
+
+///我想上头条显示
+exports.show_topconfess = function (req, res, next) {
+    var from_school_en_name = req.params.from_school_en_name;
+    School.getSchoolByEname(from_school_en_name, function (err, school) {
+        res.render('front/topconfess/create', {school: school, type: "topconfess"});
+
+    })
+};
+
+
 
 
 
@@ -298,6 +332,9 @@ exports.index = function (req, res, next) {
                     "$gt": new Date(start_cfg.value),
                     "$lt": new Date(end_cfg.value)
                 }};
+            }
+            if(type=="topconfess"){
+                templete = "back/postEx/topconfess"
             }
 
 

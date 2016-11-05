@@ -201,6 +201,11 @@ module.exports = function (app) {
     app.post('/article_recommand/create', postEx.create_article_recommand);
     app.get('/create/:from_school_en_name/article_recommand',postEx.show_article_recommand);
 
+
+    app.post('/topconfess/create', postEx.create_topconfess);
+    app.get('/create/:from_school_en_name/topconfess',postEx.show_topconfess);
+
+
     app.post('/hudong/create', postEx.create_hudong);
     app.get('/back/postEx/index', postEx.index);
     app.get('/create/:from_school_en_name/hudong',postEx.show_hudong);

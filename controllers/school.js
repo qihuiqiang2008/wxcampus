@@ -510,7 +510,7 @@ exports.back_price = function (req, res, next) {
 
     var page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;
-    var limit = 100;
+    var limit = 200;
     var options = { skip: (page - 1) * limit, limit: limit, sort: [
         [ 'region_code', 'desc' ]
     ] };
