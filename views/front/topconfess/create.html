@@ -304,16 +304,29 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                 <h1 class="form-name">我要上头条</h1>
 
                 <div class="form-description"><p style="font-size:15px">
-            说明：<br>
-                    这是小编的一次付费尝试，最开始好多人在后台留言说自己能不能上头条，然后有人加小编，希望付费能上头条，所以小编决定尝试一下付费上头条(希望不要伤害各位感情)，也算是对小编编辑表白的回报，不过不管是付费还是免费，我们都会选出最有诚意的表白做为头条
+            小编说：<br>
+                    最开始头条是我们根据内容随机挑选的，渐渐的好多人在后台留言说自己能不能上头条，并且有人加小编，希望付费能上头条，所以小编决定尝试一下付费上头条，毕竟每个编辑花费小编很大的时间，每个月服务器也花费好多钱，所以小编想尝试一下付费上头条，希望这个举措不要伤害各位的感情，不过不管是付费还是免费，我们都会选出最有诚意的表白做为头条
              </p></div>
 
                 <div class="form-description"><p style="font-size:15px">
                     步骤：<br>
-                    1.长按下方付费二维码转账给小编，同时记录下交易ID填写到下面的交易ID一栏中<br>
+                    1.长按下方付费二维码转账给小编，同时记录下转账或者交易单号填写到下面的交易单号一栏中<br>
                     2.填写你的相关表白内容即可，小编会审核你的表白是否可以当做头条，如果不合适，小编会加你微信退你的钱<br>
 
-                </p></div>
+                </p>
+
+                    <p style="font-size:15px">
+                        说明：<br>
+                        1.因为头条只有一个，我们会按照先来后到的顺序上头条<br>
+                        2.头条必须在50字以内，如果超出了，会用....替代<br>
+                        3.如果已经提交我要上头条，但是当天没有出现你的头条，那么可能是其他人在你之前就提交头条，你提交的可能会在明天出现<br>
+                        4.这是小编的一次付费尝试，如果期间有什么不妥，小编会取消这个功能<br>
+                        5.如果一些原因导致你的头条没有发送成功，那么小编一定会推荐你支付的费用<br>
+
+                    </p>
+
+                <p><img style="width: 90%;text-align: center" src="/public/front/images/fufei.jpg"></p>
+                </div>
 
                 <fieldset>
                     <div class="form-content">
@@ -324,11 +337,11 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                         <div class="field" data-api-code="field_3">
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_3">
-                                   交易号ID（<a target="_blank" href="/public/front/images/tradeid.jpg">什么是交易号ID</a>）
+                                    交易单号(转账单号)（<a target="_blank" href="/public/front/images/tradeid.jpg">什么是交易或转账单号</a>）
                                 </label>
                                 <div class="field_content">
                                     <div class="controls">
-                                        <input id="entry_field_5" name="tradeId" type="text" value="" placeholder="交易号ID">
+                                        <input id="entry_field_5" name="tradeId" type="text" value="" placeholder=" 这里填写交易单号（转账单号）">
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +351,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle"
                                        for="entry_field_1">
-                                     要显示在头条的内容(<a target="_blank" href="/public/front/images/titletip.jpg">什么是头条</a>)<br>
+                                     头条的内容(<a target="_blank" href="/public/front/images/titletip.jpg">什么是头条</a>)，字数不能超过50个<br>
 
                                     <span style="color: red;"></span>
 
@@ -347,7 +360,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                                 <div class="field_content">
 
                                     <div class="controls">
-                                        <input id="entry_field_6" name="topconfess" type="text" value="" placeholder="这里的头条是你表白内容的一个精简，字数不能超过45个">
+                                        <input id="entry_field_6" name="topconfess" type="text" value="" placeholder="头条是表白正文的精简.字数不能超过50个">
                                         <input type="hidden" id="from_school_en_name" name="from_school_en_name"
                                                value="<%=school.en_name%>"/>
                                         <input type="hidden" id="from_school_cn_name" name="from_school_cn_name"
@@ -364,7 +377,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                         <div class="field" data-api-code="field_3">
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_7">
-                                    要显示在表白正文的内容(<a target="_blank" href="/public/front/images/neirongtip.jpg">什么表白内容</a>)
+                                    要显示在表白正文的内容(<a target="_blank" href="/public/front/images/neirongtip.jpg">什么表白正文</a>)
                                 </label>
                                 <div class="field_content">
                                     <div class="controls">
