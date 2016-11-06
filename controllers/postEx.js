@@ -238,6 +238,7 @@ exports.index = function (req, res, next) {
     var en_name=req.query.en_name;
     var query = {};
     var type = req.query.type;
+    var showtype=req.query.showtype;
     var day=req.query.d;
     
   Configuration.getConfigurationByCode(type, function (err, day) {
@@ -335,6 +336,12 @@ exports.index = function (req, res, next) {
             }
             if(type=="topconfess"){
                 templete = "back/postEx/topconfess"
+            }
+            if(type=="topconfess"){
+                templete = "back/postEx/topconfess"
+            }
+            if(showtype=="mobile"){
+                templete = "back/postEx/hudongschool"
             }
 
 
