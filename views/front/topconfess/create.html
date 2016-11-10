@@ -15,8 +15,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="x5-fast-scroller" content="disable">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- mobileBUGFix.js 兼容修复移动设备 -->
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 
-<style>
+
+    <style>
 [touch-action="none"] {
     -ms-touch-action: none;
     touch-action: none;
@@ -277,7 +280,126 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     vertical-align: baseline;
     background: transparent;
 }
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
 
+
+.add-pic {
+    margin: 0 10px;
+    border-radius: 8px;
+    font-size: 17px;
+    color: #828282;
+    padding: 4px 0;
+    overflow: hidden;
+}
+
+.add-pic .add-btn {
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+    border: 2px dotted #828282;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.add-pic .add-btn .plus {
+    position: absolute;
+    top: 30px;
+    left: 18px;
+    width: 29px;
+    height: 4px;
+    background: #828282;
+    border-radius: 4px;
+}
+
+.add-pic .add-btn .plus:after {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 12px;
+    width: 4px;
+    height: 29px;
+    background: #828282;
+    border-radius: 4px;
+}
+
+.add-pic .added-pic {
+    position: relative;
+    float: left;
+    margin: 0 4px 7px 0;
+    width: 65px;
+    height: 65px;
+    border: 2px solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: url(img/pic_loading.png?max_age=19830212&d=20140620165539) center center no-repeat;
+    background-size: 37px auto;
+}
+
+.add-pic .added-pic .img {
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.add-pic .icon-hook {
+    margin: 2px 0 0 8px;
+}
+
+.add-pic .added-pic .loading,
+.add-pic .added-pic .ui-loading {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    display: block;
+    width: 40px;
+    height: 20px;
+    margin: 0;
+}
+
+.add-pic .added-pic .ui-loading {
+    left: 20px;
+    top: 25px;
+}
+
+.add-pic input[type=file] {
+    font-size: 5em;
+    vertical-align: top;
+}
+
+.add-pic input[type=file]:active {
+    border-top: 10px solid blue;
+}
+
+.J_button_photo:focus {
+    background: none;
+}
+
+.J_button_photo:active {
+    background: none;
+}
+
+.J_button_photo:hover {
+    background: none;
+}
 </style>
 
 </head>
@@ -310,7 +432,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 
                 <div class="form-description"><p style="font-size:15px">
                     步骤：<br>
-                    1.长按下方付费二维码转账给小编，同时记录下转账或者交易单号填写到下面的交易单号一栏中<br>
+                    1.长按下方付费二维码转账给小编，同时上传转账记录的截图<br>
                     2.填写你的相关表白内容即可，小编会审核你的表白是否可以当做头条，如果不合适，小编会加你微信退你的钱<br>
 
                 </p>
@@ -335,25 +457,63 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 
                         <div class="form-message gd-hide"></div>
 
+
                         <div class="field" data-api-code="field_3">
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_3">
-                                    交易单号(转账单号)（<a target="_blank" href="/public/front/images/tradeid.jpg">什么是交易或转账单号</a>）
+                                    1.转账截图（<a target="_blank" href="/public/front/images/tradeid.jpg">截图示例</a>）
                                 </label>
-                                <div class="field_content">
+                               <!-- <div class="field_content">
                                     <div class="controls">
-                                        <input id="entry_field_5" name="tradeId" type="text" value="" placeholder=" 这里填写交易单号（转账单号）">
+                                            <input  id="J_button" type="file"
+                                                   accept="image/jpeg,image/png,image/gif,image/bmp"
+                                                   style=" background:transparent; ">
+                                        <div style="text-align: center"> <img src="" width="100px" style="display: none" height="100px" id="imageshow"/></div>
+                                       <input type="hidden" name="photo_url" id="photo_url"/>
+
                                     </div>
+
+                                </div>-->
+                                <hr style="height:1px;border:none;border-top:1px dashed grey;" />
+                                <div class="add-pic">
+                                    <ul class="J_photo_container">
+                                        <li id="img_upload_li" class="J_photo added-pic"
+                                            style="position:relative;background:none;display: none"><span
+                                                class="J_loading ui-loading" style="display: none;"><i class="t1"></i><i
+                                                class="t2"></i><i class="t3"></i></span>
+
+                                            <div class="J_loading"
+                                                 style="position: absolute; width: 100%; height: 100%; display: none; background: rgba(0, 0, 0, 0.4);">
+                                                <i class="loading-s-bg loading-animate"
+                                                   style="position:absolute; top:50%;margin-left:-10px;margin-top:-10px; left:50%;"></i>
+                                            </div>
+                                            <span class="J_icon loading"><i class="icon-hook"></i></span> <img
+                                                    class="J_img img" id="img_upload"/></li>
+                                        <li class="J_button_photo"
+                                            style="position:relative; overflow:hidden; float:left;">
+                                            <div hide-focus="true"
+                                                 style="opacity:0;display: block; height: 69px;  width: 69px;  position: absolute;z-index: 2;overflow:hidden;">
+                                                <input class="J_button" id="J_button" type="file"
+                                                       accept="image/jpeg,image/png,image/gif,image/bmp"
+                                                       style="display: block; background:transparent; width: 207px; height:69px;margin-left:-69px;">
+                                            </div>
+                                            <div class="add-btn" style="z-index: 1;"><i class="plus"></i></div>
+                                        </li>
+                                    </ul>
+                                    <input type="hidden" name="photo_url" id="photo_url"/>
+
                                 </div>
                             </div>
                         </div>
+                        <hr style="height:1px;border:none;border-top:1px dashed grey;" />
+
+
 
                         <div class="field" data-api-code="field_1">
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle"
                                        for="entry_field_1">
-                                     头条的内容(<a target="_blank" href="/public/front/images/titletip.jpg">什么是头条</a>)，字数不能超过50个<br>
-
+                                     2.填写头条的内容(<a target="_blank" href="/public/front/images/titletip.jpg">什么是头条</a>)，字数不能超过50个,且最好带有表白对象的姓名学院班级<br>
                                     <span style="color: red;"></span>
 
                                 </label>
@@ -361,7 +521,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                                 <div class="field_content">
 
                                     <div class="controls">
-                                        <input id="entry_field_6" name="topconfess" type="text" value="" placeholder="头条是表白正文的精简.字数不能超过50个">
+                                        <input id="topconfess" name="topconfess" required="required" type="text" value="" placeholder="头条是表白正文的精简.字数不能超过50个">
                                         <input type="hidden" id="from_school_en_name" name="from_school_en_name"
                                                value="<%=school.en_name%>"/>
                                         <input type="hidden" id="from_school_cn_name" name="from_school_cn_name"
@@ -374,28 +534,29 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
                             </div>
 
                         </div>
+                        <hr style="height:1px;border:none;border-top:1px dashed grey;" />
 
                         <div class="field" data-api-code="field_3">
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_7">
-                                    要显示在表白正文的内容(<a target="_blank" href="/public/front/images/neirongtip.jpg">什么表白正文</a>)
+                                    3.填写要显示在表白正文的内容(<a target="_blank" href="/public/front/images/neirongtip.jpg">什么表白正文</a>)
                                 </label>
                                 <div class="field_content">
                                     <div class="controls">
-                                        <textarea class="gd-input-xxlarge" name="content" id="Content" required="required" placeholder="这里写表白【我们希望真诚的表白不希望是就两三个字】" style="overflow:scroll; word-wrap: break-word; resize: horizontal; height: 180px;border:1px solid lightgrey;border-bottom: none"></textarea>
+                                        <textarea class="gd-input-xxlarge" required="required" name="content" id="content" required="required" placeholder="这里写表白【我们希望真诚的表白不希望是就两三个字】" style="overflow:scroll; word-wrap: break-word; resize: horizontal; height: 180px;border:1px solid lightgrey;border-bottom: none"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <hr style="height:1px;border:none;border-top:1px dashed grey;" />
                         <div class="field" data-api-code="field_3">
                             <div class="form-group ">
                                 <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_3">
-                                    微信号
+                                    4.填写微信号
                                 </label>
                                 <div class="field_content">
                                     <div class="controls">
-                                        <input id="entry_field_3" name="wx_account" type="text" value="" placeholder="如果有什么变动我会加微信告诉你">
+                                        <input id="wx_account" required="required" name="wx_account" type="text" value="" placeholder="如果有什么变动我会加微信告诉你">
                                     </div>
                                 </div>
                             </div>
@@ -425,10 +586,27 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 
 </body>
 </html>
-
+<script src="/public/front/javascripts/localResizeIMG.js" type="text/javascript"></script>
+<!-- mobileBUGFix.js 兼容修复移动设备 -->
+<script src="/public/front/javascripts/mobileBUGFix.mini.js" type="text/javascript"></script>
      <script language="javascript">
+         $("#J_button").localResizeIMG({
+             width: 400,
+             quality: 0.7,
+             success: function (result) {
+                /* $("#img_upload_li").show();*/
+                 $("#img_upload_li").show();
+                 $("#photo_url").val(result.base64);
+                 $("#img_upload").attr("src", result.base64);
+
+             }
+         });
      var checkSubmitFlg = false;
      function checkSubmit() {
+         if($("#topconfess").val().length==0||$("#content").val().length==0||$("#wx_account").val().length==0){
+             alert("信息不完整");
+             return false;
+         }
          if (!checkSubmitFlg) {
              checkSubmitFlg = true;
              return true;

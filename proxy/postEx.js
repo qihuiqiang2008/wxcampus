@@ -153,6 +153,30 @@ exports.newAndSaveEx=function(post,callback){
 }
 
 
+exports.newAndSaveTopConfess=function(post,callback){
+    var postEx = new PostEx();
+    postEx.type = post.type;
+    postEx.common=false;
+    postEx.word_less= post.word_less;
+    postEx.sensitive =  post.sensitive;
+    postEx.title =  post.title;
+    postEx.content0 =  post.content1;
+    postEx.content1 =  "";
+    postEx.content2 =  "";
+    postEx.content3 =  "";
+    postEx.content4 =  "";
+    postEx.content5 =  "";
+    postEx.content6 =  "";
+    postEx.from_school_en_name =  post.from_school_en_name;
+    postEx.from_school_cn_name =  post.from_school_cn_name;
+    postEx.image =  post.image;
+    postEx.create_at =  post.create_at;
+    postEx.image_from ="local";
+    postEx.save(callback);
+
+}
+
+
 exports.getPostExById = function (id, callback) {
         PostEx.findOne({_id:id}, callback);
 
