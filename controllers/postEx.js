@@ -144,7 +144,7 @@ exports.create_topconfess = function (req, res, next) {
                     }else{
                         post.image = "/" + dirctory + "/" + photo_id + ".jpg";
                         post.save();
-                        res.render('front/topconfess/result', {school: from_school_en_name})
+                        res.render('front/topconfess/result', {school: from_school_en_name,status:"提交成功"})
                     }
                 });
                 //res.render('front/topconfess/result', {school: from_school_en_name});
@@ -163,8 +163,7 @@ exports.create_topconfess = function (req, res, next) {
             })*/
         })
     }else{
-        console.log("asdfasdf");
-
+        res.render('front/topconfess/result', {school: from_school_en_name,status:"提交失败！"})
     }
     /*PostEx.newAndSave(false, false, "topconfess", from_school_cn_name, from_school_en_name, "image", tradeId, topconfess, content, wx_account, "content3", "content4", "content5", "content6", function (err) {
         if (err) {
