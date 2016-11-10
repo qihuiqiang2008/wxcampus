@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/topconfess/create.html" afterPath="$PROJECT_DIR$/views/front/topconfess/create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/topconfess/result.html" afterPath="$PROJECT_DIR$/views/front/topconfess/result.html" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="165" column="87" selection-start-line="165" selection-start-column="87" selection-end-line="165" selection-end-column="87" />
+              <caret line="164" column="10" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="10" />
               <folding>
                 <marker date="1478788482000" expanded="true" signature="24006:24142" placeholder="..." />
                 <marker date="1478788482000" expanded="true" signature="24177:24370" placeholder="..." />
@@ -66,8 +64,8 @@
       <file leaf-file-name="result.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/front/topconfess/result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.291666">
-              <caret line="216" column="129" selection-start-line="216" selection-start-column="58" selection-end-line="216" selection-end-column="129" />
+            <state vertical-scroll-proportion="-21.291666">
+              <caret line="212" column="36" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -132,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.48964497">
-              <caret line="453" column="0" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
+              <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -229,8 +227,8 @@
         <option value="$PROJECT_DIR$/proxy/postEx.js" />
         <option value="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
         <option value="$PROJECT_DIR$/views/front/complain/create.html" />
-        <option value="$PROJECT_DIR$/controllers/postEx.js" />
         <option value="$PROJECT_DIR$/views/front/topconfess/result.html" />
+        <option value="$PROJECT_DIR$/controllers/postEx.js" />
         <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
       </list>
     </option>
@@ -881,10 +879,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/complain/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.291667">
+          <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="87" selection-start-line="165" selection-start-column="87" selection-end-line="165" selection-end-column="87" />
+          <caret line="164" column="10" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="10" />
           <folding>
             <marker date="1478788482000" expanded="true" signature="24006:24142" placeholder="..." />
             <marker date="1478788482000" expanded="true" signature="24177:24370" placeholder="..." />
@@ -917,18 +923,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/complain/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.291667">
-          <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/front/topconfess/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.291666">
-          <caret line="216" column="129" selection-start-line="216" selection-start-column="58" selection-end-line="216" selection-end-column="129" />
+        <state vertical-scroll-proportion="-21.291666">
+          <caret line="212" column="36" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -939,7 +937,7 @@
     <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48964497">
-          <caret line="453" column="0" selection-start-line="453" selection-start-column="0" selection-end-line="453" selection-end-column="0" />
+          <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
