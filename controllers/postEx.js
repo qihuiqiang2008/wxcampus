@@ -411,11 +411,22 @@ exports.index = function (req, res, next) {
                         };
                     }
                 }
+
                 if (type == "topconfess") {
                     templete = "back/postEx/topconfess"
-                }
-                if (type == "topconfess") {
-                    templete = "back/postEx/topconfess"
+                    query = {
+                        common: false, type: req.query.type, create_at: {
+                            "$gt": new Date(start_cfg.value)
+                        }
+                    };
+                    if(req.query.send=="false"){
+                        query = {
+                            common: false,content6:{"$ne":"sended"}, type: req.query.type, create_at: {
+                                "$gt": new Date(start_cfg.value)
+                            }
+                        };
+                    }
+
                 }
                 if (showtype == "mobile") {
                     templete = "back/postEx/hudongschool"
@@ -545,6 +556,11 @@ exports.back_handler = function (req, res, next) {
                     schoolEx.save();
                 }
             })
+            return res.json({success: true});
+        }
+        if (type == "topconfesssend") {
+            postex.content6="sended";
+            postex.save();
             return res.json({success: true});
         }
         if (type == "topconfess") {
