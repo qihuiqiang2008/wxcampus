@@ -111,6 +111,12 @@
             td:nth-of-type(3):before {
                 content: "时间";
             }
+            td:nth-of-type(3):before {
+                content: "时间";
+            }
+            td:nth-of-type(3):before {
+                content: "最新表白";
+            }
 
 
         }
@@ -160,6 +166,8 @@
             <th>互动内容</th>
             <th>时间</th>
             <th>时间</th>
+            <th>最新表白</th>
+
           <!--  <th>账号Id</th>
             <th>粉丝数</th>
             <th>报价</th>-->
@@ -175,6 +183,8 @@
             <td class="content" post_id="<%=postEx._id%>" ><%-postEx.content0%></td>
             <td><%=postEx.friendly_create_at%></td>
             <td><%=postEx.pretty_create_at%></td>
+            <td><a href="/back/postEx/index?req_type=all_no_commonEx&type=confess&en_name=<%=postEx.from_school_en_name%>&se=time" target="_blank">最新表白</a> <br>
+            </td>
 
             <%}%>
         </tr>

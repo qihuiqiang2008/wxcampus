@@ -403,6 +403,13 @@ exports.index = function (req, res, next) {
                             "$lt": new Date(end_cfg.value)
                         }
                     };
+                    if (req_type == "all_no_commonEx") {
+                        query = {
+                            common: false, type: req.query.type,from_school_en_name: en_name, create_at: {
+                                "$gt": new Date(start_cfg.value)
+                            }
+                        };
+                    }
                 }
                 if (type == "topconfess") {
                     templete = "back/postEx/topconfess"
@@ -454,7 +461,6 @@ exports.index = function (req, res, next) {
                             postEx.friendly_create_at = Util.format_date(postEx.create_at, true);
                             postEx.pretty_create_at = Util.format_date(postEx.create_at, false);
                         }
-                        console.log("---"+postEx);
 
                         return postEx;
                     });

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/topconfess/create.html" afterPath="$PROJECT_DIR$/views/front/topconfess/create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/postEx/hudongschool.html" afterPath="$PROJECT_DIR$/views/back/postEx/hudongschool.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/postEx/index.html" afterPath="$PROJECT_DIR$/views/back/postEx/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/schools.html" afterPath="$PROJECT_DIR$/views/back/school/schools.html" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,39 +26,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="454" column="51" selection-start-line="454" selection-start-column="35" selection-end-line="454" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.40714285">
+              <caret line="463" column="0" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
               <folding>
-                <marker date="1478836874000" expanded="true" signature="24103:24239" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="24274:24467" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="24586:24612" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="24646:24672" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="24818:24949" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="24992:25345" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="25391:25492" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="25561:25946" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="25992:26093" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="26173:26501" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="26513:26678" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="26704:26869" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="27109:27285" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="27453:27584" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="27627:27979" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="28025:28126" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="28195:28579" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="28625:28726" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="28806:29134" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="29146:29311" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="29353:29503" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="35713:35849" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="35884:36077" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="36188:36214" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="36918:36943" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="38560:38585" placeholder="..." />
-                <marker date="1478836874000" expanded="true" signature="40060:40085" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="24394:24530" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="24565:24758" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="24877:24903" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="24937:24963" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="25109:25240" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="25283:25636" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="25682:25783" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="25852:26237" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="26283:26384" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="26464:26792" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="26804:26969" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="26995:27160" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="27400:27576" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="27744:27875" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="27918:28270" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="28316:28417" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="28486:28870" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="28916:29017" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="29097:29425" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="29437:29602" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="29644:29794" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="36004:36140" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="36175:36368" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="36479:36505" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="37209:37234" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="38851:38876" placeholder="..." />
+                <marker date="1478846277000" expanded="true" signature="40351:40376" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -75,10 +77,10 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.125">
+              <caret line="186" column="20" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="20" />
               <folding>
-                <marker date="1478837018000" expanded="true" signature="14671:14684" placeholder="..." />
+                <marker date="1478845980000" expanded="true" signature="14672:14685" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -117,8 +119,8 @@
       <file leaf-file-name="hudongschool.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/postEx/hudongschool.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+            <state vertical-scroll-proportion="-20.666666">
+              <caret line="117" column="30" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -136,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51035506">
+            <state vertical-scroll-proportion="-14.375">
               <caret line="440" column="46" selection-start-line="440" selection-start-column="46" selection-end-line="440" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -164,13 +166,13 @@
       <file leaf-file-name="schools.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+            <state vertical-scroll-proportion="-15.0">
+              <caret line="188" column="12" selection-start-line="188" selection-start-column="12" selection-end-line="188" selection-end-column="12" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1478835754000" expanded="true" signature="43908:43930" placeholder="..." />
-                <marker date="1478835754000" expanded="true" signature="44042:44064" placeholder="..." />
-                <marker date="1478835754000" expanded="true" signature="44475:44497" placeholder="..." />
+                <marker date="1478846170000" expanded="true" signature="44080:44102" placeholder="..." />
+                <marker date="1478846170000" expanded="true" signature="44214:44236" placeholder="..." />
+                <marker date="1478846170000" expanded="true" signature="44647:44669" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -223,13 +225,13 @@
         <option value="$PROJECT_DIR$/proxy/postEx.js" />
         <option value="$PROJECT_DIR$/views/front/complain/create.html" />
         <option value="$PROJECT_DIR$/views/front/topconfess/result.html" />
-        <option value="$PROJECT_DIR$/views/back/school/schools.html" />
-        <option value="$PROJECT_DIR$/controllers/postEx.js" />
-        <option value="$PROJECT_DIR$/views/back/postEx/index.html" />
-        <option value="$PROJECT_DIR$/views/back/postEx/hudongschool.html" />
         <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
         <option value="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
         <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
+        <option value="$PROJECT_DIR$/views/back/postEx/index.html" />
+        <option value="$PROJECT_DIR$/views/back/school/schools.html" />
+        <option value="$PROJECT_DIR$/views/back/postEx/hudongschool.html" />
+        <option value="$PROJECT_DIR$/controllers/postEx.js" />
       </list>
     </option>
   </component>
@@ -768,19 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1478835754000" expanded="true" signature="43908:43930" placeholder="..." />
-            <marker date="1478835754000" expanded="true" signature="44042:44064" placeholder="..." />
-            <marker date="1478835754000" expanded="true" signature="44475:44497" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/front/post/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -805,52 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="454" column="51" selection-start-line="454" selection-start-column="35" selection-end-line="454" selection-end-column="51" />
-          <folding>
-            <marker date="1478836874000" expanded="true" signature="24103:24239" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="24274:24467" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="24586:24612" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="24646:24672" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="24818:24949" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="24992:25345" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="25391:25492" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="25561:25946" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="25992:26093" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="26173:26501" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="26513:26678" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="26704:26869" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="27109:27285" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="27453:27584" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="27627:27979" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="28025:28126" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="28195:28579" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="28625:28726" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="28806:29134" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="29146:29311" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="29353:29503" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="35713:35849" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="35884:36077" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="36188:36214" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="36918:36943" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="38560:38585" placeholder="..." />
-            <marker date="1478836874000" expanded="true" signature="40060:40085" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding>
-            <marker date="1478837018000" expanded="true" signature="14671:14684" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -869,17 +812,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/hudongschool.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51035506">
+        <state vertical-scroll-proportion="-14.375">
           <caret line="440" column="46" selection-start-line="440" selection-start-column="46" selection-end-line="440" selection-end-column="46" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -896,6 +831,73 @@
             <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#2;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#2;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.125">
+          <caret line="186" column="20" selection-start-line="186" selection-start-column="20" selection-end-line="186" selection-end-column="20" />
+          <folding>
+            <marker date="1478845980000" expanded="true" signature="14672:14685" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0">
+          <caret line="188" column="12" selection-start-line="188" selection-start-column="12" selection-end-line="188" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1478846170000" expanded="true" signature="44080:44102" placeholder="..." />
+            <marker date="1478846170000" expanded="true" signature="44214:44236" placeholder="..." />
+            <marker date="1478846170000" expanded="true" signature="44647:44669" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/hudongschool.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.666666">
+          <caret line="117" column="30" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40714285">
+          <caret line="463" column="0" selection-start-line="463" selection-start-column="0" selection-end-line="463" selection-end-column="0" />
+          <folding>
+            <marker date="1478846277000" expanded="true" signature="24394:24530" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="24565:24758" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="24877:24903" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="24937:24963" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="25109:25240" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="25283:25636" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="25682:25783" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="25852:26237" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="26283:26384" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="26464:26792" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="26804:26969" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="26995:27160" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="27400:27576" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="27744:27875" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="27918:28270" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="28316:28417" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="28486:28870" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="28916:29017" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="29097:29425" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="29437:29602" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="29644:29794" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="36004:36140" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="36175:36368" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="36479:36505" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="37209:37234" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="38851:38876" placeholder="..." />
+            <marker date="1478846277000" expanded="true" signature="40351:40376" placeholder="..." />
           </folding>
         </state>
       </provider>
