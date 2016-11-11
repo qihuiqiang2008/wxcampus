@@ -452,6 +452,7 @@ exports.index = function (req, res, next) {
                     postExs.forEach(function (postEx, i) {
                         if (postEx) {
                             postEx.friendly_create_at = Util.format_date(postEx.create_at, true);
+                            postEx.pretty_create_at = Util.format_date(postEx.create_at, false);
                         }
                         console.log("---"+postEx);
 

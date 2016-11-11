@@ -154,20 +154,20 @@
             <%if(req_type=="all_no_common"||req_type=="all_no_commonEx"){ %>
             <th>选为公共</th>
             <th>选为标题</th>
-            <th width="60px">人工编辑</th>
-            <th width="60px">删除</th>
-            <th width="60px">移动</th>
+            <th width="50px">人工编辑</th>
+            <th width="50px">删除</th>
+            <th width="50px">移动</th>
             <%}%>
 
             <%if(req_type=="common"){ %>
-            <th width="60px">人工编辑</th>
-            <th width="60px">删除</th>
+            <th width="50px">人工编辑</th>
+            <th width="50px">删除</th>
 
             <%}%>
             <%}else{%>
             <th>昵称</th>
             <th>选为公共</th>
-            <th width="60px">删除</th>
+            <th width="50px">删除</th>
             <%}%>
 
             <!--<th width="100px">图片</th>-->
@@ -329,7 +329,14 @@
             <!--<td><img style="width:100px"-->
             <!--src="http://welife001/public/front/userImages/2015127/54c76a0b623b2400070622c6.png"-->
             <!--class="img-thumbnail"></td>-->
-            <td><%=postEx.friendly_create_at%></td>
+            <td><%=postEx.friendly_create_at%>
+
+                <%if(type=="hudong"){ %>
+                    <br>
+                <%=postEx.pretty_create_at%>
+                <%}%>
+
+               </td>
 
 
             <%}%>

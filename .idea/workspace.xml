@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/topconfess/create.html" afterPath="$PROJECT_DIR$/views/front/topconfess/create.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/partial/header.ejs" afterPath="$PROJECT_DIR$/views/back/partial/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/postEx/hudongschool.html" afterPath="$PROJECT_DIR$/views/back/postEx/hudongschool.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/postEx/index.html" afterPath="$PROJECT_DIR$/views/back/postEx/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/schools.html" afterPath="$PROJECT_DIR$/views/back/school/schools.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/postEx/topconfess.html" afterPath="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,55 +33,74 @@
         <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="164" column="10" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="10" />
+              <caret line="454" column="51" selection-start-line="454" selection-start-column="35" selection-end-line="454" selection-end-column="51" />
               <folding>
-                <marker date="1478788482000" expanded="true" signature="24006:24142" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="24177:24370" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="24489:24515" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="24549:24575" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="24721:24852" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="24895:25248" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="25294:25395" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="25464:25849" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="25895:25996" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="26076:26404" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="26416:26581" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="26607:26772" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="27012:27188" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="27356:27487" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="27530:27882" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="27928:28029" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="28098:28482" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="28528:28629" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="28709:29037" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="29049:29214" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="29256:29406" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="35616:35752" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="35787:35980" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="36091:36117" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="36821:36846" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="38463:38488" placeholder="..." />
-                <marker date="1478788482000" expanded="true" signature="39963:39988" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="24103:24239" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="24274:24467" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="24586:24612" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="24646:24672" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="24818:24949" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="24992:25345" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="25391:25492" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="25561:25946" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="25992:26093" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="26173:26501" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="26513:26678" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="26704:26869" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="27109:27285" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="27453:27584" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="27627:27979" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="28025:28126" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="28195:28579" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="28625:28726" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="28806:29134" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="29146:29311" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="29353:29503" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="35713:35849" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="35884:36077" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="36188:36214" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="36918:36943" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="38560:38585" placeholder="..." />
+                <marker date="1478836874000" expanded="true" signature="40060:40085" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/topconfess/result.html">
+      <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libs/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.291666">
-              <caret line="212" column="36" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-106.875">
+              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1478837018000" expanded="true" signature="14671:14684" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="header.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/complain/header.ejs">
+        <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.529412">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/front/post/detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -85,20 +110,20 @@
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/complain/index.html">
+        <entry file="file://$PROJECT_DIR$/views/front/post/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.291667">
-              <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/photo_guess/index.html">
+      <file leaf-file-name="hudongschool.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/back/postEx/hudongschool.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6213018">
+              <caret line="146" column="85" selection-start-line="146" selection-start-column="85" selection-end-line="146" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -107,8 +132,8 @@
       <file leaf-file-name="topconfess.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/postEx/topconfess.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-116.25">
-              <caret line="186" column="15" selection-start-line="186" selection-start-column="15" selection-end-line="186" selection-end-column="15" />
+            <state vertical-scroll-proportion="-17.5">
+              <caret line="145" column="16" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="16" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -116,21 +141,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="8" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48964497">
-              <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="469" column="39" selection-start-line="469" selection-start-column="39" selection-end-line="469" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -150,28 +165,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/complain/create.html">
+      <file leaf-file-name="schools.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="223" column="103" selection-start-line="223" selection-start-column="84" selection-end-line="223" selection-end-column="103" />
+              <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
               <folding>
-                <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1478835754000" expanded="true" signature="43908:43930" placeholder="..." />
+                <marker date="1478835754000" expanded="true" signature="44042:44064" placeholder="..." />
+                <marker date="1478835754000" expanded="true" signature="44475:44497" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="photo_guess_create.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/front/stylesheets/photo_guess_create.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="434" column="0" selection-start-line="434" selection-start-column="0" selection-end-line="536" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -215,21 +219,21 @@
         <option value="$PROJECT_DIR$/proxy/school.js" />
         <option value="$PROJECT_DIR$/proxy/schoolEx.js" />
         <option value="$PROJECT_DIR$/views/back/school/title_update.html" />
-        <option value="$PROJECT_DIR$/views/back/school/schools.html" />
         <option value="$PROJECT_DIR$/controllers/count.js" />
         <option value="$PROJECT_DIR$/views/back/school/priceschool.html" />
         <option value="$PROJECT_DIR$/controllers/school.js" />
         <option value="$PROJECT_DIR$/routes.js" />
-        <option value="$PROJECT_DIR$/views/back/postEx/index.html" />
-        <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
         <option value="$PROJECT_DIR$/views/back/school/hudongschool.html" />
-        <option value="$PROJECT_DIR$/views/back/postEx/hudongschool.html" />
         <option value="$PROJECT_DIR$/proxy/postEx.js" />
-        <option value="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
         <option value="$PROJECT_DIR$/views/front/complain/create.html" />
         <option value="$PROJECT_DIR$/views/front/topconfess/result.html" />
-        <option value="$PROJECT_DIR$/controllers/postEx.js" />
         <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
+        <option value="$PROJECT_DIR$/views/back/school/schools.html" />
+        <option value="$PROJECT_DIR$/controllers/postEx.js" />
+        <option value="$PROJECT_DIR$/views/back/postEx/index.html" />
+        <option value="$PROJECT_DIR$/views/back/postEx/hudongschool.html" />
+        <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
+        <option value="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
       </list>
     </option>
   </component>
@@ -241,8 +245,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-49" />
-    <option name="y" value="-1033" />
+    <option name="x" value="140" />
+    <option name="y" value="-1032" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
   </component>
@@ -269,6 +273,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -319,33 +325,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="topconfess" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="complain" />
+              <option name="myItemId" value="back" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -366,43 +346,13 @@
               <option name="myItemId" value="back" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wxcampus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="front" />
+              <option name="myItemId" value="postEx" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -478,7 +428,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-49" y="-1033" width="1440" height="797" extended-state="0" />
+    <frame x="140" y="-1032" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -535,27 +485,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/front/javascripts/jquery.sinaEmotion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="94" selection-start-line="65" selection-start-column="92" selection-end-line="65" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/postEx/createEx.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/front/javascripts/face.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/user.js.bak">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -759,27 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1324" column="26" selection-start-line="1324" selection-start-column="20" selection-end-line="1324" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/hudongschool.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="44" selection-start-line="173" selection-start-column="44" selection-end-line="173" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/back/school/priceschool.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -819,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="949" column="2" selection-start-line="949" selection-start-column="2" selection-end-line="984" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,15 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="8" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="0" selection-start-line="434" selection-start-column="0" selection-end-line="536" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,73 +755,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="223" column="103" selection-start-line="223" selection-start-column="84" selection-end-line="223" selection-end-column="103" />
-          <folding>
-            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#li#1;n#ul#0;n#div#0;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#li#0;n#ul#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/topconfess.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-116.25">
-          <caret line="186" column="15" selection-start-line="186" selection-start-column="15" selection-end-line="186" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/front/complain/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.291667">
+        <state vertical-scroll-proportion="0.0">
           <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="149" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="164" column="10" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="10" />
-          <folding>
-            <marker date="1478788482000" expanded="true" signature="24006:24142" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="24177:24370" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="24489:24515" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="24549:24575" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="24721:24852" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="24895:25248" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="25294:25395" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="25464:25849" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="25895:25996" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="26076:26404" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="26416:26581" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="26607:26772" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="27012:27188" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="27356:27487" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="27530:27882" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="27928:28029" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="28098:28482" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="28528:28629" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="28709:29037" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="29049:29214" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="29256:29406" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="35616:35752" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="35787:35980" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="36091:36117" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="36821:36846" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="38463:38488" placeholder="..." />
-            <marker date="1478788482000" expanded="true" signature="39963:39988" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/front/topconfess/result.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.291666">
+        <state vertical-scroll-proportion="0.0">
           <caret line="212" column="36" selection-start-line="212" selection-start-column="36" selection-end-line="212" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#p#0;n#div#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -936,8 +779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48964497">
-          <caret line="448" column="0" selection-start-line="448" selection-start-column="0" selection-end-line="448" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="469" column="39" selection-start-line="469" selection-start-column="39" selection-end-line="469" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -953,6 +796,115 @@
             <element signature="n#style#0;n#hr#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#2;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1478835754000" expanded="true" signature="43908:43930" placeholder="..." />
+            <marker date="1478835754000" expanded="true" signature="44042:44064" placeholder="..." />
+            <marker date="1478835754000" expanded="true" signature="44475:44497" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/post/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/post/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="454" column="51" selection-start-line="454" selection-start-column="35" selection-end-line="454" selection-end-column="51" />
+          <folding>
+            <marker date="1478836874000" expanded="true" signature="24103:24239" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="24274:24467" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="24586:24612" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="24646:24672" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="24818:24949" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="24992:25345" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="25391:25492" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="25561:25946" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="25992:26093" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="26173:26501" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="26513:26678" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="26704:26869" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="27109:27285" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="27453:27584" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="27627:27979" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="28025:28126" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="28195:28579" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="28625:28726" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="28806:29134" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="29146:29311" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="29353:29503" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="35713:35849" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="35884:36077" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="36188:36214" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="36918:36943" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="38560:38585" placeholder="..." />
+            <marker date="1478836874000" expanded="true" signature="40060:40085" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-106.875">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <folding>
+            <marker date="1478837018000" expanded="true" signature="14671:14684" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.529412">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/topconfess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.5">
+          <caret line="145" column="16" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="16" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/hudongschool.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6213018">
+          <caret line="146" column="85" selection-start-line="146" selection-start-column="85" selection-end-line="146" selection-end-column="85" />
+          <folding />
         </state>
       </provider>
     </entry>

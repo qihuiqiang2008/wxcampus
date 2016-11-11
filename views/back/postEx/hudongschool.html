@@ -159,6 +159,7 @@
             <th>高校</th>
             <th>互动内容</th>
             <th>时间</th>
+            <th>时间</th>
           <!--  <th>账号Id</th>
             <th>粉丝数</th>
             <th>报价</th>-->
@@ -173,6 +174,8 @@
             </td>
             <td class="content" post_id="<%=postEx._id%>" ><%-postEx.content0%></td>
             <td><%=postEx.friendly_create_at%></td>
+            <td><%=postEx.pretty_create_at%></td>
+
             <%}%>
         </tr>
         <% }) %>
