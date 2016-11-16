@@ -179,7 +179,7 @@
         <tbody>
         <% postExs.forEach(function(postEx,index) { %>
         <tr id="<%=postEx._id%>" onmousemove="changeTrColor(this)">
-            <% if (postEx&&postEx!=""&&postEx.display) {%>
+            <% if ((postEx&&postEx!=""&&postEx.display)||req_type=="deleted") {%>
             <td><%=postEx.from_school_cn_name%>
                 <%if(type=="hudong"){ %>
                 <br>

@@ -681,7 +681,8 @@ exports.title_edit_show = function (req, res, next){
 
 exports.all_title_edit = function (req, res, next) {
     var type=req.query.type;
-    SchoolEx.getSchoolExsByQueryAndField({},'_id confess_title photo_guess_title cn_name en_name secret_title',[],function (err,schools){
+    SchoolEx.getSchoolExsByQueryAndField({},'_id confess_title photo_guess_title cn_name en_name secret_title',{},function (err,schools){
+        console.log(schools)
         console.log(err);
         return  res.render('back/school/all_title_edit', {schools:schools,type:type});
     });

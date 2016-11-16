@@ -411,6 +411,14 @@ exports.index = function (req, res, next) {
                         };
                     }
                 }
+                if(req_type=="deleted"){
+                    query = {
+                        type: req.query.type,display:false, create_at: {
+                            "$gt": new Date(start_cfg.value),
+                            "$lt": new Date(end_cfg.value)
+                        }
+                    };
+                }
 
                 if (type == "topconfess") {
                     templete = "back/postEx/topconfess"
@@ -508,6 +516,7 @@ exports.back_handler = function (req, res, next) {
         ;
         if (type == "del") {
             postex.display = false;
+            postex.content1=Util.format_date(new Date(), false);
             postex.save();
             return res.json({success: true});
         }
@@ -646,7 +655,8 @@ function DateFormat(day) {
 
 exports.get_result_post = function (req, res, next) {
     var type = req.query.type;
-    SchoolEx.getSchoolsByQuery({}, function (err, schoolexs) {
+
+    SchoolEx.getSchoolExsByQueryAndField({},'_id cn_name en_name secret_title',{},function (err, schoolexs) {
         res.render('back/postEx/post_result', {type: type, schoolexs: schoolexs});
     });
 }
