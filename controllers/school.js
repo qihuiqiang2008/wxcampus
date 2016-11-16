@@ -274,7 +274,7 @@ exports.mschools = function (req, res, next) {
 
 
     proxy.fail(next);
-    SchoolEx.getSchoolsByQuery(query, options, proxy.done("schools"));
+    SchoolEx.getSchoolExsByQueryAndField(query,'_id admin en_name cn_name wxacount', options, proxy.done("schools"));
     SchoolEx.getCountByQuery(query, proxy.done(function (all_count) {
         var pages = Math.ceil(all_count / limit);
         proxy.emit('pages', pages);
