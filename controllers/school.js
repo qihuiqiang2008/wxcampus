@@ -10,9 +10,19 @@ var async = require("async");
 
 
 exports.show_create = function (req, res, next) {
-
     Region.getRegionByQuery({},{},function(err,regions){
         res.render('back/school/create',{regions:regions});
+    })
+};
+
+
+exports.show_update = function (req, res, next) {
+    var en_name= req.query.en_name;
+    Region.getRegionByQuery({},{},function(err,regions){
+        SchoolEx.getSchoolByEname(req.query.en_name ,function(err,school){
+            res.render('back/school/update',{regions:regions,school:school});
+        })
+
     })
 };
 
@@ -274,7 +284,7 @@ exports.mschools = function (req, res, next) {
 
 
     proxy.fail(next);
-    SchoolEx.getSchoolExsByQueryAndField(query,'_id admin en_name cn_name wx_account_name', options, proxy.done("schools"));
+    SchoolEx.getSchoolExsByQueryAndField(query,'_id admin en_name cn_name wx_account_name wxacount', options, proxy.done("schools"));
     SchoolEx.getCountByQuery(query, proxy.done(function (all_count) {
         var pages = Math.ceil(all_count / limit);
         proxy.emit('pages', pages);
@@ -439,6 +449,71 @@ exports.create = function (req, res, next) {
                     res.redirect("/back/schools");
                 })
             });
+        })
+    }
+};
+
+exports.update = function (req, res, next) {
+    var cn_name = sanitize(req.body.cn_name).trim();
+    var en_name = sanitize(req.body.en_name).trim();
+    var region_code = sanitize(req.body.region_code).trim();
+    var cn_short_name = sanitize(req.body.cn_short_name).trim();
+    var wx_account_url = sanitize(req.body.wx_account_url).trim();
+    var wx_account_name = sanitize(req.body.wx_account_name).trim();
+    var wx_account_id = sanitize(req.body.wx_account_id).trim();
+    var wx_account_password = sanitize(req.body.wx_account_password).trim();
+    var appmsgid=req.body.appmsgid;
+    var msg = (cn_name === '' ||en_name==''||region_code==''||cn_short_name==''||wx_account_url==''||wx_account_name=='')? '相关信息不能为空':'';
+    if (msg) {
+        res.render('back/school/create', {msg: msg});
+    } else {
+        Region.getRegionByCode(region_code,function(err,region){
+
+            School.getSchoolByEname(en_name,function(err,school){
+                SchoolEx.getSchoolByEname(en_name,function(err,schoolex){
+                    school.cn_name=cn_name;
+                    schoolex.cn_name=cn_name;
+                    school.region_code=region_code;
+                    schoolex.region_code=region_code;
+                    school.cn_short_name=cn_short_name;
+                    schoolex.cn_short_name=cn_short_name;
+                    school.wx_account_url=wx_account_url;
+                    school.wx_account_name=wx_account_name;
+                    school.wx_account_id=wx_account_id;
+                    school.wx_account_password=wx_account_password;
+                    school.appmsgid=appmsgid;
+
+
+                    schoolex.wx_account_url=wx_account_url;
+                    schoolex.wx_account_name=wx_account_name;
+                    schoolex.wx_account_id=wx_account_id;
+                    schoolex.wx_account_password=wx_account_password;
+                    schoolex.appmsgid=appmsgid;
+                    school.save(function(err1){
+                        schoolex.save(function(err){
+                            if((!err1)&&(!err)){
+                                res.redirect("/back/schools");
+                            }
+                            else{
+                                 res.send("发生异常");
+                            }
+                        })
+                    })
+
+                })
+            })
+
+           /* School.newAndSave(cn_name,en_name,cn_short_name,region_code,wx_account_url,wx_account_name,wx_account_id,region.belong_group,function (err, school) {
+                if (err) {
+                    return next(err);
+                }
+                SchoolEx.newAndSave(school._id, cn_name,en_name,cn_short_name, wx_account_name,wx_account_id,wx_account_password,appmsgid,region_code,region.belong_group,function(err){
+                    if (err) {
+                        return next(err);
+                    }
+
+                })
+            });*/
         })
     }
 };

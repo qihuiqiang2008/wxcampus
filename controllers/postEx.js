@@ -284,7 +284,9 @@ exports.index = function (req, res, next) {
     var type = req.query.type;
     var showtype = req.query.showtype;
     var day = req.query.d;
-
+    var sort = [
+        ['from_school_en_name', 'desc']
+    ];
     Configuration.getConfigurationByCode(type, function (err, day) {
         day = day.value;
 
@@ -434,6 +436,9 @@ exports.index = function (req, res, next) {
                             }
                         };
                     }
+                    sort = [
+                        ['create_at', 'desc']
+                    ];
 
                 }
                 if (showtype == "mobile") {
@@ -443,9 +448,7 @@ exports.index = function (req, res, next) {
 
                 page = page > 0 ? page : 1;
                 var limit = 100;
-                var sort = [
-                    ['from_school_en_name', 'desc']
-                ];
+
                 if (type == "topic") {
                     sort = [
                         ['create_at', 'desc']
@@ -516,7 +519,12 @@ exports.back_handler = function (req, res, next) {
         ;
         if (type == "del") {
             postex.display = false;
-            postex.content1=Util.format_date(new Date(), false);
+           //  postex.content1="备注:"+postex.content1 Util.format_date(new Date(), false);
+            postex.save();
+            return res.json({success: true});
+        }
+        if (type == "deleteback") {
+            postex.display = true;
             postex.save();
             return res.json({success: true});
         }

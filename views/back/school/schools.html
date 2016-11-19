@@ -181,7 +181,8 @@
             <th>设置关键字</th>
             <th>设置好声音</th>
             <th>广告标记</th>
-            <th>删除</th>
+            <th>消息删除</th>
+            <th>修改</th>
         </tr>
         </thead>
         <tbody>
@@ -275,10 +276,11 @@
             </td>
             <td style=" text-align: center;">
                 <button style="font-size:8px" en_name="<%=school.en_name%>" id="<%=school.en_name%>_del_message" class="btn btn-info deleteMessage btn-mini">
-                    删除
+                    消息删除
                 </button>
+
             </td>
-          <!--  <td><a style="font-size:8px" del="/back/school/del?en_name=<%=school.en_name%>">删除</a></td>-->
+            <td><a style="font-size:8px" href="/back/school/update?en_name=<%=school.en_name%>">修改</a></td>
             <%}%>
         </tr>
         <% }) %>

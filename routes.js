@@ -234,6 +234,9 @@ module.exports = function (app) {
     app.post('/back/school/title_edit_save',school.title_edit_save);
     app.get('/back/school/create', auth.adminRequired,school.show_create);
     app.post('/back/school/create', auth.adminRequired,school.create);
+
+    app.get('/back/school/update', auth.adminRequired,school.show_update);
+    app.post('/back/school/update', auth.adminRequired,school.update);
     app.get('/back/schools', auth.adminRequired,school.schools);
     app.get('/m/:admin',school.mschools);
     app.get('/back/school/del', auth.adminRequired,school.del);
