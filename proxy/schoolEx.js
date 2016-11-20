@@ -200,3 +200,16 @@ exports.getSchoolExsByQueryAndField = function (query,field, opt, callback) {
         return callback(null,docs);
     });
 };
+
+
+exports.getSchoolExsOneByQueryAndField = function (query,field, opt, callback) {
+    SchoolEx.findOne(query, field, opt, function (err, docs) {
+        if (err){
+            return callback(err);
+        }
+        if (docs.length === 0) {
+            return callback(null, []);
+        }
+        return callback(null,docs);
+    });
+};

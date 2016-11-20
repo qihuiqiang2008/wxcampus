@@ -252,6 +252,11 @@ module.exports = function (app) {
 
     app.get('/back/price',school.back_price);
 
+    app.get('/school/search',school.showSearch);
+
+    app.post('/school/search',school.Createsearch);
+
+
 
     app.post('/back/school/cookie', auth.adminRequired,school.cookie_update);
 
