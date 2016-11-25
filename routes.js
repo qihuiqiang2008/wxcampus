@@ -55,6 +55,7 @@ var passport = require('passport');
 var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
+var getArticle = require('./controllers/getArticle');
 
 module.exports = function (app) {
 
@@ -356,6 +357,6 @@ module.exports = function (app) {
     app.get('/back/school/updateAD', auth.signinRequired, ADManage.showUpdateAD);
     app.post('/back/school/updateAD', auth.signinRequired, ADManage.updateAD);
     app.get('/back/school/syncADTag', auth.signinRequired, ADManage.syncADTag);
-
+    app.get('/back/school/getArticle', auth.signinRequired, getArticle.getArticleAD);
 
 };
