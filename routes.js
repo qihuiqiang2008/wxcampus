@@ -142,7 +142,7 @@ module.exports = function (app) {
     app.post('/back/region/create', auth.adminRequired,region.create);
     app.get('/back/regions', auth.adminRequired,region.regions);
     app.get('/back/region/del', auth.adminRequired,region.del);
-    app.get('/back/count', auth.adminRequired,count.count_number);
+    app.get('/back/count',count.count_number);
     app.get('/back/count11', auth.adminRequired,count.count_number1);
     //问题相关
     app.get('/back/question/create', auth.adminRequired,question.show_create);
@@ -202,6 +202,11 @@ module.exports = function (app) {
     app.post('/article_recommand/create', postEx.create_article_recommand);
     app.get('/create/:from_school_en_name/article_recommand',postEx.show_article_recommand);
 
+
+    app.post('/topconfess/create', postEx.create_topconfess);
+    app.get('/create/:from_school_en_name/topconfess',postEx.show_topconfess);
+
+
     app.post('/hudong/create', postEx.create_hudong);
     app.get('/back/postEx/index', postEx.index);
     app.get('/create/:from_school_en_name/hudong',postEx.show_hudong);
@@ -230,6 +235,9 @@ module.exports = function (app) {
     app.post('/back/school/title_edit_save',school.title_edit_save);
     app.get('/back/school/create', auth.adminRequired,school.show_create);
     app.post('/back/school/create', auth.adminRequired,school.create);
+
+    app.get('/back/school/update', auth.adminRequired,school.show_update);
+    app.post('/back/school/update', auth.adminRequired,school.update);
     app.get('/back/schools', auth.adminRequired,school.schools);
     app.get('/m/:admin',school.mschools);
     app.get('/back/school/del', auth.adminRequired,school.del);
@@ -242,6 +250,15 @@ module.exports = function (app) {
     app.post('/back/school/erweima', auth.adminRequired,school.erweima_update);
 
     app.get('/back/school/cookie', auth.adminRequired,school.cookie_show);
+
+    app.get('/back/price',school.back_price);
+
+    app.get('/school/search',school.showSearch);
+
+    app.post('/school/search',school.Createsearch);
+
+
+
     app.post('/back/school/cookie', auth.adminRequired,school.cookie_update);
 
 

@@ -154,22 +154,26 @@
             <%if(req_type=="all_no_common"||req_type=="all_no_commonEx"){ %>
             <th>选为公共</th>
             <th>选为标题</th>
-            <th width="60px">人工编辑</th>
-            <th width="60px">删除</th>
-            <th width="60px">移动</th>
+            <th width="50px">人工编辑</th>
+            <th width="50px">删除</th>
+            <th width="50px">移动</th>
             <%}%>
 
             <%if(req_type=="common"){ %>
-            <th width="60px">人工编辑</th>
-            <th width="60px">删除</th>
+            <th width="50px">人工编辑</th>
+            <th width="50px">删除</th>
 
             <%}%>
             <%}else{%>
             <th>昵称</th>
             <th>选为公共</th>
-            <th width="60px">删除</th>
+            <th width="50px">删除</th>
             <%}%>
-
+            <%if(req_type=="deleted"){ %>
+            <th>
+              恢复
+            </th>
+            <%}%>
             <!--<th width="100px">图片</th>-->
             <th width="50px">时间</th>
 
@@ -179,7 +183,7 @@
         <tbody>
         <% postExs.forEach(function(postEx,index) { %>
         <tr id="<%=postEx._id%>" onmousemove="changeTrColor(this)">
-            <% if (postEx&&postEx!=""&&postEx.display) {%>
+            <% if ((postEx&&postEx!=""&&postEx.display)||req_type=="deleted") {%>
             <td><%=postEx.from_school_cn_name%>
                 <%if(type=="hudong"){ %>
                 <br>
@@ -187,6 +191,7 @@
                 <br>
                 <a href="/back/postEx/index?req_type=all_no_common&type=confess&en_name=<%=postEx.from_school_en_name%>" target="_blank">树洞</a> <br>
                 <a href="/back/postEx/index?req_type=all_no_common&type=confess&en_name=<%=postEx.from_school_en_name%>" target="_blank">表白</a> <br>
+
                 <a href="/back/ershou/index?region_code=010&en_name=<%=postEx.from_school_en_name%>" target="_blank">二手</a>
                 <%}%>
             </td>
@@ -329,7 +334,24 @@
             <!--<td><img style="width:100px"-->
             <!--src="http://welife001/public/front/userImages/2015127/54c76a0b623b2400070622c6.png"-->
             <!--class="img-thumbnail"></td>-->
-            <td><%=postEx.friendly_create_at%></td>
+
+            <%if(req_type=="deleted"){ %>
+            <td>
+                <a href="javascript:void(0)"
+                   class="btn btn-danger btn-lg" role="button"
+                   onclick="handler('<%=postEx._id%>','deleteback',this)">恢复</a>
+            </td>
+            <%}%>
+
+
+            <td><%=postEx.friendly_create_at%>
+
+                <%if(type=="hudong"){ %>
+                    <br>
+                <%=postEx.pretty_create_at%>
+                <%}%>
+
+               </td>
 
 
             <%}%>

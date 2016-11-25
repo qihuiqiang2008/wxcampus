@@ -78,19 +78,19 @@ exports.count_number = function(req, res, next){
    // console.log(region_code);
     var query={};
     if(!region_code){
-        if(req.session.user.email!=='admin@admin.com')
+        /*if(req.session.user.email!=='admin@admin.com')
         {
             query ={'belong_group':req.session.user.location.belong_group};
-        }
+        }*/
         //query={};
     }else
     {
-        if(req.session.user.email!=='admin@admin.com')
+        /*if(req.session.user.email!=='admin@admin.com')
         {
         query ={'belong_group':req.session.user.location.belong_group,region_code: region_code};
         }else {
             query = {region_code: region_code}
-        }
+        }*/
     }
 
 

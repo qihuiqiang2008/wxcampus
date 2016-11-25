@@ -1,0 +1,627 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+
+<title>我要上头条</title>
+<meta name="description" content="我要上头条"/>
+<meta name="robots" content="none">
+<meta name="format-detection" content="telephone=no">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=320,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=319.9,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no"
+      media="(device-height: 568px)">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x5-fast-scroller" content="disable">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- mobileBUGFix.js 兼容修复移动设备 -->
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+
+    <style>
+[touch-action="none"] {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+[touch-action="pan-x"] {
+    -ms-touch-action: pan-x;
+    touch-action: pan-x;
+}
+
+[touch-action="pan-y"] {
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+}
+
+[touch-action="scroll"], [touch-action="pan-x pan-y"], [touch-action="pan-y pan-x"] {
+    -ms-touch-action: pan-x pan-y;
+    touch-action: pan-x pan-y;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    z-index: 0;
+}
+
+body {
+    line-height: 1;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    /* line-height: 0; */
+}
+
+[data-role=header] {
+    background: #8d7ea8;
+    border-color: #8d7ea8;
+}
+
+header {
+    background: #8ca89a;
+    color: #f6f5e8;
+    text-align: center;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 25px;
+    padding: 14px 10px;
+}
+
+.fontello-plane-outline:before {
+    content: '\e810';
+}
+
+[class^="fontello-"]:before, [class*=" fontello-"]:before {
+    font-family: "form-icons";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+}
+
+header h1 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 25px;
+    padding: 14px 10px;
+}
+
+[class^="fontello-"]:before, [class*=" fontello-"]:before {
+    font-family: "form-icons";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+}
+
+.fontello-plane-outline:before {
+    content: '\e810';
+}
+
+.main-content {
+    background: #f6f5e8;
+    padding: 1px 15px 15px;
+    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.36);
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.36);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.36);
+}
+
+.main-content .form-name {
+    display: none;
+}
+
+.main-content h1 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 20px 0 0;
+}
+
+.main-content .form-description {
+    display: block;
+    color: #7e7e7e;
+    padding-top: 18px;
+    line-height: 140%;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.main-content .form-description p {
+    margin-bottom: 10px;
+}
+
+fieldset {
+    display: block;
+    -webkit-margin-start: 2px;
+    -webkit-margin-end: 2px;
+    -webkit-padding-before: 0.35em;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+    border: 2px groove threedface;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    min-width: -webkit-min-content;
+}
+
+.hide, .gd-hide {
+    display: none;
+}
+
+.hide, .gd-hide {
+    display: none;
+}
+
+.field, #submission_password_form, #result_view_password_form, .profile-complete-content, #result_search_view_password_form {
+    color: #5d5d5d;
+    margin: 8px 0 0 0;
+    padding: 8px 0;
+}
+
+.form-group {
+    word-break: break-word;
+}
+
+.field label.control-label, #submission_password_form label.control-label, #result_view_password_form label.control-label, .profile-complete-content label.control-label, #result_search_view_password_form label.control-label {
+    color: #595956;
+    display: block;
+    padding-bottom: 7px;
+}
+
+.field label, #submission_password_form label, #result_view_password_form label, .profile-complete-content label, #result_search_view_password_form label {
+    font-size: 16px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.field label.control-label, #submission_password_form label.control-label, #result_view_password_form label.control-label, .profile-complete-content label.control-label, #result_search_view_password_form label.control-label {
+    color: #595956;
+    display: block;
+    padding-bottom: 7px;
+}
+
+.field input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), .field textarea:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), #submission_password_form input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), #submission_password_form textarea:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), #result_view_password_form input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), #result_view_password_form textarea:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), .profile-complete-content input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), .profile-complete-content textarea:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), #result_search_view_password_form input:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]), #result_search_view_password_form textarea:not([type="submit"]):not([type="file"]):not([type="checkbox"]):not([type="radio"]) {
+    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.field textarea, #submission_password_form textarea, #result_view_password_form textarea, .profile-complete-content textarea, #result_search_view_password_form textarea {
+    height: 110px;
+    padding: 5px;
+}
+
+.field, #submission_password_form, #result_view_password_form, .profile-complete-content, #result_search_view_password_form {
+    color: #5d5d5d;
+    margin: 8px 0 0 0;
+    padding: 8px 0;
+}
+
+.field input[type="submit"], .field #submit_and_new_entry, #submission_password_form input[type="submit"], #submission_password_form #submit_and_new_entry, #result_view_password_form input[type="submit"], #result_view_password_form #submit_and_new_entry, .profile-complete-content input[type="submit"], .profile-complete-content #submit_and_new_entry, #result_search_view_password_form input[type="submit"], #result_search_view_password_form #submit_and_new_entry {
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    border-color: #6A7F74;
+    -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.54);
+    -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.54);
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4), 0px 1px 2px rgba(0, 0, 0, 0.54);
+    background: #92ad9f;
+    background: -moz-linear-gradient(top, #92ad9f, #849f91);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#92ad9f), to(#849f91));
+    background: -webkit-linear-gradient(top, #92ad9f, #849f91);
+    background: -o-linear-gradient(top, #92ad9f, #849f91);
+    background: linear-gradient(to bottom, #92ad9f, #849f91);
+}
+
+.field input:not(.gd-hide), .field select, .field textarea, .field #submit_and_new_entry, #submission_password_form input:not(.gd-hide), #submission_password_form select, #submission_password_form textarea, #submission_password_form #submit_and_new_entry, #result_view_password_form input:not(.gd-hide), #result_view_password_form select, #result_view_password_form textarea, #result_view_password_form #submit_and_new_entry, .profile-complete-content input:not(.gd-hide), .profile-complete-content select, .profile-complete-content textarea, .profile-complete-content #submit_and_new_entry, #result_search_view_password_form input:not(.gd-hide), #result_search_view_password_form select, #result_search_view_password_form textarea, #result_search_view_password_form #submit_and_new_entry {
+    display: block;
+    width: 100%;
+    padding: 10px 5px;
+    border-radius: 0;
+    border: 1px solid #c5c5c5;
+    font-size: 16px;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+.add-pic {
+    margin: 0 10px;
+    border-radius: 8px;
+    font-size: 17px;
+    color: #828282;
+    padding: 4px 0;
+    overflow: hidden;
+}
+
+.add-pic .add-btn {
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 65px;
+    margin-right: 10px;
+    border: 2px dotted #828282;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.add-pic .add-btn .plus {
+    position: absolute;
+    top: 30px;
+    left: 18px;
+    width: 29px;
+    height: 4px;
+    background: #828282;
+    border-radius: 4px;
+}
+
+.add-pic .add-btn .plus:after {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 12px;
+    width: 4px;
+    height: 29px;
+    background: #828282;
+    border-radius: 4px;
+}
+
+.add-pic .added-pic {
+    position: relative;
+    float: left;
+    margin: 0 4px 7px 0;
+    width: 65px;
+    height: 65px;
+    border: 2px solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: url(img/pic_loading.png?max_age=19830212&d=20140620165539) center center no-repeat;
+    background-size: 37px auto;
+}
+
+.add-pic .added-pic .img {
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.add-pic .icon-hook {
+    margin: 2px 0 0 8px;
+}
+
+.add-pic .added-pic .loading,
+.add-pic .added-pic .ui-loading {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    display: block;
+    width: 40px;
+    height: 20px;
+    margin: 0;
+}
+
+.add-pic .added-pic .ui-loading {
+    left: 20px;
+    top: 25px;
+}
+
+.add-pic input[type=file] {
+    font-size: 5em;
+    vertical-align: top;
+}
+
+.add-pic input[type=file]:active {
+    border-top: 10px solid blue;
+}
+
+.J_button_photo:focus {
+    background: none;
+}
+
+.J_button_photo:active {
+    background: none;
+}
+
+.J_button_photo:hover {
+    background: none;
+}
+</style>
+
+</head>
+<body>
+
+
+<body ontouchstart="" class="mobile ">
+
+<div data-role="page" class="clearfix page  ">
+    <div class="fixed-background"></div>
+    <header data-role="header" class="">
+        <h1>
+          我要上头条
+        </h1>
+
+    </header>
+    <div class="main" data-role="content">
+        <div class="main-content" style="min-height: 516px;">
+            <form accept-charset="UTF-8" action="/topconfess/create" class="center" id="new_entry" method="post" onsubmit="return checkSubmit()">
+                <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input
+                        name="authenticity_token" type="hidden" value="NqSPEoQY4+oTnELCM3hgml5QVozitZkXUNC/n6pjBdk=">
+                </div>
+
+                <h1 class="form-name">我要上头条</h1>
+
+                <div class="form-description"><p style="font-size:15px">
+
+                    <strong>小编说：</strong><br>
+                    最开始头条是我们根据内容随机挑选的，渐渐的好多人在后台留言说自己能不能上头条，并且有人加小编，希望付费能上头条，所以小编决定尝试一下付费上头条，毕竟每个编辑花费小编很大的时间，每个月服务器也花费好多钱，所以小编想尝试一下付费上头条，希望这个举措不要伤害各位的感情，不过不管是付费还是免费，我们都会选出最有诚意的表白做为头条
+             </p></div>
+
+                <div class="form-description"><p style="font-size:15px">
+                    <strong>步骤：</strong><br>
+                    1.长按下方付费二维码转账给小编，同时上传转账记录的截图，上头条的金额暂定为30元<br>
+                    2.填写你的相关表白内容即可，小编会审核你的表白是否可以当做头条，如果不合适，小编会加你微信退你的钱<br>
+
+                </p>
+
+                    <p style="font-size:15px">
+                        <strong>步骤：</strong><br>
+                        1.因为头条只有一个，我们会按照先来后到的顺序上头条<br>
+                        2.头条必须在50字以内，如果超出了，会用....替代<br>
+                        3.如果你要上今天的表白头条，请在当天的14点前提交，14点后会推移到明天的表白头条<br>
+                        3.如果已经提交我要上头条，但是当天没有出现你的头条，那么可能是其他人在你之前就提交头条，你提交的可能会在明天出现<br>
+                        4.这是小编的一次付费尝试，如果期间有什么不妥，小编会取消这个功能<br>
+                        5.如果一些原因导致你的头条没有发送成功，那么小编一定会退还你支付的费用<br>
+                        <span style="color: red;;">6.如果付完款，但是截图没法上传或者一直提交失败，请不要着急，<a href="http://welife001.com/create/<%=school.en_name%>/hudong">点击这里进入互动交流</a>，说明你的情况，小编及时联系你</span><br>
+
+                    </p>
+
+                    <p style="font-size:15px">
+                        <strong>备注：</strong><br>
+                        "我要上头条"这个栏目还在尝试阶段，在这段时间可能会出现各种问题，但是请您放心，如果你付了钱，最后没有上头条，只要<a href="http://welife001.com/create/<%=school.en_name%>/hudong">通过互动交流</a>说明情况，我们一定会退还给你已付的金额<br>
+
+                    </p>
+
+                <p><img style="width: 90%;text-align: center" src="/public/front/images/fufei.jpg"></p>
+                </div>
+
+                <fieldset>
+                    <div class="form-content">
+
+
+                        <div class="form-message gd-hide"></div>
+
+
+                        <div class="field" data-api-code="field_3">
+                            <div class="form-group ">
+                                <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_3">
+                                    1.转账截图（<a target="_blank" href="/public/front/images/tradeid.jpg">截图示例</a>）
+                                </label>
+                               <!-- <div class="field_content">
+                                    <div class="controls">
+                                            <input  id="J_button" type="file"
+                                                   accept="image/jpeg,image/png,image/gif,image/bmp"
+                                                   style=" background:transparent; ">
+                                        <div style="text-align: center"> <img src="" width="100px" style="display: none" height="100px" id="imageshow"/></div>
+                                       <input type="hidden" name="photo_url" id="photo_url"/>
+
+                                    </div>
+
+                                </div>-->
+                                <hr style="height:1px;border:none;border-top:1px dashed grey;" />
+                                <div class="add-pic">
+                                    <ul class="J_photo_container">
+                                        <li id="img_upload_li" class="J_photo added-pic"
+                                            style="position:relative;background:none;display: none"><span
+                                                class="J_loading ui-loading" style="display: none;"><i class="t1"></i><i
+                                                class="t2"></i><i class="t3"></i></span>
+
+                                            <div class="J_loading"
+                                                 style="position: absolute; width: 100%; height: 100%; display: none; background: rgba(0, 0, 0, 0.4);">
+                                                <i class="loading-s-bg loading-animate"
+                                                   style="position:absolute; top:50%;margin-left:-10px;margin-top:-10px; left:50%;"></i>
+                                            </div>
+                                            <span class="J_icon loading"><i class="icon-hook"></i></span> <img
+                                                    class="J_img img" id="img_upload"/></li>
+                                        <li class="J_button_photo"
+                                            style="position:relative; overflow:hidden; float:left;">
+                                            <div hide-focus="true"
+                                                 style="opacity:0;display: block; height: 69px;  width: 69px;  position: absolute;z-index: 2;overflow:hidden;">
+                                                <input class="J_button" id="J_button" type="file"
+                                                       accept="image/jpeg,image/png,image/gif,image/bmp"
+                                                       style="display: block; background:transparent; width: 207px; height:69px;margin-left:-69px;">
+                                            </div>
+                                            <div class="add-btn" style="z-index: 1;"><i class="plus"></i></div>
+                                        </li>
+                                    </ul>
+                                    <input type="hidden" name="photo_url" id="photo_url"/>
+
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="height:1px;border:none;border-top:1px dashed grey;" />
+
+
+
+                        <div class="field" data-api-code="field_1">
+                            <div class="form-group ">
+                                <label class="control-label field_title" data-role="collapse_toggle"
+                                       for="entry_field_1">
+                                     2.填写头条的内容(<a target="_blank" href="/public/front/images/titletip.jpg">什么是头条</a>)，字数不能超过50个,且最好带有表白对象的姓名学院班级<br>
+                                    <span style="color: red;"></span>
+
+                                </label>
+
+                                <div class="field_content">
+
+                                    <div class="controls">
+                                        <input id="topconfess" name="topconfess" required="required" type="text" value="" placeholder="头条是表白正文的精简.字数不能超过50个">
+                                        <input type="hidden" id="from_school_en_name" name="from_school_en_name"
+                                               value="<%=school.en_name%>"/>
+                                        <input type="hidden" id="from_school_cn_name" name="from_school_cn_name"
+                                               value="<%=school.cn_name%>"/>
+                                        <input type="hidden" id="type" name="type" value="<%=type%>"/>
+                                        <input type="hidden" id="from_school_cn_short_name"
+                                               name="from_school_cn_short_name" value="<%=school.cn_short_name%>"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr style="height:1px;border:none;border-top:1px dashed grey;" />
+
+                        <div class="field" data-api-code="field_3">
+                            <div class="form-group ">
+                                <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_7">
+                                    3.填写要显示在表白正文的内容(<a target="_blank" href="/public/front/images/neirongtip.jpg">什么表白正文</a>)
+                                </label>
+                                <div class="field_content">
+                                    <div class="controls">
+                                        <textarea class="gd-input-xxlarge" required="required" name="content" id="content" required="required" placeholder="这里写表白【我们希望真诚的表白不希望是就两三个字】" style="overflow:scroll; word-wrap: break-word; resize: horizontal; height: 180px;border:1px solid lightgrey;border-bottom: none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="height:1px;border:none;border-top:1px dashed grey;" />
+                        <div class="field" data-api-code="field_3">
+                            <div class="form-group ">
+                                <label class="control-label field_title" data-role="collapse_toggle" for="entry_field_3">
+                                    4.填写微信号
+                                </label>
+                                <div class="field_content">
+                                    <div class="controls">
+                                        <input id="wx_account" required="required" name="wx_account" type="text" value="" placeholder="如果有什么变动我会加微信告诉你">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="field submit-field ">
+                            <div class="value">
+                                <input id="embedded" name="embedded" type="hidden">
+                                <input id="banner" name="banner" type="hidden">
+                                <input id="background" name="background" type="hidden">
+                                <input class="submit btn btn-primary" id="submit" data-disabled-with="提交中..." name="commit"
+                                       type="submit" value="提交">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
+<script src="/public/front/javascripts/LocalResizeIMG.js" type="text/javascript"></script>
+<!-- mobileBUGFix.js 兼容修复移动设备 -->
+<script src="/public/front/javascripts/mobileBUGFix.mini.js" type="text/javascript"></script>
+     <script language="javascript">
+         $("#J_button").localResizeIMG({
+             width: 400,
+             quality: 0.7,
+             success: function (result) {
+                /* $("#img_upload_li").show();*/
+                 $("#img_upload_li").show();
+                 $("#photo_url").val(result.base64);
+                 $("#img_upload").attr("src", result.base64);
+
+             }
+         });
+     var checkSubmitFlg = false;
+     function checkSubmit() {
+         if($("#topconfess").val().length==0||$("#content").val().length==0||$("#wx_account").val().length==0){
+             alert("信息不完整");
+             return false;
+         }
+         if (!checkSubmitFlg) {
+             checkSubmitFlg = true;
+             return true;
+         }else{
+             alert("不用重复提交啦");
+             return false;
+         }
+     }
+ </script>
+
