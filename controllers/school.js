@@ -950,13 +950,15 @@ exports.title_edit_save = function (req, res, next) {
 
 
 exports.source_show = function (req, res, next) {
-    var id = req.query.id;
-    SchoolEx.getSchoolById(id, function (err, schoolEx) {
-        if (schoolEx) {
-            res.render('back/school/source_show', {schoolEx: schoolEx});
-        } else {
-            res.render('back/school/source_show', {msg: "不存在此学校"});
-        }
+    var en_name = req.query.en_name;
+    SchoolEx.getSchoolByEname(en_name, function (err, schoolEx) {
+        SchoolEx.getSchoolById(schoolEx._id, function (err, schoolEx) {
+            if (schoolEx) {
+                res.render('back/school/source_show', {schoolEx: schoolEx});
+            } else {
+                res.render('back/school/source_show', {msg: "不存在此学校"});
+            }
+        })
     })
 };
 
