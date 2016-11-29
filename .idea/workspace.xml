@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/postEx/topconfess.html" afterPath="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/postEx/search.html" afterPath="$PROJECT_DIR$/views/front/postEx/search.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="222" column="72" selection-start-line="222" selection-start-column="72" selection-end-line="222" selection-end-column="72" />
+            <state vertical-scroll-proportion="-6.740741">
+              <caret line="256" column="40" selection-start-line="256" selection-start-column="40" selection-end-line="256" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -39,8 +37,8 @@
       <file leaf-file-name="postEx.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.666667">
-              <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="740" column="25" selection-start-line="740" selection-start-column="25" selection-end-line="740" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <marker date="1480207228000" expanded="true" signature="26143:26279" placeholder="..." />
@@ -79,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/controllers/school.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="948" column="2" selection-start-line="948" selection-start-column="2" selection-end-line="948" selection-end-column="2" />
+              <caret line="581" column="20" selection-start-line="581" selection-start-column="20" selection-end-line="581" selection-end-column="20" />
               <folding>
                 <marker date="1480206622000" expanded="true" signature="31345:31392" placeholder="..." />
                 <marker date="1480206622000" expanded="true" signature="31438:31579" placeholder="..." />
@@ -93,7 +91,7 @@
       <file leaf-file-name="schools.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="242" column="20" selection-start-line="242" selection-start-column="20" selection-end-line="242" selection-end-column="20" />
               <folding>
                 <marker date="1479825670000" expanded="true" signature="44079:44101" placeholder="..." />
@@ -107,7 +105,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="271" column="68" selection-start-line="271" selection-start-column="58" selection-end-line="271" selection-end-column="68" />
               <folding>
                 <marker date="1479525582000" expanded="true" signature="15093:15106" placeholder="..." />
@@ -116,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topconfess.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topconfess.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/postEx/topconfess.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15680474">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="156" column="42" selection-start-line="156" selection-start-column="42" selection-end-line="156" selection-end-column="42" />
               <folding />
             </state>
@@ -129,7 +127,7 @@
       <file leaf-file-name="post_result.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/postEx/post_result.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.791667">
+            <state vertical-scroll-proportion="0.0">
               <caret line="47" column="125" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="125" />
               <folding />
             </state>
@@ -146,36 +144,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchResult.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/postEx/searchResult.html">
+      <file leaf-file-name="search.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/front/postEx/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="334" column="81" selection-start-line="334" selection-start-column="81" selection-end-line="334" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.3666027">
+              <caret line="355" column="53" selection-start-line="355" selection-start-column="53" selection-end-line="355" selection-end-column="53" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#2;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#3;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#4;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#5;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#p#0;n#div#0;n#div#2;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/front/postEx/search.html">
+      <file leaf-file-name="choose.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/front/postEx/choose.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="311" column="0" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="40.166668">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -231,12 +218,12 @@
         <option value="$PROJECT_DIR$/proxy/school.js" />
         <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/proxy/schoolEx.js" />
-        <option value="$PROJECT_DIR$/views/front/postEx/search.html" />
         <option value="$PROJECT_DIR$/views/front/postEx/searchResult.html" />
         <option value="$PROJECT_DIR$/views/back/school/schools.html" />
         <option value="$PROJECT_DIR$/controllers/school.js" />
         <option value="$PROJECT_DIR$/controllers/postEx.js" />
         <option value="$PROJECT_DIR$/views/back/postEx/topconfess.html" />
+        <option value="$PROJECT_DIR$/views/front/postEx/search.html" />
       </list>
     </option>
   </component>
@@ -248,10 +235,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-131" />
-    <option name="y" value="-1002" />
-    <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="x" value="133" />
+    <option name="y" value="117" />
+    <option name="width" value="1234" />
+    <option name="height" value="642" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -277,7 +264,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -328,7 +314,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="back" />
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="postEx" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,17 +335,10 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="back" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="postEx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -431,14 +414,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-131" y="-1002" width="1440" height="797" extended-state="0" />
-    <editor active="false" />
+    <frame x="133" y="117" width="1234" height="642" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18472221" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19692059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -446,11 +429,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928944" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928944" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -467,9 +450,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18819444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -488,13 +471,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/front/complain/header.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/front/stylesheets/photo_guess_create.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -751,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,18 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="30" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/postEx/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="311" column="0" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -816,31 +778,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
+    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="222" column="72" selection-start-line="222" selection-start-column="72" selection-end-line="222" selection-end-column="72" />
+          <caret line="242" column="20" selection-start-line="242" selection-start-column="20" selection-end-line="242" selection-end-column="20" />
+          <folding>
+            <marker date="1479825670000" expanded="true" signature="44079:44101" placeholder="..." />
+            <marker date="1479825670000" expanded="true" signature="44213:44235" placeholder="..." />
+            <marker date="1479825670000" expanded="true" signature="44646:44668" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="68" selection-start-line="271" selection-start-column="58" selection-end-line="271" selection-end-column="68" />
+          <folding>
+            <marker date="1479525582000" expanded="true" signature="15093:15106" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/post_result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="125" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="125" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/school.js">
+    <entry file="file://$PROJECT_DIR$/views/back/postEx/topconfess.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="948" column="2" selection-start-line="948" selection-start-column="2" selection-end-line="948" selection-end-column="2" />
-          <folding>
-            <marker date="1480206622000" expanded="true" signature="31345:31392" placeholder="..." />
-            <marker date="1480206622000" expanded="true" signature="31438:31579" placeholder="..." />
-            <marker date="1480206622000" expanded="true" signature="31625:31678" placeholder="..." />
-            <marker date="1480206622000" expanded="true" signature="31752:31858" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="156" column="42" selection-start-line="156" selection-start-column="42" selection-end-line="156" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.666667">
-          <caret line="599" column="0" selection-start-line="599" selection-start-column="0" selection-end-line="599" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="740" column="25" selection-start-line="740" selection-start-column="25" selection-end-line="740" selection-end-column="25" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1480207228000" expanded="true" signature="26143:26279" placeholder="..." />
@@ -874,41 +853,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/school/schools.html">
+    <entry file="file://$PROJECT_DIR$/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="242" column="20" selection-start-line="242" selection-start-column="20" selection-end-line="242" selection-end-column="20" />
-          <folding>
-            <marker date="1479825670000" expanded="true" signature="44079:44101" placeholder="..." />
-            <marker date="1479825670000" expanded="true" signature="44213:44235" placeholder="..." />
-            <marker date="1479825670000" expanded="true" signature="44646:44668" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="271" column="68" selection-start-line="271" selection-start-column="58" selection-end-line="271" selection-end-column="68" />
-          <folding>
-            <marker date="1479525582000" expanded="true" signature="15093:15106" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/post_result.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.791667">
-          <caret line="47" column="125" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="125" />
+        <state vertical-scroll-proportion="-6.740741">
+          <caret line="256" column="40" selection-start-line="256" selection-start-column="40" selection-end-line="256" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/back/postEx/topconfess.html">
+    <entry file="file://$PROJECT_DIR$/controllers/school.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15680474">
-          <caret line="156" column="42" selection-start-line="156" selection-start-column="42" selection-end-line="156" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="581" column="20" selection-start-line="581" selection-start-column="20" selection-end-line="581" selection-end-column="20" />
+          <folding>
+            <marker date="1480206622000" expanded="true" signature="31345:31392" placeholder="..." />
+            <marker date="1480206622000" expanded="true" signature="31438:31579" placeholder="..." />
+            <marker date="1480206622000" expanded="true" signature="31625:31678" placeholder="..." />
+            <marker date="1480206622000" expanded="true" signature="31752:31858" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/postEx/choose.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="40.166668">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/postEx/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3666027">
+          <caret line="355" column="53" selection-start-line="355" selection-start-column="53" selection-end-line="355" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#div#0;n#div#1;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
