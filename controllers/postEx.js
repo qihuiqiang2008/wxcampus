@@ -1077,8 +1077,10 @@ exports.xcx_post = function (req, res, next) {
            return res.json({status:"error"});
         }
 
+        console.log(fields.content);
+
         var extName = '';  //后缀名
-        switch (files.fulAvatar.type) {
+        switch (files.photo_url.type) {
             case 'image/pjpeg':
                 extName = 'jpg';
                 break;
