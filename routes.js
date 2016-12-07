@@ -203,6 +203,10 @@ module.exports = function (app) {
 
 
     app.post('/topconfess/create', postEx.create_topconfess);
+
+    app.post('/xcx/post', postEx.xcx_post);
+
+
     app.get('/create/:from_school_en_name/topconfess',postEx.show_topconfess);
 
 

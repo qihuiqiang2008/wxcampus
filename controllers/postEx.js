@@ -105,6 +105,10 @@ exports.show_hudong = function (req, res, next) {
 };
 
 
+
+
+
+
 ///话题表单的显示
 exports.create_topconfess = function (req, res, next) {
     var from_school_en_name = req.body.from_school_en_name;
@@ -1047,6 +1051,53 @@ function createfunction(photo_url, word_less, sensitive, type, from_school_cn_na
         });
     }
 }
+
+
+
+
+
+
+
+
+
+///话题表单的显示
+exports.xcx_post = function (req, res, next) {
+    var from_school_en_name = req.body.from_school_en_name;
+    var from_school_cn_name = req.body.from_school_cn_name;
+    var from_school_cn_short_name = req.body.from_school_cn_short_name;
+    var wx_account = req.body.wx_account;
+    var content = req.body.content;
+    var topconfess = req.body.topconfess;
+    var tradeId = req.body.tradeId;
+    var photo_url = req.body.photo_url;
+
+    if (photo_url) {
+        var base64Data = photo_url.replace(/^data:image\/\w+;base64,/, "");
+        var dataBuffer = new Buffer(base64Data, 'base64');
+        var dirctory = "./public/front/photo_guess/" + (new Date()).getFullYear() + ((new Date()).getMonth() + 1) + (new Date()).getDate() + "";
+        if (!fs.existsSync(dirctory)) {
+            fs.mkdirSync(dirctory);
+        }
+        var oldpath = dirctory + "/" + guid() + ".jpg"
+        console.log(oldpath);
+        fs.writeFile(oldpath, dataBuffer, function (err) {
+            if (err) {
+                console.log(err);
+                return  res.send(err);
+            }
+        })
+    }else{
+        res.render('front/topconfess/result', {school: from_school_en_name,status:"提交失败！"})
+    }
+
+};
+
+
+
+
+
+
+
 
 exports.img = function (req, res, next) {
     //接收前台POST过来的base64
