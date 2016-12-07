@@ -127,8 +127,9 @@
             <th width="60px">头条内容</th>
             <th width="60px">表白内容</th>
             <th width="60px">微信号</th>
-            <th width="60px">表白内容插入</th>
+            <th width="60px">内容和标题插入</th>
             <th width="60px">状态</th>
+            <th width="60px">查看结果</th>
             <!--<th width="100px">图片</th>-->
             <th width="50px">时间</th>
             <th width="50px">时间</th>
@@ -153,8 +154,8 @@
                 已经推送了，无需插入
                 <%}else{%>
                 <a href="javascript:void(0)"
-                   class="btn btn-success btn-lg" role="button"
-                   onclick="handler('<%=postEx._id%>','topconfess',this)">表白内容插入</a>
+                   class="btn btn-success " role="button"
+                   onclick="handler('<%=postEx._id%>','topconfess',this)">一键插入</a>
                 <%}%>
 
 
@@ -163,13 +164,22 @@
             <th width="60px">
                 <% if (postEx.content6=="sended") {%>
                    已经推送了
+                <a href="javascript:void(0)"
+                   class="btn btn-success btn-danger btn-mini" role="button"
+                   onclick="handler('<%=postEx._id%>','topconfessrecover',this)">恢复</a>
                 <%}else{%>
                 <a href="javascript:void(0)"
-                   class="btn btn-success btn-lg" role="button"
+                   class="btn btn-success btn-mini" role="button"
                    onclick="handler('<%=postEx._id%>','topconfesssend',this)">标为已推送</a>
+
+                <a href="javascript:void(0)"
+                   class="btn btn-success btn-danger btn-mini" role="button"
+                   onclick="handler('<%=postEx._id%>','topconfesssend',this)">删除</a>
                 <%}%>
             </th>
-
+            <td> <a href="javascript:void(0)"
+                    class="btn btn-success btn-danger result btn-mini" role="button"
+                    onclick="handler('<%=postEx._id%>','topconfesssend',this)"   ptype="confess" data_id="<%=postEx.from_school_en_name%>">重新生成</a><br><a target="_blank" href="/back/school/source_show?type=secret&en_name=<%=postEx.from_school_en_name%>">结果查看</a></td>
             <td><%=postEx.friendly_create_at%></td>
             <td><%=postEx.pretty_create_at%></td>
             <%}%>
@@ -230,5 +240,51 @@
 
 <%- include ../partial/footer%>
 
+<script>
+    $("#one_key_do").click(function(){
+        $(".result").click();
+    });
+    var i=0;
+    $(".result").click(function(){
+        var type=$(this).attr("ptype");
+        var en_name=$(this).attr("data_id");
+        var obj=$(this);
+        obj.attr("disabled","disabled");
+        obj.text("操作中..");
+        $.ajax({
+            'url': '/back/result_post',
+            'type': 'post',
+            'dataType': 'json',
+            'data':{type:type,en_name:en_name},
+            success: function (json, st) {
+                if (json.success) {
+                    obj.removeAttr("disabled");
+                    obj.text("生成成功");
+                    i++;
+                    $("#info").text("---------生成成功"+i);
+                } else {
+                    alert(json.msg);
 
+                    console.log(json.msg)
+                }
+            },
+            beforeSend: function (xhr, textStatus) {
+
+            },
+            error: function (xhr) {
+                if (xhr.status != 403) {
+                    alert("出现异常，请刷新后重试");
+                }
+            },
+            complete: function (xhr, textStatus) {
+                if (xhr.status == 403) {
+                    alert("没有权限");
+                }
+            }
+        });
+
+
+    });
+
+</script>
 

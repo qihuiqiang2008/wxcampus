@@ -580,6 +580,13 @@ exports.back_handler = function (req, res, next) {
             postex.save();
             return res.json({success: true});
         }
+        if (type == "topconfessrecover") {
+            postex.content6="";
+            postex.save();
+            return res.json({success: true});
+        }
+
+
         if (type == "topconfess") {
             Configuration.getConfigurationByCode("confess", function (err, day) {
                 Configuration.getConfigurationByCode(DateFormat(day.value), function (err, start_cfg) {
@@ -591,12 +598,17 @@ exports.back_handler = function (req, res, next) {
                     postex.common=false;
                     PostEx.newAndSaveTopConfess(postex, function (err,dd) {
 
-                        console.log("---"+dd)
-                        if (err) {
-                            return res.json({success: false});
+                        SchoolEx.getSchoolByEname(postex.from_school_en_name, function (err, schoolEx) {
+                            if (schoolEx) {
+                                schoolEx.confess_title=postex.content0;
+                                schoolEx.save();
+                                if (err) {
+                                    return res.json({success: false});
 
-                        }
-                        return res.json({success: true});
+                                }
+                                return res.json({success: true});
+                            }
+                        })
                     });
                 })
             })

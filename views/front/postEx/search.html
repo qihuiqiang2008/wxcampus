@@ -353,6 +353,12 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
      <script language="javascript">
      var checkSubmitFlg = false;
      function checkSubmit() {
+         if(document.getElementById("cn_name").value=="中国地质大学"){
+             alert("具体那个地质大学？输入例如 武汉中国地质大学 或 北京中国地质大学  的形式搜索");
+             return false;
+
+         }
+
          if (!checkSubmitFlg) {
              checkSubmitFlg = true;
              return true;
