@@ -1077,8 +1077,7 @@ exports.xcx_post = function (req, res, next) {
            return res.json({status:"error"});
         }
 
-        console.log(fields.content);
-
+        onsole.log(fields,"-------------",files);
         var extName = '';  //后缀名
         switch (files.photo_url.type) {
             case 'image/pjpeg':
