@@ -29,6 +29,8 @@ var config = require('../config');
 var random = require('mongoose-random');
 var request = require("request");
 var crypto = require('crypto');
+var formidable = require('formidable');
+
 /**var random = require('mongoose-random');
  * Topic page
  *
@@ -1062,33 +1064,48 @@ function createfunction(photo_url, word_less, sensitive, type, from_school_cn_na
 
 ///话题表单的显示
 exports.xcx_post = function (req, res, next) {
-    var from_school_en_name = req.body.from_school_en_name;
-    var from_school_cn_name = req.body.from_school_cn_name;
-    var from_school_cn_short_name = req.body.from_school_cn_short_name;
-    var wx_account = req.body.wx_account;
-    var content = req.body.content;
-    var topconfess = req.body.topconfess;
-    var tradeId = req.body.tradeId;
-    var photo_url = req.body.photo_url;
+    var form = new formidable.IncomingForm(); //创建上传表单
+    form.encoding = 'utf-8'; //设置编辑
+    form.uploadDir = 'public/file/video'; //设置上传目录
+    form.keepExtensions = false; //保留后缀
+    form.maxFieldsSize = 20 * 1024 * 1024;   //文件大小 k
+    var dirctory = "public/front/photo_guess/" + (new Date()).getFullYear() + ((new Date()).getMonth() + 1) + (new Date()).getDate() + "";
+    form.parse(req, function(err, fields, files) {
 
-    if (photo_url) {
-        var base64Data = photo_url.replace(/^data:image\/\w+;base64,/, "");
-        var dataBuffer = new Buffer(base64Data, 'base64');
-        var dirctory = "./public/front/photo_guess/" + (new Date()).getFullYear() + ((new Date()).getMonth() + 1) + (new Date()).getDate() + "";
-        if (!fs.existsSync(dirctory)) {
-            fs.mkdirSync(dirctory);
+        if (err) {
+
+           return res.json({status:"error"});
         }
-        var oldpath = dirctory + "/" + guid() + ".jpg"
-        console.log(oldpath);
-        fs.writeFile(oldpath, dataBuffer, function (err) {
-            if (err) {
-                console.log(err);
-                return  res.send(err);
-            }
-        })
-    }else{
-        res.render('front/topconfess/result', {school: from_school_en_name,status:"提交失败！"})
-    }
+
+        var extName = '';  //后缀名
+        switch (files.fulAvatar.type) {
+            case 'image/pjpeg':
+                extName = 'jpg';
+                break;
+            case 'image/jpeg':
+                extName = 'jpg';
+                break;
+            case 'image/png':
+                extName = 'png';
+                break;
+            case 'image/x-png':
+                extName = 'png';
+                break;
+        }
+
+        if(extName.length == 0){
+            return res.json({status:"error"});
+        }
+
+        var avatarName = Math.random() + '.' + extName;
+        var newPath = form.uploadDir + avatarName;
+
+        console.log(newPath);
+        fs.renameSync(files.fulAvatar.path, newPath);  //重命名
+    });
+
+    return res.json({status:"ok"});
+
 
 };
 
