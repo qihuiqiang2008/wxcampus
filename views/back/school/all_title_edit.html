@@ -28,7 +28,13 @@
 									<i class="icon-pencil"></i>
 								</span>
                         <h5>编辑标题[备注：标题请精简，不然会上传不成功]</h5>
-                        <button class="btn btn-primary " id="one_key_do" >一键修改</button>
+
+
+                        <button class="btn btn-primary " id="one_key_test" >超限检测</button>
+
+                        <button class="btn btn-primary " id="one_key_update" >超限修复</button>
+
+                        <button class="btn btn-primary " id="one_key_do" >一键保存</button>
                         <span id="info" style="color: red; font-size:20px"></span>
                     </div>
                     <div class="widget-content nopadding">
@@ -43,18 +49,18 @@
                                
 							 <div class="controls">
                                  <% if (type&&type=="confess") {%>
-                          <input type="text"  id="<%=school.en_name%>_title" value="<%=school.confess_title%>"  style="width:50%"    placeholder="标题">
+                          <input type="text"  id="<%=school.en_name%>_title"  class="tt" value="<%=school.confess_title%>"  style="width:50%"    placeholder="标题">
 						  <button class="btn btn-primary save "  data_id="<%=school.en_name%>" data_type="<%=type%>">保存</button>
 
                                  <a style="font-size:8px" href="/back/postEx/index?req_type=all_no_common&type=confess&en_name=<%=school.en_name%>" target="_blank">今日表白</a>
 
                                  <%}else if(type&&type=="shudong"){%>
-                                 <input type="text"  id="<%=school.en_name%>_title" value="<%=school.secret_title%>"  style="width:50%"    placeholder="标题">
+                                 <input type="text"  id="<%=school.en_name%>_title" class="tt" value="<%=school.secret_title%>"  style="width:50%"    placeholder="标题">
                                  <button class="btn btn-primary save "  data_id="<%=school.en_name%>" data_type="<%=type%>">保存</button>
                                  <a style="font-size:8px" href="/back/postEx/index?req_type=all_no_common&type=shudong&en_name=<%=school.en_name%>" target="_blank">今日树洞</a>
 
                                  <%}else{%>
-                                 <input type="text"  id="<%=school.en_name%>_title" value="<%=school.photo_guess_title%>"  style="width:50%"    placeholder="标题">
+                                 <input type="text"  id="<%=school.en_name%>_title" class="tt" value="<%=school.photo_guess_title%>"  style="width:50%"    placeholder="标题">
                                  <button class="btn btn-primary save "  data_id="<%=school.en_name%>" data_type="<%=type%>">保存</button>
 
                                  <%}%>
@@ -81,9 +87,36 @@
 <%- include ../partial/footer%>
 <script>
     var i=0;
+    var reg = /[\u4e00-\u9fa5]/g;
     $("#one_key_do").click(function(){
         $(".save").click()
     });
+
+    $("#one_key_test").click(function(){
+        $(".tt").each(function(){
+            if($(this).val().match(reg).length>50){
+                $(this).css("border","5px solid red");
+            }else{
+                $(this).css("border","");
+            }
+        })
+        alert("超限检测成功")
+    })
+
+    $("#one_key_update").click(function(){
+        $(".tt").each(function(){
+            if($(this).val().match(reg).length>50){
+                $(this).val($(this).val().substr(0,46)+"...");
+            }else{
+                $(this).css("border","");
+            }
+        })
+        alert("修复成功，请点击保存")
+    })
+
+   /* var reg = /[\u4e00-\u9fa5]/g;
+    var str = "js计算一段文本中有多少个汉字阿斯蒂芬撒的发生的范德萨发送的34343fdsfd？";
+    console.debug(str.match(reg).length);*/
 
 $(".save").click(function(){
 	var obj=$(this)
