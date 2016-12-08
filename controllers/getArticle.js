@@ -7,7 +7,8 @@ var AD = require('../proxy').AD;
 var async = require('async');
 var fs = require('fs');
 var EventProxy = require('eventproxy');
-var brushRate = 0.05;
+var brushRate0 = 0.05;
+var brushRate1 = 0.03;
 var nodeExcel = require('excel-export');
 
 exports.getArticleAD = function(req, res, next) {
@@ -174,7 +175,11 @@ exports.getTodayAdBrush = function(req, res, next) {
 
                 ad.school=="bnu" ? fans = schoolFanDic[ad.school]+5000 : fans = schoolFanDic[ad.school];
 
-                amount = Math.round(fans * brushRate / 100) * 100;
+                if(ad.position == 0){
+                    amount = Math.round(fans * brushRate0 / 100) * 100;
+                } else {
+                    amount = Math.round(fans * brushRate1 / 100) * 100;
+                }
 
                 amount = amount < 200 ? 200 : amount;
 
