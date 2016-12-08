@@ -375,5 +375,5 @@ module.exports = function (app) {
     app.post('/back/school/updateAD', auth.signinRequired, ADManage.updateAD);
     app.get('/back/school/syncADTag', auth.signinRequired, ADManage.syncADTag);
     app.get('/back/school/getArticle', auth.signinRequired, getArticle.getArticleAD);
-
+    app.get('/back/school/getTodayADBrush', auth.signinRequired, getArticle.getTodayAdBrush);
 };
