@@ -38,9 +38,9 @@ app.engine('html', require('ejs-mate'));
 //app.locals._layoutFile = 'frontlayout.html';
 
 app.use(require('response-time')());
-app.use(bodyParser.json({limit: '50mb'}));
+/*app.use(bodyParser.json({limit: '50mb'}));*/
 app.use(bodyParser.urlencoded({
-    extended: true,limit: '50mb'
+    extended: true,limit: '500000mb'
 }));
 app.use(require('method-override')());
 app.use(require('cookie-parser')(config.session_secret));
@@ -61,7 +61,7 @@ app.use(require('./controllers/type').setType);
 app.use(passport.initialize());
 
 
-
+app.use(express.json()).use(express.urlencoded())
 // custom middleware
 
 //app.use(auth.blockUser());

@@ -29,7 +29,9 @@ var config = require('../config');
 var random = require('mongoose-random');
 var request = require("request");
 var crypto = require('crypto');
+var multiparty = require('multiparty');
 var formidable = require('formidable');
+
 
 /**var random = require('mongoose-random');
  * Topic page
@@ -1064,21 +1066,28 @@ function createfunction(photo_url, word_less, sensitive, type, from_school_cn_na
 
 ///话题表单的显示
 exports.xcx_post = function (req, res, next) {
+
     var form = new formidable.IncomingForm(); //创建上传表单
     form.encoding = 'utf-8'; //设置编辑
-    form.uploadDir = 'public/file/video'; //设置上传目录
-    form.keepExtensions = false; //保留后缀
-    form.maxFieldsSize = 20 * 1024 * 1024;   //文件大小 k
-    var dirctory = "public/front/photo_guess/" + (new Date()).getFullYear() + ((new Date()).getMonth() + 1) + (new Date()).getDate() + "";
-    form.parse(req, function(err, fields, files) {
+    form.uploadDir = 'public/files/'; //设置上传目录
+    form.keepExtensions = true; //保留后缀
+    form.maxFieldsSize = 20 * 1024 * 1024*1024;   //文件大小 k
+    form.parse(req,function(err, fields, files){
+        console.log(fields)
+
+        console.log(files)
 
         if (err) {
+            console.log(err)
+            res.locals.error = err;
 
-           return res.json({status:"error"});
+            return res.json({"status":"no"});
         }
+        console.log(fields)
 
-        onsole.log(fields,"-------------",files);
-        var extName = '';  //后缀名
+        console.log(files)
+
+        var extName = 'mp4';  //后缀名
         switch (files.photo_url.type) {
             case 'image/pjpeg':
                 extName = 'jpg';
@@ -1094,19 +1103,47 @@ exports.xcx_post = function (req, res, next) {
                 break;
         }
 
+
         if(extName.length == 0){
-            return res.json({status:"error"});
+            res.locals.error = '只支持png和jpg格式图片';
+            res.render('index', { title: TITLE });
+            return;
         }
 
         var avatarName = Math.random() + '.' + extName;
         var newPath = form.uploadDir + avatarName;
 
         console.log(newPath);
-        fs.renameSync(files.fulAvatar.path, newPath);  //重命名
+        fs.renameSync(files.photo_url.path, newPath);  //重命名
     });
 
-    return res.json({status:"ok"});
+    res.json({status:"ok"})
 
+    /*var form = new multiparty.Form({uploadDir: 'public/files/'});
+    //上传完成后处理
+    form.parse(req, function(err, fields, files) {
+        var filesTmp = JSON.stringify(files,null,2);
+
+        console.log(fields)
+        console.log(files)
+        if(err){
+            console.log('parse error: ' + err);
+        } else {
+            console.log('parse files: ' + filesTmp);
+            var inputFile = files.inputFile[0];
+            var uploadedPath = inputFile.path;
+            var dstPath = 'public/files/' + inputFile.originalFilename;
+            //重命名为真实文件名
+            fs.rename(uploadedPath, dstPath, function(err) {
+                if(err){
+                    console.log('rename error: ' + err);
+                } else {
+                    console.log('rename ok');
+                }
+            });
+        }
+
+    });*/
 
 };
 
