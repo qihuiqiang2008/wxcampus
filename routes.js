@@ -55,6 +55,8 @@ var passport = require('passport');
 var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
+var run = require('./controllers/run');
+
 
 module.exports = function (app) {
 
@@ -377,6 +379,13 @@ module.exports = function (app) {
     app.get('/back/school/updateAD', auth.signinRequired, ADManage.showUpdateAD);
     app.post('/back/school/updateAD', auth.signinRequired, ADManage.updateAD);
     app.get('/back/school/syncADTag', auth.signinRequired, ADManage.syncADTag);
+
+
+    app.get('/back/run/user', auth.signinRequired, run.user);
+    app.get('/back/run/create_activity_show', auth.signinRequired, run.create_activity_show);
+    app.get('/back/run/activityList', auth.signinRequired, run.activityList);
+    app.get('/back/run/huiyuan', auth.signinRequired, run.huiyuan);
+
 
 
 };

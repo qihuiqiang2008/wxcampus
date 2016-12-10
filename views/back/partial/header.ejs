@@ -33,9 +33,8 @@
     <a href="#" class="visible-phone"><i class="icon icon-th-list"></i> Wizard</a>
     <ul>
      <!--   http://welife001.com:888-->
-        <li><a href="https://shimo.im/spreadsheet/688ChufuvScauyLy" target="_blank"><i class="icon icon-home"></i> <span>最新排期</span></a></li>
-        <li><a href="https://shimo.im/spreadsheet/zOoX92ZvNC4hgW3t" target="_blank"><i class="icon icon-home"></i> <span>在线人数(excel)</span></a></li>
-        <li><a href="https://shimo.im/doc/UAeoBqXVXFYrYlTI" target="_blank"><i class="icon icon-home"></i> <span>系统wiki</span></a></li>
+        <li><a href="/back/run/user"><i class="icon icon-home"></i> <span>会员信息</span></a></li>
+       <!-- <li><a href="https://shimo.im/doc/UAeoBqXVXFYrYlTI" target="_blank"><i class="icon icon-home"></i> <span>系统wiki</span></a></li>
         <li><a href="/wxmsgadd"><i class="icon icon-home"></i> <span>地址解析</span></a></li>
         <li><a href="/back/count"><i class="icon icon-home"></i> <span>最新人数</span></a></li>
         <li><a href="https://jinshuju.net/f/fXDEZz" target="_blank"><i class="icon icon-home"></i> <span>添加广告</span></a></li>
@@ -43,20 +42,20 @@
 
 
         <li><a href="/back/postEx/index?req_type=all_no_commonEx&type=topconfess&send=false" target="_blank"><i class="icon icon-home"></i> <span>我要上头条</span></a></li>
-
+-->
 
 
 
         <li class="submenu">
-            <a href="#"><i class="icon icon-th-list"></i><span>广告管理</span></a>
+            <a href="#"><i class="icon icon-th-list"></i><span>活动管理</span></a>
             <ul>
-                <li><a href="/back/school/listAD">广告列表</a></li>
-                <li><a href="/back/school/todayAD">今日广告</a></li>
-                <li><a href="/back/school/addAD">添加广告</a></li>
-                <li><a href="/back/school/getAD">排期查看</a></li>
+                <li><a href="/back/run/activityList">所有活动</a></li>
+                <li><a href="/back/run/create_activity_show">创建活动</a></li>
+                <!--<li><a href="/back/school/addAD">添加广告</a></li>
+                <li><a href="/back/school/getAD">排期查看</a></li>-->
             </ul>
         </li>
-        <li><a href="/back/configurations"><i class="icon icon-th" target="_blank"></i> <span>配置管理(打标记)</span></a></li>
+       <!-- <li><a href="/back/configurations"><i class="icon icon-th" target="_blank"></i> <span>配置管理(打标记)</span></a></li>
         <li><a href="/back/configurations?type=model"><i class="icon icon-th" target="_blank"></i> <span>缘分墙模板</span></a></li>
         <li><a href="/back/configurations?type=tianqi"><i class="icon icon-th" target="_blank"></i> <span>天气配置</span></a></li>
         <li><a href="/back/configurations?type=model1"><i class="icon icon-th" target="_blank"></i> <span>图片说模板</span></a></li>
@@ -189,11 +188,8 @@
         <li><a href="/back/posts?filter=new&t=secret&fromback=back"><i class="icon icon-pencil"></i> <span>秘密管理</span></a></li>
         <li><a href="/back/replies"><i class="icon icon-th"></i> <span>回复管理</span></a></li>
         <li><a href="/back/collections"><i class="icon icon-inbox"></i> <span>数据管理</span></a></li>
-        <li><a href="/back/advises"><i class="icon icon-inbox"></i> <span>建议管理</span></a></li>
-        <%  if(typeof(current_user) !== 'undefined'&&current_user.email=='admin@admin.com')  {%>
-        <li><a href="/back/groups"><i class="icon icon-inbox"></i> <span>分组管理</span></a></li>
-	 <li><a href="/back/configurations"><i class="icon icon-th"></i> <span>参数配置</span></a></li>
-        <%}%>
+        <li><a href="/back/advises"><i class="icon icon-inbox"></i> <span>建议管理</span></a></li>-->
+
 
   <!--      <li class="submenu">
             <a href="#"><i class="icon icon-file"></i> <span>Sample pages</span> <span class="label">4</span></a>

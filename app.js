@@ -61,7 +61,9 @@ app.use(require('./controllers/type').setType);
 app.use(passport.initialize());
 
 
+/*
 app.use(express.json()).use(express.urlencoded())
+*/
 // custom middleware
 
 //app.use(auth.blockUser());

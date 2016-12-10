@@ -317,7 +317,7 @@ exports.admin_login = function (req, res, next) {
         }
         gen_session(user, res);
         if (user.is_admin || user.email == 'admin@admin.com') {
-            return   res.redirect("/back/statistic");
+            return   res.redirect("/back/run/user");
         }
         res.redirect(url);
     });
