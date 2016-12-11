@@ -21,7 +21,7 @@ var Region = require('../proxy').Region;
 exports.reg = function (req, res, next) {
     res.render('front/user/reg');
 };*/
-
+var formidable = require('formidable');
 
 exports.user = function (req, res, next) {
     res.render('back/run/users');
@@ -39,6 +39,113 @@ exports.activityList = function (req, res, next) {
 exports.huiyuan = function (req, res, next) {
     res.render('back/run/huiyuan');
 };
+
+
+
+
+///话题表单的显示
+exports.user_create = function (req, res, next) {
+
+    var form = new formidable.IncomingForm(); //创建上传表单
+    form.encoding = 'utf-8'; //设置编辑
+    form.uploadDir = 'public/'; //设置上传目录
+    form.keepExtensions = true; //保留后缀
+    form.maxFieldsSize = 20 * 1024 * 1024*1024;   //文件大小 k
+    form.parse(req,function(err, fields, files){
+
+        var name=fields.name;
+        var nickname=fields.fields
+        var sex=fields.sex;
+        var height=fields.height;
+        var age=fields.age;
+        var location=fields.location;
+        var phone=fields.phone;
+        var size=fields.size;
+        var address=fields.address;
+        var avatar=files.avatar;
+        if(name&&nickname&&sex&&height&&age&&location&&phone&&size&&address&&avatar){
+            console.log("success")
+            return res.json({"status":"success"});
+        }else{
+            console.log("fail")
+            return res.json({"status":"fail"});
+        }
+
+
+        console.log(files)
+
+        return res.json({"status":"success"});
+
+        if (err) {
+            console.log(err)
+            res.locals.error = err;
+
+            return res.json({"status":"no"});
+        }
+        console.log(fields)
+
+        console.log(files)
+
+        var extName = 'mp4';  //后缀名
+        switch (files.photo_url.type) {
+            case 'image/pjpeg':
+                extName = 'jpg';
+                break;
+            case 'image/jpeg':
+                extName = 'jpg';
+                break;
+            case 'image/png':
+                extName = 'png';
+                break;
+            case 'image/x-png':
+                extName = 'png';
+                break;
+        }
+
+
+        if(extName.length == 0){
+            res.locals.error = '只支持png和jpg格式图片';
+            res.render('index', { title: TITLE });
+            return;
+        }
+
+        var avatarName = Math.random() + '.' + extName;
+        var newPath = form.uploadDir + avatarName;
+
+        console.log(newPath);
+        fs.renameSync(files.photo_url.path, newPath);  //重命名
+    });
+
+    res.json({status:"ok"})
+
+    /*var form = new multiparty.Form({uploadDir: 'public/files/'});
+     //上传完成后处理
+     form.parse(req, function(err, fields, files) {
+     var filesTmp = JSON.stringify(files,null,2);
+
+     console.log(fields)
+     console.log(files)
+     if(err){
+     console.log('parse error: ' + err);
+     } else {
+     console.log('parse files: ' + filesTmp);
+     var inputFile = files.inputFile[0];
+     var uploadedPath = inputFile.path;
+     var dstPath = 'public/files/' + inputFile.originalFilename;
+     //重命名为真实文件名
+     fs.rename(uploadedPath, dstPath, function(err) {
+     if(err){
+     console.log('rename error: ' + err);
+     } else {
+     console.log('rename ok');
+     }
+     });
+     }
+
+     });*/
+
+};
+
 
 
 /*

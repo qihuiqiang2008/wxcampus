@@ -385,6 +385,7 @@ module.exports = function (app) {
     app.get('/back/run/create_activity_show', auth.signinRequired, run.create_activity_show);
     app.get('/back/run/activityList', auth.signinRequired, run.activityList);
     app.get('/back/run/huiyuan', auth.signinRequired, run.huiyuan);
+    app.post('/back/run/user_create', run.user_create);
 
 
 
