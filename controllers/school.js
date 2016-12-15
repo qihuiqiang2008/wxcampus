@@ -618,6 +618,9 @@ exports.back_price = function (req, res, next) {
             query = {active: false};
         }
     }
+    if(region_code){
+        query = {region_code: region_code};
+    }
 
 
     var page = parseInt(req.query.page, 10) || 1;
