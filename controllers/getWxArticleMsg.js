@@ -2,8 +2,6 @@ var request = require("superagent");
 var cheerio = require('cheerio');
 var fs = require('fs');
 
-
-
 exports.wxmsg = function (req, res, next) {
     var url = req.body.url;
     var currentres=res;

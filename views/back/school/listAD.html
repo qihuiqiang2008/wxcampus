@@ -121,7 +121,12 @@
                         <ul>
                         <% var current_page = page;
                         var pages = parseInt(count/size); 
-                        var base='/back/school/listAD?size=' + size;%>
+                        var base;
+                        if(admin != undefined && admin != ""){
+                            base = '/back/school/listAD?admin=' + admin + '&size=' + size;
+                        } else {
+                            base='/back/school/listAD?size=' + size;
+                        }%>
                         <% var base_url = base + (base.indexOf('?') < 0 ? '?' : '&') + 'page=' ; %>
                         <% if (current_page == 0) { %>
                         <li class='disabled'><a>«</a></li>

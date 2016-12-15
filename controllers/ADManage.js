@@ -153,7 +153,7 @@ exports.syncADTag = function(req, res, next) {
     var adFlagArray = new Array();
     var schools = new Array();
 
-    var proxy = EventProxy.create("ads", function(ads) {
+    var proxy = EventProxy.create("ads", "reset", function(ads) {
         ads.forEach(function(ad, index) {
             ad.slot.forEach(function(slot) {
                 if (slot.date.setUTCHours(0, 0, 0, 0) == begin.getTime()) {
@@ -174,6 +174,16 @@ exports.syncADTag = function(req, res, next) {
 
         var ret = {result: 'OK'}
         res.json(ret);
+    });
+
+    SchoolEx.updateAlltag(false, function (err) {
+        if (err) {
+            console.log(err);
+
+        } else {
+            proxy.emit('reset');
+        }
+
     });
 
     ad.getAdByTime(begin, end, {}, function(err, ads) {
@@ -273,7 +283,8 @@ exports.listAD = function(req, res, next) {
             ads: ads,
             count: count,
             page: page,
-            size: size
+            size: size,
+            admin : admin
         });
     });
 
