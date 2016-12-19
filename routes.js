@@ -360,6 +360,8 @@ module.exports = function (app) {
     app.get("/tu",uploadSingle1.uploadTest)
     app.post('/signin', sign.login);
 
+    app.get('/flex',postEx.flex);
+
     //广告相关 
     app.get('/back/school/addAD', auth.signinRequired, ADManage.showGetAD);
     app.post('/back/school/addAD', auth.signinRequired, ADManage.addAD);
