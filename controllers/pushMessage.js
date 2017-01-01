@@ -194,6 +194,8 @@ exports.pushMessage = function(req, res, next){
 
             data.operation_seq = operation_seq;
             data.direct_send = '1';
+            data.req_time = new Date().getTime();
+            data.req_id = getid(32);
             var sendData = '';
 
             for (property in data) {
@@ -206,7 +208,7 @@ exports.pushMessage = function(req, res, next){
 			   //  console.log( loadResult.cookie);
             console.log("Now Push Message! param:" + sendData);
             console.log("Cookie: " + loadResult.cookie);
-            var url = 'https://mp.weixin.qq.com/cgi-bin/masssend?t=ajax-response&token='+ loadResult.token +'&lang=zh_CN';
+            var url = 'https://mp.weixin.qq.com/cgi-bin/masssend?t=ajax-response&req_need_vidsn=1&addtx_video=1&token='+ loadResult.token +'&lang=zh_CN';
             request.post(url)
                 .set('Cookie', loadResult.cookie)
                 .set("Accept-Encoding" , "gzip,sdch")
@@ -237,4 +239,9 @@ exports.pushMessage = function(req, res, next){
     ], function(err, results) {
         res.send(result_json);
     });
+}
+
+function getid(t){
+for(var e="",i="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",s=0;t>s;s++)e+=i.charAt(Math.floor(Math.random()*i.length));
+return e;
 }
