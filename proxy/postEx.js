@@ -210,9 +210,16 @@ exports.getCountByQuery = function (query, callback) {
         PostEx.count(query, callback);
 };
 
-exports.countByschool=function (school,callback) {
+exports.countByschool=function (school,create_at,callback) {
     var query={};
+    if(create_at!=undefined||create_at!=null){
+    //if(!typeof (create_at)   ==   "undefined"){
+        query.create_at=create_at;
+        console.log("create_at is not null 2")
+    }
+
     var amount={};
+    amount.en_name=school.en_name;
     async.series([
         function (cb) {
             query.from_school_en_name=school.en_name;
@@ -236,14 +243,13 @@ exports.countByschool=function (school,callback) {
             query.from_school_en_name=school.en_name;
             delete query.type;
             PostEx.count(query, function (err,count){
-                amount.totel=count;
-                console.log(school.en_name+"的总共数量:"+amount.totel);
+                amount.total=count;
+                console.log(school.en_name+"的总共数量:"+amount.total);
                 cb();
-                callback(amount);
             })
         },
         function (cb) {
-            cb();
+            //cb();
             callback(amount);
         }
 

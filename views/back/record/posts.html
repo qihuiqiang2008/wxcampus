@@ -49,7 +49,6 @@
             <th>树洞数量</th>
             <th>所有数量</th>
             <th>其他数量</th>
-            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -64,10 +63,7 @@
                 <div id="<%=school.en_name%>_confess">0</div>
             </td>
             <td>
-                <div id="nxu">0</div>
-            </td>
-            <td>
-                <div id="<%=school.en_name%>_shdong">0</div>
+                <div id="<%=school.en_name%>_shudong">0</div>
             </td>
             <td>
                 <div id="<%=school.en_name%>_total">0</div>
@@ -139,7 +135,7 @@
             alert('请选择正确的时间');
             return;
         }
-        window.location.href = "/back/school/analysis/posts?startDate=" + startDate+"&endDate="+endDate;
+        window.location.href = "/back/record/posts?startDate=" + startDate+"&endDate="+endDate;
     });
     
     $(function () {
@@ -148,7 +144,7 @@
     
     function insertContent(){
         var amounts=JSON.parse('<%- amounts %>');
-        console.log("开始填充内容");
+        console.log("开始填充内容:"+'<%- amounts %>');
         amounts.forEach(function (amount,index) {
             var tag1=amount.en_name+"_confess";
             var tag2=amount.en_name+"_shudong";
@@ -156,8 +152,8 @@
             $("#" + tag1).html(amount.confess);
             $("#" + tag2).html(amount.shudong);
             $("#" + tag3).html(amount.total);
-            $("#nxu").text(amount.total);
-            console.log("total:"+amount.total);
+            //$("#nxu").text(amount.total);
+            console.log("tag1:"+tag1);
 
         })
         console.log("结束填充内容");

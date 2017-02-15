@@ -8,6 +8,7 @@ exports.getPostsRecord = function (req, res, next) {
     
     //获取查询的开始时间和结束时间
     var startDate,endDate;
+    var create_at;
     if (req.query.startDate != undefined) {
         startDate = req.query.startDate;
     }
@@ -16,7 +17,13 @@ exports.getPostsRecord = function (req, res, next) {
     }
     console.log("begin:"+new Date(startDate));
     console.log("end:"+new Date(endDate));
-
+    if(startDate!=undefined&&endDate!=undefined){
+        create_at={
+            "$gt": new Date(startDate),
+            "$lt": new Date(endDate)
+        }
+        console.log("create_at is not null")
+    }
     var view = 'back/record/posts';
     var query={}
     var limit = 200;
@@ -38,13 +45,13 @@ exports.getPostsRecord = function (req, res, next) {
     })
     proxy.fail(next);
     //School.getSchoolsByQuery(query,options,proxy.done('schools'));
-    var amounts=[];
+    var amounts=new Array();
     School.getSchoolsByQuery(query,options,function (err,schools){
         proxy.emit('schools', schools);
         console.log('schools.length'+schools.length);
         async.eachSeries(schools,
-            function (school, callback){
-                PostEx.countByschool(school,function (amount) {
+            function (school,callback){
+                PostEx.countByschool(school,create_at,function (amount) {
                     console.log("amount:"+amount.confess)
                     amounts.push(amount)
                     /*if(school.en_name=='ujs'){
@@ -54,18 +61,10 @@ exports.getPostsRecord = function (req, res, next) {
                 })
             },
             function (err){
-                console.log("表白树洞统计结束......"+amounts[0].total);
+                console.log("表白树洞统计结束......"+amounts[3].total);
                 proxy.emit('amounts', amounts);
+                //cb();
             });
-        /*schools.forEach(function (school,index) {
-            var amount={}
-            PostEx.countByschool(school,amount,function () {
-                amounts.push(amount)
-                if(school.en_name=='ujs'){
-                    console.log("表白树洞统计结束......"+amounts.length);
-                }
-            })
-        });*/
     });
    /* School.getSchoolsByQuery(query,options,proxy.done(function (schools) {
         var query={};

@@ -56,6 +56,7 @@ var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
 var getArticle = require('./controllers/getArticle');
+var record=require('./controllers/record');
 
 module.exports = function (app) {
 
