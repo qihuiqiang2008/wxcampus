@@ -378,4 +378,7 @@ module.exports = function (app) {
     app.get('/back/school/syncADTag', auth.signinRequired, ADManage.syncADTag);
     app.get('/back/school/getArticle', auth.signinRequired, getArticle.getArticleAD);
     app.get('/back/school/getTodayADBrush', auth.signinRequired, getArticle.getTodayAdBrush);
+
+    //统计分析相关
+    app.get('/back/record/posts', auth.signinRequired, record.getPostsRecord);
 };

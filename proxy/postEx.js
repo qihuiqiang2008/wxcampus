@@ -209,6 +209,47 @@ exports.exist = function (content,en_name,callback) {
 exports.getCountByQuery = function (query, callback) {
         PostEx.count(query, callback);
 };
+
+exports.countByschool=function (school,callback) {
+    var query={};
+    var amount={};
+    async.series([
+        function (cb) {
+            query.from_school_en_name=school.en_name;
+            query.type="confess";
+            PostEx.count(query, function (err,count){
+                amount.confess=count;
+                console.log(school.en_name+"的表白数量:"+amount.confess)
+                cb();
+            })
+        },
+        function (cb) {
+            query.from_school_en_name=school.en_name;
+            query.type="shudong";
+            PostEx.count(query, function (err,count){
+                amount.shudong=count;
+                console.log(school.en_name+"的树洞数量:"+amount.shudong);
+                cb();
+            })
+        },
+        function (cb) {
+            query.from_school_en_name=school.en_name;
+            delete query.type;
+            PostEx.count(query, function (err,count){
+                amount.totel=count;
+                console.log(school.en_name+"的总共数量:"+amount.totel);
+                cb();
+                callback(amount);
+            })
+        },
+        function (cb) {
+            cb();
+            callback(amount);
+        }
+
+    ])
+
+}
 /*
 Model.find({}, [fields], {'group': 'FIELD'}, function(err, logs) {
     ...
