@@ -8,6 +8,7 @@ var SchoolEx = require('../proxy').SchoolEx;
 var login = require(__dirname + '/../wx_helpers/login');
 require('../wx_helpers/md5');
 var request = require("superagent");
+var ArticleInfo=require('../proxy').ArticleInfo;
 
 exports.getPostsRecord = function (req, res, next) {
     
@@ -185,20 +186,30 @@ exports.getArticle=function (req, res, next) {
                     var indexTail = res.text.indexOf('.msg_item', indexHead);
                     var html = res.text.slice(indexHead + 'list :'.length, indexTail).trim();
                     html = html.slice(1, -1);
+                    list=JSON.parse(html)
                     cb();
                 });
 
         }
-    ], function() {
-        var start=new Date("2017-01-08").setHours(0,0,0,0)/1000;
-        var end=new Date("2017-01-08").setHours(23,59,59,0)/1000;
+    ], function(cb) {
+        var start=new Date("2017-01-08").setHours(0,0,0,0);
+        var end=new Date("2017-01-08").setHours(23,59,59,0);
+        console.log("start:"+start)
+        console.log("end"+end)
         for(var i=0;i<list.msg_item.length;i++){
-            console.log("msg_item[i].date_time:"+list.msg_item[i].date_time)
-            if(list.msg_item[i].date_time<end&&list.msg_item[i].date_time>start){
-                for(var j=0;j<list.msg_item[j].multi_item.length;j++){
-                    var url=escape2Html(list.msg_item[j].multi_item[j].content_url)
-                    todayUrlList.push(list.msg_item[j].multi_item[j].content_url);
-                    console.log("获取url:"+url);
+            console.log("msg_item[i].date_time:"+new Date(list.msg_item[i].date_time*1000))
+            if(list.msg_item[i].date_time*1000<end&&list.msg_item[i].date_time*1000>start){
+                //var url=escape2Html(list.msg_item[i].content_url)
+                for(var j=0;j<list.msg_item[i].multi_item.length;j++) {
+                    var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
+                    ArticleInfo.newAndSave(url,new Date(list.msg_item[i].date_time*1000),
+                        list.msg_item[i].multi_item[j].seq,"confess",school_en_name,
+                        list.msg_item[i].multi_item[j].title,function (err) {
+                            if(err){
+                                console.log(err);
+                            }
+                        });
+                    //todayUrlList.push(list.msg_item[i].multi_item[j].content_url);
                 }
             }
         }
@@ -206,7 +217,9 @@ exports.getArticle=function (req, res, next) {
 
        // callback(escape2Html(url));
         //console.log("url:"+url);
-    });
+        }
+        
+    );
 }
 function escape2Html(str) {
     var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
