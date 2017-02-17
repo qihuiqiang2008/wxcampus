@@ -4,6 +4,10 @@ var Region = require('../proxy').Region;
 var PostEx=require('../proxy').PostEx;
 async = require('async');
 var PV=require('../proxy/PV')
+var SchoolEx = require('../proxy').SchoolEx;
+var login = require(__dirname + '/../wx_helpers/login');
+require('../wx_helpers/md5');
+var request = require("superagent");
 
 exports.getPostsRecord = function (req, res, next) {
     
@@ -139,6 +143,74 @@ exports.getPvs=function (req, res, next) {
         var pages = Math.ceil(all_count / limit);
         proxy.emit('pages', pages);
     }));
+    
+}
+exports.getArticle=function (req, res, next) {
+    var school_en_name=req.query.school;
+    console.log("school:"+school_en_name);
+    var position=1;
+    var loadResult;
+    var latest_msg_id;
+    var list;
+    var schoolEx;
+    var todayUrlList=new Array();
+    async.series([
+        function(cb) {
+            SchoolEx.getSchoolByEname(school_en_name, function(err, school) {
+                schoolEx = school;
+                cb();
+            })
+        },
 
+        function(cb) { //1.1：登陆。
+            login(schoolEx, function(err, results) {
+                loadResult = results;
+                cb();
+                console.log("登录成功");
+            });
+        },
 
+        function(cb) {
+            request.get('https://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/list&action=history&begin=0&count=10&token=' + loadResult.token + '&lang=zh_CN')
+                .set('Cookie', loadResult.cookie)
+                .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+                .set({ "Accept-Encoding": "gzip,sdch" }) //为了防止出现Zlib错误
+                .end(function(res) {
+                    //console.log("res:"+res.text);
+                    var start = res.text.indexOf("window.wx =")
+                    var end = res.text.indexOf("path:")
+
+                    var indexHead = res.text.indexOf('wx.cgiData =');
+                    indexHead = res.text.indexOf('list :', indexHead);
+                    var indexTail = res.text.indexOf('.msg_item', indexHead);
+                    var html = res.text.slice(indexHead + 'list :'.length, indexTail).trim();
+                    html = html.slice(1, -1);
+                    cb();
+                });
+
+        }
+    ], function() {
+        var start=new Date("2017-01-08").setHours(0,0,0,0)/1000;
+        var end=new Date("2017-01-08").setHours(23,59,59,0)/1000;
+        for(var i=0;i<list.msg_item.length;i++){
+            console.log("msg_item[i].date_time:"+list.msg_item[i].date_time)
+            if(list.msg_item[i].date_time<end&&list.msg_item[i].date_time>start){
+                for(var j=0;j<list.msg_item[j].multi_item.length;j++){
+                    var url=escape2Html(list.msg_item[j].multi_item[j].content_url)
+                    todayUrlList.push(list.msg_item[j].multi_item[j].content_url);
+                    console.log("获取url:"+url);
+                }
+            }
+        }
+        //var url = list.msg_item[0].multi_item[position].content_url;
+
+       // callback(escape2Html(url));
+        //console.log("url:"+url);
+    });
+}
+function escape2Html(str) {
+    var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
+    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function(all, t) {
+        return arrEntities[t];
+    });
 }

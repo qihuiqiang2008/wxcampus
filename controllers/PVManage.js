@@ -3,7 +3,7 @@
  */
 var EventProxy=require('eventproxy');
 var pv=require('../proxy/PV');
-var sd=require('silly-datetime')
+var sd=require('silly-datetime') //TODO 去掉silly-datetime 依赖
 
 exports.saveOrUpdate=function (req,res,next) {
     console.log('进入PVManage.saveOrUpdate()......')
