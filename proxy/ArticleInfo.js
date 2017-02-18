@@ -15,3 +15,38 @@ exports.newAndSave = function (url, date_time, positon, type, school, title,call
     article.save(callback);
     console.log("new and save article!!");
 };
+
+exports.saveOrUpdate=function (url, date_time, positon, type, school, title,count,callback) {
+    ArticleInfo.find({date_time:{
+        "$gt": new Date("2017-01-08").setHours(0,0,0,0),
+            "$lt": new Date("2017-01-08").setHours(23,59,0,0)
+        },
+        positon:positon,school:school},function (err,article) {
+        if(err){
+            console.log(err);
+        }
+        if(article!=null&&article.length>0){
+            console.log("update:"+article[0].id);
+            ArticleInfo.update({'_id':article[0]._id},{'count':count,'url':url,'type':type},{},function (err) {
+                if(err){
+                    console.log(err);
+                }
+                callback();
+            })
+        }
+        else{
+            console.log("save")
+            var article = new ArticleInfo();
+            article.url=url;
+            article.date_time=date_time;
+            article.positon=positon;
+            article.type=type;
+            article.school=school;
+            article.title=title;
+            article.count=count;
+            article.save(function (err) {
+                callback();
+            });
+        }
+    })
+}

@@ -146,8 +146,13 @@ exports.getPvs=function (req, res, next) {
     }));
     
 }
+exports.gotoSaveArticle=function (req,res,next) {
+    SchoolEx.getSchoolExsByQueryAndField({},'_id cn_name en_name',{},function (err, schoolexs) {
+        res.render('back/record/saveArticle', {schoolexs: schoolexs});
+    });
+}
 exports.getArticle=function (req, res, next) {
-    var school_en_name=req.query.school;
+    var school_en_name=req.body.en_name;
     console.log("school:"+school_en_name);
     var position=1;
     var loadResult;
@@ -202,23 +207,20 @@ exports.getArticle=function (req, res, next) {
                 //var url=escape2Html(list.msg_item[i].content_url)
                 for(var j=0;j<list.msg_item[i].multi_item.length;j++) {
                     var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
-                    ArticleInfo.newAndSave(url,new Date(list.msg_item[i].date_time*1000),
+                    ArticleInfo.saveOrUpdate(url,new Date(list.msg_item[i].date_time*1000),
                         list.msg_item[i].multi_item[j].seq,"confess",school_en_name,
-                        list.msg_item[i].multi_item[j].title,function (err) {
+                        list.msg_item[i].multi_item[j].title,0,function (err) {
                             if(err){
                                 console.log(err);
                             }
                         });
+
                     //todayUrlList.push(list.msg_item[i].multi_item[j].content_url);
                 }
             }
         }
-        //var url = list.msg_item[0].multi_item[position].content_url;
-
-       // callback(escape2Html(url));
-        //console.log("url:"+url);
+        return res.json({success: true});
         }
-        
     );
 }
 function escape2Html(str) {
@@ -226,4 +228,15 @@ function escape2Html(str) {
     return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function(all, t) {
         return arrEntities[t];
     });
+}
+
+function getDateYMD(date) {
+
+    if (typeof(date)=="number"){
+        d=new Date(date);
+        return d.getFullYear()+'-'+d.getMonth()+1+'-'+d.getDate();
+    }
+    else {
+        return date.getFullYear()+'-'+date.getMonth()+1+'-'+date.getDate();
+    }
 }

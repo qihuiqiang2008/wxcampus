@@ -11,6 +11,7 @@ var ArticleInfoShema = new Schema({
     positon:{type:Number},
     type:{type:String},
     school:{type:String},
-    title:{type:String}
+    title:{type:String},
+    count:{type:String}
 })
 mongoose.model('ArticleInfo', ArticleInfoShema);
