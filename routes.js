@@ -384,7 +384,10 @@ module.exports = function (app) {
     //统计分析相关
     app.get('/back/record/posts', auth.signinRequired, record.getPostsRecord);
     app.get('/back/record/pvs',auth.adminRequired,record.getPvs);
-    app.post('/back/record/getArticle',record.getArticle);
+    app.post('/back/record/saveArticle',record.saveArticle);
     app.get('/back/record/gotoSaveArticle',record.gotoSaveArticle);
+    app.get('/back/record/getArticle',record.getArticle);
+    app.get('/back/record/getArticleCount',record.countArticle);
+
 
 };

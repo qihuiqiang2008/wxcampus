@@ -9,6 +9,10 @@ var login = require(__dirname + '/../wx_helpers/login');
 require('../wx_helpers/md5');
 var request = require("superagent");
 var ArticleInfo=require('../proxy').ArticleInfo;
+var http = require("http");
+var urlutil=require('url');
+var querystring = require('querystring');
+var crypto = require('crypto');
 
 exports.getPostsRecord = function (req, res, next) {
     
@@ -151,7 +155,7 @@ exports.gotoSaveArticle=function (req,res,next) {
         res.render('back/record/saveArticle', {schoolexs: schoolexs});
     });
 }
-exports.getArticle=function (req, res, next) {
+exports.saveArticle=function (req, res, next) {
     var school_en_name=req.body.en_name;
     console.log("school:"+school_en_name);
     var position=1;
@@ -223,6 +227,91 @@ exports.getArticle=function (req, res, next) {
         }
     );
 }
+
+exports.getArticle=function (req,res,next) {
+    var page = parseInt(req.query.page, 10) || 1;
+    page = 1;//page > 0 ? page : 1;
+    var limit = 100;
+    var options = {
+        skip: (page - 1) * limit,
+        limit: limit,
+        /*sort: [
+            ['region_code', 'asc']
+        ]*/
+    };
+    var query={};
+    var view = 'back/record/articles';
+
+    var proxy = EventProxy.create('articles', 'pages',
+        function(articles, pages, TodayResourceCount, regions, ads) {
+            res.render(view, {
+                articles: articles,
+                pages: pages,
+                current_page: page,
+            });
+        });
+
+
+    proxy.fail(next);
+    query.date_time={
+        "$gt": new Date("2017-01-08").setHours(0,0,0,0),
+            "$lt": new Date("2017-01-08").setHours(23,59,0,0)
+    }
+    ArticleInfo.getArticlesByQuery(query, options, proxy.done("articles"));
+    ArticleInfo.countByQuery(query, proxy.done(function(err,all_count) {
+        var pages = Math.ceil(all_count / limit);
+        proxy.emit('pages', pages);
+    }));
+}
+
+exports.countArticle=function (res,req,next) {
+    //var url=res.query.url;
+    var url="http://mp.weixin.qq.com/s?__biz=MjM5OTY0MDk0Mg==&mid=2651269135&idx=4&sn=d7216d402cf9163e0b1eabdcc2c197d3&chksm=bccbe20e8bbc6b18b1e1627d85266ee2ab6df63793b096aaa367d34ad78f4b3dc1751e27969d#rd";
+    console.log("url:"+url);
+    sendHttpRequest("http://wxapi.51tools.info/wx/api.ashx?key=tp_591320673",'post',url,function (responseData) {
+        console.log(responseData);
+    });
+
+}
+
+var sendHttpRequest=function(url,type,data,callback){
+    var content = querystring.stringify(data,null,null,null);
+    var urlObj=urlutil.parse(url);
+    var host=urlObj.hostname;
+    var path=urlObj.path;
+    var port=urlObj.port;
+    var options = {
+        hostname: host,
+        port: port,
+        path: path,
+        method: type,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Content-Length': Buffer.byteLength(content)
+        }
+    };
+    var responseData="";
+    var req = http.request(options, function (res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+            responseData+=chunk;
+        });
+        res.on('end', function () {
+            callback(responseData);
+        });
+        //设置超时
+        req.setTimeout(1000,function(){
+            console.log('request timeout!');
+            req.abort();
+        });
+        req.on('error', function (e) {
+            console.log('request ERROR: ' + e.message);
+        });
+    });
+    req.write(content);
+    req.end();
+};
+
 function escape2Html(str) {
     var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
     return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function(all, t) {

@@ -79,7 +79,7 @@ $(".result").click(function(){
      obj.attr("disabled","disabled");
      obj.text("操作中..");
 	   $.ajax({
-                'url': '/back/record/getArticle',
+                'url': '/back/record/saveArticle',
                 'type': 'post',
                 'dataType': 'json',
 				'data':{en_name:en_name},

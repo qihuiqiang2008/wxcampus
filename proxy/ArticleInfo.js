@@ -50,3 +50,25 @@ exports.saveOrUpdate=function (url, date_time, positon, type, school, title,coun
         }
     })
 }
+
+exports.getArticlesByQuery=function (query,opt,callback) {
+    ArticleInfo.find(query,[],opt,function (err,articles) {
+        if(err){
+            console.log(err);
+            callback(err,[]);
+        }
+        else if(articles==undefined||articles.length==0){
+            console.log("articles is undefined");
+            callback(null,[]);
+        }
+        else {
+            console.log("articles.length="+articles.length)
+            callback(null,articles);
+        }
+        
+    })
+}
+
+exports.countByQuery=function (query,callback) {
+    ArticleInfo.count(query, callback);
+}
