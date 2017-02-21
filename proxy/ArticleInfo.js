@@ -16,18 +16,15 @@ exports.newAndSave = function (url, date_time, positon, type, school, title,call
     console.log("new and save article!!");
 };
 
-exports.saveOrUpdate=function (url, date_time, positon, type, school, title,count,callback) {
-    ArticleInfo.find({date_time:{
-        "$gt": new Date("2017-01-08").setHours(0,0,0,0),
-            "$lt": new Date("2017-01-08").setHours(23,59,0,0)
-        },
-        positon:positon,school:school},function (err,article) {
+exports.saveOrUpdate=function (url, date_time, positon, type, school, title,read_num,like_num,callback) {
+    //ArticleInfo.find({date_time:{"$gt": new Date("2017-01-08").setHours(0,0,0,0), "$lt": new Date("2017-01-08").setHours(23,59,0,0)},
+    ArticleInfo.find({url:url},function (err,article) {
         if(err){
             console.log(err);
         }
         if(article!=null&&article.length>0){
             console.log("update:"+article[0].id);
-            ArticleInfo.update({'_id':article[0]._id},{'count':count,'url':url,'type':type},{},function (err) {
+            ArticleInfo.update({'_id':article[0]._id},{'read_num':read_num,'like_num':like_num},{},function (err) {
                 if(err){
                     console.log(err);
                 }
@@ -43,11 +40,26 @@ exports.saveOrUpdate=function (url, date_time, positon, type, school, title,coun
             article.type=type;
             article.school=school;
             article.title=title;
-            article.count=count;
+            article.read_num=read_num;
+            article.like_num=like_num;
             article.save(function (err) {
                 callback();
             });
         }
+    })
+}
+
+exports.updateCount=function (url,read_num,like_num,callback) {
+    ArticleInfo.findOne({url:url},
+        function (err,article) {
+            if(article!=null){
+                ArticleInfo.update({'_id':article._id},{'read_num':read_num,'like_num':like_num},{},function (err) {
+                    if(err){
+                        console.log(err);
+                    }
+                    callback();}
+                )
+            }
     })
 }
 

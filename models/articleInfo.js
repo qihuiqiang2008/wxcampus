@@ -12,6 +12,7 @@ var ArticleInfoShema = new Schema({
     type:{type:String},
     school:{type:String},
     title:{type:String},
-    count:{type:String}
+    read_num:{type:Number},
+    like_num:{type:Number}
 })
 mongoose.model('ArticleInfo', ArticleInfoShema);
