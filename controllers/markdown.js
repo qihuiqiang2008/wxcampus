@@ -59,7 +59,7 @@ exports.save = function (req, res, next) {
             configurations.save()
             res.render('back/school/markdownshow',{content:configurations.value,name:req.body.name});
         }else{
-            Configuration.newAndSave("",req.query.name,req.body.content,"", function (err) {
+            Configuration.newAndSave("",req.body.name,req.body.content,"", function (err) {
                 res.render('back/school/markdownshow',{content:req.body.content,name:req.body.name});
             })
         }
