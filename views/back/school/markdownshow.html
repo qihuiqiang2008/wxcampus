@@ -297,8 +297,24 @@
 <input type="hidden" id="dd" value="<%=content%>"/>
 <input type="hidden" name="name" value="<%=name%>"/>
 <script>
+
+    var renderer = new marked.Renderer();
+
+    renderer.heading = function (text, level) {
+        var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+
+        return '<h' + level + '><a name="' +
+                escapedText +
+                '" class="anchor" href="#' +
+                escapedText +
+                '"><span class="header-link"></span></a>' +
+                text + '</h' + level + '>';
+    },
     document.getElementById('content').innerHTML =
-            marked($("#dd").val());
+            marked($("#dd").val(), { renderer: renderer });
+
+
+
 </script>
 </body>
 </html>
