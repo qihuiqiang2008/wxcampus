@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/markdown.js" afterPath="$PROJECT_DIR$/controllers/markdown.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/markdownshow.html" afterPath="$PROJECT_DIR$/views/back/school/markdownshow.html" />
     </list>
     <ignored path="wxcampus.iws" />
@@ -69,9 +68,12 @@
       <file leaf-file-name="markdownshow.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/back/school/markdownshow.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66613674">
-              <caret line="295" column="30" selection-start-line="295" selection-start-column="30" selection-end-line="295" selection-end-column="30" />
-              <folding />
+            <state vertical-scroll-proportion="0.3338633">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -898,9 +900,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/back/school/markdownshow.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66613674">
-          <caret line="295" column="30" selection-start-line="295" selection-start-column="30" selection-end-line="295" selection-end-column="30" />
-          <folding />
+        <state vertical-scroll-proportion="0.3338633">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
