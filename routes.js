@@ -382,7 +382,7 @@ module.exports = function (app) {
 
 
 
-    app.get('/back/markdown/edit', auth.signinRequired, markdown.edit);
-    app.get('/back/markdown/show', auth.signinRequired, markdown.view);
-    app.post('/back/markdown/save', auth.signinRequired, markdown.save);
+    app.get('/back/markdown/edit',  markdown.edit);
+    app.get('/back/markdown/show', markdown.view);
+    app.post('/back/markdown/save',markdown.save);
 };
