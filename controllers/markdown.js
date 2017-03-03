@@ -27,6 +27,7 @@ exports.edit = function (req, res, next) {
 
 
     Configuration.getConfigurationByCode(req.query.name,{},function(err,configurations){
+        console.log(err)
         if(configurations){
             res.render('back/school/markdownedit',{content:configurations.value,name:req.query.name});
         }else{
@@ -52,6 +53,7 @@ exports.save = function (req, res, next) {
 
 
     Configuration.getConfigurationByCode(req.query.name,{},function(err,configurations){
+        console.log(err)
         if(configurations){
             configurations.value=req.body.content;
             configurations.save()
