@@ -56,6 +56,7 @@ var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
 var getArticle = require('./controllers/getArticle');
+var markdown = require('./controllers/markdown');
 
 module.exports = function (app) {
 
@@ -378,4 +379,10 @@ module.exports = function (app) {
     app.get('/back/school/syncADTag', auth.signinRequired, ADManage.syncADTag);
     app.get('/back/school/getArticle', auth.signinRequired, getArticle.getArticleAD);
     app.get('/back/school/getTodayADBrush', auth.signinRequired, getArticle.getTodayAdBrush);
+
+
+
+    app.get('/back/markdown/edit', auth.signinRequired, markdown.edit);
+    app.get('/back/markdown/show', auth.signinRequired, markdown.view);
+    app.post('/back/markdown/save', auth.signinRequired, markdown.save);
 };
