@@ -57,7 +57,7 @@ exports.save = function (req, res, next) {
         if(configurations){
             configurations.value=req.body.content;
             configurations.save()
-            res.render('back/school/markdownedit',{content:configurations.value,name:req.query.name});
+            res.render('back/school/markdownshow',{content:configurations.value,name:req.query.name});
         }else{
 
             Configuration.newAndSave("",req.query.name,req.body.content,"", function (err) {
