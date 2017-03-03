@@ -26,7 +26,7 @@ var Configuration = require('../proxy').Configuration;
 exports.edit = function (req, res, next) {
 
 
-    Configuration.getConfigurationByCode(req.query.name,{},function(err,configurations){
+    Configuration.getConfigurationByCode(req.query.name,function(err,configurations){
         console.log(err)
         if(configurations){
             res.render('back/school/markdownedit',{content:configurations.value,name:req.query.name});
@@ -52,7 +52,7 @@ exports.save = function (req, res, next) {
     })*/
 
 
-    Configuration.getConfigurationByCode(req.query.name,{},function(err,configurations){
+    Configuration.getConfigurationByCode(req.query.name,function(err,configurations){
         console.log(err)
         if(configurations){
             configurations.value=req.body.content;
@@ -74,7 +74,7 @@ exports.save = function (req, res, next) {
 exports.view = function (req, res, next) {
 
     console.log("=================")
-    Configuration.getConfigurationByCode(req.query.name,{},function(err,configurations){
+    Configuration.getConfigurationByCode(req.query.name,function(err,configurations){
         console.log("====")
         if(configurations){
             res.render('back/school/markdownshow',{content:configurations.value,name:req.query.name});
