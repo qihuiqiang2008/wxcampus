@@ -73,7 +73,9 @@ exports.save = function (req, res, next) {
 //首先查看
 exports.view = function (req, res, next) {
 
+    console.log("=================")
     Configuration.getConfigurationByCode(req.query.name,{},function(err,configurations){
+        console.log("====")
         if(configurations){
             res.render('back/school/markdownshow',{content:configurations.value,name:req.query.name});
 
