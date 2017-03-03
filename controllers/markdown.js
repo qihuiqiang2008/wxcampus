@@ -52,14 +52,13 @@ exports.save = function (req, res, next) {
     })*/
 
 
-    Configuration.getConfigurationByCode(req.query.name,function(err,configurations){
+    Configuration.getConfigurationByCode(req.body.name,function(err,configurations){
         console.log(err)
         if(configurations){
             configurations.value=req.body.content;
             configurations.save()
-            res.render('back/school/markdownshow',{content:configurations.value,name:req.query.name});
+            res.render('back/school/markdownshow',{content:configurations.value,name:req.body.name});
         }else{
-
             Configuration.newAndSave("",req.query.name,req.body.content,"", function (err) {
                 res.render('back/school/markdownshow',{content:req.body.content,name:req.body.name});
             })
