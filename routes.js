@@ -56,7 +56,7 @@ var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
 var run = require('./controllers/run');
-
+var markdown = require('./controllers/markdown');
 
 module.exports = function (app) {
 
@@ -386,6 +386,11 @@ module.exports = function (app) {
     app.get('/back/run/activityList', auth.signinRequired, run.activityList);
     app.get('/back/run/huiyuan', auth.signinRequired, run.huiyuan);
     app.post('/back/run/user_create', run.user_create);
+
+    app.get('/back/markdown/edit', auth.signinRequired, markdown.edit);
+    app.get('/back/markdown/show', auth.signinRequired, markdown.view);
+    app.post('/back/markdown/save', auth.signinRequired, markdown.save);
+
 
 
 
