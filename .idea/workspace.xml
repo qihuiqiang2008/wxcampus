@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/partial/header.ejs" afterPath="$PROJECT_DIR$/views/back/partial/header.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxy/postEx.js" afterPath="$PROJECT_DIR$/proxy/postEx.js" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,6 +23,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="483" column="31" selection-start-line="483" selection-start-column="31" selection-end-line="483" selection-end-column="31" />
+              <folding>
+                <marker date="1488523929000" expanded="true" signature="31424:31560" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="31595:31788" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="31907:31933" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="31967:31993" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="32139:32270" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="32313:32666" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="32712:32813" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="32882:33267" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="33313:33414" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="33494:33822" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="33834:33999" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="34025:34190" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="34430:34606" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="34774:34905" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="34948:35300" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="35346:35447" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="35516:35900" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="35946:36047" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="36127:36455" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="36467:36632" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="36674:36824" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="43034:43170" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="43205:43398" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="43509:43535" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="44239:44264" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="45881:45906" placeholder="..." />
+                <marker date="1488523929000" expanded="true" signature="47381:47406" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="reply.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/reply.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,6 +91,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proxy/postEx.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.67687595">
+              <caret line="199" column="24" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
+              <folding>
+                <marker date="1488524130000" expanded="true" signature="1518:1527" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="markdownshow.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/school/markdownshow.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -63,31 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trade_board.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/trade_board.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="29" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5007949">
-              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -163,7 +193,6 @@
         <option value="$PROJECT_DIR$/controllers/count.js" />
         <option value="$PROJECT_DIR$/views/back/school/priceschool.html" />
         <option value="$PROJECT_DIR$/views/back/school/hudongschool.html" />
-        <option value="$PROJECT_DIR$/proxy/postEx.js" />
         <option value="$PROJECT_DIR$/views/front/complain/create.html" />
         <option value="$PROJECT_DIR$/views/front/topconfess/result.html" />
         <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
@@ -185,6 +214,7 @@
         <option value="$PROJECT_DIR$/views/back/postEx/index.html" />
         <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
+        <option value="$PROJECT_DIR$/proxy/postEx.js" />
       </list>
     </option>
   </component>
@@ -309,6 +339,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -642,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxy/postEx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="110" selection-start-line="110" selection-start-column="110" selection-end-line="110" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/back/postEx/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -716,14 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="323" column="30" selection-start-line="323" selection-start-column="30" selection-end-line="323" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -809,9 +838,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/back/partial/header.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5007949">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="483" column="31" selection-start-line="483" selection-start-column="31" selection-end-line="483" selection-end-column="31" />
+          <folding>
+            <marker date="1488523929000" expanded="true" signature="31424:31560" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="31595:31788" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="31907:31933" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="31967:31993" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="32139:32270" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="32313:32666" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="32712:32813" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="32882:33267" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="33313:33414" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="33494:33822" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="33834:33999" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="34025:34190" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="34430:34606" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="34774:34905" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="34948:35300" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="35346:35447" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="35516:35900" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="35946:36047" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="36127:36455" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="36467:36632" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="36674:36824" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="43034:43170" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="43205:43398" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="43509:43535" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="44239:44264" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="45881:45906" placeholder="..." />
+            <marker date="1488523929000" expanded="true" signature="47381:47406" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/postEx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67687595">
+          <caret line="199" column="24" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
+          <folding>
+            <marker date="1488524130000" expanded="true" signature="1518:1527" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
