@@ -3,12 +3,14 @@
  */
 var EventProxy=require('eventproxy');
 var pv=require('../proxy/PV');
-var sd=require('silly-datetime') //TODO 去掉silly-datetime 依赖
+//var sd=require('silly-datetime') //TODO 去掉silly-datetime 依赖
 
 exports.saveOrUpdate=function (req,res,next) {
     console.log('进入PVManage.saveOrUpdate()......')
     var from_school_en_name = req.params.from_school_en_name;
-    var date_at=sd.format(new Date(), 'YYYY-MM-DD');
+    //var date_at=sd.format(new Date(), 'YYYY-MM-DD');
+    var today=new Date();
+    var date_at=today.getYear()+"-"+(today.getMonth()+1)+'-'+today.getDate();
     console.log('school:'+from_school_en_name+',date_at:'+date_at);
     var url=req.originalUrl;
     console.log('req.originalUrl:'+url);

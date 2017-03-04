@@ -388,6 +388,7 @@ module.exports = function (app) {
     app.get('/back/record/gotoSaveArticle',record.gotoSaveArticle);
     app.get('/back/record/getArticle',record.getArticle);
     app.get('/back/record/getArticleCount',record.countArticle);
+    app.get('/back/record/getPostsChart',record.getPostsChart);
 
 
 };

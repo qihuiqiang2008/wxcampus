@@ -241,6 +241,24 @@ exports.countByschool=function (school,create_at,callback) {
         },
         function (cb) {
             query.from_school_en_name=school.en_name;
+            query.type="photo_guess";
+            PostEx.count(query, function (err,count){
+                amount.photo_guess=count;
+                console.log(school.en_name+"的缘分数量:"+amount.photo_guess);
+                cb();
+            })
+        },
+        function (cb) {
+            query.from_school_en_name=school.en_name;
+            query.type="topic";
+            PostEx.count(query, function (err,count){
+                amount.topic=count;
+                console.log(school.en_name+"的话题数量:"+amount.topic);
+                cb();
+            })
+        },
+        function (cb) {
+            query.from_school_en_name=school.en_name;
             delete query.type;
             PostEx.count(query, function (err,count){
                 amount.total=count;
@@ -255,6 +273,90 @@ exports.countByschool=function (school,create_at,callback) {
 
     ])
 
+}
+exports.countLastBySchool=function (school,dates,callback) {
+    var query={};
+    var datasets=new  Array();
+    async.eachSeries(dates,function (item,callback) {
+        var data={}
+        async.series([
+            function (cb) {
+                console.log('item'+item);
+                query.from_school_en_name=school;
+                query.type="confess";
+                query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                    "$lt": item.setHours(23, 59, 0, 0)};
+                PostEx.count(query, function (err,count){
+                    data.confess=count;
+                    console.log(school+"的表白数量:"+data.confess)
+                    cb();
+                })
+            },
+            function (cb) {
+                query.from_school_en_name=school;
+                query.type="shudong";
+                query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                    "$lt": item.setHours(23, 59, 0, 0)};
+                PostEx.count(query, function (err,count){
+                    data.shudong=count;
+                    console.log(school+"的树洞数量:"+data.shudong);
+                    cb();
+                })
+            },
+            function (cb) {
+                console.log('item'+item);
+                query.from_school_en_name=school;
+                query.type="photo_guess";
+                query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                    "$lt": item.setHours(23, 59, 0, 0)};
+                PostEx.count(query, function (err,count){
+                    data.photo_guess=count;
+                    console.log(school+"的缘分墙数量:"+data.photo_guess)
+                    cb();
+                })
+            },
+            function (cb) {
+                console.log('item'+item);
+                query.from_school_en_name=school;
+                query.type="topic";
+                query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                    "$lt": item.setHours(23, 59, 0, 0)};
+                PostEx.count(query, function (err,count){
+                    data.topic=count;
+                    console.log(school+"的话题数量:"+data.topic)
+                    cb();
+                })
+            },
+            function (cb) {
+                query.from_school_en_name=school;
+                delete query.type;
+                query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                    "$lt": item.setHours(23, 59, 0, 0)};
+                PostEx.count(query, function (err,count){
+                    data.total=count;
+                    console.log(school+"的总共数量:"+data.total);
+                    cb();
+                })
+            },
+            function (cb) {
+                //
+                datasets.push(data);
+                callback();
+            }
+        ],function (err) {
+            if(err){
+                console.log(err);
+            }
+
+        })
+    },
+    function (err) {
+        if(err){
+            console.log(err);
+        }
+        console.log("==================最近"+dates.length+"天发布数量统计结束==================")
+        callback(err,datasets);
+    })
 }
 /*
 Model.find({}, [fields], {'group': 'FIELD'}, function(err, logs) {

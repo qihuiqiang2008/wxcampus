@@ -22,8 +22,16 @@ exports.getPostsRecord = function (req, res, next) {
     if (req.query.startDate != undefined) {
         startDate = req.query.startDate;
     }
+    else {
+        startDate=new Date(new Date()-24*60*60*1000);
+        startDate=startDate.getFullYear()+'/'+(startDate.getMonth()+1)+'/'+startDate.getDate()
+    }
     if (req.query.endDate != undefined) {
         endDate = req.query.endDate;
+    }
+    else {
+        endDate=new Date()
+        endDate=endDate.getFullYear()+'/'+(endDate.getMonth()+1)+'/'+endDate.getDate()
     }
     console.log("begin:" + new Date(startDate));
     console.log("end:" + new Date(endDate));
@@ -51,6 +59,8 @@ exports.getPostsRecord = function (req, res, next) {
                 pages: pages,
                 amounts: JSON.stringify(amounts),
                 current_page: page,
+                startDate:startDate,
+                endDate:endDate
             })
         })
     proxy.fail(next);
@@ -62,7 +72,7 @@ exports.getPostsRecord = function (req, res, next) {
         async.eachSeries(schools,
             function (school, callback) {
                 PostEx.countByschool(school, create_at, function (amount) {
-                    console.log("amount:" + amount.confess)
+                    //console.log("amount:" + amount.confess)
                     amounts.push(amount)
                     /*if(school.en_name=='ujs'){
                      console.log("表白树洞统计结束......"+amounts.length);
@@ -71,7 +81,7 @@ exports.getPostsRecord = function (req, res, next) {
                 })
             },
             function (err) {
-                console.log("表白树洞统计结束......" + amounts[3].total);
+                console.log("================统计结束================" );
                 proxy.emit('amounts', amounts);
                 //cb();
             });
@@ -255,6 +265,17 @@ exports.getArticle = function (req, res, next) {
     var page = parseInt(req.query.page, 10) || 1;
     page = 1;//page > 0 ? page : 1;
     var limit = 100;
+    var endDate=req.query.endDate;
+    var query = {};
+    console.log('enddate1:'+endDate);
+    if(endDate !=undefined){
+        //endDate=new Date();
+        query.date_time = {
+            "$gt": new Date(endDate).setHours(0, 0, 0, 0),
+            "$lt": new Date(endDate).setHours(23, 59, 0, 0)
+        }
+        console.log('enddate2:'+endDate);
+    }
     var options = {
         skip: (page - 1) * limit,
         limit: limit,
@@ -262,7 +283,6 @@ exports.getArticle = function (req, res, next) {
          ['region_code', 'asc']
          ]*/
     };
-    var query = {};
     var view = 'back/record/articles';
 
     var proxy = EventProxy.create('articles', 'pages',
@@ -276,10 +296,6 @@ exports.getArticle = function (req, res, next) {
 
 
     proxy.fail(next);
-    query.date_time = {
-        "$gt": new Date("2017-01-08").setHours(0, 0, 0, 0),
-        "$lt": new Date("2017-01-08").setHours(23, 59, 0, 0)
-    }
     ArticleInfo.getArticlesByQuery(query, options, proxy.done("articles"));
     ArticleInfo.countByQuery(query, proxy.done(function (err, all_count) {
         var pages = Math.ceil(all_count / limit);
@@ -295,6 +311,41 @@ exports.countArticle = function (res, req, next) {
         console.log(responseData);
     });
 
+}
+
+exports.getPostsChart=function (req, res, next) {
+    var school=req.query.school;
+    var day=req.query.day;
+    var labels=new Array();
+    var dates=new Array();
+    if(day==undefined||day==null||day==0){
+        day=20;
+    }
+    for(var i=0;i<day;i++){
+        var today=new Date();
+        today.setDate(today.getDate()-i);
+        labels.push(today.getMonth()+1+"/"+today.getDate());
+        dates.push(today);
+    }
+
+
+    var proxy = EventProxy.create('datasets',
+        function (datasets) {
+            res.render('back/record/charts-posts',{
+                datasets:JSON.stringify(datasets),
+                labels:JSON.stringify(labels),
+                school:school,
+                day:day,
+            })
+        });
+
+    proxy.fail(next);
+
+    PostEx.countLastBySchool(school,dates,function (err,datasets) {
+        
+        proxy.emit('datasets', datasets);
+    });
+   
 }
 
 var sendHttpRequest = function (url, type, callback) {
