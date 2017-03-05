@@ -97,8 +97,16 @@ exports.getPvs = function (req, res, next) {
     if (req.query.startDate != undefined) {
         startDate = req.query.startDate;
     }
+    else{
+        startDate=new Date(new Date()-24*60*60*1000);
+        startDate=startDate.getFullYear()+'/'+(startDate.getMonth()+1)+'/'+startDate.getDate()
+    }
     if (req.query.endDate != undefined) {
         endDate = req.query.endDate;
+    }
+    else{
+        endDate=new Date();
+        endDate=endDate.getFullYear()+'/'+(endDate.getMonth()+1)+'/'+endDate.getDate()
     }
     console.log("begin:" + new Date(startDate));
     console.log("end:" + new Date(endDate).setDate(new Date(endDate).getDate() + 1));
@@ -130,6 +138,8 @@ exports.getPvs = function (req, res, next) {
                 pages: pages,
                 amounts: JSON.stringify(amounts),
                 current_page: page,
+                endDate:endDate,
+                startDate:startDate
             })
         })
     proxy.fail(next);
@@ -174,20 +184,34 @@ exports.saveArticle = function (req, res, next) {
     var list;
     var schoolEx;
     var todayUrlList = new Array();
-    async.series([
+        async.series([
             function (cb) {
                 SchoolEx.getSchoolByEname(school_en_name, function (err, school) {
                     schoolEx = school;
-                    cb();
+                    cb(err);
                 })
             },
 
             function (cb) { //1.1：登陆。
-                login(schoolEx, function (err, results) {
-                    loadResult = results;
-                    cb();
-                    console.log("登录成功");
-                });
+
+                try{
+                    login(schoolEx, function (err, results) {
+                        if(err){
+                            console.log(school_en_name+"登录失败");
+                        }
+                        loadResult = results;
+                        console.log(school_en_name+"登录成功");
+                        cb(err);
+                    });
+                }
+                catch (err){
+                    console.log(school_en_name+"登录失败");
+                    cb(err);
+                }
+
+
+
+
             },
 
             function (cb) {
@@ -196,7 +220,6 @@ exports.saveArticle = function (req, res, next) {
                     .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
                     .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
                     .end(function (res) {
-                        //console.log("res:"+res.text);
                         var start = res.text.indexOf("window.wx =")
                         var end = res.text.indexOf("path:")
 
@@ -205,30 +228,38 @@ exports.saveArticle = function (req, res, next) {
                         var indexTail = res.text.indexOf('.msg_item', indexHead);
                         var html = res.text.slice(indexHead + 'list :'.length, indexTail).trim();
                         html = html.slice(1, -1);
-                        list = JSON.parse(html)
-                        cb();
+                        try{
+                            list = JSON.parse(html)
+                            cb();
+                        }
+                        catch (err){
+
+                            console.log(school_en_name+"html解析错误")
+                            cb(err);
+                        }
+
                     });
 
             },
             function (cb) {
-                var start = new Date("2017-01-06").setHours(0, 0, 0, 0);
-                var end = new Date("2017-01-06").setHours(23, 59, 59, 0);
-                console.log("start:" + start)
-                console.log("end" + end)
+                var start = new Date().setHours(0, 0, 0, 0);
+                var end = new Date().setHours(23, 59, 59, 0);
                 for (var i = 0; i < list.msg_item.length; i++) {
-                    console.log("msg_item[i].date_time:" + new Date(list.msg_item[i].date_time * 1000))
                     if (list.msg_item[i].date_time * 1000 < end && list.msg_item[i].date_time * 1000 > start) {
                         //var url=escape2Html(list.msg_item[i].content_url)
+                        console.log(school_en_name+'===================开始保存今天文章信息===================')
                         for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                            console.log("save:"+list.msg_item[i].multi_item[j].title);
                             var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
                             var type=getArticleType(list.msg_item[i].multi_item[j].title);
                             ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
-                                list.msg_item[i].multi_item[j].seq, type, school_en_name,
+                                list.msg_item[i].multi_item[j].seq, type, school_en_name,schoolEx.cn_name,schoolEx.fans,
                                 list.msg_item[i].multi_item[j].title, list.msg_item[i].multi_item[j].read_num,
                                 list.msg_item[i].multi_item[j].like_num,
                                 function (err) {
                                     if (err) {
                                         console.log(err);
+                                        cb(err);
                                     }
 
                                 });
@@ -238,26 +269,49 @@ exports.saveArticle = function (req, res, next) {
                     }
                 }
                 cb();
-                return res.json({success: true});
             }
         ],
-        function (cb) {
-            for (var i = 0; i < list.msg_item.length; i++) {
-                console.log("list.msg_item.length:" + list.msg_item.length)
-                for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
-                    var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
-                    ArticleInfo.updateCount(url,list.msg_item[i].multi_item[j].read_num,
-                        list.msg_item[i].multi_item[j].like_num,
-                        function (err) {
-                            if (err) {
-                                console.log(err);
-                            }
-
-                        });
-                }
+        function (err) {
+            if(err){
+                console.log('保存文章信息失败'+err)
+                return res.json({success: false});
             }
-            console.log("===========================end==========================")
-        }
+            else {
+                console.log(school_en_name+'===================开始更新文章阅读量===================')
+                for (var i = 0; i < list.msg_item.length; i++) {
+                    for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                        console.log("update:"+list.msg_item[i].multi_item[j].title);
+                        var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
+                        var type=getArticleType(list.msg_item[i].multi_item[j].title);
+                        ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
+                            list.msg_item[i].multi_item[j].seq, type, school_en_name,schoolEx.cn_name,schoolEx.fans,
+                            list.msg_item[i].multi_item[j].title, list.msg_item[i].multi_item[j].read_num,
+                            list.msg_item[i].multi_item[j].like_num,
+                            function (err) {
+                                if (err) {
+                                    console.log(err);
+                                }
+
+                            });
+                    }
+
+                    /*for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                     var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
+                     ArticleInfo.updateCount(url,list.msg_item[i].multi_item[j].read_num,
+                     list.msg_item[i].multi_item[j].like_num,
+                     function (err) {
+                     if (err) {
+                     console.log(err);
+                     }
+
+                     });
+                     }*/
+                }
+                return res.json({success: true});
+                console.log("===========================end==========================")
+            }
+            }
+
     );
 }
 
@@ -266,22 +320,36 @@ exports.getArticle = function (req, res, next) {
     page = 1;//page > 0 ? page : 1;
     var limit = 100;
     var endDate=req.query.endDate;
+    var school=req.query.school;
     var query = {};
-    console.log('enddate1:'+endDate);
-    if(endDate !=undefined){
+    console.log('school:'+school);
+    if(endDate !=undefined&&endDate!=""){
         //endDate=new Date();
         query.date_time = {
-            "$gt": new Date(endDate).setHours(0, 0, 0, 0),
+            "$gt": new Date(new Date(endDate)).setHours(0, 0, 0, 0),
             "$lt": new Date(endDate).setHours(23, 59, 0, 0)
         }
+        console.log('enddate2:'+endDate);
+    }
+    else {
+        query.date_time = {
+            "$gt": +new Date(new Date()-24*60*60*1000),
+            "$lt": new Date().setHours(23, 59, 0, 0)
+        }
+    }
+    if(school !=undefined&&school!=""){
+        //endDate=new Date();
+        query.school_cn_name = school;
         console.log('enddate2:'+endDate);
     }
     var options = {
         skip: (page - 1) * limit,
         limit: limit,
-        /*sort: [
-         ['region_code', 'asc']
-         ]*/
+        sort: [
+         ['school','asc'],
+            ['date_time','desc'],
+            ['positon','asc']
+         ]
     };
     var view = 'back/record/articles';
 
@@ -348,6 +416,46 @@ exports.getPostsChart=function (req, res, next) {
    
 }
 
+
+exports.getArticleChart=function (req, res, next) {
+
+    console.log('进入。。。。。。。')
+
+    var school=req.query.school;
+    console.log("学校："+school)
+    var day=req.query.day;
+    var labels=new Array();
+    var dates=new Array();
+    if(day==undefined||day==null||day==0){
+        day=20;
+    }
+    for(var i=1;i<day;i++){
+        var today=new Date();
+        today.setDate(today.getDate()-i);
+        labels.push(today.getMonth()+1+"/"+today.getDate());
+        dates.push(today);
+        console.log("日期："+today)
+    }
+
+
+    var proxy = EventProxy.create('datasets',
+        function (datasets) {
+            res.render('back/record/charts-article',{
+                datasets:JSON.stringify(datasets),
+                labels:JSON.stringify(labels),
+                school:school,
+                day:day,
+            })
+        });
+
+    proxy.fail(next);
+
+    ArticleInfo.getLastByCondition(school,dates,function (err,datasets) {
+        proxy.emit('datasets', datasets);
+    });
+
+}
+
 var sendHttpRequest = function (url, type, callback) {
     var data = {url: "http://mp.weixin.qq.com/s?__biz=MzA4MzQ4NTQxNw==&mid=2652391675&idx=1&sn=dd347b621c2137721c0ebeadaae089d5&chksm=84195f7db36ed66b95019d1d1b9fe9afd1796b1106d04a72345f649a6ddb3dd179a8e1d1cbd6&scene=0#rd"};
     //data = JSON.stringify(data);
@@ -406,19 +514,25 @@ function getDateYMD(date) {
 
 function getArticleType(title) {
     if(title.indexOf("晚安")>0){
-        return "confess";
+        return "wanan";
     }
     else if(title.indexOf("树洞")>0){
         return "shudong";
     }
-    else if(title.indexOf("表白")>0){
+    else if(title.indexOf("表白墙】")>0){
         return "confess";
     }
     else if(title.indexOf("缘分")>0){
         return "photo_guess";
     }
+    else if(title.indexOf("对象")>0){
+        return "photo_guess";
+    }
     else if(title.indexOf("话题")>0){
         return "topic";
+    }
+    else if(title.indexOf("表白墙")>0){
+        return "other";
     }
     else {
         return "advert";

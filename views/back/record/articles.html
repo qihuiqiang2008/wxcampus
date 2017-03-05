@@ -32,9 +32,17 @@
         <span>
             <span>
        <input type="text" id="endDate" class="datepicker" placeholder="请选择开始日期" />
-       <button class="btn btn-mini" id="DateConf">确定</button>
        </span>
        </span>
+
+        <span>
+            <span>
+       <input type="text" id="school" placeholder="输入学校中文名称" />
+       <button class="btn btn-mini" id="queryBtn">确定</button>
+       </span>
+       </span>
+
+
         <span style="padding-left: 20px"><button class="btn btn-mini" id="countBtn">获取最近阅读数量</button></span>
     </div>
 </div>
@@ -42,12 +50,13 @@
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>中文全称</th>
+            <th>学校</th>
             <th>enname</th>
             <th>标题</th>
             <th>位置</th>
             <th>类型</th>
             <th>阅读量</th>
+            <th>阅读率</th>
             <th>点赞量</th>
             <th>推送时间</th>
             <th>链接</th>
@@ -58,7 +67,7 @@
         <tr>
 
             <% if (true) {%>
-            <td style=" text-align: center;"><span style="font-size:10px">XXX</span>
+            <td style=" text-align: center;"><span style="font-size:10px"><%=article.school_cn_name%></span>
             </td>
             <td style=" text-align: center;"><%=article.school%></td>
             <td>
@@ -66,7 +75,7 @@
             </td>
             <td>
                 <%
-                var position=['头条','次条','二条','三条','四条','五条','六条'];
+                var position=['头条','次条','三条','四条','五条','六条'];
                 var text=position[article.positon]; %>
                 <p><%=text%></p>
             </td>
@@ -76,14 +85,22 @@
                 <%=article.read_num%>
             </td>
             <td>
+                <%
+                var text=((article.read_num/article.fans)*100).toFixed(2)  %>
+                <%=text%>%
+            </td>
+            <td>
                 <%=article.like_num%>
             </td>
             <td>
-                <%=article.date_time%>
+                <%
+                var text=article.date_time.getFullYear() + "/" + (article.date_time.getMonth()+1) + "/" + article.date_time.getDate()%>
+                <%=text%>
             </td>
             <td>
-                <a href='<%=article.url%>'>[查看]</a>
+                <a href='<%=article.url%>' target="_blank">[查看]</a>
                 <a href='<%=article.url%>'>[获取实时数据]</a>
+                <a href="/back/record/getArticleChart?school=<%=article.school%>" target="_blank">[曲线图]</a>
             </td>
             <%}%>
         </tr>
@@ -143,15 +160,27 @@
 </div>
 <%- include ../partial/footer%>
 <script>
+    var endDate="",school="";
     var position=['头条','次条','二条','三条','四条','五条','六条']
     $("#DateConf").click(function(){
         //var startDate = $("#startDate").val();
-        var endDate = $("#endDate").val();
+        endDate = $("#endDate").val();
         if(endDate==""){
             alert('请选择正确的时间');
             return;
         }
-        window.location.href = "/back/record/getArticle?endDate=" + endDate;
+        window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
+    });
+
+    $("#queryBtn").click(function(){
+        //var startDate = $("#startDate").val();
+        school = $("#school").val();
+        endDate = $("#endDate").val();
+        /*if(endDate==""){
+            alert('请输入学校名称');
+            return;
+        }*/
+        window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
     });
 
 </script>

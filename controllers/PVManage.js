@@ -6,16 +6,16 @@ var pv=require('../proxy/PV');
 //var sd=require('silly-datetime') //TODO 去掉silly-datetime 依赖
 
 exports.saveOrUpdate=function (req,res,next) {
-    console.log('进入PVManage.saveOrUpdate()......')
+    //console.log('进入PVManage.saveOrUpdate()......')
     var from_school_en_name = req.params.from_school_en_name;
     //var date_at=sd.format(new Date(), 'YYYY-MM-DD');
     var today=new Date();
-    var date_at=today.getYear()+"-"+(today.getMonth()+1)+'-'+today.getDate();
-    console.log('school:'+from_school_en_name+',date_at:'+date_at);
+    var date_at=today.getFullYear()+"-"+(today.getMonth()+1)+'-'+today.getDate();
+    //console.log('school:'+from_school_en_name+',date_at:'+date_at);
     var url=req.originalUrl;
-    console.log('req.originalUrl:'+url);
+    //console.log('req.originalUrl:'+url);
     var type=url.split('/')[3];
-    console.log('req.type:'+type);
+    //console.log('req.type:'+type);
     pv.getByCondition({school:from_school_en_name,date_at:new Date(date_at),
         title:type},
         function (err,data) {
@@ -32,7 +32,7 @@ exports.saveOrUpdate=function (req,res,next) {
                         console.log(err);
                     }
                     else {
-                         console.log("更新后的数据："+pv);
+                         //console.log("更新后的数据："+pv);
                     }
                 })
             }
@@ -40,7 +40,7 @@ exports.saveOrUpdate=function (req,res,next) {
                 //console.log("查询结果为空，保存新的记录");
                 pv.newAndSave(from_school_en_name,date_at,url,1,type,function (err) {
                     if(err){
-                        console.log(err);
+                        //console.log(err);
                     }
                     //console.log('pv save success!!')
                 })

@@ -1,7 +1,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <head>
-    <title>曲线图</title>
+    <title>发布曲线图</title>
     <!--<script src="js/Chart.js"></script>-->
     <!--<script src="js/Chart.min.js"></script>-->
     <script src="/public/back/js/jquery.min.js"></script>
@@ -90,7 +90,6 @@
         window.onload = function(){
             var ctx = document.getElementById("myChart").getContext("2d");
             chartLine = new Chart(ctx).Line(data);
-
             initEvent(chartLine, clickCall);
         }
 

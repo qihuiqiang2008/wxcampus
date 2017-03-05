@@ -84,14 +84,14 @@ $(".result").click(function(){
                 'dataType': 'json',
 				'data':{en_name:en_name},
                 success: function (json, st) {
+                    console.log('json'+json.success);
                     if (json.success) {
 					    obj.removeAttr("disabled");
 						 obj.text("生成成功");
                         i++;
                         $("#info").text("---------生成成功"+i);
                     } else {
-                        alert(json.msg);
-
+                        obj.text("生成失败");
                         console.log(json.msg)
                     }
                 },
