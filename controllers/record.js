@@ -33,8 +33,7 @@ exports.getPostsRecord = function (req, res, next) {
         endDate=new Date()
         endDate=endDate.getFullYear()+'/'+(endDate.getMonth()+1)+'/'+endDate.getDate()
     }
-    console.log("begin:" + new Date(startDate));
-    console.log("end:" + new Date(endDate));
+
     if (startDate != undefined && endDate != undefined) {
         create_at = {
             "$gt": new Date(startDate),
@@ -66,9 +65,13 @@ exports.getPostsRecord = function (req, res, next) {
     proxy.fail(next);
     //School.getSchoolsByQuery(query,options,proxy.done('schools'));
     var amounts = new Array();
+
+    console.log("begin:" + new Date(startDate));
+    console.log("end:" + new Date(endDate));
+
     School.getSchoolsByQuery(query, options, function (err, schools) {
         proxy.emit('schools', schools);
-        console.log('schools.length' + schools.length);
+        console.log('学校数量：' + schools.length);
         async.eachSeries(schools,
             function (school, callback) {
                 PostEx.countByschool(school, create_at, function (amount) {
