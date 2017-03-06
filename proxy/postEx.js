@@ -194,6 +194,13 @@ exports.getPostExsByQuery = function (query, opt, callback) {
         });
 };
 
+
+
+exports.getPostEx = function (query, opt, callback) {
+    PostEx.findOne(query, callback);
+
+};
+
 function showdate(n)
 {
     var uom = new Date(new Date()-0+n*86400000);

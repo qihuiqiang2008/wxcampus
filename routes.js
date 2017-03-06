@@ -56,8 +56,12 @@ var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
 var getArticle = require('./controllers/getArticle');
+
 var record=require('./controllers/record');
 var PVManage=require('./controllers/PVManage');
+
+var markdown = require('./controllers/markdown');
+
 
 module.exports = function (app) {
 
@@ -391,5 +395,12 @@ module.exports = function (app) {
     app.get('/back/record/getPostsChart',record.getPostsChart);
     app.get('/back/record/getArticleChart',record.getArticleChart);
 
+
+
+
+
+    app.get('/back/markdown/edit',  markdown.edit);
+    app.get('/back/markdown/show', markdown.view);
+    app.post('/back/markdown/save',markdown.save);
 
 };
