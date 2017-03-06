@@ -8,10 +8,8 @@ var envport = 8080;
 //var db_host = process.env.JAE_MONGO_IP.split(',')[0].trim();
 
 ///
-//var dbURL = 'mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y';
-//var devDbUrl='mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y'
-var dbURL='mongodb://123.57.49.48/wxsystem'
-var devDbUrl = 'mongodb://123.57.49.48/wxsystem1';
+var dbURL='mongodb://127.0.0.1:27017/wxsystem'
+var devDbUrl = 'mongodb://127.0.0.1:27017/wxsystem';
 var config = {
     debug: false,
     name: 'Node Club',
