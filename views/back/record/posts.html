@@ -1,0 +1,180 @@
+<%- include ../partial/header %>
+<style>
+    .widget-title .buttons {
+        float: right;
+        margin: 8px 1px 0 0;
+    }
+</style>
+<head>
+
+</head>
+<div id="content">
+<div id="content-header">
+    <h1>发布统计分析</h1>
+</div>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<div class="widget-box">
+<div class="widget-title">
+                                <span class="icon">
+                                    <i class="icon-th"></i>
+                                </span>
+    <h5>学校</h5>
+    <div class="control-group" style="float:right; margin-top:5px">
+        <div class="controls">
+            <div class="select2-drop select2-with-searchbox select2-offscreen"
+                 style="display: block;">
+                <div class="select2-search"><input type="text" autocomplete="off" class="select2-input" tabindex="0"></div>
+                <ul class="select2-results"></ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span>
+       <input type="text" id="startDate" class="datepicker" placeholder="请选择开始日期" />
+            ------
+            <span>
+       <input type="text" id="endDate" class="datepicker" placeholder="请选择开始日期" />
+       <button class="btn btn-mini" id="DateConf">确定</button>
+       </span>
+       </span>
+    </div>
+</div>
+<div class="widget-content nopadding">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>中文全称</th>
+            <th>enname</th>
+            <th>日期</th>
+            <th>表白数量</th>
+            <th>树洞数量</th>
+            <th>缘分数量</th>
+            <th>话题数量</th>
+            <th>所有数量</th>
+            <th>曲线图</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% schools.forEach(function(school,index) { %>
+        <tr>
+
+            <% if (true) {%>
+            <td style=" text-align: center;"><span style="font-size:10px"><%=school.cn_name%></span>
+            </td>
+            <td style=" text-align: center;"><%=school.en_name%></td>
+            <td style=" text-align: center;"><%=startDate%>至<%=endDate%></td>
+            <td>
+                <div id="<%=school.en_name%>_confess">0</div>
+            </td>
+            <td>
+                <div id="<%=school.en_name%>_shudong">0</div>
+            </td>
+            <td>
+                <div id="<%=school.en_name%>_photo_guess">0</div>
+            </td>
+            <td>
+                <div id="<%=school.en_name%>_topic">0</div>
+            </td>
+            <td>
+                <div id="<%=school.en_name%>_total">0</div>
+            </td>
+            <td style=" text-align: center;"><a href="/back/record/getPostsChart?school=<%=school.en_name%>" target="_blank">曲线图</a></td>
+            <%}%>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<div class='pagination' current_page='<%= current_page %>'>
+    <ul>
+        <% var base='/back/schools'%>
+        <% var base_url = base + (base.indexOf('?') < 0 ? '?' : '&') + 'page='; %>
+        <% if (current_page == 1) { %>
+        <li class='disabled'><a>«</a></li>
+        <% } else { %>
+        <li><a href="<%= base_url %>1">«</a></li>
+        <% } %>
+
+        <%
+        var page_start = current_page - 2 > 0 ? current_page - 2 : 1;
+        var page_end = page_start + 4 >= pages ? pages : page_start + 4;
+        %>
+        <% if (page_start > 1) { %>
+        <li><a>...</a></li>
+        <% } %>
+
+        <% for(var i = page_start; i <= page_end; i++) { %>
+        <% if (i === current_page) { %>
+        <li class='disabled'><a><%= i %></a></li>
+        <% } else { %>
+        <li><a href='<%= base_url + i %>'><%= i %></a></li>
+        <% } %>
+        <% } %>
+
+        <% if (page_end < pages ) { %>
+        <li><a>...</a></li>
+        <% } %>
+
+        <% if (current_page == pages) { %>
+        <li class='disabled'><a>»</a></li>
+        <% } else { %>
+        <li><a href='<%= base_url + pages %>'>»</a></li>
+        <% } %>
+    </ul>
+</div>
+
+</div>
+</div>
+</div>
+<div class="row-fluid">
+    <div id="footer" class="span12">
+        2012 ©校萌科技有限公司
+    </div>
+</div>
+</div>
+</div>
+<%- include ../partial/footer%>
+<script>
+
+
+    $("#DateConf").click(function(){
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+        if(startDate==""||endDate==""||startDate>endDate){
+            alert('请选择正确的时间');
+            return;
+        }
+        window.location.href = "/back/record/posts?startDate=" + startDate+"&endDate="+endDate;
+    });
+    
+    $(function () {
+        insertContent();
+    }());
+    
+    function insertContent(){
+        var amounts=JSON.parse('<%- amounts %>');
+        //console.log("开始填充内容:"+'<%- amounts %>');
+        amounts.forEach(function (amount,index) {
+            var tag1=amount.en_name+"_confess";
+            var tag2=amount.en_name+"_shudong";
+            var tag3=amount.en_name+"_photo_guess";
+            var tag4=amount.en_name+"_topic";
+            var tag5=amount.en_name+"_total";
+            $("#" + tag1).html(amount.confess);
+            $("#" + tag2).html(amount.shudong);
+            $("#" + tag3).html(amount.photo_guess);
+            $("#" + tag4).html(amount.topic);
+            $("#" + tag5).html(amount.total);
+
+            //$("#nxu").text(amount.total);
+            console.log("tag1:"+tag1);
+
+        })
+        console.log("结束填充内容");
+    }
+</script>

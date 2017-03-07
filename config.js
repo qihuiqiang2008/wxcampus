@@ -12,6 +12,8 @@ var envport = 8080;
 //var devDbUrl='mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y'
 var dbURL='mongodb://PGsrVWImY3EM6xkN:etqy9b1XAYoK048T@123.57.49.48:27029/wxsystem';
 var devDbUrl = 'mongodb://123.57.49.48/wxsystem1';
+// var dbURL='mongodb://127.0.0.1:27017/wxsystem'
+// var devDbUrl = 'mongodb://127.0.0.1:27017/wxsystem';
 var config = {
     debug: false,
     name: 'Node Club',

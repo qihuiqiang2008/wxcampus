@@ -26,6 +26,8 @@ require('./filterword');
 require('./configuration');
 require('./question');
 require('./AD');
+require('./PV');
+require('./articleInfo')
 exports.User = mongoose.model('User');
 exports.Message = mongoose.model('Message');
 exports.School = mongoose.model('School');
@@ -48,5 +50,7 @@ exports.Configuration= mongoose.model('Configuration');
 exports.Question= mongoose.model('Question');
 exports.Answer= mongoose.model('Answer');
 exports.AD = mongoose.model('AD');
+exports.PV= mongoose.model('PV');
+exports.ArticleInfo= mongoose.model('ArticleInfo');
 //exports. Photo_Guess1= mongoose.model('Photo_Guess1');
 //exports. Photo_Guess_Wgateid= mongoose.model('Photo_Guess_Wgateid');

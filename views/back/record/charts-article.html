@@ -1,0 +1,117 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    <title>阅读量曲线图</title>
+    <!--<script src="js/Chart.js"></script>-->
+    <!--<script src="js/Chart.min.js"></script>-->
+    <script src="/public/back/js/jquery.min.js"></script>
+    <script src="/public/back/js/Chart-1.0.1-beta.4.js"></script>
+    <script>
+        var dates=[];
+        var datesets_confess=[];
+        var datesets_shudong=[];
+        var datesets_photo_guess=[];
+        var datesets_topic=[];
+        var datesets_advert=[];
+        var datesets_total=[];
+        var datesets_wanan=[];
+        var datasets='<%- datasets %>';
+        var day='<%- day %>'
+        var data = {}
+        $(function () {
+            dates=JSON.parse('<%- labels %>');
+            /* for(var i=0;i<dates.length;i++){
+             console.log("dates的长度:"+dates[i]);
+             }
+             console.log("dates的长度:"+dates.length);*/
+            console.log("dates的数据:"+datasets);
+
+            datasets=JSON.parse('<%- datasets %>');
+
+            for(var i=0;i<datasets.length;i++){
+                //console.log("dates的数据:"+datasets[i].confess+","+datasets[i].shudong+","+datasets[i].photo_guess+","+datasets[i].topic+","+datasets[i].total);
+                datesets_confess.push(datasets[i].confess);
+                datesets_shudong.push(datasets[i].shudong);
+                datesets_total.push(datasets[i].total);
+                datesets_photo_guess.push(datasets[i].photo_guess)
+                datesets_topic.push(datasets[i].topic);
+                datesets_advert.push(i);
+
+            }
+            /*for(var i=0;i<datesets_confess.length;i++){
+                console.log("dates的数据:"+datesets_topic[i]);
+            }*/
+            data = {
+                labels: dates,
+                datasets: [
+                    {
+                        fillColor: "rgba(252,229,205,1)",
+                        strokeColor: "rgba(252,229,205,1)",
+                        label: "所有",
+                        data: datesets_total
+                    },
+                    {
+                        fillColor: "rgba(244, 204, 204,1)",
+                        strokeColor: "rgba(244, 204, 204,1)",
+                        label:"表白",
+                        data: datesets_confess
+                    },
+                    {
+                        fillColor: "rgba(255, 255, 0,1)",
+                        strokeColor: "rgba(255, 255, 0,1)",
+                        label: "树洞",
+                        data: datesets_shudong
+                    },
+                    {
+                        fillColor: "rgba(0, 0, 255,1)",
+                        strokeColor: "rgba(0, 0, 255,1)",
+                        label: "晚安",
+                        data: datesets_wanan
+                    },
+                    {
+                        fillColor: "rgba(255, 0, 0,1)",
+                        strokeColor: "rgba(255, 0, 0,1)",
+                        label: "缘分",
+                        data: datesets_photo_guess
+                    },
+                    {
+                        fillColor: "rgba(164, 194, 244,1)",
+                        strokeColor: "rgba(164, 194, 244,1)",
+                        label: "广告",
+                        data: datesets_advert
+                    },
+                    {
+                        fillColor: "rgba(255, 217, 102,1)",
+                        strokeColor: "rgba(255, 217, 102,1)",
+                        label: "话题",
+                        data: datesets_topic
+                    }
+                ]
+            }
+        }());
+
+        $(function () {
+
+        });
+
+        window.onload = function(){
+            var ctx = $("#myChart").get(0).getContext("2d");
+            var myNewChart = new Chart(ctx);
+            myNewChart.Bar(data);
+        }
+        // 开始绘制柱状图
+
+    </script>
+</head>
+
+<body>
+<span style="padding-left: 30px">
+            <div class="bar-chart">
+                 <h3 style="display:inline;margin-left: 500px">【<%=school%>】<%= day %>天数据发布曲线图</h3>
+                <canvas id="myChart" width="1200" height="1000"></canvas>
+                <div id="legend"></div>
+            </div>
+
+</span>
+</body>
+</html>
