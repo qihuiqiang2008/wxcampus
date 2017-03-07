@@ -19,6 +19,17 @@ var config = {
     name: 'Node Club',
     description: 'Node Club 是用 Node.js 开发的社区软件',
     version: pkg.version,
+
+    //粉丝价格配置区域
+    //报价规则，如果一个学校的价格少于50元，则取50元
+    //价格为每粉丝0.05元
+    //价格四舍五入以50元为单位
+    //次条价格为头条价格低6折
+    price_per_fans : 0.05,
+    min_price : 50,
+    price_step : 50,
+    second_discount: 0.6,
+
     is_dev:false,
     // site settings
     site_headers: [

@@ -370,7 +370,7 @@ module.exports = function (app) {
     app.get('/flex',postEx.flex);
 
     //广告相关 
-    app.post('/back/school/countPrice', auth.signinRequired, price.getPrice);
+    app.get('/back/school/getPrice', auth.signinRequired, price.getPrice);
     app.get('/back/school/addAD', auth.signinRequired, ADManage.showGetAD);
     app.post('/back/school/addAD', auth.signinRequired, ADManage.addAD);
     app.get('/back/school/getAD', auth.signinRequired, ADManage.getAD);
