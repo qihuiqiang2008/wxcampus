@@ -79,6 +79,10 @@
                                             <button type="submit" id="submitAd" class="btn btn-primary">添加广告</button>
                                         </div>
                                     </form>
+                                    <div>
+                                            <button id="priceButton" class="btn btn-primary">价格试算</button>
+                                    </div>
+
                                 </div>
                             </div>
                 </div>
@@ -445,4 +449,8 @@
 
             return ret;
         }
+
+        $("#priceButton").click(function(){
+            alert(ads);
+        });
         </script>

@@ -6,6 +6,11 @@ var Resource = require('../proxy').Resource;
 var ad = require('../proxy').AD;
 
 
+
+exports.getPrice = function(req, res, next){
+
+}
+
 exports.getAD = function(req, res, next) {
     var region_code = req.query.region_code;
     var tag = req.query.tag;
