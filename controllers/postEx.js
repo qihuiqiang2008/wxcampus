@@ -292,6 +292,7 @@ exports.index = function (req, res, next) {
         ['from_school_en_name', 'desc']
     ];
     Configuration.getConfigurationByCode(type, function (err, day) {
+        console.log(day)
         day = day.value;
 
         if (!day) {
