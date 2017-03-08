@@ -75,11 +75,15 @@ var i=0;
 $(".result").click(function(){
 	var type=$(this).attr("ptype");
     var en_name=$(this).attr("data_id");
+    var url='/back/result_post';
+    if(type=="topic"){
+        url='/back/result_topic';
+    }
     var obj=$(this);
      obj.attr("disabled","disabled");
      obj.text("操作中..");
 	   $.ajax({
-                'url': '/back/result_post',
+                'url': url,
                 'type': 'post',
                 'dataType': 'json',
 				'data':{type:type,en_name:en_name},

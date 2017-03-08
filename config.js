@@ -8,13 +8,28 @@ var envport = 8080;
 //var db_host = process.env.JAE_MONGO_IP.split(',')[0].trim();
 
 ///
-var dbURL='mongodb://127.0.0.1:27017/wxsystem'
-var devDbUrl = 'mongodb://127.0.0.1:27017/wxsystem';
+//var dbURL = 'mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y';
+//var devDbUrl='mongodb://bae:8H4FaezBpRWl9RsFjIPn1koZPa7Ztw1G@svridz5cbp6e12y.mongodb.duapp.com:10139/svridz5cbp6e12y'
+var dbURL='mongodb://PGsrVWImY3EM6xkN:etqy9b1XAYoK048T@123.57.49.48:27029/wxsystem';
+var devDbUrl = 'mongodb://123.57.49.48/wxsystem1';
+// var dbURL='mongodb://127.0.0.1:27017/wxsystem'
+// var devDbUrl = 'mongodb://127.0.0.1:27017/wxsystem';
 var config = {
     debug: false,
     name: 'Node Club',
     description: 'Node Club 是用 Node.js 开发的社区软件',
     version: pkg.version,
+
+    //粉丝价格配置区域
+    //报价规则，如果一个学校的价格少于50元，则取50元
+    //价格为每粉丝0.05元
+    //价格四舍五入以50元为单位
+    //次条价格为头条价格低6折
+    price_per_fans : 0.05,
+    min_price : 50,
+    price_step : 50,
+    second_discount: 0.6,
+
     is_dev:false,
     // site settings
     site_headers: [

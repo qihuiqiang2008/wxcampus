@@ -56,6 +56,7 @@ var configMiddleware = require('./middlewares/conf');
 var config = require('./config');
 var ADManage = require('./controllers/ADManage');
 var getArticle = require('./controllers/getArticle');
+var price = require('./controllers/price');
 
 var record=require('./controllers/record');
 var PVManage=require('./controllers/PVManage');
@@ -82,7 +83,7 @@ module.exports = function (app) {
     app.get('/back/addGoodSound', auth.adminRequired,addGoodSound.addGoodSound);
     app.get('/back/addBlacklist', auth.adminRequired,sendMessage.addBlacklist);
     app.get('/back/delMessage', auth.adminRequired,delMessage.delMessage);
-
+    app.get('/back/delOneSchoolMessage', auth.adminRequired, delMessage.delOneSchoolMsg);
 
     app.get('/back/getSource', auth.adminRequired,getSource.getSource);
     app.get('/back/checkResource', auth.adminRequired,getSource.checkResource);
@@ -369,6 +370,7 @@ module.exports = function (app) {
     app.get('/flex',postEx.flex);
 
     //广告相关 
+    app.get('/back/school/getPrice', auth.signinRequired, price.getPrice);
     app.get('/back/school/addAD', auth.signinRequired, ADManage.showGetAD);
     app.post('/back/school/addAD', auth.signinRequired, ADManage.addAD);
     app.get('/back/school/getAD', auth.signinRequired, ADManage.getAD);

@@ -292,12 +292,10 @@ exports.index = function (req, res, next) {
         ['from_school_en_name', 'desc']
     ];
     Configuration.getConfigurationByCode(type, function (err, day) {
+        console.log(day)
         day = day.value;
 
         if (!day) {
-            day = 1;
-        }
-        if (type == "topic") {
             day = 1;
         }
         Configuration.getConfigurationByCode(DateFormat(day), function (err, start_cfg) {
@@ -849,6 +847,7 @@ function GetRandomNum(Min, Max) {
 }
 
 exports.result_post = function (req, res, next) {
+    console.log("==========================")
     var type = req.body.type;
     var school_en_name = req.body.en_name;
     var templete = "<section style='margin: 0.8em 0; padding: 0.6em; border: 1px solid #c0c8d1; border-radius: 0.3em; box-shadow: #aaa 0 0 0.6em; background-color: #fafaef;' class='ng-scope'><section style='padding: 0px; margin: 0px; border: none; color: rgb(51, 51, 51); font-size: 1em; line-height: 1.4em; word-break: break-all; word-wrap: break-word; background-image: none; font-family: inherit; ' placeholder='{ 点击编辑 }' class='tn-page-ed-type-text ng-scope ng-valid tn-page-editable ng-dirty'><strong><span style='color: rgb(112, 48, 160); '>###</span></strong><span style='color: rgb(112, 48, 160); '><br></span></section></section>"
@@ -990,9 +989,12 @@ function md5(str) {
 };
 
 exports.get_result_topic = function (req, res, next) {
+
+
+
     var type = "topic";
-    SchoolEx.getSchoolsByQuery({}, function (err, schoolexs) {
-        res.render('back/topic/result', {type: type, schoolexs: schoolexs});
+    SchoolEx.getSchoolExsByQueryAndField({},'_id cn_name en_name secret_title',{},function (err, schoolexs) {
+        res.render('back/postEx/post_result', {type: type, schoolexs: schoolexs});
     });
 }
 
@@ -1000,6 +1002,7 @@ exports.result_topic = function (req, res, next) {
     var extopiccount = 20;
     var type = "topic";
     var school_en_name = req.body.en_name;
+    console.log(school_en_name);
     var templete = "<section style='margin: 0.8em 0; padding: 0.6em; border: 1px solid #c0c8d1; border-radius: 0.3em; box-shadow: #aaa 0 0 0.6em; background-color: #fafaef;' class='ng-scope'><section style='padding: 0px; margin: 0px; border: none; color: rgb(51, 51, 51); font-size: 1em; line-height: 1.4em; word-break: break-all; word-wrap: break-word; background-image: none; font-family: inherit; ' placeholder='{ 点击编辑 }' class='tn-page-ed-type-text ng-scope ng-valid tn-page-editable ng-dirty'><span style='color: rgb(112, 48, 160); '>###</span></section></section>"
     var result = "";
     var sort = [
@@ -1009,7 +1012,8 @@ exports.result_topic = function (req, res, next) {
     var index = 1;
     var cn_title;
     var options = {sort: sort};
-    Configuration.getConfigurationByCode(YesTodayFormat(), function (err, start_cfg) {
+    Configuration.getConfigurationByCode(type, function (err, day) {
+        Configuration.getConfigurationByCode(DateFormat(day.value), function (err, start_cfg) {
         Configuration.getConfigurationByCode(TodayFormat(), function (err, end_cfg) {
             PostEx.getPostExsByQuery({
                 'from_school_en_name': school_en_name, 'display': true, type: type, create_at: {
@@ -1022,7 +1026,8 @@ exports.result_topic = function (req, res, next) {
                 postexs.forEach(function (postex, i) {
                     if (postex && (temp !== postex.content0)) {
                         temp = postex.content0;
-                        result += templete.replace(/###/g, "★’" + (postex.content1 || "佚名") + "‘同学说：" + postex.content0);
+                        result += templete.replace(/###/g, "★"+index+":" + postex.content0);
+                        //result += templete.replace(/###/g, "★’" + (postex.content1 || "佚名") + "‘某同学说：" + postex.content0);
                         index++;
                     }
                 });
@@ -1037,13 +1042,17 @@ exports.result_topic = function (req, res, next) {
                             "$lt": new Date(end_cfg.value)
                         }
                     }, options, function (err, postexs) {
+                        console.log(postexs);
+                        console.log(start_cfg.value);
+                        console.log(end_cfg.value);
                         if (postexs.length < 21) {
                             return res.json({success: false, msg: '话题太少'});
                         }
                         var i = 0;
                         while (index < 20) {
                             var random = parseInt((postexs.length - 1) * Math.random());
-                            result += templete.replace(/###/g, "★‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
+                            //result += templete.replace(/###/g, "★‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★"+index+":" + postexs[random].content0);
                             postexs.splice(random, 1);
                             index++;
                             i++;
@@ -1053,7 +1062,9 @@ exports.result_topic = function (req, res, next) {
                         while (number < extopiccount) {
                             var random = parseInt((postexs.length - 1) * Math.random());
 
-                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
+                            //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
+
                             postexs.splice(random, 1);
                             index++;
                             number++;
@@ -1081,7 +1092,9 @@ exports.result_topic = function (req, res, next) {
                         while (number < extopiccount) {
                             var random = parseInt((postexs.length - 1) * Math.random());
                             console.log(random);
-                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的’" + (postexs[random].content1 || "佚名") + "‘同学说：" + postexs[random].content0);
+                            //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的’" + (postexs[random].content1 || "佚名") + "‘同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
+
                             postexs.splice(random, 1);
                             index++;
                             number++
@@ -1096,6 +1109,7 @@ exports.result_topic = function (req, res, next) {
                 }
             })
         });
+    });
     });
 }
 
