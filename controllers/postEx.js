@@ -847,6 +847,7 @@ function GetRandomNum(Min, Max) {
 }
 
 exports.result_post = function (req, res, next) {
+    console.log("==========================")
     var type = req.body.type;
     var school_en_name = req.body.en_name;
     var templete = "<section style='margin: 0.8em 0; padding: 0.6em; border: 1px solid #c0c8d1; border-radius: 0.3em; box-shadow: #aaa 0 0 0.6em; background-color: #fafaef;' class='ng-scope'><section style='padding: 0px; margin: 0px; border: none; color: rgb(51, 51, 51); font-size: 1em; line-height: 1.4em; word-break: break-all; word-wrap: break-word; background-image: none; font-family: inherit; ' placeholder='{ 点击编辑 }' class='tn-page-ed-type-text ng-scope ng-valid tn-page-editable ng-dirty'><strong><span style='color: rgb(112, 48, 160); '>###</span></strong><span style='color: rgb(112, 48, 160); '><br></span></section></section>"
