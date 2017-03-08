@@ -4,12 +4,7 @@ var SchoolEx = require('../proxy').SchoolEx;
 var Region = require('../proxy').Region;
 var Resource = require('../proxy').Resource;
 var ad = require('../proxy').AD;
-
-
-
-exports.getPrice = function(req, res, next){
-
-}
+var countPrice = require('./price.js').countPrice;
 
 exports.getAD = function(req, res, next) {
     var region_code = req.query.region_code;
@@ -248,14 +243,18 @@ exports.addAD = function(req, res, next) {
         item.date = new Date(item.date);
     });
 
-    ad.newAndSave(p.name, slot, p.custom, p.discount,
-        p.price, p.sponsor, p.is_clear, p.remark,
-        function(err, data) {
-            console.log(err);
-            console.log("添加广告成功: " + data.name);
-            res.redirect('/back/school/listAD');
-            //console.log(data);
-        });
+    countPrice(slot, p.discount, function(result){
+        if(p.price == "" || p.price == undefined || p.price <0)
+            p.price = result.total;
+        ad.newAndSave(p.name, slot, p.custom, p.discount,
+            p.price, p.sponsor, p.is_clear, p.remark,
+            function(err, data) {
+                console.log(err);
+                console.log("添加广告成功: " + data.name);
+                res.redirect('/back/school/listAD');
+                //console.log(data);
+            });
+    });
 }
 
 exports.detailAD = function(req, res, next) {
