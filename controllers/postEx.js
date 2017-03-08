@@ -1012,7 +1012,8 @@ exports.result_topic = function (req, res, next) {
     var index = 1;
     var cn_title;
     var options = {sort: sort};
-    Configuration.getConfigurationByCode(YesTodayFormat(), function (err, start_cfg) {
+    Configuration.getConfigurationByCode(type, function (err, day) {
+        Configuration.getConfigurationByCode(DateFormat(day.value), function (err, start_cfg) {
         Configuration.getConfigurationByCode(TodayFormat(), function (err, end_cfg) {
             PostEx.getPostExsByQuery({
                 'from_school_en_name': school_en_name, 'display': true, type: type, create_at: {
@@ -1108,6 +1109,7 @@ exports.result_topic = function (req, res, next) {
                 }
             })
         });
+    });
     });
 }
 
