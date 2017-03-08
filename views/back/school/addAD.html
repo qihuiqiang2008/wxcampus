@@ -79,6 +79,16 @@
                                             <button type="submit" id="submitAd" class="btn btn-primary">添加广告</button>
                                         </div>
                                     </form>
+                                    <div>
+                                            <button id="priceButton" class="btn btn-primary span2">价格试算</button>
+                                            <div class="span2"> 原价</div>
+                                            <div class="span2" id="origin"></div>
+                                            <div class="span2" > 折后价格</div>
+                                            <div class="span2" id="sum"></div>
+
+                                    </div>
+                                    <div >Tips:折扣可以在上面填写</div>
+
                                 </div>
                             </div>
                 </div>
@@ -445,4 +455,23 @@
 
             return ret;
         }
+
+        $("#priceButton").click(function(){
+            var discount = $("#discount").val();
+            var url = "/back/school/getPrice?data=" + JSON.stringify(adObj);
+            if(discount != "")
+                url = url + "&discount=" + discount;
+            $.ajax({
+                url: url,
+                type: 'get',
+                dateType: "json",
+                success: function(data, err) {
+                    var json = JSON.parse(data);
+                    $("#origin").text(json.origin);
+                    $("#sum").text(json.total);
+                    
+                }
+            });
+            
+        });
         </script>

@@ -1,0 +1,156 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    <title>发布曲线图</title>
+    <!--<script src="js/Chart.js"></script>-->
+    <!--<script src="js/Chart.min.js"></script>-->
+    <script src="/public/back/js/jquery.min.js"></script>
+    <script src="/public/back/js/Chart-1.0.1-beta.4.js"></script>
+    <script>
+        var dates=[];
+        var datasets=[]
+        var datesets_confess=[];
+        var datesets_shudong=[];
+        var datesets_photo_guess=[];
+        var datesets_topic=[];
+        var datesets_total=[];
+        var school='<%- school %>';
+        var day='<%- day %>'
+        $(function () {
+            dates=JSON.parse('<%- labels %>');
+           /* for(var i=0;i<dates.length;i++){
+                console.log("dates的长度:"+dates[i]);
+            }
+            console.log("dates的长度:"+dates.length);*/
+            datasets=JSON.parse('<%- datasets %>');
+            for(var i=0;i<datasets.length;i++){
+                console.log("dates的数据:"+datasets[i].confess+","+datasets[i].shudong+","+datasets[i].total);
+                datesets_confess.push(datasets[i].confess);
+                datesets_shudong.push(datasets[i].shudong);
+                datesets_total.push(datasets[i].total);
+                datesets_photo_guess.push(datasets[i].photo_guess)
+                datesets_topic.push(datasets[i].topic)
+
+            }
+            console.log("datasets的长度:"+datasets.length);
+        }());
+        $("#daySelect").change(function(){
+
+        });
+        $("#dayBtn").click(function () {
+            console.log("btn触发")
+        })
+        var data = {
+            labels : dates,
+            datasets : [
+                {
+                    lineItemName : "所有",
+                    fillColor : "rgba(0,0,0,0)",
+                    strokeColor : "rgba(10,10,10,1)",
+                    pointColor : "rgba(0, 0, 255,1)",
+                    pointStrokeColor : "#fff",
+                    data : datesets_total
+                },
+                {
+                    lineItemName : "表白",
+                    fillColor : "rgba(217, 210, 233,0)",
+                    strokeColor : "rgba(0, 255, 0,1)",
+                    pointColor : "rgba(217, 210, 233,1)",
+                    pointStrokeColor : "#fff",
+                    data : datesets_confess
+                },
+                {
+                    lineItemName : "树洞",
+                    fillColor : "rgba(0,0,0,0)",
+                    strokeColor : "rgba(255, 255, 0,1)",
+                    pointColor : "rgba(255, 153, 0,1)",
+                    pointStrokeColor : "#fff",
+                    data : datesets_shudong
+                },
+                {
+                    lineItemName : "缘分",
+                    fillColor : "rgba(0,0,0,0)",
+                    strokeColor : "rgba(244, 204, 204,1)",
+                    pointColor : "rgba(61, 133, 198,1)",
+                    pointStrokeColor : "#fff",
+                    data : datesets_photo_guess
+                },
+                {
+                    lineItemName : "话题",
+                    fillColor : "rgba(0,0,0,0)",
+                    strokeColor : "rgba(255, 217, 102,1)",
+                    pointColor : "rgba(255, 242, 204,1)",
+                    pointStrokeColor : "#fff",
+                    data : datesets_topic
+                },
+            ]
+        };
+
+        var chartLine = null;
+        window.onload = function(){
+            var ctx = document.getElementById("myChart").getContext("2d");
+            chartLine = new Chart(ctx).Line(data);
+            initEvent(chartLine, clickCall);
+        }
+
+        function clickCall(evt) {
+            var point = chartLine.getPointSingleAtEvent(evt);
+
+            if ( point !== null )
+                alert( point.label + ": " + point.lineItemName + " ____ " + point.value);
+        }
+
+        function initEvent(chart, handler) {
+            var method = handler;
+            var eventType = "click";
+            var node = chart.chart.canvas;
+
+            if (node.addEventListener) {
+                node.addEventListener(eventType, method);
+            } else if (node.attachEvent) {
+                node.attachEvent("on" + eventType, method);
+            } else {
+                node["on" + eventType] = method;
+            }
+        }
+
+        function daySelectHandle(target) {
+            console.log("select change "+target.value);
+            window.location.href="/back/record/getPostsChart?school="+school+"&day="+target.value;
+        }
+    </script>
+</head>
+
+<body>
+<span style="padding-left: 30px">
+    <span>
+        <h3 style="display:inline;margin-left: 500px">【<%=school%>】<%= day %>天数据发布曲线图</h3>
+        <span style="margin-left: 200px">
+           <select id="daySelect" onchange="daySelectHandle(this)" >
+                <option value="0"> 请选择时间
+                </option>
+                <option value="10">10
+                </option>
+                <option value="20">20
+                </option>
+                <option value="40">40
+                </option>
+                <option value="60">60
+                </option>
+                <option value="100">100
+                </option>
+            </select>
+       </span>
+         <span style="width: 2px;height: 2px;background-color: rgb(10,10,10);color: #ffffff;margin-left: 30px">所有</span>|
+         <span style="width: 2px;height: 2px;background-color: rgb(0, 255, 0);color: #000;">表白</span>|
+         <span style="width: 2px;height: 2px;background-color: rgb(255, 255, 0);color: #000">树洞</span>|
+         <span style="width: 2px;height: 2px;background-color: rgb(255, 217, 102);color: #000">话题</span>|
+         <span style="width: 2px;height: 2px;background-color: rgb(255, 217, 102);color: #000">缘分</span>
+      </span>
+      </span>
+    <hr>
+    <canvas id="myChart" width="1400" height="850"></canvas>
+</div>
+
+</body>
+</html>
