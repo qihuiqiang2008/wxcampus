@@ -1041,7 +1041,9 @@ exports.result_topic = function (req, res, next) {
                             "$lt": new Date(end_cfg.value)
                         }
                     }, options, function (err, postexs) {
-                        console.log(postexs)
+                        console.log(postexs);
+                        console.log(start_cfg.value);
+                        console.log(end_cfg.value);
                         if (postexs.length < 21) {
                             return res.json({success: false, msg: '话题太少'});
                         }
