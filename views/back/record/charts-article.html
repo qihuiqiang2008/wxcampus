@@ -35,7 +35,8 @@
                 datesets_total.push(datasets[i].total);
                 datesets_photo_guess.push(datasets[i].photo_guess)
                 datesets_topic.push(datasets[i].topic);
-                datesets_advert.push(i);
+                datesets_wanan.push(datasets[i].wanan)
+                datesets_advert.push(datasets[i].advert);
 
             }
             /*for(var i=0;i<datesets_confess.length;i++){
@@ -108,7 +109,16 @@
 <span style="padding-left: 30px">
             <div class="bar-chart">
                  <h3 style="display:inline;margin-left: 500px">【<%=school%>】<%= day %>天数据发布曲线图</h3>
-                <canvas id="myChart" width="1200" height="1000"></canvas>
+                <span>
+                <span style="width: 2px;height: 2px;background-color: rgb(252,229,205);color: #ffffff;margin-left: 30px">所有</span>|
+                <span style="width: 2px;height: 2px;background-color: rgb(244, 204, 204);color: #000;">表白</span>|
+                <span style="width: 2px;height: 2px;background-color: rgb(255, 255, 0);color: #000">树洞</span>|
+                <span style="width: 2px;height: 2px;background-color: rgb(255, 217, 102);color: #000">话题</span>|
+                <span style="width: 2px;height: 2px;background-color: rgb(255, 0, 0);color: #000">缘分</span>
+                    <span style="width: 2px;height: 2px;background-color: rgb(164, 194, 244);color: #000">广告</span>
+                    <span style="width: 2px;height: 2px;background-color: rgb(0, 0, 255);color: #000">晚安</span>
+                </span>
+                <canvas id="myChart" width="1800" height="800"></canvas>
                 <div id="legend"></div>
             </div>
 

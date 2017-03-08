@@ -75,6 +75,12 @@ var i=0;
 $(".result").click(function(){
     var en_name=$(this).attr("data_id");
     console.log('en_name='+en_name)
+    if(en_name=='sh'||en_name=='xa'||en_name=='bj'||en_name=='shufe')
+    {
+        console.log("高校微生活");
+        return ;
+    }
+
     var obj=$(this);
      obj.attr("disabled","disabled");
      obj.text("操作中..");

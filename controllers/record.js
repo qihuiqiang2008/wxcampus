@@ -197,24 +197,15 @@ exports.saveArticle = function (req, res, next) {
 
             function (cb) { //1.1：登陆。
 
-                try{
                     login(schoolEx, function (err, results) {
                         if(err){
                             console.log(school_en_name+"登录失败");
+                            cb(err);
                         }
                         loadResult = results;
                         console.log(school_en_name+"登录成功");
-                        cb(err);
+                        cb();
                     });
-                }
-                catch (err){
-                    console.log(school_en_name+"登录失败");
-                    cb(err);
-                }
-
-
-
-
             },
 
             function (cb) {
@@ -247,11 +238,11 @@ exports.saveArticle = function (req, res, next) {
             function (cb) {
                 var start = new Date().setHours(0, 0, 0, 0);
                 var end = new Date().setHours(23, 59, 59, 0);
-                for (var i = 0; i < list.msg_item.length; i++) {
-                    if (list.msg_item[i].date_time * 1000 < end && list.msg_item[i].date_time * 1000 > start) {
+                /*for (var i = 0; i < list.msg_item.length; i++) {
+                    if (list.msg_item[i].date_time * 1000 < end && list.msg_item[i].date_time * 1000 > start) {*/
                         //var url=escape2Html(list.msg_item[i].content_url)
-                        console.log(school_en_name+'===================开始保存今天文章信息===================')
-                        for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                        console.log(school_en_name+'===================开始保存文章信息===================')
+                        /*for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
                             console.log("save:"+list.msg_item[i].multi_item[j].title);
                             var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
                             var type=getArticleType(list.msg_item[i].multi_item[j].title);
@@ -268,9 +259,27 @@ exports.saveArticle = function (req, res, next) {
                                 });
 
                             //todayUrlList.push(list.msg_item[i].multi_item[j].content_url);
-                        }
-                    }
+                        }*/
+                        for (var i = 0; i < list.msg_item.length; i++) {
+                            for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                                console.log("update:" + list.msg_item[i].multi_item[j].title);
+                                var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
+                                var type = getArticleType(list.msg_item[i].multi_item[j].title);
+                                ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
+                                    list.msg_item[i].multi_item[j].seq, type, school_en_name, schoolEx.cn_name, schoolEx.fans,
+                                    list.msg_item[i].multi_item[j].title, list.msg_item[i].multi_item[j].read_num,
+                                    list.msg_item[i].multi_item[j].like_num,
+                                    function (err) {
+                                        if (err) {
+                                            console.log(err);
+                                        }
+
+                                    });
+                            }
+                        /*}
+                    }*/
                 }
+                console.log("===========================end==========================")
                 cb();
             }
         ],
@@ -280,23 +289,8 @@ exports.saveArticle = function (req, res, next) {
                 return res.json({success: false});
             }
             else {
-                console.log(school_en_name+'===================开始更新文章阅读量===================')
-                for (var i = 0; i < list.msg_item.length; i++) {
-                    for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
-                        console.log("update:"+list.msg_item[i].multi_item[j].title);
-                        var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
-                        var type=getArticleType(list.msg_item[i].multi_item[j].title);
-                        ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
-                            list.msg_item[i].multi_item[j].seq, type, school_en_name,schoolEx.cn_name,schoolEx.fans,
-                            list.msg_item[i].multi_item[j].title, list.msg_item[i].multi_item[j].read_num,
-                            list.msg_item[i].multi_item[j].like_num,
-                            function (err) {
-                                if (err) {
-                                    console.log(err);
-                                }
+                //console.log(school_en_name+'===================开始更新文章阅读量===================')
 
-                            });
-                    }
 
                     /*for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
                      var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
@@ -309,9 +303,9 @@ exports.saveArticle = function (req, res, next) {
 
                      });
                      }*/
-                }
+
                 return res.json({success: true});
-                console.log("===========================end==========================")
+
             }
             }
 
@@ -320,8 +314,8 @@ exports.saveArticle = function (req, res, next) {
 
 exports.getArticle = function (req, res, next) {
     var page = parseInt(req.query.page, 10) || 1;
-    page = 1;//page > 0 ? page : 1;
-    var limit = 100;
+    page = page > 0 ? page : 1;
+    var limit = 200;
     var endDate=req.query.endDate;
     var school=req.query.school;
     var query = {};
@@ -349,7 +343,7 @@ exports.getArticle = function (req, res, next) {
         skip: (page - 1) * limit,
         limit: limit,
         sort: [
-         ['school','asc'],
+         ['fans','desc'],
             ['date_time','desc'],
             ['positon','asc']
          ]
@@ -432,7 +426,7 @@ exports.getArticleChart=function (req, res, next) {
     if(day==undefined||day==null||day==0){
         day=20;
     }
-    for(var i=1;i<day;i++){
+    for(var i=0;i<day;i++){
         var today=new Date();
         today.setDate(today.getDate()-i);
         labels.push(today.getMonth()+1+"/"+today.getDate());

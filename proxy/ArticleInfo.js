@@ -203,7 +203,7 @@ exports.getLastByCondition=function (school,dates,callback) {
                             console.log(err);
                         }
                         else if(articles==undefined||articles.length==0){
-                            data.topic=0;
+                            data.advert=0;
                         }
                         else {
                             data.advert=articles[0].read_num;

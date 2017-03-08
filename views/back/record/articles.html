@@ -60,6 +60,8 @@
             <th>点赞量</th>
             <th>推送时间</th>
             <th>链接</th>
+            <th>曲线图</th>
+            <th>获取实时阅读量</th>
         </tr>
         </thead>
         <tbody>
@@ -70,7 +72,7 @@
             <td style=" text-align: center;"><span style="font-size:10px"><%=article.school_cn_name%></span>
             </td>
             <td style=" text-align: center;"><%=article.school%></td>
-            <td>
+            <td style="width: 600px">
                <%=article.title%>
             </td>
             <td>
@@ -99,9 +101,9 @@
             </td>
             <td>
                 <a href='<%=article.url%>' target="_blank">[查看]</a>
-                <a href='<%=article.url%>'>[获取实时数据]</a>
-                <a href="/back/record/getArticleChart?school=<%=article.school%>" target="_blank">[曲线图]</a>
             </td>
+            <td><a href="/back/record/getArticleChart?school=<%=article.school%>" target="_blank">[曲线图]</a></td>
+            <td><a href='##'>[获取实时数据]</a></td>
             <%}%>
         </tr>
         <% }) %>
