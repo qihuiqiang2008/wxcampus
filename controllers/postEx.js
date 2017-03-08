@@ -297,9 +297,6 @@ exports.index = function (req, res, next) {
         if (!day) {
             day = 1;
         }
-        if (type == "topic") {
-            day = 1;
-        }
         Configuration.getConfigurationByCode(DateFormat(day), function (err, start_cfg) {
             Configuration.getConfigurationByCode(TodayFormat(), function (err, end_cfg) {
                 console.log(start_cfg + "...")
