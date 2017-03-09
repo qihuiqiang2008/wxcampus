@@ -370,6 +370,7 @@ module.exports = function (app) {
     app.get('/flex',postEx.flex);
 
     //广告相关 
+    app.get('/back/school/getPriceExcel', auth.signinRequired, price.getPriceExcel);
     app.get('/back/school/getPrice', auth.signinRequired, price.getPrice);
     app.get('/back/school/addAD', auth.signinRequired, ADManage.showGetAD);
     app.post('/back/school/addAD', auth.signinRequired, ADManage.addAD);
@@ -396,10 +397,6 @@ module.exports = function (app) {
     app.get('/back/record/getArticleCount',record.countArticle);
     app.get('/back/record/getPostsChart',record.getPostsChart);
     app.get('/back/record/getArticleChart',record.getArticleChart);
-
-
-
-
 
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);

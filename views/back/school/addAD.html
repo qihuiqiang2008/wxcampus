@@ -85,7 +85,7 @@
                                             <div class="span2" id="origin"></div>
                                             <div class="span2" > 折后价格</div>
                                             <div class="span2" id="sum"></div>
-
+                                            <button id="downloadExcel" class="btn btn-primary span2">下载报价单</button>
                                     </div>
                                     <div >Tips:折扣可以在上面填写，八五折请填8.5</div>
 
@@ -473,6 +473,16 @@
                     
                 }
             });
+            
+        });
+
+        $("#downloadExcel").click(function(){
+            var discount = $("#discount").val();
+
+            var url = "/back/school/getPriceExcel?data=" + JSON.stringify(adObj);
+            if(discount != "")
+                url = url + "&discount=" + discount;
+            window.location = url;
             
         });
         </script>

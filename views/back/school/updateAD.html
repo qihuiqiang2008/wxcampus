@@ -98,6 +98,15 @@
                                             <button type="submit" id="submitAd" class="btn btn-primary">保存</button>
                                         </div>
                                     </form>
+                                    <div>
+                                            <button id="priceButton" class="btn btn-primary span2">价格试算</button>
+                                            <div class="span2"> 原价</div>
+                                            <div class="span2" id="origin"></div>
+                                            <div class="span2" > 折后价格</div>
+                                            <div class="span2" id="sum"></div>
+                                            <button id="downloadExcel" class="btn btn-primary span2">下载报价单</button>
+                                    </div>
+                                    <div >Tips:折扣可以在上面填写，八五折请填8.5</div>
                                 </div>
                             </div>
                 </div>
@@ -469,4 +478,34 @@
 
             return ret;
         }
+
+        $("#priceButton").click(function(){
+            var discount = $("#discount").val();
+            var url = "/back/school/getPrice?data=" + JSON.stringify(adObj);
+            if(discount != "")
+                url = url + "&discount=" + discount;
+            $.ajax({
+                url: url,
+                type: 'get',
+                dateType: "json",
+                success: function(data, err) {
+                    var json = JSON.parse(data);
+                    $("#origin").text(json.origin);
+                    $("#sum").text(json.total);
+                    $("#price").val(json.total);
+                    
+                }
+            });
+            
+        });
+        
+        $("#downloadExcel").click(function(){
+            var discount = $("#discount").val();
+
+            var url = "/back/school/getPriceExcel?data=" + JSON.stringify(adObj);
+            if(discount != "")
+                url = url + "&discount=" + discount;
+            window.location = url;
+            
+        });
         </script>
