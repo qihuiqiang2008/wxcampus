@@ -95,6 +95,38 @@ exports.getPostsRecord = function (req, res, next) {
     }));
 };
 
+exports.getPostsByDate = function (req, res, next) {
+    //获取查询的开始时间和结束时间
+    var school=req.query.school;
+    var day=req.query.day;
+    var labels=new Array();
+    var dates=new Array();
+    if(day==undefined||day==null||day==0){
+        day=50;
+    }
+    for(var i=0;i<day;i++){
+        var today=new Date();
+        today.setDate(today.getDate()-i);
+        labels.push(today.getMonth()+1+"/"+today.getDate());
+        dates.push(today);
+    }
+
+
+    var proxy = EventProxy.create('datasets',
+        function (datasets) {
+            res.render('back/record/posts-all',{
+                datasets:datasets,
+                labels:labels,
+            })
+        });
+
+    proxy.fail(next);
+
+    PostEx.countByAll(dates,function (err,datasets) {
+        proxy.emit('datasets', datasets);
+    });
+};
+
 exports.getPvs = function (req, res, next) {
     var startDate, endDate;
     if (req.query.startDate != undefined) {

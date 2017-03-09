@@ -1,0 +1,93 @@
+<%- include ../partial/header %>
+<style>
+    .widget-title .buttons {
+        float: right;
+        margin: 8px 1px 0 0;
+    }
+</style>
+<head>
+
+</head>
+<div id="content">
+<div id="content-header">
+    <h1>发布统计分析[按时间]<a href="/back/record/posts">[按学校]</a></h1>
+</div>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<div class="widget-box">
+<div class="widget-title">
+                                <span class="icon">
+                                    <i class="icon-th"></i>
+                                </span>
+    <h5>学校</h5>
+    <div class="control-group" style="float:right; margin-top:5px">
+        <div class="controls">
+            <div class="select2-drop select2-with-searchbox select2-offscreen"
+                 style="display: block;">
+                <div class="select2-search"><input type="text" autocomplete="off" class="select2-input" tabindex="0"></div>
+                <ul class="select2-results"></ul>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>
+<div class="widget-content nopadding">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>日期</th>
+            <th>表白数量</th>
+            <th>树洞数量</th>
+            <th>缘分数量</th>
+            <th>话题数量</th>
+            <th>所有数量</th>
+            <th>删除数量</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% labels.forEach(function(item,index) { %>
+        <tr>
+
+            <td style=" text-align: center;"><%=item%></td>
+            <td style=" text-align: center;"><%=datasets[index].confess%></td>
+            <td style=" text-align: center;"><%=datasets[index].shudong%></td>
+            <td style=" text-align: center;"><%=datasets[index].photo_guess%></td>
+            <td style=" text-align: center;"><%=datasets[index].topic%></td>
+            <td style=" text-align: center;"><%=datasets[index].total%></td>
+            <td style=" text-align: center;"><%=datasets[index].delete%></td>
+            <td style=" text-align: center;">
+                <%
+                //console.log("删除比例"+datasets[index].delete/datasets[index].total);
+                if(datasets[index].delete/datasets[index].total>0.1){
+                %>
+                     <p style="color: red">异常</p>
+                <%}
+                else {%>
+                    <p style="color: green">正常</p>
+                <%}
+                 %>
+            </td>
+
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<div class="row-fluid">
+    <div id="footer" class="span12">
+        2012 ©校萌科技有限公司
+    </div>
+</div>
+</div>
+</div>
+<%- include ../partial/footer%>
