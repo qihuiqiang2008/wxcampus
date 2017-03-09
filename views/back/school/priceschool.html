@@ -180,7 +180,7 @@
             <td><%=school.wx_account_name%></td>
             <td><%=school.wx_account_id%></td>
             <td><%=school.fans+3000%></td>
-            <td><%=Math.floor((school.fans+3000)*0.05 )%></td>
+            <td><%=Math.floor((school.fans+3000)*0.05/10)*10%></td>
         </tr>
         <%}else{%>
         <tr>
@@ -188,7 +188,7 @@
             <td><%=school.wx_account_name%></td>
             <td><%=school.wx_account_id%></td>
             <td><%=school.fans%></td>
-            <td><%=Math.floor(school.fans*0.05 )%></td>
+            <td><%=Math.floor(school.fans*0.05/10)*10 < 50 ? 50 : Math.floor(school.fans*0.05/10)*10%></td>
         </tr>
         <%}%>
 

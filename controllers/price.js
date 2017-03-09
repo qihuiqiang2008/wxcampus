@@ -127,9 +127,9 @@ function getPriceExcel(req, res, next){
 
 	conf.cols = [
 	    
-	    {caption:'学校', type:'string', width:"100"},
+	    {caption:'学校', type:'string', width:"20"},
 	    {caption:'简称', type:'string'},
-	    {caption:'公众号名称', type:'string',width:"100"},
+	    {caption:'公众号名称', type:'string',width:"20"},
 	    {caption:'微信号', type:'string'},
 	    {caption:'粉丝', type:'number'},
 	    {caption:'位置', type:'string'},
@@ -222,3 +222,4 @@ function getPriceExcel(req, res, next){
 
 module.exports.countPrice = countPrice;
 module.exports.getPriceExcel = getPriceExcel;
+module.exports.priceRule = priceRule;
