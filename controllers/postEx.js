@@ -1060,8 +1060,10 @@ exports.result_topic = function (req, res, next) {
                         result += "<p><span style='color: rgb(247, 150, 70);'><strong>其他高校精彩回答</strong></span></p>";
                         var number = 0;
                         while (number < extopiccount) {
-                            var random = parseInt((postexs.length - 1) * Math.random());
+                            console.log("-======================"+postexs.length)
 
+                            var random = parseInt((postexs.length - 1) * Math.random());
+                            console.log(random)
                             result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的‘" + (postexs[random].content6|| "佚名") + "’同学说：" + postexs[random].content0);
                             //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
 
