@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/photo_guess.js" afterPath="$PROJECT_DIR$/controllers/photo_guess.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,6 +23,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43764704">
+              <caret line="1021" column="17" selection-start-line="1021" selection-start-column="17" selection-end-line="1021" selection-end-column="17" />
+              <folding>
+                <marker date="1489217250000" expanded="true" signature="31433:31569" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="31604:31797" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="31916:31942" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="31976:32002" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="32148:32279" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="32322:32675" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="32721:32822" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="32891:33276" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="33322:33423" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="33503:33831" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="33843:34008" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="34034:34199" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="34439:34615" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="34783:34914" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="34957:35309" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="35355:35456" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="35525:35909" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="35955:36056" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="36136:36464" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="36476:36641" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="36683:36833" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="43132:43268" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="43303:43496" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="43607:43633" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="44415:44440" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="46413:46438" placeholder="..." />
+                <marker date="1489217250000" expanded="true" signature="48054:48079" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="school.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/school.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -33,31 +71,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="filterword.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/filterword.js">
+      <file leaf-file-name="uploadSingle1.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/uploadSingle1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-5.5555553">
+              <caret line="205" column="47" selection-start-line="205" selection-start-column="47" selection-end-line="205" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="college.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/college.js">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articleInfo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/articleInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state vertical-scroll-proportion="-6.0">
+              <caret line="169" column="64" selection-start-line="169" selection-start-column="64" selection-end-line="169" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -67,17 +95,17 @@
         <entry file="file://$PROJECT_DIR$/models/post.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PV.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/PV.js">
+      <file leaf-file-name="uploadPicture.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/uploadPicture.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -97,16 +125,16 @@
         <entry file="file://$PROJECT_DIR$/models/question.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="13" />
+              <caret line="64" column="2" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="photo_guess.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="photo_guess.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/photo_guess.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40703517">
+            <state vertical-scroll-proportion="-6.0">
               <caret line="1007" column="9" selection-start-line="1007" selection-start-column="9" selection-end-line="1007" selection-end-column="9" />
               <folding>
                 <marker date="1489118202000" expanded="true" signature="45362:45423" placeholder="..." />
@@ -282,8 +310,8 @@
         <option value="$PROJECT_DIR$/views/back/partial/header.ejs" />
         <option value="$PROJECT_DIR$/views/back/school/source_show.html" />
         <option value="$PROJECT_DIR$/views/back/postEx/post_result.html" />
-        <option value="$PROJECT_DIR$/controllers/postEx.js" />
         <option value="$PROJECT_DIR$/controllers/photo_guess.js" />
+        <option value="$PROJECT_DIR$/controllers/postEx.js" />
       </list>
     </option>
   </component>
@@ -295,8 +323,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="44" />
-    <option name="y" value="-954" />
+    <option name="x" value="-78" />
+    <option name="y" value="-969" />
     <option name="width" value="1392" />
     <option name="height" value="797" />
   </component>
@@ -415,6 +443,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wxcampus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -492,7 +534,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="44" y="-954" width="1392" height="797" extended-state="0" />
+    <frame x="-78" y="-969" width="1392" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -662,7 +704,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="259" column="0" selection-start-line="259" selection-start-column="0" selection-end-line="259" selection-end-column="0" />
           <folding>
-            <marker date="1488931499000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1489118286000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -778,26 +820,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/uploadPicture.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/uploadSingle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/uploadSingle1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.333333">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -850,50 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.703704">
-          <caret line="212" column="48" selection-start-line="212" selection-start-column="48" selection-end-line="212" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
-          <folding>
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1488934934000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/schoolEx1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -934,14 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/post.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/PV.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -966,14 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/question.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxy/photo_guess.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -984,7 +950,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/photo_guess.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40703517">
+        <state vertical-scroll-proportion="-6.0">
           <caret line="1007" column="9" selection-start-line="1007" selection-start-column="9" selection-end-line="1007" selection-end-column="9" />
           <folding>
             <marker date="1489118202000" expanded="true" signature="45362:45423" placeholder="..." />
@@ -1080,6 +1046,82 @@
             <marker date="1489118202000" expanded="true" signature="81468:81493" placeholder="..." />
             <marker date="1489118202000" expanded="true" signature="81540:81563" placeholder="..." />
             <marker date="1489118202000" expanded="true" signature="82179:82190" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/post.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/uploadPicture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/uploadSingle1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="205" column="47" selection-start-line="205" selection-start-column="47" selection-end-line="205" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/question.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="2" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0">
+          <caret line="169" column="64" selection-start-line="169" selection-start-column="64" selection-end-line="169" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43764704">
+          <caret line="1021" column="17" selection-start-line="1021" selection-start-column="17" selection-end-line="1021" selection-end-column="17" />
+          <folding>
+            <marker date="1489217250000" expanded="true" signature="31433:31569" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="31604:31797" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="31916:31942" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="31976:32002" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="32148:32279" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="32322:32675" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="32721:32822" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="32891:33276" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="33322:33423" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="33503:33831" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="33843:34008" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="34034:34199" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="34439:34615" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="34783:34914" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="34957:35309" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="35355:35456" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="35525:35909" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="35955:36056" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="36136:36464" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="36476:36641" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="36683:36833" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="43132:43268" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="43303:43496" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="43607:43633" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="44415:44440" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="46413:46438" placeholder="..." />
+            <marker date="1489217250000" expanded="true" signature="48054:48079" placeholder="..." />
           </folding>
         </state>
       </provider>
