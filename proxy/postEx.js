@@ -281,6 +281,98 @@ exports.countByschool=function (school,create_at,callback) {
     ])
 
 }
+
+
+exports.countByAll=function (dates,callback) {
+    var query={};
+    var datasets=new  Array();
+    async.eachSeries(dates,function (item,callback) {
+            var data={}
+            async.series([
+                function (cb) {
+                    console.log('item'+item);
+                    query.type="confess";
+                    query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    PostEx.count(query, function (err,count){
+                        data.confess=count;
+                        console.log("所有的表白数量:"+data.confess)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="shudong";
+                    query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    PostEx.count(query, function (err,count){
+                        data.shudong=count;
+                        console.log("所有的树洞数量:"+data.shudong);
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="photo_guess";
+                    query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    PostEx.count(query, function (err,count){
+                        data.photo_guess=count;
+                        console.log("所有的缘分墙数量:"+data.photo_guess)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    console.log('item'+item);
+                    query.type="topic";
+                    query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    PostEx.count(query, function (err,count){
+                        data.topic=count;
+                        console.log("所有的话题数量:"+data.topic)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.display='false';
+                    query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    PostEx.count(query, function (err,count){
+                        data.delete=count;
+                        console.log("总共数量:"+data.total);
+                        delete query.display;
+                        cb();
+                    })
+                },
+                function (cb) {
+                    delete query.type;
+                    query.create_at={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    PostEx.count(query, function (err,count){
+                        data.total=count;
+                        console.log("总共数量:"+data.total);
+                        cb();
+                    })
+                },
+                function (cb) {
+                    //
+                    datasets.push(data);
+                    callback();
+                }
+            ],function (err) {
+                if(err){
+                    console.log(err);
+                }
+
+            })
+        },
+        function (err) {
+            if(err){
+                console.log(err);
+            }
+            console.log("==================最近"+dates.length+"天发布数量统计结束==================")
+            callback(err,datasets);
+        })
+}
+
 exports.countLastBySchool=function (school,dates,callback) {
     var query={};
     var datasets=new  Array();
