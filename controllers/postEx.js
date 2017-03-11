@@ -1027,7 +1027,7 @@ exports.result_topic = function (req, res, next) {
                     if (postex && (temp !== postex.content0)) {
                         temp = postex.content0;
                         //result += templete.replace(/###/g, "★"+index+":" + postex.content0);
-                        result += templete.replace(/###/g, "★’" + (postex.content1 || "佚名") + "‘某同学说：" + postex.content0);
+                        result += templete.replace(/###/g, "★’" + (postex.content6 || "佚名") + "‘某同学说：" + postex.content0);
                         index++;
                     }
                 });
@@ -1051,7 +1051,7 @@ exports.result_topic = function (req, res, next) {
                         var i = 0;
                         while (index < 20) {
                             var random = parseInt((postexs.length - 1) * Math.random());
-                            result += templete.replace(/###/g, "★‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★‘" + (postexs[random].content6 || "佚名") + "’同学说：" + postexs[random].content0);
                             //result += templete.replace(/###/g, "★"+index+":" + postexs[random].content0);
                             postexs.splice(random, 1);
                             index++;
@@ -1062,7 +1062,7 @@ exports.result_topic = function (req, res, next) {
                         while (number < extopiccount) {
                             var random = parseInt((postexs.length - 1) * Math.random());
 
-                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★来自【" + postexs[random].content6 + "】的‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
                             //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
 
                             postexs.splice(random, 1);
@@ -1092,7 +1092,7 @@ exports.result_topic = function (req, res, next) {
                         while (number < extopiccount) {
                             var random = parseInt((postexs.length - 1) * Math.random());
                             console.log(random);
-                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的’" + (postexs[random].content1 || "佚名") + "‘同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★来自【" + postexs[random].content6+ "】的’" + (postexs[random].content1 || "佚名") + "‘同学说：" + postexs[random].content0);
                             //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
 
                             postexs.splice(random, 1);
