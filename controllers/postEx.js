@@ -119,7 +119,7 @@ exports.create_topconfess = function (req, res, next) {
     if (photo_url) {
         var base64Data = photo_url.replace(/^data:image\/\w+;base64,/, "");
         var dataBuffer = new Buffer(base64Data, 'base64');
-        var dirctory = "./public/front/photo_guess/" + (new Date()).getFullYear() + ((new Date()).getMonth() + 1) + (new Date()).getDate() + "";
+        var dirctory = "./public/front/photo_guess";
         if (!fs.existsSync(dirctory)) {
             fs.mkdirSync(dirctory);
         }
