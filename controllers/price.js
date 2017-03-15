@@ -184,6 +184,12 @@ function getPriceExcel(req, res, next){
 	                sum += priceDic[item.school][0] * second_discount;
 	            }
 	        });
+
+	        //按照时间排序
+	        conf.rows.sort(function(a, b){
+	        	return new Date(a[6]) > new Date(b[6]);
+	        });
+
 	        if (discount != undefined && discount > 0 && discount <= 10){
 	            after_discount = Math.floor(sum * discount / 100) * 10;
 	            conf.rows.push([null, null, null, null, null, null,"折扣", discount]);
@@ -196,11 +202,6 @@ function getPriceExcel(req, res, next){
 	        }
 
 	        console.log("总价格为：" + after_discount);
-
-	        //按照时间排序
-	        conf.rows.sort(function(a, b){
-	        	return new Date(a[6]) > new Date(b[6]);
-	        });
 
 	        console.log(conf.rows);
 	        var excel = nodeExcel.execute(conf);

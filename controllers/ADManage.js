@@ -293,7 +293,12 @@ exports.listAD = function(req, res, next) {
     });
 
     ad.getAd(page * size, size, option, function(err, ads) {
-        //console.log(ads);
+
+        ads.forEach(function(ad){
+            ad.slot.sort(function(a, b){
+                return a.date <= b.date;
+            });
+        });
         proxy.emit('ads', ads);
     });
 
