@@ -293,7 +293,12 @@ exports.listAD = function(req, res, next) {
     });
 
     ad.getAd(page * size, size, option, function(err, ads) {
-        //console.log(ads);
+
+        ads.forEach(function(ad){
+            ad.slot.sort(function(a, b){
+                return a.date <= b.date;
+            });
+        });
         proxy.emit('ads', ads);
     });
 
@@ -313,14 +318,20 @@ exports.updateAD = function(req, res, next) {
         item.date = new Date(item.date);
     });
 
-    ad.update(p.id, p.name, slot, p.custom, p.discount,
-        p.price, p.sponsor, p.is_clear, p.remark,
-        function(err, data) {
-            console.log(err);
-            console.log("更改广告成功: " + data);
-            res.redirect('/back/school/listAD');
-            //console.log(data);
-        });
+    countPrice(slot, p.discount, function(result){
+        if(p.price == "" || p.price == undefined || p.price <0)
+            p.price = result.total;
+        
+        ad.update(p.id, p.name, slot, p.custom, p.discount,
+            p.price, p.sponsor, p.is_clear, p.remark,
+            function(err, data) {
+                console.log(err);
+                console.log("更改广告成功: " + data);
+                res.redirect('/back/school/listAD');
+                //console.log(data);
+            });
+    });
+    
 }
 
 exports.showUpdateAD = function(req, res, next) {

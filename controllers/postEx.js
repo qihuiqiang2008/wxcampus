@@ -119,7 +119,7 @@ exports.create_topconfess = function (req, res, next) {
     if (photo_url) {
         var base64Data = photo_url.replace(/^data:image\/\w+;base64,/, "");
         var dataBuffer = new Buffer(base64Data, 'base64');
-        var dirctory = "./public/front/photo_guess/" + (new Date()).getFullYear() + ((new Date()).getMonth() + 1) + (new Date()).getDate() + "";
+        var dirctory = "./public/front/photo_guess";
         if (!fs.existsSync(dirctory)) {
             fs.mkdirSync(dirctory);
         }
@@ -1026,8 +1026,8 @@ exports.result_topic = function (req, res, next) {
                 postexs.forEach(function (postex, i) {
                     if (postex && (temp !== postex.content0)) {
                         temp = postex.content0;
-                        result += templete.replace(/###/g, "★"+index+":" + postex.content0);
-                        //result += templete.replace(/###/g, "★’" + (postex.content1 || "佚名") + "‘某同学说：" + postex.content0);
+                        //result += templete.replace(/###/g, "★"+index+":" + postex.content0);
+                        result += templete.replace(/###/g, "★’" + (postex.content6 || "佚名") + "‘某同学说：" + postex.content0);
                         index++;
                     }
                 });
@@ -1051,8 +1051,8 @@ exports.result_topic = function (req, res, next) {
                         var i = 0;
                         while (index < 20) {
                             var random = parseInt((postexs.length - 1) * Math.random());
-                            //result += templete.replace(/###/g, "★‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
-                            result += templete.replace(/###/g, "★"+index+":" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★‘" + (postexs[random].content6 || "佚名") + "’同学说：" + postexs[random].content0);
+                            //result += templete.replace(/###/g, "★"+index+":" + postexs[random].content0);
                             postexs.splice(random, 1);
                             index++;
                             i++;
@@ -1060,10 +1060,12 @@ exports.result_topic = function (req, res, next) {
                         result += "<p><span style='color: rgb(247, 150, 70);'><strong>其他高校精彩回答</strong></span></p>";
                         var number = 0;
                         while (number < extopiccount) {
-                            var random = parseInt((postexs.length - 1) * Math.random());
+                            console.log("-======================"+postexs.length)
 
-                            //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的‘" + (postexs[random].content1 || "佚名") + "’同学说：" + postexs[random].content0);
-                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
+                            var random = parseInt((postexs.length - 1) * Math.random());
+                            console.log(random)
+                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的‘" + (postexs[random].content6|| "佚名") + "’同学说：" + postexs[random].content0);
+                            //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
 
                             postexs.splice(random, 1);
                             index++;
@@ -1092,8 +1094,8 @@ exports.result_topic = function (req, res, next) {
                         while (number < extopiccount) {
                             var random = parseInt((postexs.length - 1) * Math.random());
                             console.log(random);
-                            //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的’" + (postexs[random].content1 || "佚名") + "‘同学说：" + postexs[random].content0);
-                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
+                            result += templete.replace(/###/g, "★来自【" + postexs[random].content2+ "】的’" + (postexs[random].content6 || "佚名") + "‘同学说：" + postexs[random].content0);
+                            //result += templete.replace(/###/g, "★来自【" + postexs[random].content2 + "】的某同学说：" + postexs[random].content0);
 
                             postexs.splice(random, 1);
                             index++;
