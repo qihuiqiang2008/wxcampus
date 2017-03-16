@@ -176,7 +176,7 @@ module.exports = function (app) {
 
     //提交图片相关
     // app.get('/create/:from_school_en_name/:type',postEx.get_postExing_page);
-    app.get('/photo_guess/:region_code/:start/:end',PVManage.saveOrUpdate, photo_guess.index);
+    app.get('/photo_guess/:region_code/:start/:end', photo_guess.index);
     app.get('/create/:en_school/photo_guess',photo_guess.show_create);
 
 
@@ -312,7 +312,7 @@ module.exports = function (app) {
 
 
     //app.get('/create/:from_school_en_name',postEx.show_create_news);
-    app.get('/create/:from_school_en_name/:type',PVManage.saveOrUpdate,postEx.get_postExing_page);
+    app.get('/create/:from_school_en_name/:type',postEx.get_postExing_page);
     app.post('/postEx/create',postEx.handler_postEx);
     app.get('/back/postEx/index',postEx.index);
 
@@ -394,10 +394,10 @@ module.exports = function (app) {
     app.post('/back/record/saveArticle',record.saveArticle);
     app.get('/back/record/gotoSaveArticle',record.gotoSaveArticle);
     app.get('/back/record/getArticle',record.getArticle);
-    app.get('/back/record/getArticleCount',record.countArticle);
     app.get('/back/record/getPostsChart',record.getPostsChart);
     app.get('/back/record/getArticleChart',record.getArticleChart);
     app.get('/back/record/getPostsByDate',record.getPostsByDate);
+    app.get('/back/record/getReadNow',record.getReadNow);
 
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);
