@@ -69,7 +69,7 @@ exports.getPostsRecord = function (req, res, next) {
     console.log("begin:" + new Date(startDate));
     console.log("end:" + new Date(endDate));
 
-    School.getSchoolsByQuery(query, options, function (err, schools) {
+    School.getSchoolsByQuery(query,options, function (err, schools) {
         proxy.emit('schools', schools);
         console.log('学校数量：' + schools.length);
         async.eachSeries(schools,
@@ -361,10 +361,10 @@ exports.getArticle = function (req, res, next) {
         console.log('enddate2:'+endDate);
     }
     else {
-        query.date_time = {
+        /*query.date_time = {
             "$gt": +new Date(new Date()-24*60*60*1000),
             "$lt": new Date().setHours(23, 59, 0, 0)
-        }
+        }*/
     }
     if(school !=undefined&&school!=""){
         //endDate=new Date();
@@ -375,9 +375,12 @@ exports.getArticle = function (req, res, next) {
         skip: (page - 1) * limit,
         limit: limit,
         sort: [
-         ['fans','desc'],
+
             ['date_time','desc'],
-            ['positon','asc']
+            ['positon','asc'],
+            ['school','desc'],
+            ['fans','desc']
+
          ]
     };
     var view = 'back/record/articles';
