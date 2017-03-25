@@ -398,6 +398,7 @@ module.exports = function (app) {
     app.get('/back/record/getArticleChart',record.getArticleChart);
     app.get('/back/record/getPostsByDate',record.getPostsByDate);
     app.get('/back/record/getReadNow',record.getReadNow);
+    app.get('/back/record/getArticleByDate',record.getArticleByDate);
 
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);

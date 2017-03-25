@@ -400,12 +400,23 @@ exports.getArticle = function (req, res, next) {
     }));
 }
 
-exports.countArticle = function (res, req, next) {
-    //var url=res.query.url;
-    var url = "http://mp.weixin.qq.com/s/U-fHwe1S4ThgzAazORluiQ";
-    console.log("url:" + url);
-    sendHttpRequest("http://wxapi.51tools.info/wx/api.ashx?key=tp_591320673&ver=1", 'post', function (responseData) {
+exports.getReadNow = function (req, res,next) {
+    var url=unescape(req.query.url);
+    //var url = "http://mp.weixin.qq.com/s/U-fHwe1S4ThgzAazORluiQ";
+    console.log("url=" + url);
+    sendHttpRequest("http://wxapi.51tools.info/wx/api.ashx?key=tp_591320673&ver=1", 'post',url,function (responseData) {
         console.log(responseData);
+        var json=JSON.parse(responseData);
+        console.log(json.data.state)
+        if(json.data.state==0){
+            ArticleInfo.updateCount(json.data.url,json.data.readnums,json.data.zannums,function (err) {
+                if(err){
+                    console.log(err)
+                }
+            })
+            return res.json({success: true})
+        }
+        return res.json({success: false})
     });
 
 }
@@ -485,18 +496,48 @@ exports.getArticleChart=function (req, res, next) {
 
 }
 
-var sendHttpRequest = function (url, type, callback) {
-    var data = {url: "http://mp.weixin.qq.com/s?__biz=MzA4MzQ4NTQxNw==&mid=2652391675&idx=1&sn=dd347b621c2137721c0ebeadaae089d5&chksm=84195f7db36ed66b95019d1d1b9fe9afd1796b1106d04a72345f649a6ddb3dd179a8e1d1cbd6&scene=0#rd"};
+
+exports.getArticleByDate = function (req, res, next) {
+    //获取查询的开始时间和结束时间
+    var school=req.query.school;
+    var day=req.query.day;
+    var labels=new Array();
+    var dates=new Array();
+    if(day==undefined||day==null||day==0){
+        day=50;
+    }
+    for(var i=0;i<day;i++){
+        var today=new Date();
+        today.setDate(today.getDate()-i);
+        labels.push(today.getMonth()+1+"/"+today.getDate());
+        dates.push(today);
+    }
+
+
+    var proxy = EventProxy.create('datasets',
+        function (datasets) {
+            res.render('back/record/articles-all',{
+                datasets:datasets,
+                labels:labels,
+            })
+        });
+
+    proxy.fail(next);
+
+    ArticleInfo.sumByDate(dates,function (err,datasets) {
+        proxy.emit('datasets', datasets);
+    });
+};
+
+var sendHttpRequest = function (url, type, param,callback) {
+    console.log("param:"+param);
+    var data = {url:param+''};
     //data = JSON.stringify(data);
     var content = querystring.stringify(data, null, null, null);
-    console.log(content)
     var urlObj = urlutil.parse(url);
     var host = urlObj.hostname;
-    console.log("host:" + host)
     var path = urlObj.path;
-    console.log("host:" + path)
     var port = urlObj.port;
-    console.log("host:" + port)
 
     var options = {
         hostname: host,
@@ -522,6 +563,7 @@ var sendHttpRequest = function (url, type, callback) {
     req.write(content);
     req.end();
 };
+
 
 function escape2Html(str) {
     var arrEntities = {'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"'};

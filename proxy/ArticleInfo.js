@@ -257,3 +257,179 @@ exports.getLastByCondition=function (school,dates,callback) {
             callback(err,datasets);
         })
 }
+
+exports.sumByDate=function (dates,callback) {
+    console.log("============开始按照日期统计推文阅读情况============")
+    var query={};
+    var datasets=new  Array();
+    async.eachSeries(dates,function (item,callback) {
+            var data={}
+            async.series([
+                function (cb) {
+                    query.type="confess";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['fans','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].fans;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.fans=readSum;
+                        console.log("所有的粉丝数量:"+data.fans)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    console.log('item'+item);
+                    query.type="confess";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.confess_sum=readSum;
+                        data.confess_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的表白数量:"+data.confess_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="shudong";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.shudong_sum=readSum;
+                        data.shudong_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的树洞:"+data.shudong_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="photo_guess";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.photo_guess_sum=readSum;
+                        data.photo_guess_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的树洞:"+data.photo_guess_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="topic";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.topic_sum=readSum;
+                        data.topic_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的话题:"+data.topic_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="wanan";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.wanan_sum=readSum;
+                        data.wanan_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的晚安数量:"+data.wanan_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="other";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.other_sum=readSum;
+                        data.other_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的其他数量:"+data.other_sum)
+                        cb();
+                    })
+                },
+
+                function (cb) {
+                    delete query.type;
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.total_sum=readSum;
+                        data.total_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的数量:"+data.total_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    //
+                    datasets.push(data);
+                    callback();
+                }
+            ],function (err) {
+                if(err){
+                    console.log(err);
+                }
+            })
+        },
+        function (err) {
+            if(err){
+                console.log(err);
+            }
+            console.log("============按照日期统计推文阅读情况============")
+            callback(err,datasets);
+        })
+}
