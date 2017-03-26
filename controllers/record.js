@@ -403,26 +403,7 @@ exports.getArticle = function (req, res, next) {
     }));
 }
 
-exports.getReadNow = function (req, res,next) {
-    var url=unescape(req.query.url);
-    //var url = "http://mp.weixin.qq.com/s/U-fHwe1S4ThgzAazORluiQ";
-    console.log("url=" + url);
-    sendHttpRequest("http://wxapi.51tools.info/wx/api.ashx?key=tp_591320673&ver=1", 'post',url,function (responseData) {
-        console.log(responseData);
-        var json=JSON.parse(responseData);
-        console.log(json.data.state)
-        if(json.data.state==0){
-            ArticleInfo.updateCount(json.data.url,json.data.readnums,json.data.zannums,function (err) {
-                if(err){
-                    console.log(err)
-                }
-            })
-            return res.json({success: true})
-        }
-        return res.json({success: false})
-    });
 
-}
 
 exports.getPostsChart=function (req, res, next) {
     var school=req.query.school;
@@ -532,48 +513,26 @@ exports.getArticleByDate = function (req, res, next) {
     });
 };
 
-var sendHttpRequest = function (url, type, param,callback) {
-    console.log("param:"+param);
-    var data = {url:param+''};
-    //data = JSON.stringify(data);
-    var content = querystring.stringify(data, null, null, null);
-    var urlObj = urlutil.parse(url);
-    var host = urlObj.hostname;
-    var path = urlObj.path;
-    var port = urlObj.port;
+exports.warnAdvertRead = function (req, res, next) {
 
-    var options = {
-        hostname: host,
-        port: 80,
-        path: path,
-        method: type,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'Content-Length': Buffer.byteLength(content)
-        }
-    };
-    var body = '';
-    var req = http.request(options, function (res) {
-        console.log("response: " + res.statusCode);
-        res.on('data', function (data) {
-            body += data;
-        }).on('end', function () {
-            callback(body);
+    var today=new Date();
+    var yesterday=new Date();
+    yesterday.setDate(today.getDate()-1);
+
+    /*var proxy = EventProxy.create('datasets',
+        function (datasets) {
+            res.render('back/record/articles-all',{
+                datasets:datasets,
+                labels:labels,
+            })
         });
-    }).on('error', function (e) {
-        console.log("error: " + e.message);
-    })
-    req.write(content);
-    req.end();
-};
 
+    proxy.fail(next);*/
 
-function escape2Html(str) {
-    var arrEntities = {'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"'};
-    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
-        return arrEntities[t];
+    ArticleInfo.getAdvertByData(yesterday,function (err,datasets) {
+        proxy.emit('datasets', datasets);
     });
-}
+};
 
 function getDateYMD(date) {
 

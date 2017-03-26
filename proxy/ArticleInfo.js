@@ -3,6 +3,8 @@
  */
 var EventProxy = require('eventproxy');
 var ArticleInfo = require('../models').ArticleInfo;
+var ReadUtils=require('../wx_helpers/read_num')
+var smsUtils=require('../wx_helpers/smsUtils')
 
 exports.newAndSave = function (url, date_time, positon, type, school, title,callback) {
     var article = new ArticleInfo();
@@ -432,4 +434,81 @@ exports.sumByDate=function (dates,callback) {
             console.log("============按照日期统计推文阅读情况============")
             callback(err,datasets);
         })
+}
+
+exports.getAdvertByData=function (data,callback) {
+    console.log("there is proxy.Article.getAdvertByData")
+    var query={}
+    query.type="advert";
+    query.date_time={ "$gt": data.setHours(0, 0, 0, 0),
+        "$lt": data.setHours(23, 59, 0, 0)};
+    console.log("时间："+data)
+    ArticleInfo.find(query,['_id','url','title','fans','school_cn_name'],function (err,articles) {
+        var readSum = 0, likeSum = 0;
+        var adInfo={}
+        var adArrArray=[]
+        if (articles) {
+            console.log("articles.length="+articles.length)
+            async.series([
+                function (cb) {
+                    async.eachSeries(articles,function(ad,cb) {
+                        ReadUtils.getReadNow(ad.url,function (err,data) {
+                            console.log("data"+data)
+                            if(err||!data){
+                                console.log(err);
+                                cb();
+                            }
+                            else{
+                                ad.read_num=data.readnums;
+                                ad.like_num=data.zannums;
+                                adInfo=ad;
+                                ArticleInfo.update({'_id':ad._id},{'read_num':ad.read_num,'like_num':ad.like_num},{},function (err) {
+                                    if(err){
+                                        console.log(err);
+                                    }
+                                })
+                                adInfo.expect=Math.ceil(ad.fans*0.07) ;
+                                adArrArray.push(adInfo);
+                                console.log("广告:"+adInfo.school_cn_name+','+adInfo.title+','+adInfo.read_num+','+adInfo.expect)
+                                cb();
+                            }
+                        })
+                    },function (err) {
+                        if(err){
+                            console.log(err)
+                        }
+                        else {
+                            console.log("===============统计结束===============")
+                            cb();
+                        }
+                    })
+
+                },
+                function (cb) {
+                    adArrArray.every(function (ad,index) {
+                        if(ad.expect<ad.read_num){
+                            console.log("============有异常数据，发送预警信息============")
+                            smsUtils.sendSms("广告数据异常请查看",'13716761631',function (err) {
+                                if(err){
+                                    console.log(err);
+                                }
+                                else {
+                                    console.log("预警信息发送成功")
+                                }
+                            })
+                            return false;
+                        }
+                    })
+                    cb()
+                }
+
+            ],function (err) {
+                if(err){
+                    console.log(err);
+                }
+                console.log("=================广告阅读量统计预警任务结束=================")
+            })
+
+        }
+    })
 }
