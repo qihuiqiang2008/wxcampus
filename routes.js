@@ -400,6 +400,8 @@ module.exports = function (app) {
     //app.get('/back/record/getReadNow',record.getReadNow);
     app.get('/back/record/getArticleByDate',record.getArticleByDate);
     app.get('/back/record/warnAdvertRead',record.warnAdvertRead);
+    app.get('/back/record/saveArticleSchedule',record.saveArticleSchedule);
+
 
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);

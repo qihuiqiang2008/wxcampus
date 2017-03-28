@@ -34,7 +34,11 @@ module.exports = function(wxAccount, fn) {
 //                console.log(s);
 //            }
             if(res.body.redirect_url) {
-               token = res.body.redirect_url.match(/token=(\d+)/)[1];
+                try{
+                    token = res.body.redirect_url.match(/token=(\d+)/)[1];
+                }catch (e){
+                    console.log(e);
+                }
             } else {
                 for (property in res) {
                     s = property + ": " + res[property] + "\n";

@@ -228,7 +228,7 @@ exports.saveArticle = function (req, res, next) {
             },
 
             function (cb) { //1.1：登陆。
-
+                try {
                     login(schoolEx, function (err, results) {
                         if(err){
                             console.log(school_en_name+"登录失败");
@@ -238,6 +238,12 @@ exports.saveArticle = function (req, res, next) {
                         console.log(school_en_name+"登录成功");
                         cb();
                     });
+                }
+                catch (e){
+                    console.log(e);
+                }
+
+
             },
 
             function (cb) {
@@ -520,18 +526,40 @@ exports.warnAdvertRead = function (req, res, next) {
     yesterday.setDate(today.getDate()-1);
 
     /*var proxy = EventProxy.create('datasets',
-        function (datasets) {
-            res.render('back/record/articles-all',{
-                datasets:datasets,
-                labels:labels,
-            })
-        });
+     function (datasets) {
+     res.render('back/record/articles-all',{
+     datasets:datasets,
+     labels:labels,
+     })
+     });
 
-    proxy.fail(next);*/
+     proxy.fail(next);*/
 
     ArticleInfo.getAdvertByData(yesterday,function (err,datasets) {
         proxy.emit('datasets', datasets);
     });
+};
+
+exports.saveArticleSchedule = function (req, res, next) {
+    console.log('================定时任务[获取推送阅读量]开始执行================');
+    SchoolEx.getSchoolExsByQueryAndField({}, 'en_name', {}, function (err, schoolexs) {
+        if(schoolexs){
+            schoolexs.forEach(function (school,index) {
+                console.log("en_name:"+school.en_name)
+                var data=JSON.stringify({"en_name":school.en_name})
+                request.post('http://localhost:8080/back/record/saveArticle')
+                    .set('Content-Type', 'application/json')
+                    .send(data)
+                    .end(function (err,res) {
+                        if(err){
+                            console.log(err);
+                        }
+                        //console.log(res)
+                    })
+            })
+        }
+    });
+    console.log('================定时任务[获取推送阅读量]执行结束================');
 };
 
 function getDateYMD(date) {
@@ -543,6 +571,14 @@ function getDateYMD(date) {
     else {
         return date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate();
     }
+}
+
+
+function escape2Html(str) {
+    var arrEntities = {'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"'};
+    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
+        return arrEntities[t];
+    });
 }
 
 function getArticleType(title) {
