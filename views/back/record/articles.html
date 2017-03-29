@@ -6,9 +6,9 @@
     }
 </style>
 <div id="content">
-<div id="content-header">
-    <h1>推送文章</h1>
-</div>
+    <div id="content-header">
+        <h1>推文统计分析[按学校]<a href="/back/record/getArticleByDate">[按时间]</a></h1>
+    </div>
 
 <div class="container-fluid">
 <div class="row-fluid">
@@ -18,10 +18,7 @@
                                 <span class="icon">
                                     <i class="icon-th"></i>
                                 </span>
-    <h5>推送文章</h5>
-    <div class="control-group" style="float:right; margin-top:5px">
-        <div class="controls">
-            <div class="select2-drop select2-with-searchbox select2-offscreen"
+    <div class="control-group" style="float:right; marht2-drop select2-with-searchbox select2-offscreen"
                  style="display: block;">
                 <div class="select2-search"><input type="text" autocomplete="off" class="select2-input" tabindex="0"></div>
                 <ul class="select2-results"></ul>
@@ -103,7 +100,14 @@
                 <a href='<%=article.url%>' target="_blank">[查看]</a>
             </td>
             <td><a href="/back/record/getArticleChart?school=<%=article.school%>" target="_blank">[曲线图]</a></td>
-            <td><a href='##'>[获取实时数据]</a></td>
+            <td>
+                <%
+                    var url= encodeURIComponent(encodeURIComponent(article.url))
+                    console.log('url：'+url)
+                    var href='/back/record/getReadNow?url='+url
+                %>
+                <a href='<%=href%>' onclick="handleGetReadNow(this);return false;">
+                    [实时阅读量]</a></td>
             <%}%>
         </tr>
         <% }) %>
@@ -184,5 +188,41 @@
         }*/
         window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
     });
+
+    handleGetReadNow=function (e) {
+        alert(e.href);
+        $.ajax({
+            'url': e.href,
+            'type': 'get',
+            'dataType': 'json',
+            success: function (json, st) {
+                console.log('json'+json.success);
+                if (json.success) {
+                    /*obj.removeAttr("disabled");
+                    obj.text("生成成功");
+                    i++;
+                    $("#info").text("---------生成成功"+i);*/
+                    e.innerHTML="1";
+                    alert("成功")
+                } else {
+                    console.log(json.msg)
+                }
+            },
+            beforeSend: function (xhr, textStatus) {
+
+            },
+            error: function (xhr) {
+                if (xhr.status != 403) {
+                    alert("出现异常，请刷新后重试");
+                }
+            },
+            complete: function (xhr, textStatus) {
+                if (xhr.status == 403) {
+                    alert("没有权限");
+                }
+            }
+        });
+
+    }
 
 </script>

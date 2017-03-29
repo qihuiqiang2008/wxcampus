@@ -3,6 +3,8 @@
  */
 var EventProxy = require('eventproxy');
 var ArticleInfo = require('../models').ArticleInfo;
+var ReadUtils=require('../wx_helpers/read_num')
+var smsUtils=require('../wx_helpers/smsUtils')
 
 exports.newAndSave = function (url, date_time, positon, type, school, title,callback) {
     var article = new ArticleInfo();
@@ -256,4 +258,257 @@ exports.getLastByCondition=function (school,dates,callback) {
             console.log("==================最近"+dates.length+"天发布数量统计结束==================")
             callback(err,datasets);
         })
+}
+
+exports.sumByDate=function (dates,callback) {
+    console.log("============开始按照日期统计推文阅读情况============")
+    var query={};
+    var datasets=new  Array();
+    async.eachSeries(dates,function (item,callback) {
+            var data={}
+            async.series([
+                function (cb) {
+                    query.type="confess";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['fans','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].fans;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.fans=readSum;
+                        console.log("所有的粉丝数量:"+data.fans)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    console.log('item'+item);
+                    query.type="confess";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.confess_sum=readSum;
+                        data.confess_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的表白数量:"+data.confess_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="shudong";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.shudong_sum=readSum;
+                        data.shudong_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的树洞:"+data.shudong_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="photo_guess";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.photo_guess_sum=readSum;
+                        data.photo_guess_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的树洞:"+data.photo_guess_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="topic";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.topic_sum=readSum;
+                        data.topic_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的话题:"+data.topic_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="wanan";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.wanan_sum=readSum;
+                        data.wanan_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的晚安数量:"+data.wanan_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    query.type="other";
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.other_sum=readSum;
+                        data.other_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的其他数量:"+data.other_sum)
+                        cb();
+                    })
+                },
+
+                function (cb) {
+                    delete query.type;
+                    query.date_time={ "$gt": item.setHours(0, 0, 0, 0),
+                        "$lt": item.setHours(23, 59, 0, 0)};
+                    ArticleInfo.find(query,['read_num','like_num'],function (err,articles){
+                        console.log("articles的数量+"+articles.length)
+                        var readSum=0,likeSum=0;
+                        if(articles){
+                            for(var i=0;i<articles.length;i++){
+                                readSum=readSum+articles[i].read_num;
+                                likeSum=likeSum+articles[i].like_num;
+                            }
+                        }
+                        data.total_sum=readSum;
+                        data.total_per=Math.floor(readSum/data.fans* 100*100) / 100;
+                        console.log("所有的数量:"+data.total_sum)
+                        cb();
+                    })
+                },
+                function (cb) {
+                    //
+                    datasets.push(data);
+                    callback();
+                }
+            ],function (err) {
+                if(err){
+                    console.log(err);
+                }
+            })
+        },
+        function (err) {
+            if(err){
+                console.log(err);
+            }
+            console.log("============按照日期统计推文阅读情况============")
+            callback(err,datasets);
+        })
+}
+
+exports.getAdvertByData=function (data,callback) {
+    console.log("there is proxy.Article.getAdvertByData")
+    var query={}
+    query.type="advert";
+    query.date_time={ "$gt": data.setHours(0, 0, 0, 0),
+        "$lt": data.setHours(23, 59, 0, 0)};
+    console.log("时间："+data)
+    ArticleInfo.find(query,['_id','url','title','fans','school_cn_name'],function (err,articles) {
+        var readSum = 0, likeSum = 0;
+        var adInfo={}
+        var adArrArray=[]
+        if (articles) {
+            console.log("articles.length="+articles.length)
+            async.series([
+                function (cb) {
+                    async.eachSeries(articles,function(ad,cb) {
+                        ReadUtils.getReadNow(ad.url,function (err,data) {
+                            console.log("data"+data)
+                            if(err||!data){
+                                console.log(err);
+                                cb();
+                            }
+                            else{
+                                ad.read_num=data.readnums;
+                                ad.like_num=data.zannums;
+                                adInfo=ad;
+                                ArticleInfo.update({'_id':ad._id},{'read_num':ad.read_num,'like_num':ad.like_num},{},function (err) {
+                                    if(err){
+                                        console.log(err);
+                                    }
+                                })
+                                adInfo.expect=Math.ceil(ad.fans*0.07) ;
+                                adArrArray.push(adInfo);
+                                console.log("广告:"+adInfo.school_cn_name+','+adInfo.title+','+adInfo.read_num+','+adInfo.expect)
+                                cb();
+                            }
+                        })
+                    },function (err) {
+                        if(err){
+                            console.log(err)
+                        }
+                        else {
+                            console.log("===============统计结束===============")
+                            cb();
+                        }
+                    })
+
+                },
+                function (cb) {
+                    adArrArray.every(function (ad,index) {
+                        if(ad.expect<ad.read_num){
+                            console.log("============有异常数据，发送预警信息============")
+                            smsUtils.sendSms("广告数据异常请查看",'13716761631',function (err) {
+                                if(err){
+                                    console.log(err);
+                                }
+                                else {
+                                    console.log("预警信息发送成功")
+                                }
+                            })
+                            return false;
+                        }
+                    })
+                    cb()
+                }
+
+            ],function (err) {
+                if(err){
+                    console.log(err);
+                }
+                console.log("=================广告阅读量统计预警任务结束=================")
+            })
+
+        }
+    })
 }

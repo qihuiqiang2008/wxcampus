@@ -40,7 +40,10 @@
     "superagent": "0.18.2",
     "utility": "0.0.x",
     "validator": "0.3.7",
-    "xss": "~0.0.9"
+    "xss": "~0.0.9",
+    "topSdk":"1.1.2",
+    "node-schedule":"1.2.1"
+
   },
   "devDependencies": {
     "jscover": "*",

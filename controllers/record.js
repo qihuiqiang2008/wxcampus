@@ -69,7 +69,7 @@ exports.getPostsRecord = function (req, res, next) {
     console.log("begin:" + new Date(startDate));
     console.log("end:" + new Date(endDate));
 
-    School.getSchoolsByQuery(query, options, function (err, schools) {
+    School.getSchoolsByQuery(query,options, function (err, schools) {
         proxy.emit('schools', schools);
         console.log('学校数量：' + schools.length);
         async.eachSeries(schools,
@@ -228,7 +228,7 @@ exports.saveArticle = function (req, res, next) {
             },
 
             function (cb) { //1.1：登陆。
-
+                try {
                     login(schoolEx, function (err, results) {
                         if(err){
                             console.log(school_en_name+"登录失败");
@@ -238,6 +238,12 @@ exports.saveArticle = function (req, res, next) {
                         console.log(school_en_name+"登录成功");
                         cb();
                     });
+                }
+                catch (e){
+                    console.log(e);
+                }
+
+
             },
 
             function (cb) {
@@ -361,10 +367,10 @@ exports.getArticle = function (req, res, next) {
         console.log('enddate2:'+endDate);
     }
     else {
-        query.date_time = {
+        /*query.date_time = {
             "$gt": +new Date(new Date()-24*60*60*1000),
             "$lt": new Date().setHours(23, 59, 0, 0)
-        }
+        }*/
     }
     if(school !=undefined&&school!=""){
         //endDate=new Date();
@@ -375,9 +381,12 @@ exports.getArticle = function (req, res, next) {
         skip: (page - 1) * limit,
         limit: limit,
         sort: [
-         ['fans','desc'],
+
             ['date_time','desc'],
-            ['positon','asc']
+            ['positon','asc'],
+            ['school','desc'],
+            ['fans','desc']
+
          ]
     };
     var view = 'back/record/articles';
@@ -400,15 +409,7 @@ exports.getArticle = function (req, res, next) {
     }));
 }
 
-exports.countArticle = function (res, req, next) {
-    //var url=res.query.url;
-    var url = "http://mp.weixin.qq.com/s/U-fHwe1S4ThgzAazORluiQ";
-    console.log("url:" + url);
-    sendHttpRequest("http://wxapi.51tools.info/wx/api.ashx?key=tp_591320673&ver=1", 'post', function (responseData) {
-        console.log(responseData);
-    });
 
-}
 
 exports.getPostsChart=function (req, res, next) {
     var school=req.query.school;
@@ -485,50 +486,81 @@ exports.getArticleChart=function (req, res, next) {
 
 }
 
-var sendHttpRequest = function (url, type, callback) {
-    var data = {url: "http://mp.weixin.qq.com/s?__biz=MzA4MzQ4NTQxNw==&mid=2652391675&idx=1&sn=dd347b621c2137721c0ebeadaae089d5&chksm=84195f7db36ed66b95019d1d1b9fe9afd1796b1106d04a72345f649a6ddb3dd179a8e1d1cbd6&scene=0#rd"};
-    //data = JSON.stringify(data);
-    var content = querystring.stringify(data, null, null, null);
-    console.log(content)
-    var urlObj = urlutil.parse(url);
-    var host = urlObj.hostname;
-    console.log("host:" + host)
-    var path = urlObj.path;
-    console.log("host:" + path)
-    var port = urlObj.port;
-    console.log("host:" + port)
 
-    var options = {
-        hostname: host,
-        port: 80,
-        path: path,
-        method: type,
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'Content-Length': Buffer.byteLength(content)
-        }
-    };
-    var body = '';
-    var req = http.request(options, function (res) {
-        console.log("response: " + res.statusCode);
-        res.on('data', function (data) {
-            body += data;
-        }).on('end', function () {
-            callback(body);
+exports.getArticleByDate = function (req, res, next) {
+    //获取查询的开始时间和结束时间
+    var school=req.query.school;
+    var day=req.query.day;
+    var labels=new Array();
+    var dates=new Array();
+    if(day==undefined||day==null||day==0){
+        day=50;
+    }
+    for(var i=0;i<day;i++){
+        var today=new Date();
+        today.setDate(today.getDate()-i);
+        labels.push(today.getMonth()+1+"/"+today.getDate());
+        dates.push(today);
+    }
+
+
+    var proxy = EventProxy.create('datasets',
+        function (datasets) {
+            res.render('back/record/articles-all',{
+                datasets:datasets,
+                labels:labels,
+            })
         });
-    }).on('error', function (e) {
-        console.log("error: " + e.message);
-    })
-    req.write(content);
-    req.end();
+
+    proxy.fail(next);
+
+    ArticleInfo.sumByDate(dates,function (err,datasets) {
+        proxy.emit('datasets', datasets);
+    });
 };
 
-function escape2Html(str) {
-    var arrEntities = {'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"'};
-    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
-        return arrEntities[t];
+exports.warnAdvertRead = function (req, res, next) {
+
+    var today=new Date();
+    var yesterday=new Date();
+    yesterday.setDate(today.getDate()-1);
+
+    /*var proxy = EventProxy.create('datasets',
+     function (datasets) {
+     res.render('back/record/articles-all',{
+     datasets:datasets,
+     labels:labels,
+     })
+     });
+
+     proxy.fail(next);*/
+
+    ArticleInfo.getAdvertByData(yesterday,function (err,datasets) {
+        proxy.emit('datasets', datasets);
     });
-}
+};
+
+exports.saveArticleSchedule = function (req, res, next) {
+    console.log('================定时任务[获取推送阅读量]开始执行================');
+    SchoolEx.getSchoolExsByQueryAndField({}, 'en_name', {}, function (err, schoolexs) {
+        if(schoolexs){
+            schoolexs.forEach(function (school,index) {
+                console.log("en_name:"+school.en_name)
+                var data=JSON.stringify({"en_name":school.en_name})
+                request.post('http://localhost:8080/back/record/saveArticle')
+                    .set('Content-Type', 'application/json')
+                    .send(data)
+                    .end(function (err,res) {
+                        if(err){
+                            console.log(err);
+                        }
+                        //console.log(res)
+                    })
+            })
+        }
+    });
+    console.log('================定时任务[获取推送阅读量]执行结束================');
+};
 
 function getDateYMD(date) {
 
@@ -539,6 +571,14 @@ function getDateYMD(date) {
     else {
         return date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate();
     }
+}
+
+
+function escape2Html(str) {
+    var arrEntities = {'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"'};
+    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) {
+        return arrEntities[t];
+    });
 }
 
 function getArticleType(title) {

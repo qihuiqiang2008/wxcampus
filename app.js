@@ -16,6 +16,8 @@ var compress = require('compression');
 var bodyParser = require('body-parser');
 var staticDir = path.join(__dirname, 'public');
 var assets = {};
+var schedule = require("node-schedule");
+var recordSchedule=require('./schedule/record')
 if (config.mini_assets) {
     try {
         assets = require('./assets.json');
@@ -91,6 +93,16 @@ app.use(function (req, res, next) {
 routes(app);
 
 app.listen(config.port, function () {
+    /*function scheduleCronstyle(){
+     schedule.scheduleJob('30 * * * * ?', function(){
+     console.log('scheduleCronstyle:' + new Date());
+     });
+     }
+     scheduleCronstyle();*/
+    //定时任务
+    recordSchedule.advertWarn;
+    recordSchedule.saveArticle;
+   
     console.log("NodeClub listening on port %d in %s mode", config.port, app.settings.env);
     console.log("God bless love....");
     console.log("You can debug your app with http://" + config.hostname + ':' + config.port);
