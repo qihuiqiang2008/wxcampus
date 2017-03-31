@@ -488,7 +488,7 @@ exports.getAdvertByData=function (data,callback) {
                     adArrArray.every(function (ad,index) {
                         if(ad.expect<ad.read_num){
                             console.log("============有异常数据，发送预警信息============")
-                            smsUtils.sendSms("广告数据异常请查看",'13716761631',function (err) {
+                            smsUtils.sendSms("广告数据异常请查看",smsUtils.phone,function (err) {
                                 if(err){
                                     console.log(err);
                                 }
