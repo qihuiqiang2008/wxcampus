@@ -9,29 +9,29 @@ const SAVE_ARTICLE_URL="http://wx.welife001.com/back/record/saveArticle"
 const SAVE_ARTICLE_URL_DEV="http://localhost:8080/back/record/saveArticle"
 
 /**定时任务统计广告阅读量 推送预警短信**/
-var advertWarn = schedule.scheduleJob('10 23 * * *', function(){
-    console.log('================定时任务[统计广告阅读量，并推送预警短信]开始执行================');
+var advertWarn = schedule.scheduleJob('10 7 * * *', function(){
     var today=new Date();
     var yesterday=new Date();
+    console.log('================定时任务[统计广告阅读量，并推送预警短信]开始执行================：'+today);
     yesterday.setDate(today.getDate()-1);
     ArticleInfo.getAdvertByData(yesterday,function (err,datasets) {
        if(err){
            console.log(err);
        }
-        else {
+       else {
            console.log('================定时任务[统计广告阅读量，并推送预警短信]执行结束================');
        }
     });
 });
 
-var saveArticle = schedule.scheduleJob('* 23 * * *', function(){
+var saveArticle = schedule.scheduleJob('55 23 * * *', function(){
     console.log('================定时任务[获取推送阅读量]开始执行================');
     SchoolEx.getSchoolExsByQueryAndField({}, 'en_name', {}, function (err, schoolexs) {
         if(schoolexs){
             schoolexs.forEach(function (school,index) {
                 console.log("en_name:"+school.en_name)
                 var data=JSON.stringify({"en_name":school.en_name})
-                request.post(SAVE_ARTICLE_URL)
+                request.post(SAVE_ARTICLE_URL_DEV)
                     .set('Content-Type', 'application/json')
                     .send(data)
                     .end(function (err,res) {
@@ -44,7 +44,6 @@ var saveArticle = schedule.scheduleJob('* 23 * * *', function(){
         }
     });
     console.log('================定时任务[获取推送阅读量]执行结束================');
-
 });
 
 exports.advertWarn=advertWarn;
