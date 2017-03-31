@@ -168,7 +168,10 @@
 
             <%}%>
             <%}else{%>
+
             <th>昵称</th>
+            <th>通过</th>
+
             <th>选为公共</th>
             <th width="50px">删除</th>
             <%}%>
@@ -312,7 +315,14 @@
             <%}%>
             <%}else{%>
             <td><%=postEx.content6%></td>
-
+            <td>
+                <form class="form-inline" role="form">
+                    <div class="form-group"><a href="javascript:void(0)"
+                                               class="btn btn-success btn-lg" role="button"
+                                               onclick="handler('<%=postEx._id%>','pass',this)">通过</a>
+                    </div>
+                </form>
+            </td>
             <td>
                 <form class="form-inline" role="form">
                     <div class="form-group"><a href="javascript:void(0)"
