@@ -121,7 +121,7 @@
 
 <div class='pagination' current_page='<%= current_page %>'>
     <ul>
-        <% var base='/back/record/getArticle'%>
+        <% var base='/back/record/getAdverts'%>
         <% var base_url = base + (base.indexOf('?') < 0 ? '?' : '&') + 'page='; %>
         <% if (current_page == 1) { %>
         <li class='disabled'><a>«</a></li>
@@ -178,7 +178,7 @@
             alert('请选择正确的时间');
             return;
         }
-        window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
+        window.location.href = "/back/record/getAdverts?endDate=" + endDate+"&school="+school;
     });
 
     $("#queryBtn").click(function(){
@@ -189,7 +189,7 @@
             alert('请输入学校名称');
             return;
         }*/
-        window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
+        window.location.href = "/back/record/getAdverts?endDate=" + endDate+"&school="+school;
     });
 
     $(".result").click(function(){
