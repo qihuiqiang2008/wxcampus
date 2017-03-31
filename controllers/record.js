@@ -561,6 +561,74 @@ exports.saveArticleSchedule = function (req, res, next) {
     });
     console.log('================定时任务[获取推送阅读量]执行结束================');
 };
+exports.getAdverts = function (req, res, next) {
+    var page = parseInt(req.query.page, 10) || 1;
+    page = page > 0 ? page : 1;
+    var limit = 200;
+    var endDate=req.query.endDate;
+    var school=req.query.school;
+    var query = {};
+    console.log('school:'+school);
+    if(endDate !=undefined&&endDate!=""){
+        //endDate=new Date();
+        query.date_time = {
+            "$gt": new Date(new Date(endDate)).setHours(0, 0, 0, 0),
+            "$lt": new Date(endDate).setHours(23, 59, 0, 0)
+        }
+        console.log('enddate2:'+endDate);
+    }
+    else {
+
+    }
+    if(school !=undefined&&school!=""){
+        query.school_cn_name = school;
+        console.log('enddate2:'+endDate);
+    }
+    var options = {
+        skip: (page - 1) * limit,
+        limit: limit,
+        sort: [
+            ['date_time','desc'],
+            ['positon','asc'],
+            ['school','desc'],
+            ['fans','desc']
+
+        ]
+    };
+    var view = 'back/record/adverts.html';
+
+    var proxy = EventProxy.create('articles', 'pages',
+        function (articles, pages, TodayResourceCount, regions, ads) {
+            res.render(view, {
+                articles: articles,
+                pages: pages,
+                current_page: page,
+            });
+        });
+
+
+    proxy.fail(next);
+    query.type='advert';
+    ArticleInfo.getArticlesByQuery(query, options, proxy.done("articles"));
+    ArticleInfo.countByQuery(query, proxy.done(function (err, all_count) {
+        var pages = Math.ceil(all_count / limit);
+        proxy.emit('pages', pages);
+    }));
+}
+exports.getReadNow = function (req, res, next) {
+    var url=unescape(req.body.url);
+    console.log(url)
+    ArticleInfo.updateAdvertByUrl(url,function (err,ad) {
+        if(err){
+            console.log(err);
+            return res.json({success: false});
+        }
+        else{
+            console.log("ad:"+ad.like_num+","+ad.read_num);
+            return res.json({success: true,data:ad});
+        }
+    })
+}
 
 function getDateYMD(date) {
 

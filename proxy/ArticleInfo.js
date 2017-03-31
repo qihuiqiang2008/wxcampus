@@ -486,7 +486,7 @@ exports.getAdvertByData=function (data,callback) {
                 },
                 function (cb) {
                     adArrArray.every(function (ad,index) {
-                        if(ad.expect<ad.read_num){
+                        if(ad.expect<ad.read_num&&ad.read_num>0){
                             console.log("============有异常数据，发送预警信息============")
                             smsUtils.sendSms("广告数据异常请查看",smsUtils.phone,function (err) {
                                 if(err){
@@ -509,6 +509,40 @@ exports.getAdvertByData=function (data,callback) {
                 console.log("=================广告阅读量统计预警任务结束=================")
             })
 
+        }
+    })
+}
+exports.updateAdvertByUrl=function (url,callback) {
+    console.log("there is proxy.Article.updateAdvertByUrl")
+    var query={}
+    query.type="advert";
+    query.url=url;
+    var ad={}
+    ArticleInfo.findOne(query,['_id','url'],function (err,article) {
+        if (article) {
+            console.log("articles.url=" + article.url)
+
+            ReadUtils.getReadNow(article.url, function (err, data) {
+                console.log("data" + data)
+                if (err || !data) {
+                    console.log(err);
+                }
+                else {
+                    ad.read_num = data.readnums;
+                    ad.like_num = data.zannums;
+                    ArticleInfo.update({'_id': ad._id}, {
+                        'read_num': ad.read_num,
+                        'like_num': ad.like_num
+                    }, {}, function (err) {
+                        if (err) {
+                            console.log(err);
+                            callback(err,null);
+                        }
+                        callback(null,ad);
+                    })
+                }
+
+            })
         }
     })
 }

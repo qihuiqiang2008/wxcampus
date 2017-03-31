@@ -397,11 +397,11 @@ module.exports = function (app) {
     app.get('/back/record/getPostsChart',record.getPostsChart);
     app.get('/back/record/getArticleChart',record.getArticleChart);
     app.get('/back/record/getPostsByDate',record.getPostsByDate);
-    //app.get('/back/record/getReadNow',record.getReadNow);
+    app.post('/back/record/getReadNow',record.getReadNow);
     app.get('/back/record/getArticleByDate',record.getArticleByDate);
     app.get('/back/record/warnAdvertRead',record.warnAdvertRead);
     app.get('/back/record/saveArticleSchedule',record.saveArticleSchedule);
-
+    app.get('/back/record/getAdverts',record.getAdverts);
 
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);

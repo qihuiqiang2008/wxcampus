@@ -1,0 +1,239 @@
+<%- include ../partial/header %>
+<style>
+    .widget-title .buttons {
+        float: right;
+        margin: 8px 1px 0 0;
+    }
+</style>
+<div id="content">
+    <div id="content-header">
+        <h1>广告阅读量</a></h1>
+    </div>
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<div class="widget-box">
+<div class="widget-title">
+                                <span class="icon">
+                                    <i class="icon-th"></i>
+                                </span>
+    <div class="control-group" style="float:right; marht2-drop select2-with-searchbox select2-offscreen"
+                 style="display: block;">
+                <div class="select2-search"><input type="text" autocomplete="off" class="select2-input" tabindex="0"></div>
+                <ul class="select2-results"></ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span>
+            <span>
+       <input type="text" id="endDate" class="datepicker" placeholder="请选择开始日期" />
+       </span>
+       </span>
+
+        <span>
+            <span>
+       <input type="text" id="school" placeholder="输入学校中文名称" />
+       <button class="btn btn-mini" id="queryBtn">确定</button>
+       </span>
+       </span>
+
+
+        <span style="padding-left: 20px"><button class="btn btn-mini" id="countBtn">获取最近阅读数量</button></span>
+    </div>
+</div>
+<div class="widget-content nopadding">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>学校</th>
+            <th>enname</th>
+            <th>标题</th>
+            <th>位置</th>
+            <th>阅读量</th>
+            <th>阅读率</th>
+            <th>点赞量</th>
+            <th>推送时间</th>
+            <th>链接</th>
+            <th>状态</th>
+            <th>获取实时阅读量</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% articles.forEach(function(article,index) { %>
+        <tr>
+
+            <% if (true) {%>
+            <td style=" text-align: center;"><span style="font-size:10px"><%=article.school_cn_name%></span>
+            </td>
+            <td style=" text-align: center;"><%=article.school%></td>
+            <td style="width: 600px">
+               <%=article.title%>
+            </td>
+            <td>
+                <%
+                var position=['头条','次条','三条','四条','五条','六条'];
+                var text=position[article.positon]; %>
+                <p><%=text%></p>
+            </td>
+            <td id="<%=article.school%>_read_num">
+                <%=article.read_num%>
+            </td>
+            <td>
+                <%
+                var text=((article.read_num/article.fans)*100).toFixed(2)  %>
+                <%=text%>%
+            </td>
+            <td>
+                <%=article.like_num%>
+            </td>
+            <td>
+                <%
+                var text=article.date_time.getFullYear() + "/" + (article.date_time.getMonth()+1) + "/" + article.date_time.getDate()%>
+                <%=text%>
+            </td>
+            <td>
+                <a href='<%=article.url%>' target="_blank">[查看]</a>
+            </td>
+            <td style=" text-align: center;">
+                <%
+                if(((article.read_num/article.fans)*100).toFixed(2)<8){
+                %>
+                <p style="color: red">异常</p>
+                <%}
+                else {%>
+                <p style="color: green">正常</p>
+                <%}
+                %>
+            </td>
+            <td>
+                <div class="controls">
+                    <button class="btn btn-primary result "  data_id="<%=article.url%>" school_name="<%=article.school%>">实时阅读量</button>
+                </div>
+            <%}%>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>
+</div>
+
+<div class='pagination' current_page='<%= current_page %>'>
+    <ul>
+        <% var base='/back/record/getArticle'%>
+        <% var base_url = base + (base.indexOf('?') < 0 ? '?' : '&') + 'page='; %>
+        <% if (current_page == 1) { %>
+        <li class='disabled'><a>«</a></li>
+        <% } else { %>
+        <li><a href="<%= base_url %>1">«</a></li>
+        <% } %>
+
+        <%
+        var page_start = current_page - 2 > 0 ? current_page - 2 : 1;
+        var page_end = page_start + 4 >= pages ? pages : page_start + 4;
+        %>
+        <% if (page_start > 1) { %>
+        <li><a>...</a></li>
+        <% } %>
+
+        <% for(var i = page_start; i <= page_end; i++) { %>
+        <% if (i === current_page) { %>
+        <li class='disabled'><a><%= i %></a></li>
+        <% } else { %>
+        <li><a href='<%= base_url + i %>'><%= i %></a></li>
+        <% } %>
+        <% } %>
+
+        <% if (page_end < pages ) { %>
+        <li><a>...</a></li>
+        <% } %>
+
+        <% if (current_page == pages) { %>
+        <li class='disabled'><a>»</a></li>
+        <% } else { %>
+        <li><a href='<%= base_url + pages %>'>»</a></li>
+        <% } %>
+    </ul>
+</div>
+
+</div>
+</div>
+</div>
+<div class="row-fluid">
+    <div id="footer" class="span12">
+        2012 ©校萌科技有限公司
+    </div>
+</div>
+</div>
+</div>
+<%- include ../partial/footer%>
+<script>
+    var endDate="",school="";
+    var position=['头条','次条','二条','三条','四条','五条','六条']
+    $("#DateConf").click(function(){
+        //var startDate = $("#startDate").val();
+        endDate = $("#endDate").val();
+        if(endDate==""){
+            alert('请选择正确的时间');
+            return;
+        }
+        window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
+    });
+
+    $("#queryBtn").click(function(){
+        //var startDate = $("#startDate").val();
+        school = $("#school").val();
+        endDate = $("#endDate").val();
+        /*if(endDate==""){
+            alert('请输入学校名称');
+            return;
+        }*/
+        window.location.href = "/back/record/getArticle?endDate=" + endDate+"&school="+school;
+    });
+
+    $(".result").click(function(){
+        var url=$(this).attr("data_id");
+        var school=$(this).attr("school_name");
+        console.log('en_name='+url)
+        var obj=$(this);
+        obj.attr("disabled","disabled");
+        obj.text("更新中..");
+        $.ajax({
+            'url': '/back/record/getReadNow',
+            'type': 'post',
+            'dataType': 'json',
+            'data':{url:url},
+            success: function (json, st) {
+                console.log('json'+json.success);
+                if (json.success) {
+                    obj.removeAttr("disabled");
+                    console.log("read_num="+json.data.read_num)
+                    console.log("like_num="+json.data.like_num)
+                    var lable="#"+school+"_read_num";
+                    $(lable).text(json.data.read_num);
+                    obj.text("更新成功");
+                } else {
+                    obj.text("更新失败");
+                    console.log(json.msg)
+                }
+            },
+            beforeSend: function (xhr, textStatus) {
+
+            },
+            error: function (xhr) {
+                if (xhr.status != 403) {
+                    alert("出现异常，请刷新后重试");
+                }
+            },
+            complete: function (xhr, textStatus) {
+                if (xhr.status == 403) {
+                    alert("没有权限");
+                }
+            }
+        });
+
+
+    });
+
+</script>
