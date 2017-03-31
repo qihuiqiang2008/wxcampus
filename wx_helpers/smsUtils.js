@@ -29,4 +29,4 @@ exports.sendSms=function(name,phone,callback){
     )
 }
 
-exports.phone="13716761631"
+exports.phone="13716761631,18295079057,18895156030"
