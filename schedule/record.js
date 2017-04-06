@@ -24,14 +24,14 @@ var advertWarn = schedule.scheduleJob('10 7 * * *', function(){
     });
 });
 
-var saveArticle = schedule.scheduleJob('20 0 * * *', function(){
+var saveArticle = schedule.scheduleJob('55 23 * * *', function(){
     console.log('================定时任务[获取推送阅读量]开始执行================');
     SchoolEx.getSchoolExsByQueryAndField({}, 'en_name', {}, function (err, schoolexs) {
         if(schoolexs){
             schoolexs.forEach(function (school,index) {
                 console.log("en_name:"+school.en_name)
                 var data=JSON.stringify({"en_name":school.en_name})
-                request.post(SAVE_ARTICLE_URL)
+                request.post(SAVE_ARTICLE_URL_DEV)
                     .set('Content-Type', 'application/json')
                     .send(data)
                     .end(function (err,res) {
