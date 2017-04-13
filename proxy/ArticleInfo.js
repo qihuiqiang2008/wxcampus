@@ -42,7 +42,7 @@ exports.saveOrUpdate=function (url, date_time, positon, type, school,school_cn_n
             article.school_cn_name=school_cn_name;
             article.fans=fans;
             article.title=title;
-            article.digest=article;
+            article.digest=digest;
             article.read_num=read_num;
             article.like_num=like_num;
             article.save(function (err) {
