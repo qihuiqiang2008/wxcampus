@@ -305,7 +305,7 @@ exports.saveArticle = function (req, res, next) {
                                 var type = getArticleType(list.msg_item[i].multi_item[j].title);
                                 ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
                                     list.msg_item[i].multi_item[j].seq, type, school_en_name, schoolEx.cn_name, schoolEx.fans,
-                                    list.msg_item[i].multi_item[j].title,list.msg_item[i].multi_item[j].digest, list.msg_item[i].multi_item[j].covert,list.msg_item[i].multi_item[j].read_num,
+                                    list.msg_item[i].multi_item[j].title,list.msg_item[i].multi_item[j].digest, list.msg_item[i].multi_item[j].cover,list.msg_item[i].multi_item[j].read_num,
                                     list.msg_item[i].multi_item[j].like_num,
                                     function (err) {
                                         if (err) {
