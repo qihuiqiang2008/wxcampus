@@ -18,7 +18,7 @@ exports.newAndSave = function (url, date_time, positon, type, school, title,call
     console.log("new and save article!!");
 };
 
-exports.saveOrUpdate=function (url, date_time, positon, type, school,school_cn_name,fans,title,read_num,like_num,callback) {
+exports.saveOrUpdate=function (url, date_time, positon, type, school,school_cn_name,fans,title,digest,read_num,like_num,callback) {
     //ArticleInfo.find({date_time:{"$gt": new Date("2017-01-08").setHours(0,0,0,0), "$lt": new Date("2017-01-08").setHours(23,59,0,0)},
     ArticleInfo.find({url:url},function (err,article) {
         if(err){
@@ -42,6 +42,7 @@ exports.saveOrUpdate=function (url, date_time, positon, type, school,school_cn_n
             article.school_cn_name=school_cn_name;
             article.fans=fans;
             article.title=title;
+            article.digest=article;
             article.read_num=read_num;
             article.like_num=like_num;
             article.save(function (err) {

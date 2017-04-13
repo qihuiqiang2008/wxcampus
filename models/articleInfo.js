@@ -14,6 +14,7 @@ var ArticleInfoShema = new Schema({
     school_cn_name:{type:String},
     fans:{type:Number,default:0},
     title:{type:String},
+    digest:{type:String},
     read_num:{type:Number,default:0},
     like_num:{type:Number,default:0}
 })
