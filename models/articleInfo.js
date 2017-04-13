@@ -15,6 +15,7 @@ var ArticleInfoShema = new Schema({
     fans:{type:Number,default:0},
     title:{type:String},
     digest:{type:String},
+    cover:{type:String},
     read_num:{type:Number,default:0},
     like_num:{type:Number,default:0}
 })
