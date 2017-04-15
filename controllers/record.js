@@ -210,6 +210,13 @@ exports.gotoSaveArticle = function (req, res, next) {
         res.render('back/record/saveArticle', {schoolexs: schoolexs});
     });
 }
+
+exports.listSchools = function (req, res, next) {
+    SchoolEx.getSchoolExsByQueryAndField({}, '_id cn_name en_name erweima', {}, function (err, schoolexs) {
+        res.render('back/record/schoolInfo', {schoolexs: schoolexs});
+    });
+}
+
 exports.saveArticle = function (req, res, next) {
     var school_en_name = req.body.en_name;
     console.log("school:" + school_en_name);
