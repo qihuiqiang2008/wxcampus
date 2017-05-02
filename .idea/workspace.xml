@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/create.html" afterPath="$PROJECT_DIR$/views/back/school/create.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/back/school/priceschool.html" afterPath="$PROJECT_DIR$/views/back/school/priceschool.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/school.js" afterPath="$PROJECT_DIR$/models/school.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,13 +46,13 @@
       <file leaf-file-name="school.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/school.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3782542">
-              <caret line="663" column="37" selection-start-line="663" selection-start-column="37" selection-end-line="663" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.56202143">
+              <caret line="633" column="5" selection-start-line="633" selection-start-column="5" selection-end-line="633" selection-end-column="5" />
               <folding>
-                <marker date="1493704918000" expanded="true" signature="32668:32715" placeholder="..." />
-                <marker date="1493704918000" expanded="true" signature="32761:32902" placeholder="..." />
-                <marker date="1493704918000" expanded="true" signature="32948:33001" placeholder="..." />
-                <marker date="1493704918000" expanded="true" signature="33075:33181" placeholder="..." />
+                <marker date="1493705391000" expanded="true" signature="32710:32757" placeholder="..." />
+                <marker date="1493705391000" expanded="true" signature="32803:32944" placeholder="..." />
+                <marker date="1493705391000" expanded="true" signature="32990:33043" placeholder="..." />
+                <marker date="1493705391000" expanded="true" signature="33117:33223" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -126,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-7.703704">
-              <caret line="260" column="35" selection-start-line="260" selection-start-column="35" selection-end-line="260" selection-end-column="35" />
+              <caret line="262" column="35" selection-start-line="262" selection-start-column="35" selection-end-line="262" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -197,8 +193,8 @@
         <option value="$PROJECT_DIR$/views/back/postEx/index.html" />
         <option value="$PROJECT_DIR$/views/back/school/create.html" />
         <option value="$PROJECT_DIR$/models/school.js" />
-        <option value="$PROJECT_DIR$/controllers/school.js" />
         <option value="$PROJECT_DIR$/views/back/school/priceschool.html" />
+        <option value="$PROJECT_DIR$/controllers/school.js" />
       </list>
     </option>
   </component>
@@ -867,7 +863,7 @@
     <entry file="file://$PROJECT_DIR$/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.703704">
-          <caret line="260" column="35" selection-start-line="260" selection-start-column="35" selection-end-line="260" selection-end-column="35" />
+          <caret line="262" column="35" selection-start-line="262" selection-start-column="35" selection-end-line="262" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -882,13 +878,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/school.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3782542">
-          <caret line="663" column="37" selection-start-line="663" selection-start-column="37" selection-end-line="663" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.56202143">
+          <caret line="633" column="5" selection-start-line="633" selection-start-column="5" selection-end-line="633" selection-end-column="5" />
           <folding>
-            <marker date="1493704918000" expanded="true" signature="32668:32715" placeholder="..." />
-            <marker date="1493704918000" expanded="true" signature="32761:32902" placeholder="..." />
-            <marker date="1493704918000" expanded="true" signature="32948:33001" placeholder="..." />
-            <marker date="1493704918000" expanded="true" signature="33075:33181" placeholder="..." />
+            <marker date="1493705391000" expanded="true" signature="32710:32757" placeholder="..." />
+            <marker date="1493705391000" expanded="true" signature="32803:32944" placeholder="..." />
+            <marker date="1493705391000" expanded="true" signature="32990:33043" placeholder="..." />
+            <marker date="1493705391000" expanded="true" signature="33117:33223" placeholder="..." />
           </folding>
         </state>
       </provider>
