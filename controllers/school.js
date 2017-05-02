@@ -604,6 +604,36 @@ exports.cookie_show = function (req, res, next) {
     });
 };
 
+
+
+function getPriceByWxId(wxid,fans){
+    var price60discount=["xisu029", "xaufe029", "jnu000", "nuaa008","seu007","nju008","tjufe001","ecnu001","bcu008"];
+    var price65discount=["xjtu029", "whu008", "hust555", "zju006","shufe001","bit_welife","ustb_welife","cupl_welife","uibe_welife","bjtu_welife","bjut_welife","cup_welife","cuc_welife","buct_welife","cau_welife","buaa_welife","muc_welife","cufe_welife","bjfu-welife","cugb_welife","cumt_welife","cueb001","ncepu001","bnu-we-life","bfsu888","bisu100"];
+    var price70discount=["tju100", "nankai008", "sjtu008", "zju006","tongji006","fudan009","tsinghua_welife","pku_welife","ruc_welife","bupt_welife"];
+
+    var value=0;
+    if(price60discount.indexOf(wxid)>-1){
+        value= fans*0.06;
+    }else if(price65discount.indexOf(wxid)>-1){
+        value=fans*0.065;
+    }else if(price70discount.indexOf(wxid)>-1){
+        value= fans*0.07;
+    }else{
+        value= fans*0.05;
+    }
+
+    value=parseInt(parseFloat(value).toFixed(0));
+    var digital=value%10;
+    if(digital>5){
+        value+=10-digital;
+    }else{
+        value-=digital;
+    }
+
+    return value;
+}
+
+
 exports.back_price = function (req, res, next) {
 
     var region_code = req.query.region_code;
@@ -635,6 +665,9 @@ exports.back_price = function (req, res, next) {
 
     var proxy = EventProxy.create('schools', 'pages', 'regions',
         function (schools, pages, regions) {
+            schools.forEach(function(item,i){
+                item.price=getPriceByWxId(item.en_name,item.fans);
+            })
             res.render('back/school/priceschool', {
                 schools: schools,
                 pages: pages,
