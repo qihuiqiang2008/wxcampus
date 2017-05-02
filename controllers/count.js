@@ -121,8 +121,8 @@ exports.count_number = function(req, res, next) {
                         item.fans = item.fans + 5000;
                     }
 
-                    //if(item.en_name == "bj" || item.en_name == "sh" || item.en_name == "xa")
-                    //    return;
+                    if(item.en_name == "bj" || item.en_name == "sh" || item.en_name == "xa")
+                        return;
 
                     conf.rows.push([
                         //getRegion(item.region_code), 
