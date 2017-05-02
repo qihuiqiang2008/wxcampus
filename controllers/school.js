@@ -669,7 +669,7 @@ exports.back_price = function (req, res, next) {
     var proxy = EventProxy.create('schools', 'pages', 'regions',
         function (schools, pages, regions) {
             schools.forEach(function(item,i){
-                item.price=getPriceByWxId(item.en_name,item.fans);
+                item.price=getPriceByWxId(item.wx_account_id,item.fans);
             })
             res.render('back/school/priceschool', {
                 schools: schools,
