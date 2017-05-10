@@ -22,6 +22,7 @@ var SchoolSchema = new Schema({
   active: { type: Boolean, default: true },
     admin: { type: String },
     wxacount: { type: String },
+  price:{type: Number, default: 0},
   create_at: { type: Date, default: Date.now },
   fans:{type: Number, default: 0}
 });
