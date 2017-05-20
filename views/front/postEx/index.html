@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>高校秘密表白</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+
+
+<body>
+<div id="content">
+    <div id="content-header">
+        <h1>
+
+        </h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+
+                    <div class="widget-content nopadding">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th width="100px">学校</th>
+                                <th>内容</th>
+                                <th>类型</th>
+                                <th width="50px">时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% postExs.forEach(function(postEx,index) { %>
+                            <tr>
+                                <td><%=postEx.from_school_cn_name%></td>
+                                <td><%=postEx.content0%></td>
+                                <%
+                                var type_show;
+                                if(postEx.type=='shudong'){
+                                        type_show='树洞'
+                                    }
+                                else{
+                                    type_show='表白'
+                                }
+
+                                %>
+                                <td><%=type_show%></td>
+                                <td><%=postEx.friendly_create_at%></td>
+                            </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav>
+                        <ul class="pagination">
+                            <% var base='/front/postEx/index?'%>
+                            <% var base_url = base +  'page='; %>
+                            <% for(var i=1;i<11;i++){%>
+                            <li><a href='<%= base_url + i %>'><%= i %></a></li>
+                            <%}%>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div id="footer" class="span12">
+                2012 ©校萌科技有限公司
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ../partial/footer%>
+<Script>
+</script>
+
+
