@@ -130,7 +130,7 @@ exports.count_number = function(req, res, next) {
                         item.wx_account_name, 
                         item.wx_account_id, 
                         item.fans, 
-                        price.priceRule(item.fans, price_per_fans, price_step, min_price)]);
+                        price.getPriceByWxId(item.wx_account_id, item.fans)]);
                     totalNumber = totalNumber + item.fans;
                 } else {}
                 
@@ -166,4 +166,34 @@ function FormatDate(strTime) {
 
 function getString(number) {
     return "账号整体情况：1.总人数" + number + "万，覆盖天津 北京 上海 西安 南京 银川 武汉的大部分高校  2.每天收到的表白数量在4000条左右，树洞数量在1000条左右3.账号活跃度在同类账号中算是比较高的4.上面的人数都是实事求是，如果觉的有问题可以后台截图：1.报价都是头条一次推送价格，报价方式是按照粉丝关注数量，每1000人50块 2.如果是发次条广告，价格是头条的60%（推荐这种方式，如果连续每天头条广告，会影响整体阅读）3.在表白中插入广告，价格是头条价格40%，广告内容纯文字且字数在140字以内（也可在表白下放插入少量图文信息） 4.关键字和菜单的合作方式，这种可以具体详谈其他：1.阅读是多少就是多少，我们绝对不会去刷阅读2.广告的内容不能有诱导分享或者诱导关注嫌疑"
+}
+
+function getPriceByWxId(wxid,fans){
+    var price60discount=["xisu029", "xaufe029", "jnu000", "nuaa008","seu007","nju008","tjufe001","ecnu001","bcu008"];
+    var price65discount=["xjtu029", "whu008", "hust555", "zju006","shufe001","bit_welife","ustb_welife","cupl_welife","uibe_welife","bjtu_welife","bjut_welife","cup_welife","cuc_welife","buct_welife","cau_welife","buaa_welife","muc_welife","cufe_welife","bjfu-welife","cugb_welife","cumt_welife","cueb001","ncepu001","bnu-we-life","bfsu888","bisu100"];
+    var price70discount=["tju100", "nankai008", "sjtu008", "zju006","tongji006","fudan009","tsinghua_welife","pku_welife","ruc_welife","bupt_welife"];
+
+    var value=0;
+    if(price60discount.indexOf(wxid)>-1){
+        value= fans*0.06;
+    }else if(price65discount.indexOf(wxid)>-1){
+        value=fans*0.065;
+    }else if(price70discount.indexOf(wxid)>-1){
+        value= fans*0.07;
+    }else{
+        value= fans*0.05;
+    }
+
+    value=parseInt(parseFloat(value).toFixed(0));
+    var digital=value%10;
+    if(digital>5){
+        value+=10-digital;
+    }else{
+        value-=digital;
+    }
+    if(value<50){
+        value=50;
+    }
+
+    return value;
 }

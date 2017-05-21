@@ -259,6 +259,7 @@ exports.saveArticle = function (req, res, next) {
                     .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
                     .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
                     .end(function (res) {
+                        console.log("res:"+res.text)
                         var start = res.text.indexOf("window.wx =")
                         var end = res.text.indexOf("path:")
 
