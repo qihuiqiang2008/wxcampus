@@ -501,6 +501,50 @@ exports.index = function (req, res, next) {
     });
 };
 
+exports.index_front = function (req, res, next) {
+    var page = parseInt(req.query.page, 10) || 1;
+    var templete = 'front/postEx/index';
+   /* var req_type = req.query.req_type;
+    var se = req.query.se || "school";
+    var en_name = req.query.en_name;*/
+    var query = {};
+    //var type = req.query.type;
+    //var showtype = req.query.showtype;
+    //var day = req.query.d;
+    var sort = [
+        ['create_at', 'desc']
+    ];
+    var limit = 30;
+    var options = {skip: (page - 1) * limit, limit: limit, sort: sort};
+    var proxy = EventProxy.create('postExs', 'pages', 'all_postExs_count',
+        function (postExs, pages, all_postExs_count) {
+            res.render(templete, {
+                postExs: postExs,
+                pages: pages,
+                current_page: page,
+                all_postExs_count: all_postExs_count
+            });
+        });
+    proxy.fail(next);
+    PostEx.getPostExsByQuery(query, options, function (err, postExs) {
+        console.log("获取数量:"+postExs.length);
+        postExs.forEach(function (postEx, i) {
+            if (postEx) {
+                postEx.friendly_create_at = Util.format_date(postEx.create_at, true);
+                postEx.pretty_create_at = Util.format_date(postEx.create_at, false);
+            }
+
+            //return postEx;
+        });
+        proxy.emit('postExs', postExs);
+    })
+    PostEx.getCountByQuery(query, proxy.done(function (all_postExs_count) {
+        var pages = Math.ceil(all_postExs_count / limit);
+        proxy.emit('all_postExs_count', all_postExs_count);
+        proxy.emit('pages', pages);
+    }));
+};
+
 exports.confess_count = function (req, res, next) {
     PostEx.getCountByQuery({type: "confess"}, function (err, all_postExs_count) {
         console.log(err)

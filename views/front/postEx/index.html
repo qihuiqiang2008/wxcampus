@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <title>高校秘密表白</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- 可选的Bootstrap主题文件（一般不用引入） -->
@@ -17,102 +15,230 @@
     <script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 14px/1.4 Georgia, Serif;
+        }
+
+        #page-wrap {
+            margin: 20px;
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        /*
+        Generic Styling, for Desktops/Laptops
+        */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Zebra striping */
+        tr:nth-of-type(odd) {
+            background: #eee;
+        }
+
+
+
+        td, th {
+            padding: 6px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background: #333;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+
+    <!--[if !IE]><!-->
+    <style>
+
+        /*
+        Max width before this PARTICULAR table gets nasty
+        This query will take effect for any screen smaller than 760px
+        and also iPads specifically.
+        */
+        @media only screen and (max-width: 760px),
+        (min-device-width: 768px) and (max-device-width: 1024px) {
+
+            /* Force table to not be like tables anymore */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            /* Hide table headers (but not display: none;, for accessibility) */
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #ccc;
+            }
+
+            td {
+                /* Behave  like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+
+            /*
+            Label the data
+            */
+            td:nth-of-type(1):before {
+                content: "高校";
+            }
+
+            td:nth-of-type(2):before {
+                content: "内容";
+            }
+            td:nth-of-type(3):before {
+                content: "类型";
+            }
+
+            td:nth-of-type(4):before {
+                content: "时间";
+            }
+
+
+        }
+
+        /* Smartphones (portrait and landscape) ----------- */
+        @media only screen
+        and (min-device-width: 320px)
+        and (max-device-width: 480px) {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        /* iPads (portrait and landscape) ----------- */
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+            body {
+                width: 495px;
+            }
+        }
+
+    </style>
 </head>
 
-
 <body>
-<div id="content">
-    <div id="content-header">
-        <h1>
 
-        </h1>
-    </div>
+<div id="page-wrap">
 
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="widget-box">
+    <h1 style="text-align: center">微生活实时互动数据</h1>
 
-                    <div class="widget-content nopadding">
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th width="100px">学校</th>
-                                <th>内容</th>
-                                <th>类型</th>
-                                <th width="50px">时间</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <% postExs.forEach(function(postEx,index) { %>
-                            <tr>
-                                <td><%=postEx.from_school_cn_name%></td>
-                                <td><%=postEx.content0%></td>
-                                <%
-                                var type_show;
-                                if(postEx.type=='shudong'){
-                                        type_show='树洞'
-                                    }
-                                else{
-                                    type_show='表白'
-                                }
+    <p><span style="font-size: larger;">说明：</span>"表白墙"、"树洞秘密"、"缘分墙"等模块每天有10000余条用户提交的数据，该页面为【表白墙】和【树洞】模块实时数据
+    </p>
+    <table>
+        <thead>
+        <tr>
+            <th>高校</th>
+            <th>内容</th>
+            <th>类型</th>
+            <th>时间</th>
+        </tr>
+        </thead>
+        <tbody>
 
-                                %>
-                                <td><%=type_show%></td>
-                                <td><%=postEx.friendly_create_at%></td>
-                            </tr>
-                            <% }) %>
-                            </tbody>
-                        </table>
-                    </div>
-                    <nav>
-                        <ul class="pagination">
+        <%postExs.forEach(function(postEx,index){ %>
 
-                            <% var base='/front/postEx/index?'%>
-                            <% var base_url = base + 'page='; %>
-                            <% if (current_page == 1) { %>
-                            <li class='disabled'><a>«</a></li>
-                            <% } else { %>
-                            <li><a href="<%= base_url %>1">«</a></li>
-                            <% } %>
+        <tr>
+            <td width="12%"><%=postEx.from_school_cn_name%></td>
+            <td width="70%"><%=postEx.content0%></td>
+            <%
+                var type_show;
+                if(postEx.type=='shudong'){
+                type_show='树洞'
+                }
+                else{
+                type_show='表白'
+                }
+            %>
+            <td style="text-align:center" width="5%"><%=type_show%></td>
+            <td style="text-align:center" width="8%"><%=postEx.friendly_create_at%></td>
+        </tr>
 
-                            <%
-                            var page_start = current_page - 2 > 0 ? current_page - 2 : 1;
-                            var page_end = page_start + 4 >= pages ? pages : page_start + 4;
-                            %>
-                            <% if (page_start > 1) { %>
-                            <li><a>...</a></li>
-                            <% } %>
+        <% }) %>
 
-                            <% for(var i = page_start; i <= page_end; i++) { %>
-                            <% if (i === current_page) { %>
-                            <li class='disabled'><a><%= i %></a></li>
-                            <% } else { %>
-                            <li><a href='<%= base_url + i %>'><%= i %></a></li>
-                            <% } %>
-                            <% } %>
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination">
 
-                            <% if (page_end < pages ) { %>
-                            <li><a>...</a></li>
-                            <% } %>
+            <% var base='/front/postEx/index?'%>
+            <% var base_url = base + 'page='; %>
+            <% if (current_page == 1) { %>
+            <li class='disabled'><a>«</a></li>
+            <% } else { %>
+            <li><a href="<%= base_url %>1">«</a></li>
+            <% } %>
 
-                            <% if (current_page == pages) { %>
-                            <li class='disabled'><a>»</a></li>
-                            <% } else { %>
-                            <li><a href='<%= base_url + pages %>'>»</a></li>
-                            <% } %>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div id="footer" class="span12">
-                2012 ©校萌科技有限公司
-            </div>
-        </div>
+            <%
+            var page_start = current_page - 2 > 0 ? current_page - 2 : 1;
+            var page_end = page_start + 4 >= pages ? pages : page_start + 4;
+            %>
+            <% if (page_start > 1) { %>
+            <li><a>...</a></li>
+            <% } %>
+
+            <% for(var i = page_start; i <= page_end; i++) { %>
+            <% if (i === current_page) { %>
+            <li class='disabled'><a><%= i %></a></li>
+            <% } else { %>
+            <li><a href='<%= base_url + i %>'><%= i %></a></li>
+            <% } %>
+            <% } %>
+
+            <% if (page_end < pages ) { %>
+            <li><a>...</a></li>
+            <% } %>
+
+            <% if (current_page == pages) { %>
+            <li class='disabled'><a>»</a></li>
+            <% } else { %>
+            <li><a href='<%= base_url + pages %>'>»</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</div>
+
+</body>
+
+<div class="row-fluid">
+    <div id="footer" class="span12">
+        2012 ©校萌科技有限公司
     </div>
 </div>
+
+
 
 <%- include ../partial/footer%>
 <Script>

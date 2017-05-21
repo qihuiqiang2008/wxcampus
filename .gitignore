@@ -3,3 +3,5 @@ config.js
 *.dat
 .idea/workspace.xml
 config.js
+.idea
+node_modules

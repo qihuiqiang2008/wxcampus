@@ -191,6 +191,9 @@ module.exports = function (app) {
     app.post('/front/photo_guess/create', photo_guess.create);
     app.get('/front/photo_guess/index', photo_guess.index);
     app.get('/front/photo_guess/del',photo_guess.del);
+    //广告系统展示实时数据
+    app.get('/front/postEx/index', postEx.index_front);
+
     app.get('/pd/:id',photo_guess.detail);
     app.post('/front/photo_guess/up_answer',photo_guess.up_answer);
     app.get('/back/photo_guess/index',photo_guess.back_index);

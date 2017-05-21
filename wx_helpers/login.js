@@ -27,7 +27,7 @@ module.exports = function(wxAccount, fn) {
             imgcode: '',
             f: 'json'
         }).end(function(res) {
-            console.log(res.text);
+            console.log(res);
             var cookie, data, property, rs, s, token, _i, _len, _ref;
 //            for (property in res.body) {
 //                s = property + ": " + res.body[property] + "\n";
