@@ -406,6 +406,7 @@ module.exports = function (app) {
     app.get('/back/record/saveArticleSchedule',record.saveArticleSchedule);
     app.get('/back/record/getAdverts',record.getAdverts);
     app.get('/back/record/listSchoolInfo',record.listSchools);
+    app.get('/back/record/batchSaveArticle',record.batchSaveArticle);
 
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);

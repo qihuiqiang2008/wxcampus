@@ -358,6 +358,115 @@ exports.saveArticle = function (req, res, next) {
     );
 }
 
+exports.batchSaveArticle=function (req,res,next) {
+    console.log("进入batchSaveArticle()......")
+    var position = 1;
+    var loadResult;
+    var latest_msg_id;
+    var list;
+    var schoolEx;
+    var query={};
+    var options={'limit':100};
+    var count=0;
+    SchoolEx.getSchoolsByQueryAndFiled(query, ['en_name','token' ,'cookie'],options, function (err, schoolExs) {
+        console.log('schools.length' + schoolExs.length);
+        async.eachSeries(schoolExs,
+            function (schoolEx, callback) {
+                count++;
+                if(count%10==0){
+
+                }
+                async.series([
+                        function (cb) { //1.1：登陆。
+                            try {
+                                login(schoolEx, function (err, results) {
+                                    if(err){
+                                        console.log(schoolEx.en_name+"登录失败");
+                                        cb(err);
+                                    }
+                                    loadResult = results;
+                                    console.log(schoolEx.en_name+"登录成功");
+                                    cb();
+                                });
+                            }
+                            catch (e){
+                                console.log(e);
+                            }
+
+
+                        },
+
+                        function (cb) {
+                            request.get('https://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/list&action=history&begin=0&count=10&token=' + loadResult.token + '&lang=zh_CN')
+                                .set('Cookie', loadResult.cookie)
+                                .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+                                .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
+                                .end(function (res) {
+                                    console.log("res:"+res.text)
+                                    var start = res.text.indexOf("window.wx =")
+                                    var end = res.text.indexOf("path:")
+
+                                    var indexHead = res.text.indexOf('wx.cgiData =');
+                                    indexHead = res.text.indexOf('list :', indexHead);
+                                    var indexTail = res.text.indexOf('.msg_item', indexHead);
+                                    var html = res.text.slice(indexHead + 'list :'.length, indexTail).trim();
+                                    html = html.slice(1, -1);
+                                    try{
+                                        list = JSON.parse(html)
+                                        cb();
+                                    }
+                                    catch (err){
+                                        console.log(schoolEx.en_name+"html解析错误")
+                                        cb(err);
+                                    }
+
+                                });
+
+                        },
+                        function (cb) {
+                            var start = new Date().setHours(0, 0, 0, 0);
+                            var end = new Date().setHours(23, 59, 59, 0);
+
+                            console.log(schoolEx.en_name+'===================开始保存文章信息===================')
+                            for (var i = 0; i < list.msg_item.length; i++) {
+                                for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                                    console.log("update:" + list.msg_item[i].multi_item[j].title);
+                                    var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
+                                    var type = getArticleType(list.msg_item[i].multi_item[j].title);
+                                    ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
+                                        list.msg_item[i].multi_item[j].seq, type, schoolEx.en_name, schoolEx.cn_name, schoolEx.fans,
+                                        list.msg_item[i].multi_item[j].title,list.msg_item[i].multi_item[j].digest, list.msg_item[i].multi_item[j].cover,list.msg_item[i].multi_item[j].read_num,
+                                        list.msg_item[i].multi_item[j].like_num,
+                                        function (err) {
+                                            if (err) {
+                                                console.log(err);
+                                                cb(err);
+                                            }
+
+                                        });
+                                }
+                            }
+                            console.log("===========================end==========================")
+                            cb();
+                        }
+                    ],
+                    function (err) {
+                        if(err){
+                            console.log('保存文章信息失败'+err)
+                            callback();
+                        }
+                        callback();
+                    }
+
+                );
+            },
+            function (err) {
+                console.log("表白树洞PV统计结束......");
+                //cb();
+            });
+    });
+}
+
 exports.getArticle = function (req, res, next) {
     var page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;

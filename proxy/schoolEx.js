@@ -33,6 +33,21 @@ exports.getSchoolsByQuery = function (query, opt, callback) {
     });
 };
 
+exports.getSchoolsByQueryAndFiled = function (query,filed, opt, callback) {
+    console.log("进入proxy.getSchoolsByQueryAndFiled()......")
+    SchoolEx.find(query, filed, opt, function (err, docs) {
+        if (err){
+            console.log(err);
+            return callback(err);
+        }
+        console.log("docs.length="+docs.length);
+        if (docs.length === 0) {
+            return callback(null, []);
+        }
+        return callback(null,docs);
+    });
+};
+
 exports.removeById = function (id, callback) {
     SchoolEx.remove({_id: id}, callback);
 };

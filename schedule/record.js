@@ -26,46 +26,7 @@ var advertWarn = schedule.scheduleJob('10 7 * * *', function(){
 
 var saveArticle = schedule.scheduleJob('43 00 * * *', function(){
     console.log('================定时任务[获取推送阅读量]开始执行================');
-
-
-
-            async.forEach(arr, function(school, callback) {
-                    console.log("en_name:"+school.en_name)
-                    var data=JSON.stringify({"en_name":school.en_name})
-                    request.post(SAVE_ARTICLE_URL_DEV)
-                        .set('Content-Type', 'application/json')
-                        .set('Content-Length',data.length)
-                        .send(data)
-                        .end(function (err,res) {
-                            if(err){
-                                console.log(err);
-                            }
-                            callback();
-                        })
-                    },
-                        function(err) {
-                            console.log(err);
-                    });
-            /*SchoolEx.getSchoolExsByQueryAndField({}, 'en_name', option, function (err, schoolexs) {
-                if(schoolexs){
-                    schoolexs.forEach(function (school,index) {
-                        console.log("en_name:"+school.en_name)
-                        var data=JSON.stringify({"en_name":school.en_name})
-                        request.post(SAVE_ARTICLE_URL_DEV)
-                            .set('Content-Type', 'application/json')
-                            .set('Content-Length',data.length)
-                            .send(data)
-                            .end(function (err,res) {
-                                if(err){
-                                    console.log(err);
-                                }
-                                //console.log(res)
-                            })
-                    })
-                }
-            });*/
-
-
+    
     console.log('================定时任务[获取推送阅读量]执行结束================');
 });
 
