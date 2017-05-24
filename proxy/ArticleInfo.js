@@ -25,7 +25,7 @@ exports.saveOrUpdate=function (url, date_time, positon, type, school,school_cn_n
             console.log(err);
         }
         if(article!=null&&article.length>0){
-            ArticleInfo.update({'_id':article[0]._id},{'read_num':read_num,'like_num':like_num},{},function (err) {
+            ArticleInfo.update({'_id':article[0]._id},{'read_num':read_num,'like_num':like_num,"hasSyn":0},{},function (err) {
                 if(err){
                     console.log(err);
                 }
@@ -46,6 +46,7 @@ exports.saveOrUpdate=function (url, date_time, positon, type, school,school_cn_n
             article.cover=cover;
             article.read_num=read_num;
             article.like_num=like_num;
+            article.hasSyn=0;
             article.save(function (err) {
                 callback();
             });

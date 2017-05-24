@@ -13,6 +13,7 @@ var http = require("http");
 var urlutil = require('url');
 var querystring = require('querystring');
 var crypto = require('crypto');
+var Article = require('../models').ArticleInfo;
 
 exports.getPostsRecord = function (req, res, next) {
 
@@ -366,107 +367,167 @@ exports.batchSaveArticle=function (req,res,next) {
     var list;
     var schoolEx;
     var query={};
-    var options={'limit':100};
+    var skip=0;
+    var options={"limit":100};
     var count=0;
-    SchoolEx.getSchoolsByQueryAndFiled(query, ['en_name','token' ,'cookie'],options, function (err, schoolExs) {
-        console.log('schools.length' + schoolExs.length);
-        async.eachSeries(schoolExs,
-            function (schoolEx, callback) {
-                count++;
-                if(count%10==0){
+    var articleArray=[];
+    /*var myInterval=setInterval(function () {*/
+        SchoolEx.getSchoolsByQueryAndFiled(query, ['en_name','token' ,'cookie','wx_account_id'],options, function (err, schoolExs) {
+            console.log('schools.length' + schoolExs.length);
+                async.eachSeries(schoolExs,
+                    function (schoolEx, callback) {
+                        count++;
+                        console.log("======count="+count+"====="+schoolEx.wx_account_id+"=======");
+                        if(schoolEx.wx_account_id=='xiangx029'||schoolEx.wx_account_id=='bjgx010'){
+                            callback();
+                        }else {
+                            async.series([
+                                    function (cb) { //1.1：登陆。
+                                        try {
+                                            login(schoolEx, function (err, results) {
+                                                if(err){
+                                                    console.log(schoolEx.en_name+"登录失败");
+                                                    cb(err);
+                                                }
+                                                loadResult = results;
+                                                console.log(schoolEx.en_name+"登录成功");
+                                                cb();
+                                            });
+                                        }
+                                        catch (e){
+                                            console.log(e);
+                                        }
 
-                }
-                async.series([
-                        function (cb) { //1.1：登陆。
-                            try {
-                                login(schoolEx, function (err, results) {
-                                    if(err){
-                                        console.log(schoolEx.en_name+"登录失败");
-                                        cb(err);
-                                    }
-                                    loadResult = results;
-                                    console.log(schoolEx.en_name+"登录成功");
-                                    cb();
-                                });
-                            }
-                            catch (e){
-                                console.log(e);
-                            }
+                                    },
+
+                                    function (cb) {
+                                        request.get('https://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/list&action=history&begin=0&count=10&token=' + loadResult.token + '&lang=zh_CN')
+                                            .set('Cookie', loadResult.cookie)
+                                            .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
+                                            .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
+                                            .end(function (res) {
+                                                //console.log("res:"+res.text)
+                                                var start = res.text.indexOf("window.wx =")
+                                                var end = res.text.indexOf("path:")
+
+                                                var indexHead = res.text.indexOf('wx.cgiData =');
+                                                indexHead = res.text.indexOf('list :', indexHead);
+                                                var indexTail = res.text.indexOf('.msg_item', indexHead);
+                                                var html = res.text.slice(indexHead + 'list :'.length, indexTail).trim();
+                                                html = html.slice(1, -1);
+                                                try{
+                                                    list = JSON.parse(html)
+                                                    cb();
+                                                }
+                                                catch (err){
+                                                    console.log(schoolEx.en_name+"html解析错误")
+                                                    cb(err);
+                                                }
+
+                                            });
+
+                                    },
+                                    function (cb) {
+                                        var start = new Date().setHours(0, 0, 0, 0);
+                                        var end = new Date().setHours(23, 59, 59, 0);
+                                        console.log(schoolEx.en_name+'===================开始保存文章信息===================')
+                                        for (var i = 0; i < list.msg_item.length; i++) {
+                                            for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
+                                                //console.log("update:" + list.msg_item[i].multi_item[j].title);
+                                                var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
+                                                var type = getArticleType(list.msg_item[i].multi_item[j].title);
+
+                                                ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
+                                                    list.msg_item[i].multi_item[j].seq, type, schoolEx.en_name, schoolEx.cn_name, schoolEx.fans,
+                                                    list.msg_item[i].multi_item[j].title,list.msg_item[i].multi_item[j].digest, list.msg_item[i].multi_item[j].cover,list.msg_item[i].multi_item[j].read_num,
+                                                    list.msg_item[i].multi_item[j].like_num,
+                                                    function (err) {
+                                                        if (err) {
+                                                            console.log(err);
+                                                            cb(err);
+                                                        }
+
+                                                    });
+
+                                                var article={};
+                                                article.url=url;
+                                                article.date_time=new Date(list.msg_item[i].date_time * 1000);
+                                                article.positon=list.msg_item[i].multi_item[j].seq;
+                                                article.type=type;
+                                                article.school=schoolEx.en_name;
+                                                article.school_cn_name=schoolEx.cn_name;
+                                                article.fans=schoolEx.fans;
+                                                article.title=list.msg_item[i].multi_item[j].title;
+                                                article.digest=list.msg_item[i].multi_item[j].title,list.msg_item[i].multi_item[j].digest;
+                                                article.cover=list.msg_item[i].multi_item[j].cover;
+                                                article.read_num=list.msg_item[i].multi_item[j].read_num;
+                                                article.like_num=list.msg_item[i].multi_item[j].like_num;
+                                                article.wx_account_id=schoolEx.wx_account_id;
+                                                articleArray.push(article);
 
 
-                        },
-
-                        function (cb) {
-                            request.get('https://mp.weixin.qq.com/cgi-bin/masssendpage?t=mass/list&action=history&begin=0&count=10&token=' + loadResult.token + '&lang=zh_CN')
-                                .set('Cookie', loadResult.cookie)
-                                .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
-                                .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
-                                .end(function (res) {
-                                    console.log("res:"+res.text)
-                                    var start = res.text.indexOf("window.wx =")
-                                    var end = res.text.indexOf("path:")
-
-                                    var indexHead = res.text.indexOf('wx.cgiData =');
-                                    indexHead = res.text.indexOf('list :', indexHead);
-                                    var indexTail = res.text.indexOf('.msg_item', indexHead);
-                                    var html = res.text.slice(indexHead + 'list :'.length, indexTail).trim();
-                                    html = html.slice(1, -1);
-                                    try{
-                                        list = JSON.parse(html)
+                                            }
+                                        }
+                                        /*try{
+                                            request.post('http://ab.welife001.com/data/synArticles')
+                                                .send({ articleArray: articleArray })
+                                                .set('X-API-Key', 'foobar')
+                                                .set('Accept', 'application/json')
+                                                .end(function(res){
+                                                    //console.log(res);
+                                                });
+                                        }catch(e){
+                                            console.log(e);
+                                        }*/
+                                        console.log("===========================end==========================")
                                         cb();
                                     }
-                                    catch (err){
-                                        console.log(schoolEx.en_name+"html解析错误")
-                                        cb(err);
+                                ],
+                                function (err) {
+                                    if(err){
+                                        console.log('保存文章信息失败'+err)
+                                        callback();
                                     }
-
-                                });
-
-                        },
-                        function (cb) {
-                            var start = new Date().setHours(0, 0, 0, 0);
-                            var end = new Date().setHours(23, 59, 59, 0);
-
-                            console.log(schoolEx.en_name+'===================开始保存文章信息===================')
-                            for (var i = 0; i < list.msg_item.length; i++) {
-                                for (var j = 0; j < list.msg_item[i].multi_item.length; j++) {
-                                    console.log("update:" + list.msg_item[i].multi_item[j].title);
-                                    var url = escape2Html(list.msg_item[i].multi_item[j].content_url);
-                                    var type = getArticleType(list.msg_item[i].multi_item[j].title);
-                                    ArticleInfo.saveOrUpdate(url, new Date(list.msg_item[i].date_time * 1000),
-                                        list.msg_item[i].multi_item[j].seq, type, schoolEx.en_name, schoolEx.cn_name, schoolEx.fans,
-                                        list.msg_item[i].multi_item[j].title,list.msg_item[i].multi_item[j].digest, list.msg_item[i].multi_item[j].cover,list.msg_item[i].multi_item[j].read_num,
-                                        list.msg_item[i].multi_item[j].like_num,
-                                        function (err) {
-                                            if (err) {
-                                                console.log(err);
-                                                cb(err);
-                                            }
-
-                                        });
+                                    callback();
                                 }
-                            }
-                            console.log("===========================end==========================")
-                            cb();
-                        }
-                    ],
-                    function (err) {
-                        if(err){
-                            console.log('保存文章信息失败'+err)
-                            callback();
-                        }
-                        callback();
-                    }
 
-                );
-            },
-            function (err) {
-                console.log("表白树洞PV统计结束......");
-                //cb();
-            });
-    });
+                            );
+                        }
+
+                },
+                function (err) {
+                    console.log("==========表白树洞PV统计结束......开始同步==========");
+                    var query={"hasSyn":0};
+
+                    ArticleInfo.getArticlesByQuery(query,{},function (err,articles) {
+                        console.log("数组长度:"+articles.length)
+                        for(var i=0;i<articles.length;i++){
+                            Article.update({'_id':articles[i]._id},{'hasSyn':1},{},function (err) {
+                                if(err){
+                                    console.log(err);
+                                }
+
+                            })
+                        }
+                        request.post('http://ab.welife001.com/data/synArticles')
+                            .send({ articles: articles})
+                            .set('X-API-Key', 'foobar')
+                            .set('Accept', 'application/json')
+                            .end(function(res){
+                                //console.log(res);
+                            });
+
+                    })
+
+                });
+        });
+   /* },10000,"Interval");*/
+
 }
 
+function syn_article(article,url) {
+
+}
 exports.getArticle = function (req, res, next) {
     var page = parseInt(req.query.page, 10) || 1;
     page = page > 0 ? page : 1;

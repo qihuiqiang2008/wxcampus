@@ -17,6 +17,7 @@ var ArticleInfoShema = new Schema({
     digest:{type:String},
     cover:{type:String},
     read_num:{type:Number,default:0},
-    like_num:{type:Number,default:0}
+    like_num:{type:Number,default:0},
+    hasSyn:{type:Number,default:0},
 })
 mongoose.model('ArticleInfo', ArticleInfoShema);
