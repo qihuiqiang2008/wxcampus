@@ -387,7 +387,8 @@ module.exports = function (app) {
     app.get('/back/school/clearAD', auth.signinRequired, ADManage.clearAD);
     app.get('/back/school/updateAD', auth.signinRequired, ADManage.showUpdateAD);
     app.post('/back/school/updateAD', auth.signinRequired, ADManage.updateAD);
-    app.get('/back/school/syncADTag', auth.signinRequired, ADManage.syncADTag);
+    app.get('/back/school/syncADTag', ADManage.syncADTag);
+    app.get('/back/school/syncOneADTag', ADManage.syncOneADTag);
     app.get('/back/school/getArticle', auth.signinRequired, getArticle.getArticleAD);
     app.get('/back/school/getTodayADBrush', auth.signinRequired, getArticle.getTodayAdBrush);
 

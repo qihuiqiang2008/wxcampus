@@ -26,6 +26,10 @@ exports.getAdByTime = function (begin, end, opt, callback){
     AD.find({'del':false, 'slot.date':{'$gte':begin, '$lte':end}}, callback);
 }
 
+exports.getAdByIdAndTime = function (begin, end, id, callback){
+    AD.find({'del':false, 'slot.date':{'$gte':begin, '$lte':end}, '_id':id}, callback);
+}
+
 exports.getCountByQuery = function (query, callback) {
     AD.count(query, callback);
 };

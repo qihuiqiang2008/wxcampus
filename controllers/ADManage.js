@@ -191,6 +191,52 @@ exports.syncADTag = function(req, res, next) {
     });
 }
 
+exports.syncOneADTag = function(req, res, next) {
+    var begin = new Date(new Date().setUTCHours(0, 0, 0, 0));
+    var end = begin;
+    var id = req.query.id;
+
+    var adFlagArray = new Array();
+    var schools = new Array();
+
+    var proxy = EventProxy.create("ads", "reset", function(ads) {
+        ads.forEach(function(ad, index) {
+            ad.slot.forEach(function(slot) {
+                if (slot.date.setUTCHours(0, 0, 0, 0) == begin.getTime()) {
+                    adFlagArray[slot.school] = 1;
+                }
+            });
+        });
+
+        for (var school in adFlagArray) {
+
+            School.getSchoolByEname(school, function(err, schoolEx) {
+                if (schoolEx) {
+                    schoolEx.active = true;
+                    schoolEx.save();
+                }
+            })
+        }
+
+        var ret = {result: 'OK'}
+        res.json(ret);
+    });
+
+    SchoolEx.updateAlltag(false, function (err) {
+        if (err) {
+            console.log(err);
+
+        } else {
+            proxy.emit('reset');
+        }
+
+    });
+
+    ad.getAdByIdAndTime(begin, end, id, function(err, ads) {
+        proxy.emit('ads', ads);
+    });
+}
+
 exports.showGetAD = function(req, res, next) {
     var begin = new Date(new Date().setUTCHours(0, 0, 0, 0));
     var end = new Date().getTime() + 7 * 24 * 3600 * 1000;
