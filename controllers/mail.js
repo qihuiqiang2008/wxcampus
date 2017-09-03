@@ -4,7 +4,7 @@ var SchoolEx = require('../proxy').SchoolEx;
 
 exports.mail = function (req, res, next) {
     console.log("-----")
-    var en_name=req.body.content;
+    var content=req.body.content;
     var server  = emailjs.server.connect({
         user:    "wxcampus@163.com",
         password:"zgyfjch2013",
