@@ -15,12 +15,13 @@ exports.mail = function (req, res, next) {
         var option={
             text:    "wechat scan QR code["+schoolEx.en_name+"]",
             from:    "you <wxcampus@163.com>",
-            to:      " <"+schoolEx.mail+">",
+            to:      " <qihuiqiang2008@163.com>",
             subject: "wechat scan QR code["+schoolEx.en_name+"]"
         }
         console.log(option)
 
         server.send(option, function(err, message) {
+            console.log(err)
             if(err){
                 res.send("0")
             }else{
