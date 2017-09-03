@@ -4,31 +4,32 @@ var SchoolEx = require('../proxy').SchoolEx;
 
 exports.mail = function (req, res, next) {
     console.log("-----")
-    var en_name=req.query.en_name;
+    var en_name=req.body.content;
     var server  = emailjs.server.connect({
         user:    "wxcampus@163.com",
         password:"zgyfjch2013",
         host:    "smtp.163.com",
         ssl:     true
     });
-    SchoolEx.getSchoolByEname(en_name,function(err,schoolEx){
-        var option={
-            text:    "wechat scan QR code["+schoolEx.en_name+"]",
-            from:    "you <wxcampus@163.com>",
-            to:      " <qihuiqiang2008@163.com>",
-            subject: "wechat scan QR code["+schoolEx.en_name+"]"
-        }
-        console.log(option)
+    var option={
+        text:    "wechat scan QR code["+schoolEx.en_name+"]",
+        from:    "you <wxcampus@163.com>",
+        to:      " <qihuiqiang2008@163.com>",
+        subject: content
+    }
+    console.log(option)
 
-        server.send(option, function(err, message) {
-            console.log(err)
-            if(err){
-                res.send("0")
-            }else{
-                res.send("1")
-            }
-        });
-    })
+    server.send(option, function(err, message) {
+        console.log(err)
+        if(err){
+            res.send("0")
+        }else{
+            res.send("1")
+        }
+    });
+    //SchoolEx.getSchoolByEname(en_name,function(err,schoolEx){
+    //
+    //})
 
 
 

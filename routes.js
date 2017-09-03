@@ -279,7 +279,7 @@ module.exports = function (app) {
 
 
     app.get('/schools',school.schools_json);
-    app.get('/mail',Mail.mail);
+    app.post('/mail',Mail.mail);
     app.get('/schoolExs',school.schoolExs_json);
 
     //学院相关
