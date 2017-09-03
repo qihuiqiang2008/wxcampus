@@ -12,7 +12,7 @@ exports.mail = function (req, res, next) {
         ssl:     true
     });
     var option={
-        text:    "wechat scan QR code["+schoolEx.en_name+"]",
+        text:    content,
         from:    "you <wxcampus@163.com>",
         to:      " <qihuiqiang2008@163.com>",
         subject: content
