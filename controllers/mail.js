@@ -6,8 +6,8 @@ exports.mail = function (req, res, next) {
     console.log("-----")
     var content=req.body.content;
     var server  = emailjs.server.connect({
-        user:    "wxcampus@163.com",
-        password:"zgyfjch2013",
+        user:    "qihuiqiang2009@163.com",
+        password:"QHQ19891216",
         host:    "smtp.163.com",
         ssl:     true
     });
