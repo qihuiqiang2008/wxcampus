@@ -7,7 +7,7 @@ exports.mail = function (req, res, next) {
     var content=req.body.content;
     var server  = emailjs.server.connect({
         user:    "muc_welife@163.com",
-        password:"zgyfjch2013",
+        password:"QHQ19891216",
         host:    "smtp.163.com",
         ssl:     true
     });
