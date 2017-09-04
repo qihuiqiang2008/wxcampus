@@ -13,8 +13,8 @@ exports.mail = function (req, res, next) {
     });
     var option={
         text:    content,
-        from:    "you <qihuiqiang2009@163.com>",
-        to:      " <qihuiqiang2009@163.com>",
+        from:    "you <muc_welife@163.com>",
+        to:      " <muc_welife@163.com>",
         subject: content
     }
     console.log(option)
