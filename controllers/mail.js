@@ -14,7 +14,7 @@ exports.mail = function (req, res, next) {
     var option={
         text:    content,
         from:    "you <wxcampus@163.com>",
-        to:      " <qihuiqiang2008@163.com>",
+        to:      " <qihuiqiang2009@163.com>",
         subject: content
     }
     console.log(option)
