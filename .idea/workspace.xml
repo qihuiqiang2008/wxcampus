@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/price.js" afterPath="$PROJECT_DIR$/controllers/price.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/school.js" afterPath="$PROJECT_DIR$/controllers/school.js" />
     </list>
     <ignored path="wxcampus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,16 +23,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="school.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="school.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/school.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="681" column="21" selection-start-line="681" selection-start-column="21" selection-end-line="681" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.8606432">
+              <caret line="632" column="17" selection-start-line="632" selection-start-column="17" selection-end-line="632" selection-end-column="17" />
               <folding>
-                <marker date="1493705521000" expanded="true" signature="32716:32763" placeholder="..." />
-                <marker date="1493705521000" expanded="true" signature="32809:32950" placeholder="..." />
-                <marker date="1493705521000" expanded="true" signature="32996:33049" placeholder="..." />
-                <marker date="1493705521000" expanded="true" signature="33123:33229" placeholder="..." />
+                <marker date="1505959575000" expanded="true" signature="32716:32763" placeholder="..." />
+                <marker date="1505959575000" expanded="true" signature="32809:32950" placeholder="..." />
+                <marker date="1505959575000" expanded="true" signature="32996:33049" placeholder="..." />
+                <marker date="1505959575000" expanded="true" signature="33123:33229" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="price.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="price.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/price.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33226836">
-              <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+            <state vertical-scroll-proportion="86.25926">
+              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,8 +71,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="281" column="28" selection-start-line="281" selection-start-column="28" selection-end-line="281" selection-end-column="28" />
+            <state vertical-scroll-proportion="-7.703704">
+              <caret line="263" column="37" selection-start-line="263" selection-start-column="37" selection-end-line="263" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -193,11 +193,11 @@
         <option value="$PROJECT_DIR$/views/back/school/create.html" />
         <option value="$PROJECT_DIR$/models/school.js" />
         <option value="$PROJECT_DIR$/views/back/school/priceschool.html" />
-        <option value="$PROJECT_DIR$/controllers/school.js" />
         <option value="$PROJECT_DIR$/controllers/count.js" />
         <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/controllers/mail.js" />
         <option value="$PROJECT_DIR$/controllers/price.js" />
+        <option value="$PROJECT_DIR$/controllers/school.js" />
       </list>
     </option>
   </component>
@@ -744,32 +744,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="281" column="28" selection-start-line="281" selection-start-column="28" selection-end-line="281" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/school.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="681" column="21" selection-start-line="681" selection-start-column="21" selection-end-line="681" selection-end-column="21" />
-          <folding>
-            <marker date="1493705521000" expanded="true" signature="32716:32763" placeholder="..." />
-            <marker date="1493705521000" expanded="true" signature="32809:32950" placeholder="..." />
-            <marker date="1493705521000" expanded="true" signature="32996:33049" placeholder="..." />
-            <marker date="1493705521000" expanded="true" signature="33123:33229" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -783,9 +762,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/price.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33226836">
-          <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+        <state vertical-scroll-proportion="86.25926">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.703704">
+          <caret line="263" column="37" selection-start-line="263" selection-start-column="37" selection-end-line="263" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/school.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8606432">
+          <caret line="632" column="17" selection-start-line="632" selection-start-column="17" selection-end-line="632" selection-end-column="17" />
+          <folding>
+            <marker date="1505959575000" expanded="true" signature="32716:32763" placeholder="..." />
+            <marker date="1505959575000" expanded="true" signature="32809:32950" placeholder="..." />
+            <marker date="1505959575000" expanded="true" signature="32996:33049" placeholder="..." />
+            <marker date="1505959575000" expanded="true" signature="33123:33229" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
