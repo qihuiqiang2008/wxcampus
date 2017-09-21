@@ -97,7 +97,7 @@ function getPriceByWxId(wxid,fans){
 		value-=digital;
 	}
 	if(value<50){
-		value=50;
+		value=80;
 	}
 
 	return value;
