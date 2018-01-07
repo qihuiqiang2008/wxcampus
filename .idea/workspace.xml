@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c891852-0af3-4ae7-892e-4add859f3d54" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/wxcampus_node_modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/wxcampus.iml" afterPath="$PROJECT_DIR$/.idea/wxcampus.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/postEx.js" afterPath="$PROJECT_DIR$/controllers/postEx.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/front/topconfess/create.html" afterPath="$PROJECT_DIR$/views/front/topconfess/create.html" />
     </list>
     <ignored path="wxcampus.iws" />
@@ -106,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="postEx.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="171" column="19" lean-forward="true" selection-start-line="171" selection-start-column="19" selection-end-line="171" selection-end-column="19" />
+            <state relative-caret-position="335">
+              <caret line="174" column="36" lean-forward="false" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
               <folding>
                 <marker date="1515292895728" expanded="true" signature="34035:34171" ph="..." />
                 <marker date="1515292895728" expanded="true" signature="34206:34399" ph="..." />
@@ -144,20 +139,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="420" column="32" lean-forward="false" selection-start-line="420" selection-start-column="32" selection-end-line="420" selection-end-column="32" />
+            <state relative-caret-position="204">
+              <caret line="564" column="59" lean-forward="true" selection-start-line="564" selection-start-column="59" selection-end-line="564" selection-end-column="59" />
               <folding>
                 <element signature="n#style#0;n#hr#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1515292782127" expanded="false" signature="16432:16446" ph="..." />
-                <marker date="1515292782127" expanded="false" signature="16703:16796" ph="..." />
-                <marker date="1515292782127" expanded="false" signature="16959:17031" ph="..." />
-                <marker date="1515292782127" expanded="false" signature="17446:17493" ph="..." />
-                <marker date="1515292782127" expanded="false" signature="17633:17734" ph="..." />
-                <marker date="1515292782127" expanded="false" signature="18023:18107" ph="..." />
-                <marker date="1515292782127" expanded="false" signature="18247:18258" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="16433:16447" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="16704:16797" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="16960:17032" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="17447:17494" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="17634:17735" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="18024:18108" ph="..." />
+                <marker date="1515293163177" expanded="false" signature="18248:18259" ph="..." />
               </folding>
             </state>
           </provider>
@@ -239,8 +234,8 @@
         <option value="$PROJECT_DIR$/controllers/mail.js" />
         <option value="$PROJECT_DIR$/controllers/price.js" />
         <option value="$PROJECT_DIR$/controllers/school.js" />
-        <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
         <option value="$PROJECT_DIR$/controllers/postEx.js" />
+        <option value="$PROJECT_DIR$/views/front/topconfess/create.html" />
       </list>
     </option>
   </component>
@@ -400,12 +395,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1472949042933</updated>
-      <workItem from="1515292394717" duration="503000" />
+      <workItem from="1515292394717" duration="632000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="503000" />
+    <option name="totallyTimeSpent" value="632000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -836,23 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="420" column="32" lean-forward="false" selection-start-line="420" selection-start-column="32" selection-end-line="420" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1515292782127" expanded="false" signature="16432:16446" ph="..." />
-            <marker date="1515292782127" expanded="false" signature="16703:16796" ph="..." />
-            <marker date="1515292782127" expanded="false" signature="16959:17031" ph="..." />
-            <marker date="1515292782127" expanded="false" signature="17446:17493" ph="..." />
-            <marker date="1515292782127" expanded="false" signature="17633:17734" ph="..." />
-            <marker date="1515292782127" expanded="false" signature="18023:18107" ph="..." />
-            <marker date="1515292782127" expanded="false" signature="18247:18258" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -863,8 +841,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/postEx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="171" column="19" lean-forward="true" selection-start-line="171" selection-start-column="19" selection-end-line="171" selection-end-column="19" />
+        <state relative-caret-position="335">
+          <caret line="174" column="36" lean-forward="false" selection-start-line="174" selection-start-column="36" selection-end-line="174" selection-end-column="36" />
           <folding>
             <marker date="1515292895728" expanded="true" signature="34035:34171" ph="..." />
             <marker date="1515292895728" expanded="true" signature="34206:34399" ph="..." />
@@ -893,6 +871,23 @@
             <marker date="1515292895728" expanded="true" signature="47017:47042" ph="..." />
             <marker date="1515292895728" expanded="true" signature="49015:49040" ph="..." />
             <marker date="1515292895728" expanded="true" signature="50785:50810" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/front/topconfess/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="564" column="59" lean-forward="true" selection-start-line="564" selection-start-column="59" selection-end-line="564" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#hr#0;n#div#0;n#fieldset#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1515293163177" expanded="false" signature="16433:16447" ph="..." />
+            <marker date="1515293163177" expanded="false" signature="16704:16797" ph="..." />
+            <marker date="1515293163177" expanded="false" signature="16960:17032" ph="..." />
+            <marker date="1515293163177" expanded="false" signature="17447:17494" ph="..." />
+            <marker date="1515293163177" expanded="false" signature="17634:17735" ph="..." />
+            <marker date="1515293163177" expanded="false" signature="18024:18108" ph="..." />
+            <marker date="1515293163177" expanded="false" signature="18248:18259" ph="..." />
           </folding>
         </state>
       </provider>
