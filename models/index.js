@@ -28,6 +28,8 @@ require('./question');
 require('./AD');
 require('./PV');
 require('./articleInfo')
+require('./comment')
+
 exports.User = mongoose.model('User');
 exports.Message = mongoose.model('Message');
 exports.School = mongoose.model('School');
@@ -52,5 +54,6 @@ exports.Answer= mongoose.model('Answer');
 exports.AD = mongoose.model('AD');
 exports.PV= mongoose.model('PV');
 exports.ArticleInfo= mongoose.model('ArticleInfo');
+exports.Comment = mongoose.model('Comment');
 //exports. Photo_Guess1= mongoose.model('Photo_Guess1');
 //exports. Photo_Guess_Wgateid= mongoose.model('Photo_Guess_Wgateid');

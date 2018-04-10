@@ -1,0 +1,44 @@
+
+[
+    {
+        "name": "pku",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    },
+    {
+        "name": "tsinghua",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    },
+    {
+        "name": "ruc",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    }
+    ,
+    {
+        "name": "fudan",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    }
+    ,
+    {
+        "name": "sjtu",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    }
+    ,
+    {
+        "name": "whu",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    }
+    ,
+    {
+        "name": "nankai",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    }
+    ,
+    {
+        "name": "zju",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    },
+    {
+        "name": "tju",
+        "url": "https://mmbiz.qpic.cn/mmbiz_jpg/sgVkXibicD3icsZsVyzzEHWnRhEZ02NXscibgg6gwJN46YXBLsqvCC7R2OLJ6fvQq1KZ33dKImsV5BOeC5G5Ekynpw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1"
+    }
+]

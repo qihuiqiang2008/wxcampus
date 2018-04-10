@@ -15,6 +15,9 @@ var cheerio = require('cheerio');
 var articleNum = 4;         //试验采用两篇文章
 var Configuration = require('../proxy').Configuration;
 
+var file = "banner.json";
+var file_content = JSON.parse(fs.readFileSync(file, 'utf8'));
+
 function replaceContent(content, schoolEx, face) {
     var contentFunnl = content.replace(new RegExp('__topic_content__', "g"), schoolEx.topic_content)
         .replace(new RegExp('__confession_content__', "g"), schoolEx.confess_content.replace("赞", "zan"))
@@ -29,13 +32,23 @@ function replaceContent(content, schoolEx, face) {
             .replace(new RegExp('__photo_guess_content__', "g"), schoolEx.photo_guess_content.replace("赞", "zan"))
     }
 
+    for(var i=0; i< file_content.length; i++){
+        
+        if(file_content[i].name == schoolEx.en_name){
+            contentFunnl = contentFunnl.replace(
+                new RegExp("__banner_content__", "g"), "<img src='" + file_content[i].url + "'/>");
+        } 
 
+    }
 
+    contentFunnl = contentFunnl.replace(
+        new RegExp("__banner_content__", "g"), "");
+        
 
     return contentFunnl
-    //
 
 }
+
 var replaceAll = function (find, replace, str) {
     var find = find.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
     return str.replace(new RegExp(find, 'g'), replace);

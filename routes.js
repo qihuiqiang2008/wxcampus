@@ -62,11 +62,9 @@ var record=require('./controllers/record');
 var PVManage=require('./controllers/PVManage');
 
 var markdown = require('./controllers/markdown');
-
+var comments = require('./controllers/comments');
 
 module.exports = function (app) {
-
-
 
     app.get('/scan/:from_school_en_name', login.wxLogin);
     app.get('/msg/:en_name', getMessage.getMessage);
@@ -412,5 +410,8 @@ module.exports = function (app) {
     app.get('/back/markdown/edit',  markdown.edit);
     app.get('/back/markdown/show', markdown.view);
     app.post('/back/markdown/save',markdown.save);
+
+    //留言相关接口
+    app.get('/back/comments/test', comments.getOneSchool);
 
 };

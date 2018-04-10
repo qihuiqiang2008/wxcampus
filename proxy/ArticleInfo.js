@@ -4,7 +4,7 @@
 var EventProxy = require('eventproxy');
 var ArticleInfo = require('../models').ArticleInfo;
 var ReadUtils=require('../wx_helpers/read_num')
-var smsUtils=require('../wx_helpers/smsUtils')
+//var smsUtils=require('../wx_helpers/smsUtils')
 
 exports.newAndSave = function (url, date_time, positon, type, school, title,callback) {
     var article = new ArticleInfo();
@@ -491,14 +491,14 @@ exports.getAdvertByData=function (data,callback) {
                     adArrArray.every(function (ad,index) {
                         if(ad.expect<ad.read_num&&ad.read_num>0){
                             console.log("============有异常数据，发送预警信息============")
-                            smsUtils.sendSms("广告数据异常请查看",smsUtils.phone,function (err) {
-                                if(err){
-                                    console.log(err);
-                                }
-                                else {
-                                    console.log("预警信息发送成功")
-                                }
-                            })
+                            // smsUtils.sendSms("广告数据异常请查看",smsUtils.phone,function (err) {
+                            //     if(err){
+                            //         console.log(err);
+                            //     }
+                            //     else {
+                            //         console.log("预警信息发送成功")
+                            //     }
+                            // })
                             return false;
                         }
                     })

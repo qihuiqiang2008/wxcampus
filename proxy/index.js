@@ -23,3 +23,4 @@ exports.Photo_Guess = require('./photo_guess');
 exports.Photo_Guess_Wgateid = require('./photo_guess_wgateid');
 exports.AD = require('./AD');
 exports.ArticleInfo = require('./ArticleInfo');
+exports.Comment = require('./Comment');
