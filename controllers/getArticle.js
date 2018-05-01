@@ -11,6 +11,7 @@ var brushRate0 = 0.05;
 var brushRate1 = 0.03;
 var nodeExcel = require('excel-export');
 
+
 exports.getArticleAD = function(req, res, next) {
     var conf ={};
         conf.stylesXmlFile = "styles.xml";
@@ -184,7 +185,7 @@ exports.getTodayAdBrush = function(req, res, next) {
                 amount = amount < 200 ? 200 : amount;
 
                 conf.rows.push([url, amount, schoolDic[ad.school], ad.school, ad.position]);
-
+                
                 cb();
              });
 
@@ -196,6 +197,13 @@ exports.getTodayAdBrush = function(req, res, next) {
             res.setHeader('Content-Type', 'application/vnd.openxmlformats');
             res.setHeader("Content-Disposition", "attachment; filename=" + FormatDate(new Date()) + ".xlsx");
             res.end(result, 'binary');
+            //存储到本地一份
+            fs.writeFile("temp-ad-file.xlsx", result, 'binary',function(err){
+                   if(err){
+                       console.log(err);
+                   }
+            });
+
             console.log("-----Finish---------");
         });
     });

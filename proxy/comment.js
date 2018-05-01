@@ -5,6 +5,10 @@ exports.getCountByQuery = function (query, callback) {
     Comment.count(query, callback);
 };
 
+exports.getCommentByContentId = function(content_id, callback){
+    Comment.find({'content_id':content_id} ,callback);
+}
+
 exports.getCommentByQuery = function (query, opt, callback) {
     Comment.find(query, [], opt, function (err, docs) {
         if (err) {
@@ -16,6 +20,10 @@ exports.getCommentByQuery = function (query, opt, callback) {
         return callback(null,docs);
     });
 };
+
+exports.getNewComments = function (callback){
+    Comment.find({'audit_status':false}, callback);
+}
 
 exports.UpdateOrNew = function(comment_in, callback){
     Comment.find({"content_id": comment_in.content_id}, function(err, docs){
@@ -60,6 +68,7 @@ function newAndSave(comment_in, callback) {
     comment.reply = comment_in.reply;
     comment.status = comment_in.status;
     comment.uin = comment_in.uin;
+    comment.school_enname = comment_in.school_enname;
 
     comment.save(callback);
 };

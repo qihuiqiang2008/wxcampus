@@ -412,6 +412,10 @@ module.exports = function (app) {
     app.post('/back/markdown/save',markdown.save);
 
     //留言相关接口
-    app.get('/back/comments/test', comments.getOneSchool);
+    app.get('/back/comments/getOneSchool', comments.getOneSchool);
+    app.get('/back/comments/refreshComment', comments.refreshComment);
+    app.get('/back/comments/queryRefreshStatus', comments.queryRefreshStatus);
+    app.get('/back/comments/showNew', comments.showNew);
+    app.get('/back/comments/updateComment', comments.updateComment);
 
 };
