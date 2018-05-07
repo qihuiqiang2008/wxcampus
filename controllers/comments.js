@@ -13,14 +13,19 @@ var COMMENT_RETRY_LIMIT = 2;
 
 
 var school_num;
-
+var good_result = { status : 'ok'};
+var error_result = { status : 'error'};
 /*
 * 显示留言审查界面
 */
 exports.showAll = function(req, res, next){
 
 	//查询留言
-
+	view = 'back/comments/comments';
+	
+	Comment.getAllComments(function(err, comments){
+		res.render(view, {comments: comments, is_all:true});
+	});
 }
 
 
@@ -31,44 +36,218 @@ exports.showNew = function(req, res, next){
 	view = 'back/comments/comments';
 	
 	Comment.getNewComments(function(err, comments){
-		res.render(view, {comments: comments});
+		res.render(view, {comments: comments, is_all:false});
 	});
 	
 
 }
 
+exports.showDelByUser  = function(req, res, next){
+	view = 'back/comments/comments';
+	
+	Comment.getDelByUserComments(function(err, comments){
+		res.render(view, {comments: comments, is_all:false});
+	});
+}
+
+exports.showNewJson = function(req, res, next){
+	view = 'back/comments/comments_json';
+	
+	Comment.getNewComments(function(err, comments){
+		res.render(view, {comments: comments, is_all:false});
+	});
+	JSON.stringify(ads)
+}
 /*
 * 更改某一留言状态，并将其状态写入数据库
 */
+function getCommentFromDB(content_id, callback){
+	//首先从数据库提取该留言
+	Comment.getCommentByContentId(content_id, function(err, comments){
+		if(err || comments.length <1){
+			console.log("错误！数据库读取错误！");
+			return -1;
+		}else {
+			var comment = comments[0];
+			callback(comment);
+		} 
+	});
+}
+
 exports.updateComment = function(req, res, next){
 
 	var content_id = req.query.content_id;
+	var operation = req.query.operation;
+	var content = req.query.content;
 
-	Comment.getCommentByContentId(content_id, function(err, comments){
-		if(err || comments.length <1){
-			return "{ status:'error' }";
-		}else {
-			var comment = comments[0];
-			changeComment(comment, function(err){
-				res.send("{ status:'ok' }");
-			});
-		} 
-	});
+	var data = {
+	    // comment_id:comment.comment_id,
+	    action:operation,
+	    // user_comment_id_count:1,
+	    // user_comment_id_0:comment.id,
+	    lang:"zh_CN",
+	    ajax:'1',                                
+	    f:'json'
+	};
+
+	var new_comment = {};
+
 	//判断命令参数，明确具体操作
-	//操作为 精选留言/回复留言/置顶留言
+	//精选留言操作逻辑
+	if(operation == "set_good_comment" || operation == "remove_good_comment"){
+		getCommentFromDB(content_id, function(comment){
+			data.comment_id = comment.comment_id;
+			data.user_comment_id_count = 1;
+			data.user_comment_id_0 = comment.id;
+			changeComment(comment, operation, data, function(){
+				new_comment.content_id = comment.content_id;
+
+				if(operation == "set_good_comment"){
+					new_comment.is_elected = 1;
+				} else {
+					new_comment.is_elected = 0;
+					new_comment.is_top = false;
+
+				}
+				new_comment.audit_status = true;
+
+								
+				Comment.updateComment(new_comment, function(){
+
+					res.send(JSON.stringify(good_result));
+				});
+			}, function(){
+				res.send(JSON.stringify(error_result));
+			});
+		});
+
+	} else if (operation == "ignore_comment" ) {
+
+		//console.log("忽略留言");
+		new_comment.audit_status = true;
+		new_comment.content_id = content_id;
+		Comment.updateComment(new_comment, function(){
+
+			res.send(JSON.stringify(good_result));
+		}, function(){});
+
+	} else if (operation == "set_top_comment" || operation == "remove_top_comment") {
+		//console.log("置顶留言");
+		getCommentFromDB(content_id, function(comment){
+			data.comment_id = comment.comment_id;
+			data.user_comment_id = comment.id;
+			changeComment(comment, operation, data, function(){
+				new_comment.content_id = comment.content_id;
+				if(operation == "set_top_comment"){
+					new_comment.is_elected = 1;
+					new_comment.is_top = true;
+				} else {
+					new_comment.is_top = 0;
+				}
+				new_comment.audit_status = true;
+
+				Comment.updateComment(new_comment, function(){
+
+					res.send(JSON.stringify(good_result));
+				});
+			}, function(){
+				res.send(JSON.stringify(error_result));
+			});
+		});
+
+	} else if (operation == "reply_comment") {
+		//console.log("回复留言");
+		getCommentFromDB(content_id, function(comment){
+			data.content = content;
+			data.content_id = comment.content_id;
+			data.comment_id = comment.comment_id;
+			changeComment(comment, operation, data, function(ret_data){
+				new_comment.content_id = comment.content_id;
+				new_comment.reply = comment.reply;
+				new_comment.audit_status = true;
+				var reply = {
+					reply_id: ret_data.reply_id,
+					content: content
+				};
+				new_comment.reply[0].reply_list.push(reply);
+				Comment.updateComment(new_comment, function(){
+
+					res.send(JSON.stringify(good_result));
+				});
+
+			}, function(){
+				res.send(JSON.stringify(error_result));
+
+			});
+		});
+
+	} else if (operation == "delete_reply"){
+		//console.log("删除回复");
+		getCommentFromDB(content_id, function(comment){
+			data.reply_id = comment.reply[0].reply_list[0].reply_id;
+			data.comment_id = comment.comment_id;
+			data.content_id = comment.content_id;
+
+			changeComment(comment, operation, data, function(){
+				new_comment.content_id = comment.content_id;
+				new_comment.reply = comment.reply;
+				new_comment.reply[0].reply_list = [];
+				new_comment.audit_status = true;
+
+				Comment.updateComment(new_comment, function(){
+
+					res.send(JSON.stringify(good_result));
+				});
+			}, function(){
+				res.send(JSON.stringify(error_result));
+			});
+		});
+	} else if (operation == "batch_delete_comment"){
+		getCommentFromDB(content_id, function(comment){
+
+			data.count = 1;
+			data.comment_id_0 = comment.comment_id;
+			data.user_comment_id_0 = comment.id;
+			changeComment(comment, operation, data, function(){
+				new_comment.content_id = comment.content_id;
+				
+				new_comment.audit_status = true;
+				new_comment.del_flag = 1;
+
+				Comment.updateComment(new_comment, function(){
+
+					res.send(JSON.stringify(good_result));
+				});
+			}, function(){
+				res.send(JSON.stringify(error_result));
+			});
+		});
+
+		console.log("删除留言");
+	}
 
 }
 
 /*
 * command: remove_good_comment, set_good_comment, set_top_comment, remove_top_comment
 */
-function changeComment(command, comment, callback){
+function changeComment(comment, command, data, callback, err_callback){
 	var loadResult;
+	var schoolEx;
+
+	var url = "https://mp.weixin.qq.com/misc/appmsgcomment";
+
+	if(command == "reply_comment"){
+		url = url + "?action=reply_comment";
+	} else if (command == "delete_reply"){
+		url = url + "?action=delete_reply";
+	}
 
 	async.series([
 	    function(cb) {
 	        SchoolEx.getSchoolByEname(comment.school_enname, function (err, school) {
 	            schoolEx = school;
+	            console.log(comment.school_enname);
 	            cb();
 	        })
 	    },
@@ -76,27 +255,20 @@ function changeComment(command, comment, callback){
 	    function(cb) {//1.1：登陆。
 	        login(schoolEx, function(err, results){
 	            loadResult = results;
+	            data.token = loadResult.token;
 	            console.log("登陆：" + comment.school_enname);
 	            cb();
 	        });
 	    },
 	    function (cb) {
-	    	var data = {
-	    	    comment_id:comment.comment_id,
-	    	    action:command,
-	    	    user_comment_id_count:1,
-	    	    user_comment_id_0:comment.id,
-	    	    token:loadResult.token,
-	    	    ajax:'1',                                
-	    	    f:'json'
-	    	};
+	    	
 	    	var sendData = '';
 
 	    	for (property in data) {
 	    	    sendData = sendData + property + '=' + encodeURIComponent(data[property]) + "&";
 	    	}
 
-	        request.post("https://mp.weixin.qq.com/misc/appmsgcomment") //更新留言状态
+	        request.post(url) //更新留言状态
 	            .set('Cookie', loadResult.cookie)
 	            .set('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0')
 	            .set({"Accept-Encoding": "gzip,sdch"}) //为了防止出现Zlib错误
@@ -105,24 +277,20 @@ function changeComment(command, comment, callback){
 	            .end(function (res) {
 	     			console.log(res.text);
 	     			result = JSON.parse(res.text);
-	     			if(result.ret == 0){
+	     			if(result.base_resp.ret == 0){
 	     				console.log("success!");
+	     				callback(result);
+	     			} else {
+	     				err_callback();
 	     			}
 	     			cb();
                 });	            
 	    },
 	    
 	], function () {
-		callback();
+		console.log("Comment process finish!");
 	});
 }
-/*
-* 回复留言
-*/
-function replyComment(){
-
-}
-
 
 /*
 * 获取留言并同步到数据库

@@ -22,7 +22,15 @@ exports.getCommentByQuery = function (query, opt, callback) {
 };
 
 exports.getNewComments = function (callback){
-    Comment.find({'audit_status':false}, callback);
+    Comment.find({'audit_status':false, 'del_flag':0, 'status': 0}, callback);
+}
+
+exports.getAllComments = function (callback){
+    Comment.find({'del_flag':0,  'status': 0}, callback);
+}
+
+exports.getDelByUserComments = function(callback){
+    Comment.find({'del_flag':0, 'status': 1}, callback);
 }
 
 exports.UpdateOrNew = function(comment_in, callback){
@@ -69,6 +77,7 @@ function newAndSave(comment_in, callback) {
     comment.status = comment_in.status;
     comment.uin = comment_in.uin;
     comment.school_enname = comment_in.school_enname;
+    comment.audit_status = false;
 
     comment.save(callback);
 };

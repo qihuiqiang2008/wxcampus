@@ -416,6 +416,10 @@ module.exports = function (app) {
     app.get('/back/comments/refreshComment', comments.refreshComment);
     app.get('/back/comments/queryRefreshStatus', comments.queryRefreshStatus);
     app.get('/back/comments/showNew', comments.showNew);
+    app.get('/back/comments/showAll', comments.showAll);
+    app.get('/back/comments/showDel', comments.showDelByUser);
+
+
     app.get('/back/comments/updateComment', comments.updateComment);
 
 };

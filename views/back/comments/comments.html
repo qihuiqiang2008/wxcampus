@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>留言审核-所有新留言</title>
+
+    <title>留言审核-所有<% if(!is_all){%>新<%}%>留言</title>
 </head>
 <% comments.forEach(function(comment){  %>
-    <div class="weui-cell">
+    <div class="weui-cell" id="comment_<%=comment.content_id%>">
         <div class="weui-cell">
             <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                 <img src="<%=comment.icon%>" style="width: 50px;display: block">
-                <% if(comment.audit_status == false){ %>
-                    <span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">new</span>
+                <% if(comment.audit_status == false && comment.status == 0){ %>
+                    <span class="weui-badge" id="icon_<%=comment.content_id%>" style="position: absolute;top: -.4em;right: -.4em;">new</span>
                     <% } %>
             </div>
             <div class="weui-cell__bd">
@@ -26,35 +27,42 @@
                 <p style="font-size: 13px;color: #888888;word-break: break-all;">时间:
                     
                 </p>
-                <% if(comment.reply[0].reply_list == ""){%>
-                    <p style="font-size: 13px;color: #888888;word-break: break-all;">回复: </p>
-                    <% }else{ %>
-                        <p style="font-size: 13px;color: #888888;word-break: break-all;">回复:
-                            <%=comment.reply[0].reply_list[0].content%>
-                        </p>
-                        <%}%>
+
+                <%if(comment.reply[0].reply_list == ""){%>
+                    <p style="font-size: 13px;color: #888888;word-break: break-all;" id="reply_content_<%=comment.content_id%>" >回复: </p>
+                <% }else{ %>
+                    <p style="font-size: 13px;color: #888888;word-break: break-all;" id="reply_content_<%=comment.content_id%>">回复:
+                        <%=comment.reply[0].reply_list[0].content%>
+                    </p>
+                <%}%>
+                <% if(comment.status != 0){%> 
+                    <p style="font-size: 13px;word-break: break-all;" >该留言已被用户删除</p>
+                <%}%>
             </div>
         </div>
     </div>
-    <div class="weui-cell__bd">
-        <textarea class="weui-textarea" id="input_<%=comment.content_id%>" placeholder="请输入回复" rows="2"></textarea>
+    <div class="weui-cell__bd" <% if(comment.status != 0){%> style="display:none" <%}%>>
+        <textarea class="weui-textarea" id="input_<%=comment.content_id%>" placeholder="请输入回复" rows="2" <% if(comment.reply[0].reply_list != ""){%> style="display:none" <%}%> ></textarea>
     </div>
-    <div class="weui-cell__bd">
 
-    <% if(comment.is_top == false) {%>
-        <a href="javascript:top_comment('<%=comment.content_id%>', true);" class="weui-btn weui-btn_mini weui-btn_warn">置顶留言</a>
-    <% } else {%>
-        <a href="javascript:top_comment('<%=comment.content_id%>', false);" class="weui-btn weui-btn_mini weui-btn_warn">取消置顶</a>
-    <% }%>
-    <% if(comment.is_elected == 0) {%>
+    <div class="weui-cell__bd" id="button_<%=comment.content_id%>" <% if(comment.status != 0){%> style="display:none" <%}%>>
 
-        <a href="javascript:set_good_comment('<%=comment.content_id%>', true);" class="weui-btn weui-btn_mini weui-btn_primary">显示留言</a>
-        <a href="javascript:ignore_comment('<%=comment.content_id%>');" class="weui-btn weui-btn_mini weui-btn_default">忽略</a>
-    <% } else {%>
-        <a href="javascript:set_good_comment('<%=comment.content_id%>', false);" class="weui-btn weui-btn_mini weui-btn_primary">取消显示</a>
-    <% }%>
-
-        <a href="javascript:reply_comment('<%=comment.content_id%>');" class="weui-btn weui-btn_mini weui-btn_primary" id="<%=comment.comment_id%>">回复留言</a>
+        <a href="javascript:top_comment('<%=comment.content_id%>', true);" class="weui-btn weui-btn_mini weui-btn_primary"  id="top_<%=comment.content_id%>"  <% if(comment.is_top == true) {%> style="display:none" <%}%> 
+        >置顶</a>
+        <a href="javascript:top_comment('<%=comment.content_id%>', false);" class="weui-btn weui-btn_mini weui-btn_primary" id="untop_<%=comment.content_id%>"  <% if(comment.is_top == false) {%> style="display:none" <%}%> 
+        >取消置顶</a>
+        <a href="javascript:set_good_comment('<%=comment.content_id%>', false);" class="weui-btn weui-btn_mini weui-btn_primary" id="show_<%=comment.content_id%>"  <% if(comment.is_elected == 1) {%> style="display:none" <%}%> 
+        >显示</a>
+        <a href="javascript:ignore_comment('<%=comment.content_id%>');" class="weui-btn weui-btn_mini weui-btn_default"  id="ignore_<%=comment.content_id%>"  <% if(comment.audit_status == true) {%> style="display:none" <%}%> 
+        >忽略</a>
+        <a href="javascript:set_good_comment('<%=comment.content_id%>', true);" class="weui-btn weui-btn_mini weui-btn_primary"  id="unshow_<%=comment.content_id%>"  <% if(comment.is_elected == 0) {%> style="display:none" <%}%> 
+        >取消显示</a>
+        <a href="javascript:reply_comment('<%=comment.content_id%>', false);" class="weui-btn weui-btn_mini weui-btn_primary" id="reply_<%=comment.content_id%>" <% if(!(comment.reply[0].reply_list == "")){%> style="display:none" <%}%> 
+        >回复</a>
+        <a href="javascript:reply_comment('<%=comment.content_id%>', true);" class="weui-btn weui-btn_mini weui-btn_warn" id="unreply_<%=comment.content_id%>" <% if(comment.reply[0].reply_list == ""){%> style="display:none" <%}%> 
+        >删除回复</a>
+        <a href="javascript:del_comment('<%=comment.content_id%>');" class="weui-btn weui-btn_mini weui-btn_warn" id="del_<%=comment.content_id%>"
+        >删除</a>
 
     </div>
     <%});%>
@@ -66,29 +74,56 @@
 
 <script>
 
+    function request_comment(url, callback){
+        $.ajax({
+            url: url,
+            method: "get",
+            dateType: "json",
+            success: function(data,  err){
+                console.log(data);
+                result = JSON.parse(data);
+                if(result.status == 'ok'){
+                    callback();
+                } else {
+                    alert("出现错误，请在微信后台操作此留言！");
+                }
+            },
+            error: function(err){
+                alert("出现错误，请重试！");
+            }
+        });
+        
+    }
+
     function top_comment(content_id, is_top){
         url = "/back/comments/updateComment?content_id=" + content_id;
         
-        if(is_top){
+        if(!is_top){
             url = url + "&operation=" + "remove_top_comment";
         } else {
             url = url + "&operation=" + "set_top_comment";
         }
         
         request_comment(url, function(data){
-            console.log(data);
-        });
-    }
+            hide_new_icon(content_id);
 
-    function request_comment(url, callback){
-        $.ajax({
-            url: url,
-            method: "get",
-            dateType: "json",
-            async:false,
-            success: function(data,  err){
-                callback(data);
+            var show_id = "show_" + content_id;
+            var unshow_id = "unshow_" + content_id;
+            var top_id = "top_" + content_id;
+            var untop_id = "untop_" + content_id;
+            var ignore_id = "ignore_" + content_id;
+
+            if(is_top){
+                $("#" + show_id).hide();
+                $("#" + unshow_id).show();
+                $("#" + top_id).hide();
+                $("#" + untop_id).show();
+            } else {
+                
+                $("#" + untop_id).hide();
+                $("#" + top_id).show();
             }
+            $("#" + ignore_id).hide();
 
         });
     }
@@ -96,39 +131,98 @@
     function set_good_comment(content_id, is_elected){
         url = "/back/comments/updateComment?content_id=" + content_id;
         
-        if(is_elected == 0){
-            url = url + "&operation=" + "set_good_comment";
-        } else {
+        if(is_elected){
             url = url + "&operation=" + "remove_good_comment";
+        } else {
+            url = url + "&operation=" + "set_good_comment";
         }
         request_comment(url, function(data){
-            console.log(data);
+
+            hide_new_icon(content_id);
+            var show_id = "show_" + content_id;
+            var unshow_id = "unshow_" + content_id;
+            var top_id = "top_" + content_id;
+            var untop_id = "untop_" + content_id;
+            var ignore_id = "ignore_" + content_id;
+
+            if(is_elected){
+                $("#" + show_id).show();
+                $("#" + unshow_id).hide();
+                $("#" + untop_id).hide();
+                $("#" + top_id).show();
+            } else {
+                $("#" + unshow_id).show();
+                $("#" + show_id).hide();
+            }
+            //切换按钮的显示
+            $("#" + ignore_id).hide();
+
         });
     }
 
     function ignore_comment(content_id){
         url = "/back/comments/updateComment?content_id=" + content_id 
         + "&operation=" + "ignore_comment";
+        var ignore_id = "ignore_" + content_id;
 
         request_comment(url, function(data){
-                    console.log(data);
+            hide_new_icon(content_id);
+            $("#" + ignore_id).hide();
+
         });
     }
 
-    function reply_comment(content_id){
+    function del_comment(content_id){
+        url = "/back/comments/updateComment?content_id=" + content_id 
+        + "&operation=" + "batch_delete_comment";
+
+        request_comment(url, function(data){
+            $("#comment_" + content_id).hide();
+            $("#input_" + content_id).hide();
+            $("#button_" + content_id).hide();
+
+        });
+    }
+
+    function reply_comment(content_id, is_remove){
         //检查输入是否为空
-        id = "input_" + content_id;
-        content = $("#"+id).text();
-        if(content == ""){
-            alert("输入不能为空！");
-            return;
+        var content = "";
+
+        if(is_remove){
+            command = "delete_reply";
+        } else {
+            command = "reply_comment";
+            id = "input_" + content_id;
+            content = $("#"+id).val();
+            if(content == ""){
+                alert("输入不能为空！");
+                return;
+            }
         }
         
         url = "/back/comments/updateComment?content_id=" + content_id 
-                + "&operation=" + "reply_comment&content=" + content;
+                + "&operation=" + command + "&content=" + content;
 
         request_comment(url, function(data){
-                    console.log(data);
+            hide_new_icon(content_id);
+            if(is_remove){
+                $("#reply_" + content_id).show();
+                $("#unreply_" + content_id).hide();
+                $("#reply_content_" + content_id).text("回复：");
+                $("#input_" + content_id).show();
+               // $("#input_" + content_id).val();
+            } else {
+                $("#reply_" + content_id).hide();
+                $("#unreply_" + content_id).show();
+                $("#reply_content_" + content_id).text("回复：" + content);
+                $("#input_" + content_id).hide();
+            }
+
         });
+    }
+
+
+    function hide_new_icon(content_id){
+        $("#icon_" + content_id).hide();
     }
 </script>
