@@ -22,10 +22,24 @@ exports.showAll = function(req, res, next){
 
 	//查询留言
 	view = 'back/comments/comments';
+	var page = req.query.page;
+	var limit = req.query.limit;
+	var is_first_page = false;
+
+	if(page == undefined || parseInt(page) == 1){
+		is_first_page = true;
+		page = 1;
+	}
 	
 	Comment.getAllComments(function(err, comments){
-		res.render(view, {comments: comments, is_all:true});
-	});
+		console.log(comments);
+		res.render(view, {
+			comments: comments, 
+			is_all:true, 
+			is_first_page:is_first_page,
+			url:"/back/comments/showAll"
+		});
+	}, page, limit);
 }
 
 
@@ -34,30 +48,49 @@ exports.showAll = function(req, res, next){
 */
 exports.showNew = function(req, res, next){
 	view = 'back/comments/comments';
-	
+	var page = req.query.page;
+	var limit = req.query.limit;
+	var is_first_page = false;
+
+	if(page == undefined || parseInt(page) == 1){
+		is_first_page = true;
+		page = 1;
+	}
+
 	Comment.getNewComments(function(err, comments){
-		res.render(view, {comments: comments, is_all:false});
-	});
+		res.render(view, {
+			comments: comments, 
+			is_all:false, 
+			is_first_page:is_first_page,
+			url:"/back/comments/showNew"
+		});
+	}, page, limit);
 	
 
 }
 
 exports.showDelByUser  = function(req, res, next){
 	view = 'back/comments/comments';
-	
+	var page = req.query.page;
+	var limit = req.query.limit;
+	var is_first_page = false;
+
+	if(page == undefined || parseInt(page) == 1){
+		is_first_page = true;
+		page = 1;
+	}
+
 	Comment.getDelByUserComments(function(err, comments){
-		res.render(view, {comments: comments, is_all:false});
-	});
+		res.render(view, 
+			{
+				comments: comments, 
+				is_all:false, 
+				is_first_page:is_first_page,
+				url:"/back/comments/showDel"
+			});
+	}, page, limit);
 }
 
-exports.showNewJson = function(req, res, next){
-	view = 'back/comments/comments_json';
-	
-	Comment.getNewComments(function(err, comments){
-		res.render(view, {comments: comments, is_all:false});
-	});
-	JSON.stringify(ads)
-}
 /*
 * 更改某一留言状态，并将其状态写入数据库
 */

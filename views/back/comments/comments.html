@@ -1,5 +1,8 @@
+<% if(is_first_page){%>
 <html lang="zh-cmn-Hans">
 <link rel="stylesheet" href="/public/back/css/weui.min.css" />
+<link rel="stylesheet" href="http://cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">    
+
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +10,9 @@
 
     <title>留言审核-所有<% if(!is_all){%>新<%}%>留言</title>
 </head>
+<div id="content_area">
+
+<% }%>
 <% comments.forEach(function(comment){  %>
     <div class="weui-cell" id="comment_<%=comment.content_id%>">
         <div class="weui-cell">
@@ -66,13 +72,57 @@
 
     </div>
     <%});%>
+<% if(is_first_page){%>
+</div>
+
+<div class="weui-loadmore" id="loading">    
+    <i class="weui-loading"></i>    
+    <span class="weui-loadmore__tips">正在加载</span>    
+</div>  
+
 <div class="weui-footer">
     <p class="weui-footer__text">Copyright © 2014-2018 welife001.com</p>
 </div>
 
 <script src="/public/back/js/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>    
 
 <script>
+    var loading = false;  //状态标记  
+
+    $(function () {   
+       var limit = 5;
+       var page = 1;  
+          
+       //滚动加载更多  
+       $(document.body).infinite().on("infinite", function() {  
+
+           if(loading) return;  
+
+           loading = true;    
+           setTimeout(function() {    
+               page = page + 1;  
+               load_more(page, limit);
+               loading = false;    
+           }, 1000);   //模拟延迟    
+       });
+   });
+
+    function load_more(page, limit){
+        var url = "<%=url%>" + "?page=" + page + "&limit=" + limit;
+        $.ajax({
+            url: url,
+            method: "get",
+            success: function(data, err){
+                if($.trim(data).length==0){
+                                    //没有数据时
+                    $(document.body).destroyInfinite()
+                    $(".weui-loadmore").html('<div class="weui-loadmore weui-loadmore_line"> <span class="weui-loadmore__tips">暂无数据</span> </div>')
+                }
+                $("#content_area").append(data);
+            }
+        });
+    }
 
     function request_comment(url, callback){
         $.ajax({
@@ -226,3 +276,4 @@
         $("#icon_" + content_id).hide();
     }
 </script>
+<% }%>

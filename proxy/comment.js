@@ -21,16 +21,28 @@ exports.getCommentByQuery = function (query, opt, callback) {
     });
 };
 
-exports.getNewComments = function (callback){
-    Comment.find({'audit_status':false, 'del_flag':0, 'status': 0}, callback);
+exports.getNewComments = function (callback, page, size){
+    Comment.find({'audit_status':false, 'del_flag':0, 'status': 0})
+    .sort('post_time', 'descending')
+    .skip((page - 1)*size)
+    .limit(size)
+    .exec(callback);
 }
 
-exports.getAllComments = function (callback){
-    Comment.find({'del_flag':0,  'status': 0}, callback);
+exports.getAllComments = function (callback, page, size){
+    Comment.find({'del_flag':0,  'status': 0})
+    .sort('post_time', 'descending')
+    .skip((page - 1)*size)
+    .limit(size)
+    .exec(callback);
 }
 
-exports.getDelByUserComments = function(callback){
-    Comment.find({'del_flag':0, 'status': 1}, callback);
+exports.getDelByUserComments = function(callback, page, size){
+    Comment.find({'del_flag':0, 'status': 1})
+    .sort('post_time', 'descending')
+    .skip((page - 1)*size)
+    .limit(size)
+    .exec(callback);
 }
 
 exports.UpdateOrNew = function(comment_in, callback){
@@ -48,6 +60,7 @@ exports.UpdateOrNew = function(comment_in, callback){
 }
 
 function updateComment(comment_in, callback){
+    delete comment_in.post_time; //不更新提交时间
     Comment.update({"content_id":comment_in.content_id}, {$set: comment_in}, 
         function(err){
             if(err){
@@ -72,7 +85,7 @@ function newAndSave(comment_in, callback) {
     comment.is_top = comment_in.is_top;
     comment.my_id = comment_in.my_id;
     comment.nick_name = comment_in.nick_name;
-    comment.post_time = comment_in.post_time;
+    comment.post_time = comment_in.post_time + "000";
     comment.reply = comment_in.reply;
     comment.status = comment_in.status;
     comment.uin = comment_in.uin;

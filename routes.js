@@ -419,7 +419,6 @@ module.exports = function (app) {
     app.get('/back/comments/showAll', comments.showAll);
     app.get('/back/comments/showDel', comments.showDelByUser);
 
-
     app.get('/back/comments/updateComment', comments.updateComment);
 
 };
