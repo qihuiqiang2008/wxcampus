@@ -6,6 +6,7 @@ var SchoolEx = require('../proxy').SchoolEx;
 var async = require('async');
 var fs = require('fs');
 var School = require('../proxy').School;
+var proc = require('process');
 
 
 var BREAK_POINT_FILE = "break_point_comments.tmp";
@@ -32,7 +33,7 @@ exports.showAll = function(req, res, next){
 	}
 	
 	Comment.getAllComments(function(err, comments){
-		console.log(comments);
+		//console.log(comments);
 		res.render(view, {
 			comments: comments, 
 			is_all:true, 
@@ -442,6 +443,32 @@ exports.queryRefreshStatus = function(req, res, next){
 	res.send(content);
 }
 
+function is_pid_diffrent(){
+	var new_pid = proc.pid;
+
+	if(is_break_point_exist()){
+		var content = fs.readFileSync(BREAK_POINT_FILE, 'utf-8');
+		var json = JSON.parse(content);
+		pid = json.pid;
+
+		if(json.pid != proc.pid){
+			return true;
+		}
+	}
+	return false;
+}
+
+exports.is_pid_diffrent = is_pid_diffrent;
+
+function is_break_point_exist(){
+
+	if(fs.existsSync(BREAK_POINT_FILE))
+		return true;
+
+	return false;
+}
+
+exports.is_break_point_exist = is_break_point_exist;
 /*
 	返回应该接续的断点，如果没有断点则创建断点。
 */
@@ -491,7 +518,8 @@ function write_break_point(school, count, total, remain){
         school : school,
         count: count,
         total: total,
-        remain : remain
+        remain : remain,
+        pid : proc.pid
     }
 
     fs.writeFileSync(BREAK_POINT_FILE, JSON.stringify(date));
