@@ -1,3 +1,20 @@
+<%
+Date.prototype.Format = function (fmt) { //author: meizz 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+%>
 <% if(is_first_page){%>
 <html lang="zh-cmn-Hans">
 <link rel="stylesheet" href="/public/back/css/weui.min.css" />
@@ -25,15 +42,15 @@
             <div class="weui-cell__bd">
                 <p>昵称:
                     <%=comment.nick_name%> 学校:
-                        <%=comment.school_enname%>
+                        <%=schoolDic[comment.school_enname]%>
+                </p>
+                
+                <p style="font-size: 13px;color: #888888;word-break: break-all;">时间:
+                    <%=comment.post_time.Format('yyyy-MM-dd hh:mm:ss')%>
                 </p>
                 <p style="font-size: 13px;color: #888888;word-break: break-all;">留言:
                     <%=comment.content%>
                 </p>
-                <p style="font-size: 13px;color: #888888;word-break: break-all;">时间:
-                    
-                </p>
-
                 <%if(comment.reply[0].reply_list == ""){%>
                     <p style="font-size: 13px;color: #888888;word-break: break-all;" id="reply_content_<%=comment.content_id%>" >回复: </p>
                 <% }else{ %>

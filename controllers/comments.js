@@ -7,6 +7,7 @@ var async = require('async');
 var fs = require('fs');
 var School = require('../proxy').School;
 var proc = require('process');
+var EventProxy = require('eventproxy');
 
 
 var BREAK_POINT_FILE = "break_point_comments.tmp";
@@ -26,21 +27,35 @@ exports.showAll = function(req, res, next){
 	var page = req.query.page;
 	var limit = req.query.limit;
 	var is_first_page = false;
+	var schoolDic = new Array();
+
 
 	if(page == undefined || parseInt(page) == 1){
 		is_first_page = true;
 		page = 1;
 	}
-	
-	Comment.getAllComments(function(err, comments){
-		//console.log(comments);
+
+	var proxy = EventProxy.create("comments", "schools", function(comments, school) {
+		school.forEach(function(s) {
+		    schoolDic[s.en_name] = s.cn_name;
+		});
+
 		res.render(view, {
 			comments: comments, 
 			is_all:true, 
 			is_first_page:is_first_page,
-			url:"/back/comments/showAll"
+			url:"/back/comments/showAll",
+			schoolDic:schoolDic
 		});
+	});
+
+	Comment.getAllComments(function(err, comments){
+		proxy.emit("comments", comments);
+		
 	}, page, limit);
+
+	School.getSchoolsByQuery({}, {}, proxy.done("schools"));
+
 }
 
 
@@ -52,21 +67,34 @@ exports.showNew = function(req, res, next){
 	var page = req.query.page;
 	var limit = req.query.limit;
 	var is_first_page = false;
+	var schoolDic = new Array();
+
 
 	if(page == undefined || parseInt(page) == 1){
 		is_first_page = true;
 		page = 1;
 	}
 
-	Comment.getNewComments(function(err, comments){
+	var proxy = EventProxy.create("comments", "schools", function(comments, school) {
+		school.forEach(function(s) {
+		    schoolDic[s.en_name] = s.cn_name;
+		});
+
 		res.render(view, {
 			comments: comments, 
 			is_all:false, 
 			is_first_page:is_first_page,
-			url:"/back/comments/showNew"
+			url:"/back/comments/showNew",
+			schoolDic:schoolDic
 		});
+	});
+
+	Comment.getNewComments(function(err, comments){
+		proxy.emit("comments", comments);
 	}, page, limit);
-	
+
+	School.getSchoolsByQuery({}, {}, proxy.done("schools"));
+
 
 }
 
@@ -75,21 +103,37 @@ exports.showDelByUser  = function(req, res, next){
 	var page = req.query.page;
 	var limit = req.query.limit;
 	var is_first_page = false;
+	var schoolDic = new Array();
+
 
 	if(page == undefined || parseInt(page) == 1){
 		is_first_page = true;
 		page = 1;
 	}
 
-	Comment.getDelByUserComments(function(err, comments){
+	var proxy = EventProxy.create("comments", "schools", function(comments, school) {
+		school.forEach(function(s) {
+		    schoolDic[s.en_name] = s.cn_name;
+		});
+
 		res.render(view, 
 			{
 				comments: comments, 
 				is_all:false, 
 				is_first_page:is_first_page,
-				url:"/back/comments/showDel"
-			});
+				url:"/back/comments/showDel",
+				schoolDic:schoolDic
+
+		});
+	});
+
+	Comment.getDelByUserComments(function(err, comments){
+		proxy.emit("comments", comments);
+
 	}, page, limit);
+
+	School.getSchoolsByQuery({}, {}, proxy.done("schools"));
+
 }
 
 /*
