@@ -18,6 +18,8 @@ var staticDir = path.join(__dirname, 'public');
 var assets = {};
 var schedule = require("node-schedule");
 var recordSchedule=require('./schedule/record')
+var commentsSchedule=require('./schedule/comments')
+
 if (config.mini_assets) {
     try {
         assets = require('./assets.json');
@@ -100,8 +102,9 @@ app.listen(config.port, function () {
      }
      scheduleCronstyle();*/
     //定时任务
-    recordSchedule.advertWarn;
-    recordSchedule.saveArticle;
+    //recordSchedule.advertWarn;
+    //recordSchedule.saveArticle;
+    //commentsSchedule.check;
    
     console.log("NodeClub listening on port %d in %s mode", config.port, app.settings.env);
     console.log("God bless love....");

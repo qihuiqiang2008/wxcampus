@@ -9,7 +9,7 @@ var School = require('../proxy').School;
 
 
 var BREAK_POINT_FILE = "break_point_comments.tmp";
-var COMMENT_RETRY_LIMIT = 2;
+var COMMENT_RETRY_LIMIT = 1;
 
 
 var school_num;

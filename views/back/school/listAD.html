@@ -45,16 +45,16 @@
                         <table class="table table-bordered table-striped table-responsive" style="word-break:break-all; word-wrap:break-all;">
                             <thead>
                                 <tr>
-                                    <th width="5px">序号</th>
-                                    <th width="60px">广告名称</th>
-                                    <th width="60px">详情</th>
+                                    <th width="10px">序号</th>
+                                    <th width="40px">广告名称</th>
+                                    <th width="130px">详情</th>
                                     <th width="30px">客户</th>
                                     <th width="20px">介绍人</th>
                                     <th width="30px">添加日期</th>
                                     <th width="10px">价格</th>
                                     <th width="5px">折扣</th>
-                                    <th width="10px">结算</th>
-                                    <th width="80px">备注</th>
+                                    <th width="5px">结算</th>
+                                    <th width="30px">备注</th>
                                     <th width="30px">操作</th>
                                 </tr>
                             </thead>
@@ -91,6 +91,7 @@
                                     <td width="60px"> <%=ad.name%></td>
                                     <td width="60px"><%ad.slot.forEach(function(slot){%>
                                         <br><%=slot.date.format('yy-MM-dd')%> <%=slot.school%> 
+                                        <%=schoolDic[slot.school]%>
                                         <%if(slot.position == '0') {%>
                                             头条
                                             <%} else {%>

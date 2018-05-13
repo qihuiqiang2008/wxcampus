@@ -313,6 +313,8 @@ exports.listAD = function(req, res, next) {
     var size = req.query.size;
     var admin = req.query.admin;
     var option = {};
+    var schoolDic = new Array();
+
 
     if (page == undefined || page == null) {
         page = 0; //默认第1页
@@ -327,14 +329,19 @@ exports.listAD = function(req, res, next) {
         console.log("admin is:" + admin);
     }
 
-    var proxy = EventProxy.create("ads", "count", function(ads, count) {
-        console.log("page is:" + page + " size is:" + size);
+    var proxy = EventProxy.create("ads", "count", "schools", function(ads, count, school) {
+
+        school.forEach(function(s) {
+            schoolDic[s.en_name] = s.cn_name;
+        });
+
         res.render("back/school/listAD", {
             ads: ads,
             count: count,
             page: page,
             size: size,
-            admin : admin
+            admin : admin,
+            schoolDic: schoolDic
         });
     });
 
@@ -352,6 +359,8 @@ exports.listAD = function(req, res, next) {
         console.log("共有广告 ：" + count);
         proxy.emit('count', count);
     });
+
+    School.getSchoolsByQuery({}, {}, proxy.done("schools"));
 }
 
 exports.updateAD = function(req, res, next) {
