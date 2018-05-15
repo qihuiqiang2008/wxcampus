@@ -58,17 +58,17 @@ Date.prototype.Format = function (fmt) { //author: meizz
                         <%=comment.reply[0].reply_list[0].content%>
                     </p>
                 <%}%>
-                <% if(comment.status != 0){%> 
+                <% if(comment.status == 1){%> 
                     <p style="font-size: 13px;word-break: break-all;" >该留言已被用户删除</p>
                 <%}%>
             </div>
         </div>
     </div>
-    <div class="weui-cell__bd" <% if(comment.status != 0){%> style="display:none" <%}%>>
+    <div class="weui-cell__bd" <% if(comment.status == 1){%> style="display:none" <%}%>>
         <textarea class="weui-textarea" id="input_<%=comment.content_id%>" placeholder="请输入回复" rows="2" <% if(comment.reply[0].reply_list != ""){%> style="display:none" <%}%> ></textarea>
     </div>
 
-    <div class="weui-cell__bd" id="button_<%=comment.content_id%>" <% if(comment.status != 0){%> style="display:none" <%}%>>
+    <div class="weui-cell__bd" id="button_<%=comment.content_id%>" <% if(comment.status == 1){%> style="display:none" <%}%>>
 
         <a href="javascript:top_comment('<%=comment.content_id%>', true);" class="weui-btn weui-btn_mini weui-btn_primary"  id="top_<%=comment.content_id%>"  <% if(comment.is_top == true) {%> style="display:none" <%}%> 
         >置顶</a>

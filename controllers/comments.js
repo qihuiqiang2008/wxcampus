@@ -29,10 +29,13 @@ exports.showAll = function(req, res, next){
 	var is_first_page = false;
 	var schoolDic = new Array();
 
-
 	if(page == undefined || parseInt(page) == 1){
 		is_first_page = true;
 		page = 1;
+	}
+
+	if(limit == undefined){
+		limit = 5;
 	}
 
 	var proxy = EventProxy.create("comments", "schools", function(comments, school) {

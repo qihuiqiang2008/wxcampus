@@ -22,7 +22,7 @@ exports.getCommentByQuery = function (query, opt, callback) {
 };
 
 exports.getNewComments = function (callback, page, size){
-    Comment.find({'audit_status':false, 'del_flag':0, 'status': 0})
+    Comment.find({'audit_status':false, 'del_flag': '0', '$or': [{"status": '0'}, {"status":"3"}]})
     .sort('post_time', 'descending')
     .skip((page - 1)*size)
     .limit(size)
@@ -30,7 +30,7 @@ exports.getNewComments = function (callback, page, size){
 }
 
 exports.getAllComments = function (callback, page, size){
-    Comment.find({'del_flag':0,  'status': 0})
+    Comment.find({'del_flag': '0',  '$or': [{"status": '0'}, {"status":"3"}]})
     .sort('post_time', 'descending')
     .skip((page - 1)*size)
     .limit(size)
@@ -38,7 +38,7 @@ exports.getAllComments = function (callback, page, size){
 }
 
 exports.getDelByUserComments = function(callback, page, size){
-    Comment.find({'del_flag':0, 'status': 1})
+    Comment.find({'del_flag': '0', 'status': '1'})
     .sort('post_time', 'descending')
     .skip((page - 1)*size)
     .limit(size)
