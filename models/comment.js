@@ -10,7 +10,7 @@ var CommentSchema = new Schema({
     audit_status : {type: Boolean, default:false},
     comment_id: {type: String},
     content: { type: String },
-    content_id : { type: String },
+    content_id : { type: String, unique: true},
     del_flag: { type: Number },
     
     fake_id : { type: String },
