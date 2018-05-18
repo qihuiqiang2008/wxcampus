@@ -78,6 +78,10 @@ exports.showNew = function(req, res, next){
 		page = 1;
 	}
 
+	if(limit == undefined){
+		limit = 5;
+	}
+
 	var proxy = EventProxy.create("comments", "schools", function(comments, school) {
 		school.forEach(function(s) {
 		    schoolDic[s.en_name] = s.cn_name;
@@ -112,6 +116,10 @@ exports.showDelByUser  = function(req, res, next){
 	if(page == undefined || parseInt(page) == 1){
 		is_first_page = true;
 		page = 1;
+	}
+	
+	if(limit == undefined){
+		limit = 5;
 	}
 
 	var proxy = EventProxy.create("comments", "schools", function(comments, school) {
