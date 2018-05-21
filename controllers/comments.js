@@ -117,7 +117,7 @@ exports.showDelByUser  = function(req, res, next){
 		is_first_page = true;
 		page = 1;
 	}
-	
+
 	if(limit == undefined){
 		limit = 5;
 	}
@@ -397,6 +397,7 @@ function refreshComment(req, res, next){
 		var new_list = school_list.slice(index);
 		async.eachSeries(new_list, function(school, callback){
             console.log("开始同步留言：" + school.en_name);
+
             getOneSchoolComment(school.en_name, function(){
             	console.log("同步留言完成：" + school.en_name);
             	var next_school_index = new_list.indexOf(school) + 1;
@@ -542,7 +543,7 @@ function check_break_point_school(school_list){
             		item = (parseInt(item) + 1) + "";
             		count = 0;
 
-            		if(parseInt(item) > school_list.length){
+            		if(parseInt(item) >= school_list.length){
             			item = -1;
             			clear_break_point();
             			return item;

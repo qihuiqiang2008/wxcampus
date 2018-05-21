@@ -35,7 +35,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
         <div class="weui-cell">
             <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
                 <img src="<%=comment.icon%>" style="width: 50px;display: block">
-                <% if(comment.audit_status == false && comment.status == 0){ %>
+                <% if(comment.audit_status == false && comment.status != 1){ %>
                     <span class="weui-badge" id="icon_<%=comment.content_id%>" style="position: absolute;top: -.4em;right: -.4em;">new</span>
                     <% } %>
             </div>
